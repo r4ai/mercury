@@ -1,5 +1,6 @@
 import mdx from "@mdx-js/rollup";
 import remarkMercury, { type RemarkMercuryOptions } from "@r4ai/remark-mercury";
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import remarkGfm from "remark-gfm";
 import { defineConfig } from "vite";
@@ -31,5 +32,6 @@ export default defineConfig({
       }),
     },
     react(),
+    tailwindcss(),
   ],
 });

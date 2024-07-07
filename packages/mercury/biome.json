@@ -15,10 +15,7 @@
   "formatter": {
     "indentStyle": "space"
   },
-  "vcs": {
-    "root": "../..",
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
+  "files": {
+    "ignore": ["node_modules", "dist", "coverage"]
   }
 }
