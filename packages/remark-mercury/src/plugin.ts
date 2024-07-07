@@ -11,6 +11,10 @@ export type Options = {
     tagName: string;
     properties: hast.Properties;
   };
+  presentation?: {
+    tagName: string;
+    properties: hast.Properties;
+  };
 };
 
 export const defaultOptions = {
@@ -22,6 +26,12 @@ export const defaultOptions = {
       dataSlideIndex: index,
     },
   }),
+  presentation: {
+    tagName: "section",
+    properties: {
+      className: "presentation",
+    },
+  },
 } as const satisfies Required<Options>;
 
 export const remarkMercury: Plugin<[Options?], mdast.Root, mdast.Root> = (
@@ -102,11 +112,20 @@ const splitToSlides = (
     };
     treeChildren.push(slideNode);
   }
-  treeChildren.push(exportSlidesLength(slides.length));
 
   return {
     ...tree,
-    children: treeChildren,
+    children: [
+      {
+        type: "blockquote",
+        data: {
+          hName: options.presentation.tagName,
+          hProperties: options.presentation.properties,
+        },
+        children: treeChildren,
+      },
+      exportSlidesLength(slides.length),
+    ],
   };
 };
 
