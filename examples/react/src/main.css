@@ -3,3 +3,11 @@
 @theme {
   --color-demo: oklch(40.1% 0.123 21.57);
 }
+
+@layer base {
+  html,
+  body,
+  div#root {
+    @apply h-full;
+  }
+}

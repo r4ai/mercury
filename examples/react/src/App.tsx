@@ -6,8 +6,7 @@ import { Slide } from "./components/Slide";
 export default () => {
   return (
     <>
-      <div className="bg-demo">
-        <Button>Hello, world!</Button>
+      <div className="h-full">
         <Switch>
           <Route path="/">
             <Redirect to="/0" />
