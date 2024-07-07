@@ -1,5 +1,5 @@
 {
-  "name": "mercury-ui",
+  "name": "@r4ai/mercury-ui",
   "version": "0.0.0",
   "description": "",
   "private": "false",
@@ -17,7 +17,8 @@
   "homepage": "https://github.com/r4ai/mercury",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
       "types": "./dist/index.d.ts"
     },
     "./style.css": "./dist/style.css"
