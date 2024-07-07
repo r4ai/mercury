@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": "."
+    },
+    {
+      "name": "mercury",
+      "path": "packages/mercury"
+    }
+  ],
+  "settings": {
+    "[typescriptreact][typescript][javascriptreact][javascript][json][jsonc]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    }
+  }
+}
