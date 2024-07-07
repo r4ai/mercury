@@ -9,12 +9,31 @@
       "path": "packages/mercury"
     },
     {
+      "name": "remark-mercury",
+      "path": "packages/remark-mercury"
+    },
+    {
       "name": "examples/react",
       "path": "examples/react"
     }
   ],
   "settings": {
-    "[typescriptreact][typescript][javascriptreact][javascript][json][jsonc]": {
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[jsonc]": {
       "editor.defaultFormatter": "biomejs.biome"
     }
   }

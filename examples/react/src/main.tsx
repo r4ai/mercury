@@ -5,6 +5,6 @@ import Presentation from "./Presentation.mdx";
 // biome-ignore lint/style/noNonNullAssertion: #root is always present in the DOM
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Presentation components={{}} />
+    <Presentation />
   </React.StrictMode>,
 );
