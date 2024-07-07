@@ -15,10 +15,14 @@ export default defineConfig({
             remarkMercury,
             {
               slide: (index) => ({
-                tagName: "slide",
+                tagName: "Slide",
                 properties: {
                   index,
                 },
+              }),
+              presentation: () => ({
+                tagName: "Presentation",
+                properties: {},
               }),
             } satisfies RemarkMercuryOptions,
           ],
