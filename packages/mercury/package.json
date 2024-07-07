@@ -17,7 +17,8 @@
   "homepage": "https://github.com/r4ai/mercury",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
       "types": "./dist/index.d.ts"
     }
   },

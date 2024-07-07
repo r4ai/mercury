@@ -1,28 +1,51 @@
 {
   "name": "mercury-ui",
-  "private": true,
   "version": "0.0.0",
+  "description": "",
+  "private": "false",
+  "keywords": [],
+  "author": "r4ai",
+  "license": "MIT",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r4ai/mercury.git"
   },
-  "dependencies": {
+  "bugs": {
+    "url": "https://github.com/r4ai/mercury/issues"
+  },
+  "homepage": "https://github.com/r4ai/mercury",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "src",
+    "dist",
+    "!**/*.test.ts",
+    "!**/*.tsbuildinfo",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.13.1",
-    "@typescript-eslint/parser": "^7.13.1",
     "@vitejs/plugin-react": "^4.3.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
     "typescript": "^5.2.2",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vite-plugin-dts": "^3.9.1"
   }
 }

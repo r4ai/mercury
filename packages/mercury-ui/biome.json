@@ -18,6 +18,17 @@
   "formatter": {
     "indentStyle": "space"
   },
+  "overrides": [
+    {
+      "include": ["tsconfig.*.json"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true
+        }
+      }
+    }
+  ],
   "files": {
     "ignore": ["node_modules", "dist", "coverage"]
   }
