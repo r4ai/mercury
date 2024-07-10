@@ -2,7 +2,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
-import { externalizeDeps } from "vite-plugin-externalize-deps";
+import { dependencies, peerDependencies } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,7 +17,6 @@ export default defineConfig({
       },
       exclude: ["*.stories.(tsx|jsx|ts|js)", "*.mdx"],
     }),
-    externalizeDeps(),
   ],
   build: {
     outDir: "dist",
@@ -28,9 +27,20 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react/jsx-runtime", "react-dom"],
+      external: [
+        ...Object.keys({ ...dependencies, ...peerDependencies }),
+        "react",
+        "react/jsx-runtime",
+        "react-dom",
+      ],
       output: {
         globals: {
+          ...Object.fromEntries(
+            Object.keys({ ...dependencies, ...peerDependencies }).map((key) => [
+              key,
+              key,
+            ]),
+          ),
           react: "React",
           "react/jsx-runtime": "react/jsx-runtime",
           "react-dom": "ReactDOM",
