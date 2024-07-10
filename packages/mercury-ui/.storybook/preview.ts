@@ -28,6 +28,6 @@ export const decorators = [
       dark: "dark",
     },
     defaultTheme: "light",
-    attributeName: "data-color-schema",
+    attributeName: "data-color-scheme",
   }),
 ];

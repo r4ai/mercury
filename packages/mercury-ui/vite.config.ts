@@ -1,5 +1,6 @@
 import react from "@vitejs/plugin-react";
 import tailwindcss from "tailwindcss";
+import icons from "unplugin-icons/vite";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import { dependencies, peerDependencies } from "./package.json";
@@ -8,6 +9,10 @@ import { dependencies, peerDependencies } from "./package.json";
 export default defineConfig({
   plugins: [
     react(),
+    icons({
+      compiler: "jsx",
+      jsx: "react",
+    }),
     dts({
       insertTypesEntry: true,
       tsconfigPath: "tsconfig.app.json",
