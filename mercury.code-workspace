@@ -1,50 +1,55 @@
 {
-	"folders": [
-		{
-			"name": "root",
-			"path": "."
-		},
-		{
-			"name": "mercury",
-			"path": "packages/mercury"
-		},
-		{
-			"name": "mercury-ui",
-			"path": "packages/mercury-ui"
-		},
-		{
-			"name": "remark-mercury",
-			"path": "packages/remark-mercury"
-		},
-		{
-			"name": "examples/react",
-			"path": "examples/react"
-		}
-	],
-	"settings": {
-		"[typescriptreact]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[typescript]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[javascriptreact]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[javascript]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[json]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[jsonc]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"tailwindCSS.experimental.classRegex": [
-			// Tailwind Variants
-			// @see https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional
-			"([\"'`][^\"'`]*.*?[\"'`])",
-			"[\"'`]([^\"'`]*).*?[\"'`]"
-		]
-	}
+  "folders": [
+    {
+      "name": "root",
+      "path": "."
+    },
+    {
+      "name": "mercury",
+      "path": "packages/mercury"
+    },
+    {
+      "name": "mercury-ui",
+      "path": "packages/mercury-ui"
+    },
+    {
+      "name": "remark-mercury",
+      "path": "packages/remark-mercury"
+    },
+    {
+      "name": "vite-plugin-mercury",
+      "path": "packages/vite-plugin-mercury"
+    },
+    {
+      "name": "examples/react",
+      "path": "examples/react"
+    }
+  ],
+  "settings": {
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "tailwindCSS.experimental.classRegex": [
+      // Tailwind Variants
+      // @see https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional
+      "([\"'`][^\"'`]*.*?[\"'`])",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    "deno.enable": false
+  }
 }
