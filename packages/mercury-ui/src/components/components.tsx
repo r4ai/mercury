@@ -6,6 +6,7 @@ import { Keyboard } from "./keyboard";
 import { Link } from "./link";
 import { List, ListItem, OrderedList } from "./list";
 import { Paragraph } from "./paragraph";
+import { Slide } from "./slide";
 
 export const components: MDXComponents = {
   h1: Heading1,
@@ -21,4 +22,6 @@ export const components: MDXComponents = {
   p: Paragraph,
   code: InlineCode,
   kbd: Keyboard,
+  Slide: Slide,
+  Presentation: ({ children }) => children,
 };

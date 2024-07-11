@@ -6,7 +6,7 @@ export type SlideProps = {
   children?: ReactNode;
 };
 
-export const Slide: FC<SlideProps> = (props) => {
+export const Slide: FC<SlideProps> = ({ index, children }) => {
   const id = useId();
   const [location] = useLocation();
 
@@ -23,13 +23,13 @@ export const Slide: FC<SlideProps> = (props) => {
   }, [id, location]);
 
   return (
-    <Route path={`/${props.index}`}>
+    <Route path={`/${index}`}>
       <div
         id={id}
         data-slide
-        className="aspect-[16/9] my-auto absolute w-[960px] top-1/2 left-1/2 !translate-x-[-50%] !translate-y-[-50%] p-8 !space-y-4 border"
+        className="aspect-[16/9] my-auto absolute w-[960px] top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] p-8 space-y-4 border"
       >
-        {props.children}
+        {children}
       </div>
     </Route>
   );

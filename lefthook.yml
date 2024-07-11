@@ -24,8 +24,8 @@ pre-commit:
       stage_fixed: true
       run: bunx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true --write {staged_files}
 
-    react-example/biome:
-      root: examples/react
+    react-without-cli-example/biome:
+      root: examples/react-without-cli
       tags: biome
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       stage_fixed: true

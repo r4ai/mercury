@@ -1,4 +1,4 @@
-import { type ComponentPropsWithoutRef, type FC, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { Link as WouterLink, type LinkProps as WouterLinkProps } from "wouter";
 import { cn } from "../../libs/utils";
 

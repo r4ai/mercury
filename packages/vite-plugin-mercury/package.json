@@ -45,7 +45,8 @@
 		"prepublishOnly": "bun run build"
 	},
 	"peerDependencies": {
-		"vite": "^5.3.3"
+		"vite": "^5.3.3",
+		"@r4ai/mercury-ui": "workspace:*"
 	},
 	"dependencies": {
 		"defu": "^6.1.4",
