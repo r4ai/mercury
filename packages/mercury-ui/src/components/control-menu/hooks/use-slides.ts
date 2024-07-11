@@ -5,7 +5,7 @@ export const useSlides = ({ length }: { length: number }) => {
   const [match, params] = useRoute("/*?/:index");
   const [location, navigate] = useLocation();
 
-  const [isFull, setFull] = useState(false);
+  const [isFull, setFull] = useState<boolean | undefined>(undefined);
   useEffect(() => {
     setFull(isFullscreen());
     document.addEventListener("fullscreenchange", () =>
@@ -13,6 +13,8 @@ export const useSlides = ({ length }: { length: number }) => {
     );
   }, []);
 
+  const index = () =>
+    params?.index != null ? Number.parseInt(params.index) : 0;
   const next = () => {
     if (match && params?.index != null) {
       navigate(
@@ -38,7 +40,7 @@ export const useSlides = ({ length }: { length: number }) => {
     }
   };
 
-  const isFullscreen = () => document.fullscreenElement != null;
+  const isFullscreen = () => isFull ?? document.fullscreenElement != null;
   const fullscreen = () => {
     if (isFullscreen()) return;
     document.documentElement.requestFullscreen();
@@ -56,6 +58,7 @@ export const useSlides = ({ length }: { length: number }) => {
   };
 
   return {
+    index,
     next,
     prev,
     isFullscreen,

@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import { cn } from "../../libs/utils";
 import { ColorSchemeButton } from "./color-scheme-button";
+import { Counter } from "./counter";
 import { FullscreenButton } from "./fullscreen-button";
 import { NextSlideButton } from "./next-slide-button";
 import { PrevSlideButton } from "./prev-slide-button";
@@ -24,6 +25,7 @@ export const ControlMenu: FC<ControlMenuProps> = ({
     >
       <PrevSlideButton slidesLength={slidesLength} />
       <NextSlideButton slidesLength={slidesLength} />
+      <Counter slidesLength={slidesLength} />
       <VerticalDivider />
       <ColorSchemeButton />
       <FullscreenButton slidesLength={slidesLength} />
