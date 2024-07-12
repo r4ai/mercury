@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import { Blockquote } from "./blockquote";
+import { CodeBlock } from "./code-block";
 import { Heading1, Heading2, Heading3, Heading4 } from "./heading";
 import { InlineCode } from "./inline-code";
 import { Keyboard } from "./keyboard";
@@ -20,7 +21,9 @@ export const components: MDXComponents = {
   ol: OrderedList,
   li: ListItem,
   p: Paragraph,
-  code: InlineCode,
+  "inline-code": InlineCode,
+  // @ts-expect-error
+  pre: CodeBlock,
   kbd: Keyboard,
   Slide,
   Presentation: ({ children }) => children,
