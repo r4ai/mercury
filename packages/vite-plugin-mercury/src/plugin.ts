@@ -1,15 +1,15 @@
 import { defu } from "defu";
-import { mdx, type MercuryMdxOptions } from "./plugins/index.js";
 import type { Plugin } from "vite";
+import { type MercuryMdxOptions, mdx } from "./plugins/index.js";
 
 export type MercuryOptions = {
-	mdx?: MercuryMdxOptions;
+  mdx?: MercuryMdxOptions;
 };
 
 export const mercuryDefaultOptions = {} as const satisfies MercuryOptions;
 
 export const mercury = (_options?: MercuryOptions): Plugin[] => {
-	const options = defu(_options, mercuryDefaultOptions);
+  const options = defu(_options, mercuryDefaultOptions);
 
-	return [mdx(options.mdx)];
+  return [mdx(options.mdx)];
 };

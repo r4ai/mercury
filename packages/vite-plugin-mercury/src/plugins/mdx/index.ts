@@ -1,5 +1,5 @@
 export {
-	type MercuryMdxOptions,
-	mdx,
-	mercuryMdxDefaultOptions,
+  type MercuryMdxOptions,
+  mdx,
+  mercuryMdxDefaultOptions,
 } from "./plugin.js";

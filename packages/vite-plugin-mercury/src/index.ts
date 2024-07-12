@@ -1,6 +1,6 @@
 export {
-	mercury,
+  mercury,
   mercury as default,
-	type MercuryOptions,
-	mercuryDefaultOptions,
+  type MercuryOptions,
+  mercuryDefaultOptions,
 } from "./plugin.js";

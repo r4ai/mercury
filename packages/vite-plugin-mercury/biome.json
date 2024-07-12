@@ -1,24 +1,35 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-	"organizeImports": {
-		"enabled": true
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true,
-			"complexity": {
-				"noBannedTypes": "off"
-			},
-			"suspicious": {
-				"noConsoleLog": "error"
-			}
-		}
-	},
-	"formatter": {
-		"indentStyle": "space"
-	},
-	"files": {
-		"ignore": ["node_modules", "dist", "coverage"]
-	}
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noBannedTypes": "off"
+      },
+      "suspicious": {
+        "noConsoleLog": "error"
+      }
+    }
+  },
+  "formatter": {
+    "indentStyle": "space"
+  },
+  "overrides": [
+    {
+      "include": ["tsconfig.*.json"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true
+        }
+      }
+    }
+  ],
+  "files": {
+    "ignore": ["node_modules", "dist", "coverage", ".turbo"]
+  }
 }
