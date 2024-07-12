@@ -22,6 +22,6 @@ export const components: MDXComponents = {
   p: Paragraph,
   code: InlineCode,
   kbd: Keyboard,
-  Slide: Slide,
+  Slide,
   Presentation: ({ children }) => children,
 };

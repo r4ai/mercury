@@ -5,5 +5,9 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [mercury(), react(), tailwindcss()],
+  plugins: [
+    mercury(),
+    react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
+    tailwindcss(),
+  ],
 });

@@ -21,9 +21,11 @@ export const mercuryMdxDefaultOptions = {
         index,
       },
     }),
-    presentation: () => ({
+    presentation: (slidesLength) => ({
       tagName: "Presentation",
-      properties: {},
+      properties: {
+        slidesLength,
+      },
     }),
   },
   remarkGfm: {},

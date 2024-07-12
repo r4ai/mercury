@@ -11,7 +11,7 @@ export type Options = {
     tagName: string;
     properties: hast.Properties;
   };
-  presentation?: () => {
+  presentation?: (slidesLength: number) => {
     tagName: string;
     properties: hast.Properties;
   };
@@ -26,10 +26,11 @@ export const defaultOptions = {
       dataSlideIndex: index,
     },
   }),
-  presentation: () => ({
+  presentation: (slidesLength) => ({
     tagName: "section",
     properties: {
       className: "presentation",
+      dataSlidesLength: slidesLength,
     },
   }),
 } as const satisfies Required<Options>;
@@ -119,8 +120,8 @@ const splitToSlides = (
       {
         type: "blockquote",
         data: {
-          hName: options.presentation().tagName,
-          hProperties: options.presentation().properties,
+          hName: options.presentation(slides.length).tagName,
+          hProperties: options.presentation(slides.length).properties,
         },
         children: treeChildren,
       },
