@@ -27,7 +27,10 @@ export const Slide: FC<SlideProps> = ({ index, children }) => {
       <div
         id={id}
         data-slide
-        className="aspect-[16/9] my-auto absolute w-[960px] top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] p-8 space-y-4 border"
+        className="aspect-[16/9] my-auto absolute w-[960px] top-1/2 left-1/2 p-8 space-y-4 border"
+        style={{
+          translate: "-50% -50%",
+        }}
       >
         {children}
       </div>
