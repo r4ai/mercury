@@ -22,7 +22,6 @@
     "@r4ai/mercury-ui": "workspace:*",
     "@r4ai/remark-mercury": "workspace:*",
     "@r4ai/vite-plugin-mercury": "workspace:*",
-    "@tailwindcss/vite": "^4.0.0-alpha.17",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
