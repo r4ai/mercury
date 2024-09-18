@@ -1,6 +1,11 @@
 import { defu } from "defu";
 import type { Plugin } from "vite";
-import { type MercuryMdxOptions, MercuryPresentationOptions, mdx, presentation } from "./plugins/index.js";
+import {
+  type MercuryMdxOptions,
+  type MercuryPresentationOptions,
+  mdx,
+  presentation,
+} from "./plugins/index.js";
 
 export type MercuryOptions = {
   mdx?: MercuryMdxOptions;
