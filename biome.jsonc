@@ -6,17 +6,21 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
-      "complexity": {
-        "noBannedTypes": "off"
-      },
-      "suspicious": {
-        "noConsoleLog": "error"
-      }
+      "recommended": true
     }
   },
   "formatter": {
     "indentStyle": "space"
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded"
+    }
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
   },
   "overrides": [
     {
@@ -30,6 +34,6 @@
     }
   ],
   "files": {
-    "ignore": ["node_modules", "dist", "coverage", ".turbo"]
+    "ignore": ["**/node_modules", "**/dist", "**/.turbo", "**/storybook-static"]
   }
 }
