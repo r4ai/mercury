@@ -12,12 +12,16 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      issues: read
     steps:
       - name: Get PR branch
         uses: xt0rted/pull-request-comment-branch@v2
         id: comment-branch
       - name: Checkout repository
         uses: actions/checkout@v4
+        if: success()
+        with:
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
       - name: Setup tools
         uses: jdx/mise-action@v2
       - name: Install dependencies
