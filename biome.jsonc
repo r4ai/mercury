@@ -34,6 +34,12 @@
     }
   ],
   "files": {
-    "ignore": ["**/node_modules", "**/dist", "**/.turbo", "**/storybook-static"]
+    "ignore": [
+      "**/node_modules",
+      "**/dist",
+      "**/.turbo",
+      "**/storybook-static",
+      "**/.storybook"
+    ]
   }
 }
