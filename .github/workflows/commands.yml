@@ -15,18 +15,18 @@ jobs:
       issues: read
     steps:
       - name: Get PR branch
-        uses: xt0rted/pull-request-comment-branch@v2
+        uses: xt0rted/pull-request-comment-branch@d97294d304604fa98a2600a6e2f916a84b596dc7 # v2
         id: comment-branch
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         if: success()
         with:
           ref: ${{ steps.comment-branch.outputs.head_ref }}
       - name: Setup tools
-        uses: jdx/mise-action@v2
+        uses: jdx/mise-action@d6e32c1796099e0f1f3ac741c220a8b7eae9e5dd # v2
       - name: Install dependencies
         run: bun install
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@8621497c8c39c72f3e2a999a26b4ca1b5058a842 # v5
         with:
           commit_message: "chore(deps): fix lockfile"
