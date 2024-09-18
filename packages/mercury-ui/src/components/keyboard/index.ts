@@ -1,1 +1,1 @@
-export { Keyboard, type KeyboardProps } from "./keyboard";
+export { Keyboard, type KeyboardProps } from "./keyboard"

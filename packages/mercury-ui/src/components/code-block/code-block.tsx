@@ -1,18 +1,18 @@
-import "./shiki.css";
+import "./shiki.css"
 
 import {
   type ComponentPropsWithoutRef,
   type FC,
   type ReactNode,
   forwardRef,
-} from "react";
-import FileIcon from "~icons/lucide/file";
-import { cn } from "../../libs/utils";
+} from "react"
+import FileIcon from "~icons/lucide/file"
+import { cn } from "../../libs/utils"
 
 export type CodeBlockProps = ComponentPropsWithoutRef<"pre"> & {
-  title?: string;
-  lang: string;
-};
+  title?: string
+  lang: string
+}
 
 export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
   ({ title, lang, className, ...props }, ref) => {
@@ -25,19 +25,19 @@ export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
           {...props}
         />
       </div>
-    );
+    )
   },
-);
-CodeBlock.displayName = "CodeBlock";
+)
+CodeBlock.displayName = "CodeBlock"
 
 type CodeBlockTitleProps = {
-  lang: string;
-  children?: ReactNode;
-};
+  lang: string
+  children?: ReactNode
+}
 
 const CodeBlockTitle: FC<CodeBlockTitleProps> = (props) => {
-  return <CodeBlockFileTitle {...props} />;
-};
+  return <CodeBlockFileTitle {...props} />
+}
 
 const CodeBlockFileTitle: FC<CodeBlockTitleProps> = ({ children }) => {
   return (
@@ -45,5 +45,5 @@ const CodeBlockFileTitle: FC<CodeBlockTitleProps> = ({ children }) => {
       <FileIcon className="size-4 brightness-90 contrast-75 filter" />
       <span className="text-[0.9rem]">{children}</span>
     </div>
-  );
-};
+  )
+}

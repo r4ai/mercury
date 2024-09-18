@@ -1,1 +1,1 @@
-export { ControlMenu, type ControlMenuProps } from "./control-menu";
+export { ControlMenu, type ControlMenuProps } from "./control-menu"

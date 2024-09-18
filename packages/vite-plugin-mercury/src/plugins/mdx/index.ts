@@ -2,4 +2,4 @@ export {
   type MercuryMdxOptions,
   mdx,
   mercuryMdxDefaultOptions,
-} from "./plugin.js";
+} from "./plugin.js"

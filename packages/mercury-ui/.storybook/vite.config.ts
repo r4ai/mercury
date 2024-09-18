@@ -1,7 +1,7 @@
-import react from "@vitejs/plugin-react";
-import tailwindcss from "tailwindcss";
-import icons from "unplugin-icons/vite";
-import { type UserConfigExport, defineConfig } from "vite";
+import react from "@vitejs/plugin-react"
+import tailwindcss from "tailwindcss"
+import icons from "unplugin-icons/vite"
+import { type UserConfigExport, defineConfig } from "vite"
 
 const app = async (): Promise<UserConfigExport> =>
   defineConfig({
@@ -17,5 +17,5 @@ const app = async (): Promise<UserConfigExport> =>
         plugins: [tailwindcss],
       },
     },
-  });
-export default app;
+  })
+export default app

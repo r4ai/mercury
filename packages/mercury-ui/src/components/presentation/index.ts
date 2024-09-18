@@ -1,1 +1,1 @@
-export { Presentation, type PresentationProps } from "./presentation";
+export { Presentation, type PresentationProps } from "./presentation"

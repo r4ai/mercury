@@ -1,9 +1,9 @@
-import { withThemeByDataAttribute } from "@storybook/addon-themes";
-import type { Preview } from "@storybook/react";
+import { withThemeByDataAttribute } from "@storybook/addon-themes"
+import type { Preview } from "@storybook/react"
 
-import "../src/index.css";
-import "./preview.css";
-import { themes } from "@storybook/theming";
+import "../src/index.css"
+import "./preview.css"
+import { themes } from "@storybook/theming"
 
 const preview: Preview = {
   parameters: {
@@ -17,9 +17,9 @@ const preview: Preview = {
       theme: themes.dark,
     },
   },
-};
+}
 
-export default preview;
+export default preview
 
 export const decorators = [
   withThemeByDataAttribute({
@@ -30,4 +30,4 @@ export const decorators = [
     defaultTheme: "light",
     attributeName: "data-color-scheme",
   }),
-];
+]

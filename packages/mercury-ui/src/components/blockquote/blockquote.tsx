@@ -1,7 +1,7 @@
-import { type ComponentPropsWithRef, forwardRef } from "react";
-import { cn } from "../../libs/utils";
+import { type ComponentPropsWithRef, forwardRef } from "react"
+import { cn } from "../../libs/utils"
 
-export type BlockquoteProps = ComponentPropsWithRef<"blockquote">;
+export type BlockquoteProps = ComponentPropsWithRef<"blockquote">
 
 export const Blockquote = forwardRef<HTMLQuoteElement, BlockquoteProps>(
   ({ className, ...props }, ref) => {
@@ -14,7 +14,7 @@ export const Blockquote = forwardRef<HTMLQuoteElement, BlockquoteProps>(
         ref={ref}
         {...props}
       />
-    );
+    )
   },
-);
-Blockquote.displayName = "Blockquote";
+)
+Blockquote.displayName = "Blockquote"

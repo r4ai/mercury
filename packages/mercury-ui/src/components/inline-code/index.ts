@@ -1,1 +1,1 @@
-export { InlineCode, type InlineCodeProps } from "./inline-code";
+export { InlineCode, type InlineCodeProps } from "./inline-code"

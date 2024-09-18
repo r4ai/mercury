@@ -1,1 +1,1 @@
-export { remarkInlineCode } from "./remark-inline-code.js";
+export { remarkInlineCode } from "./remark-inline-code.js"

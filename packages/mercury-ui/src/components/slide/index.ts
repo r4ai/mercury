@@ -1,1 +1,1 @@
-export { Slide, type SlideProps } from "./slide";
+export { Slide, type SlideProps } from "./slide"
