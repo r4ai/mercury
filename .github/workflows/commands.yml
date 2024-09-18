@@ -13,6 +13,9 @@ jobs:
       contents: write
       pull-requests: write
     steps:
+      - name: Get PR branch
+        uses: xt0rted/pull-request-comment-branch@v2
+        id: comment-branch
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Setup tools
