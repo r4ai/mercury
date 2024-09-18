@@ -5,4 +5,4 @@ export {
   type ListProps,
   OrderedList,
   type OrderedListPRops,
-} from "./list";
+} from "./list"

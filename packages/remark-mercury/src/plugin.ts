@@ -1,21 +1,21 @@
 /// <reference types="remark-mdx" />
 
-import { defu } from "defu";
-import type * as hast from "hast";
-import type * as mdast from "mdast";
-import type { Plugin } from "unified";
+import { defu } from "defu"
+import type * as hast from "hast"
+import type * as mdast from "mdast"
+import type { Plugin } from "unified"
 
 export type Options = {
-  slideSplitter?: "thematicBreak" | "heading";
+  slideSplitter?: "thematicBreak" | "heading"
   slide?: (index: number) => {
-    tagName: string;
-    properties: hast.Properties;
-  };
+    tagName: string
+    properties: hast.Properties
+  }
   presentation?: (slidesLength: number) => {
-    tagName: string;
-    properties: hast.Properties;
-  };
-};
+    tagName: string
+    properties: hast.Properties
+  }
+}
 
 export const defaultOptions = {
   slideSplitter: "thematicBreak",
@@ -33,15 +33,15 @@ export const defaultOptions = {
       dataSlidesLength: slidesLength,
     },
   }),
-} as const satisfies Required<Options>;
+} as const satisfies Required<Options>
 
 export const remarkMercury: Plugin<[Options?], mdast.Root, mdast.Root> = (
   _options,
 ) => {
-  const options: Required<Options> = defu(_options, defaultOptions);
+  const options: Required<Options> = defu(_options, defaultOptions)
 
-  return (tree: mdast.Root) => splitToSlides(tree, options);
-};
+  return (tree: mdast.Root) => splitToSlides(tree, options)
+}
 
 const isSlideSplitter = (
   node: mdast.RootContent,
@@ -49,36 +49,36 @@ const isSlideSplitter = (
 ) => {
   switch (slideSplitter) {
     case "thematicBreak":
-      return node.type === "thematicBreak";
+      return node.type === "thematicBreak"
     case "heading":
-      return node.type === "heading" && node.depth === 1;
+      return node.type === "heading" && node.depth === 1
     default:
-      return false;
+      return false
   }
-};
+}
 
 type Slide = {
   /** the node's position in its parent */
-  start: number;
+  start: number
 
   /** the node's position in its parent */
-  end: number;
+  end: number
 
   /** the node's children */
-  children: (mdast.BlockContent | mdast.DefinitionContent)[];
-};
+  children: (mdast.BlockContent | mdast.DefinitionContent)[]
+}
 
 const splitToSlides = (
   tree: mdast.Root,
   options: Required<Options>,
 ): mdast.Root => {
-  const slides: Slide[] = [];
+  const slides: Slide[] = []
 
   // Split the tree into slides
-  let lastSlideIndex = 0;
+  let lastSlideIndex = 0
   for (const [index, node] of tree.children.entries()) {
     if (isSlideSplitter(node, options.slideSplitter)) {
-      if (options.slideSplitter === "heading" && index === 0) continue;
+      if (options.slideSplitter === "heading" && index === 0) continue
       slides.push({
         start: lastSlideIndex,
         end: index,
@@ -86,9 +86,9 @@ const splitToSlides = (
           lastSlideIndex,
           index,
         ) as Slide["children"],
-      });
+      })
       lastSlideIndex =
-        index + (options.slideSplitter === "thematicBreak" ? 1 : 0); // +1 to skip the splitter
+        index + (options.slideSplitter === "thematicBreak" ? 1 : 0) // +1 to skip the splitter
     }
   }
   slides.push({
@@ -98,10 +98,10 @@ const splitToSlides = (
       lastSlideIndex,
       tree.children.length,
     ) as Slide["children"],
-  });
+  })
 
   // Create a new tree with the slides
-  const treeChildren = [];
+  const treeChildren = []
   for (const [index, slide] of slides.entries()) {
     const slideNode: mdast.Blockquote = {
       type: "blockquote",
@@ -110,8 +110,8 @@ const splitToSlides = (
         hProperties: options.slide(index).properties,
       },
       children: slide.children,
-    };
-    treeChildren.push(slideNode);
+    }
+    treeChildren.push(slideNode)
   }
 
   return {
@@ -127,8 +127,8 @@ const splitToSlides = (
       },
       exportSlidesLength(slides.length),
     ],
-  };
-};
+  }
+}
 
 /**
  * Export the number of slides as a constant.
@@ -140,7 +140,7 @@ const splitToSlides = (
  * ```
  */
 const exportSlidesLength = (slidesLength: number): mdast.RootContent => {
-  const code = `export const MERCURY_SLIDES_LENGTH = ${slidesLength};`;
+  const code = `export const MERCURY_SLIDES_LENGTH = ${slidesLength};`
   return {
     type: "mdxjsEsm",
     value: code,
@@ -176,5 +176,5 @@ const exportSlidesLength = (slidesLength: number): mdast.RootContent => {
         comments: [],
       },
     },
-  };
-};
+  }
+}

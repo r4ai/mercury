@@ -1,7 +1,7 @@
-import { type ComponentPropsWithoutRef, forwardRef } from "react";
-import { cn } from "../../libs/utils";
+import { type ComponentPropsWithoutRef, forwardRef } from "react"
+import { cn } from "../../libs/utils"
 
-export type ListProps = ComponentPropsWithoutRef<"ul">;
+export type ListProps = ComponentPropsWithoutRef<"ul">
 
 export const List = forwardRef<HTMLUListElement, ListProps>(
   ({ className, ...props }, ref) => {
@@ -14,21 +14,21 @@ export const List = forwardRef<HTMLUListElement, ListProps>(
         ref={ref}
         {...props}
       />
-    );
+    )
   },
-);
-List.displayName = "List";
+)
+List.displayName = "List"
 
-export type ListItemProps = ComponentPropsWithoutRef<"li">;
+export type ListItemProps = ComponentPropsWithoutRef<"li">
 
 export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
   ({ className, ...props }, ref) => {
-    return <li className={cn(className)} ref={ref} {...props} />;
+    return <li className={cn(className)} ref={ref} {...props} />
   },
-);
-ListItem.displayName = "ListItem";
+)
+ListItem.displayName = "ListItem"
 
-export type OrderedListPRops = ComponentPropsWithoutRef<"ol">;
+export type OrderedListPRops = ComponentPropsWithoutRef<"ol">
 
 export const OrderedList = forwardRef<HTMLOListElement, OrderedListPRops>(
   ({ className, ...props }, ref) => {
@@ -38,7 +38,7 @@ export const OrderedList = forwardRef<HTMLOListElement, OrderedListPRops>(
         ref={ref}
         {...props}
       />
-    );
+    )
   },
-);
-OrderedList.displayName = "OrderedList";
+)
+OrderedList.displayName = "OrderedList"

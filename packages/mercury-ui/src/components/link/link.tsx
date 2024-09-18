@@ -1,8 +1,8 @@
-import { type ComponentPropsWithoutRef, forwardRef } from "react";
-import { Link as WouterLink, type LinkProps as WouterLinkProps } from "wouter";
-import { cn } from "../../libs/utils";
+import { type ComponentPropsWithoutRef, forwardRef } from "react"
+import { Link as WouterLink, type LinkProps as WouterLinkProps } from "wouter"
+import { cn } from "../../libs/utils"
 
-export type LinkProps = WouterLinkProps & ComponentPropsWithoutRef<"a">;
+export type LinkProps = WouterLinkProps & ComponentPropsWithoutRef<"a">
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   ({ className, ...props }, ref) => {
@@ -13,7 +13,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         ref={ref}
         {...props}
       />
-    );
+    )
   },
-);
-Link.displayName = "Link";
+)
+Link.displayName = "Link"

@@ -1,14 +1,14 @@
-import type { MDXContent } from "mdx/types";
-import type { FC } from "react";
-import { Redirect, Route, Switch } from "wouter";
-import { components } from "../components";
-import { ControlMenu } from "../control-menu";
+import type { MDXContent } from "mdx/types"
+import type { FC } from "react"
+import { Redirect, Route, Switch } from "wouter"
+import { components } from "../components"
+import { ControlMenu } from "../control-menu"
 
 export type PresentationProps = {
-  base?: string;
-  slidesLength: number;
-  Content: MDXContent;
-};
+  base?: string
+  slidesLength: number
+  Content: MDXContent
+}
 
 export const Presentation: FC<PresentationProps> = ({
   base = "/",
@@ -34,5 +34,5 @@ export const Presentation: FC<PresentationProps> = ({
         />
       </div>
     </Route>
-  );
-};
+  )
+}

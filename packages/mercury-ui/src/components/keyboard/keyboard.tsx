@@ -1,7 +1,7 @@
-import { type ComponentPropsWithoutRef, forwardRef } from "react";
-import { cn } from "../../libs/utils";
+import { type ComponentPropsWithoutRef, forwardRef } from "react"
+import { cn } from "../../libs/utils"
 
-export type KeyboardProps = ComponentPropsWithoutRef<"kbd">;
+export type KeyboardProps = ComponentPropsWithoutRef<"kbd">
 
 export const Keyboard = forwardRef<HTMLElement, KeyboardProps>(
   ({ className, ...props }, ref) => {
@@ -14,7 +14,7 @@ export const Keyboard = forwardRef<HTMLElement, KeyboardProps>(
         ref={ref}
         {...props}
       />
-    );
+    )
   },
-);
-Keyboard.displayName = "Keyboard";
+)
+Keyboard.displayName = "Keyboard"

@@ -1,20 +1,18 @@
-import { useEffect, useState } from "react";
-import { useLocation, useRoute } from "wouter";
+import { useEffect, useState } from "react"
+import { useLocation, useRoute } from "wouter"
 
 export const useSlides = ({ length }: { length: number }) => {
-  const [match, params] = useRoute("/*?/:index");
-  const [location, navigate] = useLocation();
+  const [match, params] = useRoute("/*?/:index")
+  const [location, navigate] = useLocation()
 
-  const [isFull, setFull] = useState<boolean | undefined>(undefined);
+  const [isFull, setFull] = useState<boolean | undefined>(undefined)
   useEffect(() => {
-    setFull(isFullscreen());
-    document.addEventListener("fullscreenchange", () =>
-      setFull(isFullscreen()),
-    );
-  }, []);
+    setFull(isFullscreen())
+    document.addEventListener("fullscreenchange", () => setFull(isFullscreen()))
+  }, [])
 
   const index = () =>
-    params?.index != null ? Number.parseInt(params.index) : 0;
+    params?.index != null ? Number.parseInt(params.index) : 0
   const next = () => {
     if (match && params?.index != null) {
       navigate(
@@ -22,11 +20,11 @@ export const useSlides = ({ length }: { length: number }) => {
           /\/\d+$/,
           `/${Math.min(Number.parseInt(params.index) + 1, Math.max(length - 1, 0))}`,
         ),
-      );
+      )
     } else {
-      navigate("./0");
+      navigate("./0")
     }
-  };
+  }
   const prev = () => {
     if (match && params?.index != null) {
       navigate(
@@ -34,28 +32,28 @@ export const useSlides = ({ length }: { length: number }) => {
           /\/\d+$/,
           `/${Math.max(Number.parseInt(params.index) - 1, 0)}`,
         ),
-      );
+      )
     } else {
-      navigate("./0");
+      navigate("./0")
     }
-  };
+  }
 
-  const isFullscreen = () => isFull ?? document.fullscreenElement != null;
+  const isFullscreen = () => isFull ?? document.fullscreenElement != null
   const fullscreen = () => {
-    if (isFullscreen()) return;
-    document.documentElement.requestFullscreen();
-  };
+    if (isFullscreen()) return
+    document.documentElement.requestFullscreen()
+  }
   const exitFullscreen = () => {
-    if (!isFullscreen() || !document.exitFullscreen) return;
-    document.exitFullscreen();
-  };
+    if (!isFullscreen() || !document.exitFullscreen) return
+    document.exitFullscreen()
+  }
   const toggleFullscreen = () => {
     if (isFullscreen()) {
-      exitFullscreen();
+      exitFullscreen()
     } else {
-      fullscreen();
+      fullscreen()
     }
-  };
+  }
 
   return {
     index,
@@ -65,5 +63,5 @@ export const useSlides = ({ length }: { length: number }) => {
     fullscreen,
     exitFullscreen,
     toggleFullscreen,
-  };
-};
+  }
+}

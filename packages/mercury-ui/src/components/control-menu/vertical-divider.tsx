@@ -1,7 +1,7 @@
-import type { ComponentPropsWithoutRef, FC } from "react";
-import { cn } from "../../libs/utils";
+import type { ComponentPropsWithoutRef, FC } from "react"
+import { cn } from "../../libs/utils"
 
-export type VerticalDividerProps = ComponentPropsWithoutRef<"div">;
+export type VerticalDividerProps = ComponentPropsWithoutRef<"div">
 
 export const VerticalDivider: FC<VerticalDividerProps> = ({
   className,
@@ -12,5 +12,5 @@ export const VerticalDivider: FC<VerticalDividerProps> = ({
       className={cn("h-8 my-auto w-0.5 rounded-full bg-border", className)}
       {...props}
     />
-  );
-};
+  )
+}

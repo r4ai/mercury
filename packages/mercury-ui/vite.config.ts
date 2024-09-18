@@ -1,9 +1,9 @@
-import react from "@vitejs/plugin-react";
-import tailwindcss from "tailwindcss";
-import icons from "unplugin-icons/vite";
-import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
-import { dependencies, peerDependencies } from "./package.json";
+import react from "@vitejs/plugin-react"
+import tailwindcss from "tailwindcss"
+import icons from "unplugin-icons/vite"
+import { defineConfig } from "vite"
+import dts from "vite-plugin-dts"
+import { dependencies, peerDependencies } from "./package.json"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -60,4 +60,4 @@ export default defineConfig({
       plugins: [tailwindcss],
     },
   },
-});
+})

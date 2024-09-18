@@ -1,7 +1,7 @@
-import { type ComponentPropsWithoutRef, forwardRef } from "react";
-import { cn } from "../../libs/utils";
+import { type ComponentPropsWithoutRef, forwardRef } from "react"
+import { cn } from "../../libs/utils"
 
-export type InlineCodeProps = ComponentPropsWithoutRef<"code">;
+export type InlineCodeProps = ComponentPropsWithoutRef<"code">
 
 export const InlineCode = forwardRef<HTMLElement, InlineCodeProps>(
   ({ className, ...props }, ref) => {
@@ -14,7 +14,7 @@ export const InlineCode = forwardRef<HTMLElement, InlineCodeProps>(
         ref={ref}
         {...props}
       />
-    );
+    )
   },
-);
-InlineCode.displayName = "InlineCode";
+)
+InlineCode.displayName = "InlineCode"

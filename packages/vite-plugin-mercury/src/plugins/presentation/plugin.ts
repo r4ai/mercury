@@ -1,17 +1,17 @@
-import dedent from "dedent";
-import type { TransformOptions } from "esbuild";
+import dedent from "dedent"
+import type { TransformOptions } from "esbuild"
 import {
   type Plugin,
   type ResolvedConfig,
   createFilter,
   transformWithEsbuild,
-} from "vite";
+} from "vite"
 
 export type MercuryPresentationOptions = {
-  include?: string[];
-  exclude?: string[];
-  esbuildTransformOptions?: TransformOptions;
-};
+  include?: string[]
+  exclude?: string[]
+  esbuildTransformOptions?: TransformOptions
+}
 
 export const mercuryPresentationDefaultOptions = {
   include: ["**/*.mdx"],
@@ -21,52 +21,52 @@ export const mercuryPresentationDefaultOptions = {
     target: "esnext",
     jsx: "automatic",
   },
-} as const satisfies Required<MercuryPresentationOptions>;
+} as const satisfies Required<MercuryPresentationOptions>
 
 export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
-  const options = { ...mercuryPresentationDefaultOptions, ..._options };
-  const filter = createFilter(options.include, options.exclude);
+  const options = { ...mercuryPresentationDefaultOptions, ..._options }
+  const filter = createFilter(options.include, options.exclude)
 
   // @ts-ignore
-  let config: ResolvedConfig;
+  let config: ResolvedConfig
   // @ts-ignore
-  let isDev: boolean;
+  let isDev: boolean
 
   return {
     name: "mercury-presentation",
     config(_, { command }) {
-      isDev = command === "serve";
+      isDev = command === "serve"
     },
     configResolved(resolvedConfig) {
-      config = resolvedConfig;
+      config = resolvedConfig
     },
     async transform(code, id) {
-      if (!filter(id)) return;
+      if (!filter(id)) return
 
-      let source = code;
+      let source = code
 
       // don't default export
-      source = source.replace(/^export default /m, "");
+      source = source.replace(/^export default /m, "")
 
       // export default Presentation
-      source += "\n";
+      source += "\n"
       source += dedent`
         import { Presentation } from "@r4ai/mercury-ui";
 
         export default () => {
           return <Presentation Content={MDXContent} slidesLength={MERCURY_SLIDES_LENGTH} />;
         }
-      `;
+      `
 
       const js = await transformWithEsbuild(source, id, {
         sourcefile: id,
         ...options.esbuildTransformOptions,
-      });
+      })
 
       return {
         code: js.code,
         map: js.map,
-      };
+      }
     },
-  };
-};
+  }
+}

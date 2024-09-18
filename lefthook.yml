@@ -3,33 +3,11 @@
 pre-commit:
   parallel: true
   commands:
-    mercury/biome:
-      root: packages/mercury
+    biome:
       tags: biome
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       stage_fixed: true
-      run: bunx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true --write {staged_files}
-
-    mercury-ui/biome:
-      root: "packages/mercury-ui/"
-      tags: biome
-      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
-      stage_fixed: true
-      run: bunx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true --write {staged_files}
-
-    remark-mercury/biome:
-      root: packages/remark-mercury
-      tags: biome
-      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
-      stage_fixed: true
-      run: bunx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true --write {staged_files}
-
-    react-without-cli-example/biome:
-      root: examples/react-without-cli
-      tags: biome
-      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
-      stage_fixed: true
-      run: bunx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true --write {staged_files}
+      run: bun run biome check --no-errors-on-unmatched --files-ignore-unknown=true --write {staged_files}
 
     check-lockfile:
       glob: "**/package.json"
