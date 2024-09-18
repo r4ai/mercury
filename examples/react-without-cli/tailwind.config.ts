@@ -1,6 +1,6 @@
-import type { Config } from "tailwindcss";
-import animate from "tailwindcss-animate";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import type { Config } from "tailwindcss"
+import animate from "tailwindcss-animate"
+import { fontFamily } from "tailwindcss/defaultTheme"
 
 export default {
   darkMode: ["selector", '[data-color-scheme="dark"]'],
@@ -74,4 +74,4 @@ export default {
     },
   },
   plugins: [animate],
-} satisfies Config;
+} satisfies Config
