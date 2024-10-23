@@ -1,5 +1,6 @@
 import { type FC, type ReactNode, useEffect, useId } from "react"
 import { Route, useLocation } from "wouter"
+import { cn } from "../../libs/utils"
 
 export type SlideProps = {
   index: number
@@ -27,10 +28,11 @@ export const Slide: FC<SlideProps> = ({ index, children }) => {
       <div
         id={id}
         data-slide
-        className="absolute top-1/2 left-1/2 my-auto aspect-[16/9] w-[960px] space-y-4 border p-8"
-        style={{
-          translate: "-50% -50%",
-        }}
+        className={cn(
+          "my-auto aspect-[16/9] w-[960px] space-y-4 border p-8",
+          "-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 scale-[var(--slide-scale)]",
+          "print:top-0 print:left-0 print:translate-x-0 print:translate-y-0 print:scale-100",
+        )}
       >
         {children}
       </div>
@@ -48,5 +50,5 @@ const resize = (el: HTMLElement) => {
   const heightScale = viewportHeight / elHeight
   const scale = Math.min(widthScale, heightScale)
 
-  el?.style.setProperty("transform", `scale(${scale})`)
+  el?.style.setProperty("--slide-scale", scale.toString())
 }
