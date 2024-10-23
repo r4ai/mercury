@@ -19,7 +19,7 @@ export const ControlMenu: FC<ControlMenuProps> = ({
   return (
     <div
       className={cn(
-        "flex flex-row gap-2 p-2 border rounded-xl bg-background",
+        "flex flex-row gap-2 rounded-xl border bg-background p-2",
         className,
       )}
     >

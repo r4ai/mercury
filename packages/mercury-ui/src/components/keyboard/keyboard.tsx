@@ -8,7 +8,7 @@ export const Keyboard = forwardRef<HTMLElement, KeyboardProps>(
     return (
       <kbd
         className={cn(
-          "rounded-md border px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold",
+          "rounded-md border px-[0.3rem] py-[0.2rem] font-mono font-semibold text-sm",
           className,
         )}
         ref={ref}

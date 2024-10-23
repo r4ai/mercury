@@ -19,7 +19,7 @@ export const ColorSchemeButton: FC<ColorSchemeButtonProps> = ({ ...props }) => {
       {...props}
     >
       <SunIcon className="size-6 dark:hidden" />
-      <MoonStarIcon className="size-6 hidden dark:block" />
+      <MoonStarIcon className="hidden size-6 dark:block" />
     </Button>
   )
 }
