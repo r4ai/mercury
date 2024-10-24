@@ -58,3 +58,20 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@layer base {
+  :root {
+    --slide-scale: 1;
+  }
+}
+
+@layer base {
+  @page {
+    size: 25.4cm 14.29cm;
+    margin: 0mm;
+  }
+
+  :root {
+    print-color-adjust: exact;
+  }
+}

@@ -9,7 +9,7 @@ export const VerticalDivider: FC<VerticalDividerProps> = ({
 }) => {
   return (
     <div
-      className={cn("h-8 my-auto w-0.5 rounded-full bg-border", className)}
+      className={cn("my-auto h-8 w-0.5 rounded-full bg-border", className)}
       {...props}
     />
   )
