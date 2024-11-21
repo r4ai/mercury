@@ -3,6 +3,8 @@ import type { FC } from "react"
 import { Redirect, Route, Switch } from "wouter"
 import { components } from "../components"
 import { ControlMenu } from "../control-menu"
+import { Slide } from "../slide"
+import { AllSlidesPresentation } from "./all-slides-presentation"
 
 export type PresentationProps = {
   base?: string
@@ -22,13 +24,19 @@ export const Presentation: FC<PresentationProps> = ({
           <Route path="/">
             <Redirect to="/0" />
           </Route>
-          <Content
-            components={{
-              ...components,
-            }}
-          />
+          <Route path="/all">
+            <Content
+              components={{
+                ...components,
+                Slide: (props) => <Slide {...props} route={false} />,
+                Presentation: AllSlidesPresentation,
+              }}
+            />
+          </Route>
+          <Content components={components} />
         </Switch>
         <ControlMenu
+          data-control-menu
           className="absolute bottom-2 left-4"
           slidesLength={slidesLength}
         />
