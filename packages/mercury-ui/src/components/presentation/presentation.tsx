@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from "wouter"
 import { components } from "../components"
 import { ControlMenu } from "../control-menu"
 import { Slide } from "../slide"
+import { AllSlidesPresentation } from "./all-slides-presentation"
 
 export type PresentationProps = {
   base?: string
@@ -28,11 +29,7 @@ export const Presentation: FC<PresentationProps> = ({
               components={{
                 ...components,
                 Slide: (props) => <Slide {...props} route={false} />,
-                Presentation: ({ children }) => (
-                  <div className="mx-auto flex w-fit flex-col gap-0">
-                    {children}
-                  </div>
-                ),
+                Presentation: AllSlidesPresentation,
               }}
             />
           </Route>

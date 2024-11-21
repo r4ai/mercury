@@ -6,6 +6,7 @@ import { FullscreenButton } from "./fullscreen-button"
 import { useSlides } from "./hooks/use-slides"
 import { NextSlideButton } from "./next-slide-button"
 import { PrevSlideButton } from "./prev-slide-button"
+import { PrintButton } from "./print-button"
 import { VerticalDivider } from "./vertical-divider"
 
 export type ControlMenuProps = {
@@ -33,6 +34,7 @@ export const ControlMenu: FC<ControlMenuProps> = ({
       <Counter slidesLength={slidesLength} />
       <VerticalDivider />
       <ColorSchemeButton />
+      <PrintButton />
       <FullscreenButton slidesLength={slidesLength} />
     </div>
   )
