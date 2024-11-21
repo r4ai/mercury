@@ -1,0 +1,241 @@
+import { Button } from "@r4ai/mercury-ui"
+import { Title } from "./components/title"
+import { Center } from "./components/center"
+import { FireworkButton } from "./components/firework-button"
+import demoVideoLink from "./assets/demo-video-link.svg"
+import demoSlide from "./assets/demo-slide.png"
+import architecture from "./assets/arch.drawio.svg"
+import calloutDemo from "./assets/callout-demo.png"
+import ArrowBigRightIcon from "~icons/lucide/arrow-big-right"
+
+<Title
+  title="作ったもの in 2024"
+  affiliation="情報計算科学科 学部3年"
+  author="Rai"
+/>
+
+---
+
+# 作ったもの一覧
+
+1. `Mercury` (スライド作成ツール)
+2. `@r4ai/remark-callout` (MarkdownにCallout機能を追加するプラグイン)
+3. `alg.tus-ricora.com` (RICORA Programming Teamのウェブサイト)
+
+---
+
+<Center title="Mercury" description="スライド作成ツール" />
+
+---
+
+# Mercury / 概要
+
+- Marcuryは、MDXでスライドを作成できるツールです
+  - MDX: 文章を作るためのマークアップ言語 (Markdown + JSX)
+- このスライドもMercuryで作成しています
+
+<br />
+
+- **デモ動画**
+  - URL: https://github.com/user-attachments/assets/cc946922-ba2d-4da4-9c8a-1baf63b97867
+  - QRコード:
+
+    <img src={demoVideoLink} className="size-36" />
+
+---
+
+# Mercury / 特徴
+
+- **柔軟なカスタマイズ機能**
+  - Reactコンポーネントを使ってスライドをカスタマイズ
+  - TailwindCSSなどでスタイリング可能
+
+- **高速なプレビュー機能**
+  - ファイルの変更を検知して自動でページを更新 (HMR)
+  - MercuryはViteのプラグインとして提供されるため、Viteの持つ強力な機能を利用可能
+
+- **スライドをウェブサイトとして公開可能**
+  - スライド全体が一つのSPAとして動作するため、GitHub Pagesなどで公開可能
+  - ブラウザの印刷機能を用いて、PDF出力も可能
+
+---
+
+# Mercury / スライドの生成
+
+<div className="flex flex-row gap-4 justify-center items-center">
+  <div className="!text-xs">
+    ````mdx title=presentation.mdx
+    # slide 1
+
+    - 吾輩は猫である
+    - $e^{i\pi} + 1 = 0$
+
+    ```js
+    // print "Hello, world!"
+    console.log("Hello, world!");
+    ```
+
+    $\epsilon - \delta$ definition of limit:
+
+    $
+    \forall \epsilon > 0, \exists \delta > 0
+    \text{ s.t. } |x - a| < \delta
+    \Rightarrow
+    |f(x) - f(a)| < \epsilon
+    $
+    ````
+  </div>
+  <div className="flex flex-col gap-0 justify-center items-center font-bold">
+    生成
+    <ArrowBigRightIcon className="size-12" />
+  </div>
+  <div>
+    <img src={demoSlide} className="border-2" />
+  </div>
+</div>
+
+---
+
+# Mercury / ReactとTailwindCSSによるカスタマイズ
+
+<div class="space-y-8">
+  <div class="flex flex-row items-center gap-1">
+    <span class="text-red-600 underline">You</span>
+    <span class="text-green-500 italic hover:bg-red-400 font-serif">can</span>
+    <div class="bg-gradient-to-r from-cyan-600 to-blue-500 p-1 rounded-sm text-white animate-bounce">style</div>
+    <span class="border p-1 rounded-full hover:bg-muted font-mono">with</span>
+    <span class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md p-1 animate-pulse">TailwindCSS</span>
+  </div>
+
+  <div class="flex flex-row gap-4 items-center">
+    <div>
+      You can use React components:
+    </div>
+    <FireworkButton>Click me</FireworkButton>
+    <FireworkButton variant="secondary">Click me</FireworkButton>
+    <FireworkButton variant="outline">Click me</FireworkButton>
+    <FireworkButton variant="ghost">Click me</FireworkButton>
+    <FireworkButton variant="link">Click me</FireworkButton>
+  </div>
+
+  ```tsx title=presentation.mdx
+  <div class="flex flex-row gap-4 items-center">
+    <div>
+      You can use React components:
+    </div>
+    <FireworkButton>Click me</FireworkButton>
+    <FireworkButton variant="secondary">Click me</FireworkButton>
+    <FireworkButton variant="outline">Click me</FireworkButton>
+    <FireworkButton variant="ghost">Click me</FireworkButton>
+    <FireworkButton variant="link">Click me</FireworkButton>
+  </div>
+  ```
+</div>
+
+---
+
+# Mercury / アーキテクチャ
+
+- Viteのpluginとして実装している
+- `.mdx`をimportした際に、以下の処理を行う
+
+<img src={architecture} />
+
+---
+
+import mercuryRepoLink from "./assets/mercury-repo.png"
+
+# @r4ai/remark-callout / 各種リンク
+
+- リポジトリ:
+  - https://github.com/r4ai/mercury
+
+    <img src={mercuryRepoLink} className="size-36" />
+
+- 本スライドに対応するMDXファイル:
+  - https://github.com/r4ai/mercury/blob/main/examples/ridaisai-2024/src/presentation.mdx
+
+---
+
+<Center title="@r4ai/remark-callout" description="MarkdownにCallout機能を追加するプラグイン" />
+
+---
+
+# @r4ai/remark-callout / 概要
+
+- MarkdownやMDXにCallout機能を追加するremarkプラグインです
+- 次のような記法でCalloutを追加できます
+
+<div className="flex flex-row gap-4 justify-center items-center">
+  <div>
+    ````mdx title=demo.md
+    > [!note]
+    > This is a note
+
+    > [!warning] you can write title here
+    > This is a warning
+    ````
+  </div>
+  <div className="flex flex-col gap-0 justify-center items-center font-bold">
+    生成
+    <ArrowBigRightIcon className="size-12" />
+  </div>
+  <div>
+    <img src={calloutDemo} className="border-2" />
+  </div>
+</div>
+
+---
+
+import remarkCalloutRepoLink from "./assets/remark-callout-repo.png"
+
+# @r4ai/remark-callout / 各種リンク
+
+- リポジトリ:
+  - https://github.com/r4ai/remark-callout
+
+    <img src={remarkCalloutRepoLink} className="size-36" />
+
+- ウェブサイト: https://r4ai.github.io/remark-callout/
+
+---
+
+<Center title="alg.tus-ricora.com" description="RICORA Programming Teamのウェブサイト" />
+
+---
+
+import blogArticleLink from "./assets/blog-article-link.png"
+import blogRepoLink from "./assets/blog-repo-link.png"
+import blogLink from "./assets/blog-link.png"
+
+# alg.tus-ricora.com / 概要
+
+- RICORA Programming Teamのウェブサイトです
+  - ブログや各種サークル情報の掲載を行っています
+
+- Astro, SolidJS, MDX などを用いて実装しています
+
+- 詳しくは次の記事にまとめています
+  - https://zenn.dev/ricora/articles/5a170c17933c3f
+
+    <img src={blogArticleLink} className="size-36" />
+
+<br />
+
+---
+
+# alg.tus-ricora.com / 各種リンク
+
+- リポジトリ:
+  - https://github.com/ricora/alg.tus-ricora.com
+
+    <img src={blogRepoLink} className="size-36" />
+
+- ウェブサイト:
+  - https://alg.tus-ricora.com/
+
+    <img src={blogLink} className="size-36" />
+
+---
+
+<Center title="ご清聴ありがとうございました" />
