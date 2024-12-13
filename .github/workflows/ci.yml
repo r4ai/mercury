@@ -20,7 +20,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
       - name: Setup Node.js and Bun
-        uses: jdx/mise-action@c1606014a9b1b7cd3e7c7f5fc607a25351fdffec # v2
+        uses: jdx/mise-action@5bb8f8c1911837cf42064e6490e7634fc842ee7e # v2
       - name: Install dependencies
         run: bun install --frozen-lockfile
       - name: Check with Biome
@@ -39,7 +39,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
       - name: Setup Node.js and Bun
-        uses: jdx/mise-action@c1606014a9b1b7cd3e7c7f5fc607a25351fdffec # v2
+        uses: jdx/mise-action@5bb8f8c1911837cf42064e6490e7634fc842ee7e # v2
       - name: Install dependencies
         run: bun install --frozen-lockfile
       - name: Build
@@ -59,7 +59,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
       - name: Setup Node.js and Bun
-        uses: jdx/mise-action@c1606014a9b1b7cd3e7c7f5fc607a25351fdffec # v2
+        uses: jdx/mise-action@5bb8f8c1911837cf42064e6490e7634fc842ee7e # v2
       - name: Install dependencies
         run: bun install --frozen-lockfile
       - name: Test
