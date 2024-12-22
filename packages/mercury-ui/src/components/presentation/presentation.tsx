@@ -19,7 +19,6 @@ export const Presentation: FC<PresentationProps> = ({
   components,
   Content,
 }) => {
-  console.log(components)
   return (
     <Route path={base} nest>
       <div className="h-full">
