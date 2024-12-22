@@ -53,8 +53,8 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
       source += dedent`
         import { Presentation } from "@r4ai/mercury-ui";
 
-        export default () => {
-          return <Presentation Content={MDXContent} slidesLength={MERCURY_SLIDES_LENGTH} />;
+        export default ({ components }) => {
+          return <Presentation Content={MDXContent} slidesLength={MERCURY_SLIDES_LENGTH} components={components} />;
         }
       `
 
