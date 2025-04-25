@@ -56,7 +56,7 @@
     "dedent": "1.5.3",
     "jsdom": "25.0.1",
     "mdast": "3.0.0",
-    "rehype-stringify": "10.0.0",
+    "rehype-stringify": "10.0.1",
     "remark-mdx": "3.0.1",
     "remark-parse": "11.0.0",
     "remark-rehype": "11.1.0",
