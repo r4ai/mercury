@@ -62,7 +62,7 @@
     "@shikijs/rehype": "1.17.7",
     "@tsconfig/node16": "16.1.4",
     "dedent": "1.6.0",
-    "esbuild": "0.23.1",
+    "esbuild": "0.25.0",
     "rimraf": "6.0.1",
     "typescript": "5.8.3",
     "unified": "11.0.5",
