@@ -4,7 +4,10 @@
   "description": "",
   "private": "false",
   "type": "module",
-  "keywords": ["presentation", "slide"],
+  "keywords": [
+    "presentation",
+    "slide"
+  ],
   "author": "r4ai",
   "license": "MIT",
   "repository": {

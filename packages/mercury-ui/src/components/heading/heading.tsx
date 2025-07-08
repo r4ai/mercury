@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react"
-import { type VariantProps, tv } from "tailwind-variants"
+import { tv, type VariantProps } from "tailwind-variants"
 
 export const heading = tv({
   base: "scroll-m-20 tracking-tight w-full",

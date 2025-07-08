@@ -1,9 +1,9 @@
 import dedent from "dedent"
 import type { TransformOptions } from "esbuild"
 import {
+  createFilter,
   type Plugin,
   type ResolvedConfig,
-  createFilter,
   transformWithEsbuild,
 } from "vite"
 

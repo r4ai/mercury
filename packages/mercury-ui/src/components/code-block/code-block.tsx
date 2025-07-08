@@ -3,8 +3,8 @@ import "./shiki.css"
 import {
   type ComponentPropsWithoutRef,
   type FC,
-  type ReactNode,
   forwardRef,
+  type ReactNode,
 } from "react"
 import FileIcon from "~icons/lucide/file"
 import { cn } from "../../libs/utils"

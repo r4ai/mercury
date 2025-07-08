@@ -1,14 +1,25 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
+  "root": false,
+  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
       "complexity": {
         "noBannedTypes": "off"
+      },
+      "style": {
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
       }
     }
   },
@@ -18,7 +29,7 @@
   "overrides": [
     {
       // @see https://biomejs.dev/guides/how-biome-works/#json-like-files
-      "include": ["tsconfig.*.json"],
+      "includes": ["**/tsconfig.*.json"],
       "json": {
         "parser": {
           "allowComments": true,
@@ -28,6 +39,6 @@
     }
   ],
   "files": {
-    "ignore": ["node_modules", "dist"]
+    "includes": ["**", "!**/node_modules", "!**/dist"]
   }
 }

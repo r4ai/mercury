@@ -1,10 +1,10 @@
-import type { FC } from "react"
+import type { FC } from "react";
 
 export type TitleProps = {
-  title: string
-  affiliation: string
-  author: string
-}
+  title: string;
+  affiliation: string;
+  author: string;
+};
 
 export const Title: FC<TitleProps> = ({ title, affiliation, author }) => {
   return (
@@ -20,5 +20,5 @@ export const Title: FC<TitleProps> = ({ title, affiliation, author }) => {
         <span>{author}</span>
       </div>
     </div>
-  )
-}
+  );
+};

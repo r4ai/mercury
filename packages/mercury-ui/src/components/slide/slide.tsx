@@ -1,5 +1,5 @@
 import { type FC, type ReactNode, useEffect, useId } from "react"
-import { Route as WouterRoute, useLocation } from "wouter"
+import { useLocation, Route as WouterRoute } from "wouter"
 import { cn } from "../../libs/utils"
 
 export type SlideProps = {

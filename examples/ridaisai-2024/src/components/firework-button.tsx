@@ -1,8 +1,8 @@
-import { Button, type ButtonProps } from "@r4ai/mercury-ui"
-import confetti from "canvas-confetti"
-import type { FC } from "react"
+import { Button, type ButtonProps } from "@r4ai/mercury-ui";
+import confetti from "canvas-confetti";
+import type { FC } from "react";
 
-export type FireworkButtonProps = ButtonProps
+export type FireworkButtonProps = ButtonProps;
 
 export const FireworkButton: FC<FireworkButtonProps> = ({
   children,
@@ -15,11 +15,11 @@ export const FireworkButton: FC<FireworkButtonProps> = ({
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-        })
+        });
       }}
       {...props}
     >
       {children}
     </Button>
-  )
-}
+  );
+};

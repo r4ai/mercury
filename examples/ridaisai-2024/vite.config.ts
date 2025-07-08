@@ -1,7 +1,7 @@
-import mercury from "@r4ai/vite-plugin-mercury"
-import react from "@vitejs/plugin-react"
-import icons from "unplugin-icons/vite"
-import { defineConfig } from "vite"
+import mercury from "@r4ai/vite-plugin-mercury";
+import react from "@vitejs/plugin-react";
+import icons from "unplugin-icons/vite";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,4 +13,4 @@ export default defineConfig({
       jsx: "react",
     }),
   ],
-})
+});
