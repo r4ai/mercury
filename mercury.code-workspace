@@ -23,6 +23,10 @@
     {
       "name": "examples/react-without-cli",
       "path": "examples/react-without-cli"
+    },
+    {
+      "name": "examples/program",
+      "path": "examples/program"
     }
   ],
   "settings": {
@@ -50,6 +54,6 @@
       "([\"'`][^\"'`]*.*?[\"'`])",
       "[\"'`]([^\"'`]*).*?[\"'`]"
     ],
-    "deno.enable": false
+    "deno.enable": false,
   }
 }

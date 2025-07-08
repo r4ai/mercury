@@ -1,3 +1,4 @@
+import * as fs from "node:fs"
 import rollupMdx, { type Options as RollupMdxOptions } from "@mdx-js/rollup"
 import remarkMercury, { type RemarkMercuryOptions } from "@r4ai/remark-mercury"
 import rehypeShiki, { type RehypeShikiOptions } from "@shikijs/rehype"
@@ -21,6 +22,7 @@ import {
 import { remarkInlineCode } from "./remark-plugins/remark-inline-code.js"
 
 export type MercuryMdxOptions = {
+  debug?: boolean
   remarkMercury?: RemarkMercuryOptions | false
   remarkGfm?: RemarkGfmOptions | false
   remarkMath?: RemarkMathOptions | false
@@ -29,6 +31,7 @@ export type MercuryMdxOptions = {
 }
 
 export const mercuryMdxDefaultOptions = {
+  debug: false,
   remarkMercury: {
     slide: (index) => ({
       tagName: "Slide",
@@ -70,6 +73,14 @@ export const mdx = (
   const options = defu(_options, mercuryMdxDefaultOptions)
 
   const remarkPlugins: RollupMdxOptions["remarkPlugins"] = []
+  if (options.debug) {
+    remarkPlugins.push(() => {
+      return (tree) => {
+        fs.writeFileSync("mdast_start.json", JSON.stringify(tree, null, 2))
+        return tree
+      }
+    })
+  }
   remarkPlugins.push([remarkInlineCode])
   if (options.remarkMercury) {
     remarkPlugins.push([remarkMercury, options.remarkMercury])
@@ -80,21 +91,46 @@ export const mdx = (
   if (options.remarkMath) {
     remarkPlugins.push([remarkMath, options.remarkMath])
   }
+  if (options.debug) {
+    remarkPlugins.push(() => {
+      return (tree) => {
+        fs.writeFileSync("mdast_end.json", JSON.stringify(tree, null, 2))
+        return tree
+      }
+    })
+  }
 
-  const rehypePluins: RollupMdxOptions["rehypePlugins"] = []
+  const rehypePlugins: RollupMdxOptions["rehypePlugins"] = []
+  if (options.debug) {
+    rehypePlugins.push(() => {
+      return (tree) => {
+        fs.writeFileSync("hast_start.json", JSON.stringify(tree, null, 2))
+        return tree
+      }
+    })
+  }
   if (options.rehypeKatex) {
-    rehypePluins.push([rehypeKatex, options.rehypeKatex])
+    rehypePlugins.push([rehypeKatex, options.rehypeKatex])
   }
   if (options.rehypeShiki) {
-    rehypePluins.push([rehypeShiki, options.rehypeShiki])
+    rehypePlugins.push([rehypeShiki, options.rehypeShiki])
+  }
+  if (options.debug) {
+    rehypePlugins.push(() => {
+      return (tree) => {
+        fs.writeFileSync("hast_end.json", JSON.stringify(tree, null, 2))
+        return tree
+      }
+    })
   }
 
+  // @ts-expect-error @mdx-js/rollup typings are broken after vite 7.0.3
   return {
     enforce: "pre",
     ...rollupMdx({
       ...options,
       remarkPlugins: [...remarkPlugins, ...(options.remarkPlugins ?? [])],
-      rehypePlugins: [...rehypePluins, ...(options.rehypePlugins ?? [])],
+      rehypePlugins: [...rehypePlugins, ...(options.rehypePlugins ?? [])],
     }),
   }
 }

@@ -1,11 +1,13 @@
 /// <reference types="remark-mdx" />
 
+import * as fs from "node:fs"
 import { defu } from "defu"
 import type * as hast from "hast"
 import type * as mdast from "mdast"
 import type { Plugin } from "unified"
 
 export type Options = {
+  debug?: boolean
   slideSplitter?: "thematicBreak" | "heading"
   slide?: (index: number) => {
     tagName: string
@@ -18,6 +20,7 @@ export type Options = {
 }
 
 export const defaultOptions = {
+  debug: false,
   slideSplitter: "thematicBreak",
   slide: (index) => ({
     tagName: "section",
@@ -72,6 +75,13 @@ const splitToSlides = (
   tree: mdast.Root,
   options: Required<Options>,
 ): mdast.Root => {
+  if (options.debug) {
+    fs.writeFileSync(
+      "mdast_before_remark_mercury.json",
+      JSON.stringify(tree, null, 2),
+    )
+  }
+
   const slides: Slide[] = []
 
   // Split the tree into slides
@@ -114,7 +124,7 @@ const splitToSlides = (
     treeChildren.push(slideNode)
   }
 
-  return {
+  const output: mdast.Root = {
     ...tree,
     children: [
       {
@@ -128,6 +138,15 @@ const splitToSlides = (
       exportSlidesLength(slides.length),
     ],
   }
+
+  if (options.debug) {
+    fs.writeFileSync(
+      "mdast_after_remark_mercury.json",
+      JSON.stringify(output, null, 2),
+    )
+  }
+
+  return output
 }
 
 /**

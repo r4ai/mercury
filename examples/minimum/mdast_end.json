@@ -1,0 +1,154 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "blockquote",
+      "data": {
+        "hName": "Presentation",
+        "hProperties": {
+          "slidesLength": 2
+        }
+      },
+      "children": [
+        {
+          "type": "blockquote",
+          "data": {
+            "hName": "Slide",
+            "hProperties": {
+              "index": 0
+            }
+          },
+          "children": [
+            {
+              "type": "heading",
+              "depth": 1,
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Slide 1",
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 3,
+                      "offset": 2
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 10,
+                      "offset": 9
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 10,
+                  "offset": 9
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "blockquote",
+          "data": {
+            "hName": "Slide",
+            "hProperties": {
+              "index": 1
+            }
+          },
+          "children": [
+            {
+              "type": "heading",
+              "depth": 1,
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Slide 2",
+                  "position": {
+                    "start": {
+                      "line": 5,
+                      "column": 3,
+                      "offset": 18
+                    },
+                    "end": {
+                      "line": 5,
+                      "column": 10,
+                      "offset": 25
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 5,
+                  "column": 1,
+                  "offset": 16
+                },
+                "end": {
+                  "line": 5,
+                  "column": 10,
+                  "offset": 25
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "mdxjsEsm",
+      "value": "export const MERCURY_SLIDES_LENGTH = 2;",
+      "data": {
+        "estree": {
+          "type": "Program",
+          "body": [
+            {
+              "type": "ExportNamedDeclaration",
+              "declaration": {
+                "type": "VariableDeclaration",
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "id": {
+                      "type": "Identifier",
+                      "name": "MERCURY_SLIDES_LENGTH"
+                    },
+                    "init": {
+                      "type": "Literal",
+                      "value": 2,
+                      "raw": "2"
+                    }
+                  }
+                ],
+                "kind": "const"
+              },
+              "specifiers": [],
+              "source": null
+            }
+          ],
+          "sourceType": "module",
+          "comments": []
+        }
+      }
+    }
+  ],
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 6,
+      "column": 1,
+      "offset": 26
+    }
+  }
+}

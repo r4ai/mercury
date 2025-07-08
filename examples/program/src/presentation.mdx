@@ -1,0 +1,194 @@
+import { Button } from "@r4ai/mercury-ui";
+
+<div className="flex flex-col h-full justify-center max-w-3xl mx-auto">
+  <h1 className="text-2xl font-semibold">スライド作成ツールの開発</h1>
+  <p className="mt-4">HOGE HOGE</p>
+</div>
+
+---
+
+# 背景
+
+- **Markdown でスライドを作成したい**
+
+  - 数式やコードブロックを簡単に表示したい
+  - Git 管理したい
+  - LLM を活用したい
+
+- **Web の知識でスライドを作成したい**
+
+  - 基本は Markdown で書く
+  - 細かい調整は、HTML と CSS で行う
+  - React コンポーネントを使えるようにする
+
+⇒ **MDX (Markdown + JSX) からスライドを表示するウェブアプリを自動生成するツールを開発**
+
+---
+
+# キーワード
+
+- **JSX (JavaScript XML)**: JS の拡張構文で、JS の中に HTML のような構文を埋め込むことができる
+
+  ```jsx
+  const element = <div className="text-red-500">Hello, World!</div>;
+  ```
+
+- **MDX (Markdown + JSX)**: Markdown の中に JSX を埋め込むことができる
+
+  ```mdx
+  # Hello, World!
+
+  <div className="text-red-500">Hello, World!</div>
+  ```
+
+- **mdast**: Markdown の抽象構文木（AST）
+
+- **hast**: HTML の抽象構文木（AST）
+
+- **React**: UI コンポーネントを作成するための JavaScript ライブラリ
+
+- **Vite**: フロントエンド開発のためのビルドツール
+
+---
+
+# アーキテクチャ
+
+- MDX ファイルを入力として、スライドを表示するウェブアプリを自動生成する
+
+{/* - 厳密にいうと...
+
+  - MDX ファイルからいくつかの中間表現を経由しながら、React Component を生成する
+  - この React Component は、単体でスライドを表示する機能を持つ
+  - 生成した React Component を Vite でビルドすることで、ウェブアプリが完成する */}
+
+<img className="mx-auto w-fit mt-12" src="/arch.drawio.svg" />
+
+---
+
+# 処理の流れ / MDX → mdast
+
+<div className="flex flex-row gap-8">
+  <div>
+    ```mdx title="presentation.mdx"
+    # スライド 1
+
+    ---
+
+    # スライド 2
+    ```
+  </div>
+  <div className="py-32">
+    <div className="flex flex-col items-center gap-2 justify-center">
+      <span>⇒</span>
+      <span>mdast へ変換</span>
+    </div>
+  </div>
+  <div>
+    ```json
+    {
+      "type": "root",
+      "children": [
+        {
+          "type": "element",
+          "tagName": "h1",
+          "children": [{ "type": "text", "value": "Slide 1" }]
+        },
+        {
+          "type": "element",
+          "tagName": "hr",
+          "children": []
+        },
+        {
+          "type": "element",
+          "tagName": "h1",
+          "children": [{ "type": "text", "value": "Slide 2" }]
+        }
+      ]
+    }
+    ```
+  </div>
+</div>
+
+---
+
+# 処理の流れ / mdast → mdast
+
+<div className="flex flex-row gap-8">
+  <div>
+    ```json
+    {
+      "type": "root",
+      "children": [
+        {
+          "tagName": "h1",
+          // ... 省略 ...
+        },
+        {
+          "tagName": "hr",
+          // ... 省略 ...
+        },
+        {
+          "tagName": "h1",
+          // ... 省略 ...
+        }
+      ]
+    }
+    ```
+  </div>
+  <div className="py-32">
+    <div className="flex flex-col items-center gap-2 justify-center">
+      <span>⇒</span>
+      <span>構造化された\
+            mdast へ変換</span>
+    </div>
+  </div>
+  <div>
+    ```json
+    {
+      "type": "root",
+      "children": [
+        {
+          "type": "blockquote",
+          "data": {
+            "hName": "Presentation",
+            "hProperties": { "slidesLength": 2 }
+          },
+          "children": [
+            {
+              "type": "blockquote",
+              "data": { "hName": "Slide", "hProperties": { "index": 0 } },
+              "children": [
+                {
+                  "type": "heading",
+                  "depth": 1,
+                  "children": [{ "type": "text", "value": "Slide 1" }]
+                }
+              ]
+            }
+            // ... slide 2 ...
+    ```
+  </div>
+</div>
+
+---
+
+{/* # コラム: CommonMark について
+
+- MDX は CommonMark をベースにしている
+
+  https://spec.commonmark.org/0.31.2/
+
+- CommonMark では、Markdown の要素は次の2つに分類できる：
+
+  - **Container blocks**: 他の要素を含むことができる要素
+  - **Leaf blocks**: 他の要素を含まない要素
+
+- したがって、mdast 上でネストした構造を表現するためには、Container blocks を使う必要がある
+
+- Container blocks としては block quote と list item がある。\
+  本ツールでは、block containerを使うことで、プレゼンテーションのネスト構造を表現している
+
+--- */}
+
+# 処理の流れ / mdast → JSX
+
