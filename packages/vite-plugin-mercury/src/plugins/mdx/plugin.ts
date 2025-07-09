@@ -124,7 +124,6 @@ export const mdx = (
     })
   }
 
-  // @ts-expect-error @mdx-js/rollup typings are broken after vite 7.0.3
   return {
     enforce: "pre",
     ...rollupMdx({

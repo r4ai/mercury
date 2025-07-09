@@ -27,8 +27,10 @@ import { Presentation } from "@r4ai/mercury-ui";
 export default ({ components }: MDXContentProps) => {
   return (
     <Presentation
+      // @ts-expect-error
       Content={MDXContent}
       slidesLength={2}
+      // @ts-expect-error
       components={components}
     />
   );

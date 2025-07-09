@@ -4,5 +4,9 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [mercury(), react({ include: /\.(mdx|js|jsx|ts|tsx)$/ })],
+  plugins: [
+    // @ts-expect-error
+    mercury(),
+    react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
+  ],
 });

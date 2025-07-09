@@ -2,10 +2,10 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 export const MERCURY_SLIDES_LENGTH = 2;
 function _createMdxContent(props) {
   const _components = {
-      h1: "h1",
-      ...props.components,
-    },
-    { Presentation, Slide } = _components;
+    h1: "h1",
+    ...props.components,
+  };
+  const { Presentation, Slide } = _components;
   if (!Presentation) _missingMdxReference("Presentation", true);
   if (!Slide) _missingMdxReference("Slide", true);
   return _jsxs(Presentation, {

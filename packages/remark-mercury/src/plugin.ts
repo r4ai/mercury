@@ -189,6 +189,7 @@ const exportSlidesLength = (slidesLength: number): mdast.RootContent => {
             },
             specifiers: [],
             source: null,
+            attributes: [],
           },
         ],
         sourceType: "module",

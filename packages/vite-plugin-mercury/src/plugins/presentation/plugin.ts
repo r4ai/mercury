@@ -31,17 +31,17 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
   const filter = createFilter(options.include, options.exclude)
 
   // @ts-ignore
-  let config: ResolvedConfig
+  let _config: ResolvedConfig
   // @ts-ignore
-  let isDev: boolean
+  let _isDev: boolean
 
   return {
     name: "mercury-presentation",
     config(_, { command }) {
-      isDev = command === "serve"
+      _isDev = command === "serve"
     },
     configResolved(resolvedConfig) {
-      config = resolvedConfig
+      _config = resolvedConfig
     },
     async transform(code, id) {
       if (!filter(id)) return

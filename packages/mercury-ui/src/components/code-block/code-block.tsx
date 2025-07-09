@@ -17,7 +17,7 @@ export type CodeBlockProps = ComponentPropsWithoutRef<"pre"> & {
 export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
   ({ title, lang, className, ...props }, ref) => {
     return (
-      <div className="w-fit rounded-xl border bg-muted dark:bg-zinc-900/75 my-2">
+      <div className="my-2 w-fit rounded-xl border bg-muted dark:bg-zinc-900/75">
         {title && <CodeBlockTitle lang={lang}>{title}</CodeBlockTitle>}
         <pre
           className={cn("m-0 overflow-auto py-2 text-xs", className)}

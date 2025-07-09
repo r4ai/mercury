@@ -7,6 +7,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [
     mercury(),
+    // @ts-expect-error
     react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
     // @ts-expect-error
     tailwindcss(),

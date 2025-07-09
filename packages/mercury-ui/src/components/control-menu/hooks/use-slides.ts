@@ -9,7 +9,7 @@ export const useSlides = ({ length }: { length: number }) => {
   useEffect(() => {
     setFull(isFullscreen())
     document.addEventListener("fullscreenchange", () => setFull(isFullscreen()))
-  }, [])
+  }, [isFullscreen])
 
   const index = () =>
     params?.index != null ? Number.parseInt(params.index) : 0

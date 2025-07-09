@@ -22,4 +22,4 @@ const MDXContent = ({ components }: MDXContentProps) => {
   );
 };
 
-export default MDXContent
+export default MDXContent;
