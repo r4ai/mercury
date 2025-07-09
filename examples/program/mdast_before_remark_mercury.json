@@ -84,7 +84,10 @@
                       }
                     },
                     "name": "Button",
-                    "range": [9, 15]
+                    "range": [
+                      9,
+                      15
+                    ]
                   },
                   "local": {
                     "type": "Identifier",
@@ -103,9 +106,15 @@
                       }
                     },
                     "name": "Button",
-                    "range": [9, 15]
+                    "range": [
+                      9,
+                      15
+                    ]
                   },
-                  "range": [9, 15]
+                  "range": [
+                    9,
+                    15
+                  ]
                 }
               ],
               "source": {
@@ -126,14 +135,23 @@
                 },
                 "value": "@r4ai/mercury-ui",
                 "raw": "\"@r4ai/mercury-ui\"",
-                "range": [23, 41]
+                "range": [
+                  23,
+                  41
+                ]
               },
-              "range": [0, 42]
+              "range": [
+                0,
+                42
+              ]
             }
           ],
           "sourceType": "module",
           "comments": [],
-          "range": [0, 42]
+          "range": [
+            0,
+            42
+          ]
         }
       }
     },
@@ -1690,7 +1708,10 @@
                   "offset": 1159
                 }
               },
-              "range": [991, 1159]
+              "range": [
+                991,
+                1159
+              ]
             }
           ],
           "loc": {
@@ -1705,7 +1726,10 @@
               "offset": 1159
             }
           },
-          "range": [991, 1159]
+          "range": [
+            991,
+            1159
+          ]
         }
       }
     },
@@ -2501,7 +2525,10 @@
                   "offset": 3672
                 }
               },
-              "range": [3283, 3672]
+              "range": [
+                3283,
+                3672
+              ]
             }
           ],
           "loc": {
@@ -2516,7 +2543,10 @@
               "offset": 3672
             }
           },
-          "range": [3283, 3672]
+          "range": [
+            3283,
+            3672
+          ]
         }
       }
     },
@@ -2553,6 +2583,24 @@
           "offset": 3696
         }
       }
+    },
+    {
+      "type": "code",
+      "lang": "jsx",
+      "meta": null,
+      "value": "const MDXContent = ({ components }) => {\n  return (\n    <components.Presentation slidesLength={2}>\n      <components.Slide index={0}>\n        <components.h1>Slide 1</components.h1>\n      </components.Slide>\n      <components.Slide index={1}>\n        <components.h1>Slide 2</components.h1>\n      </components.Slide>\n    </components.Presentation>\n  );\n};\n\nexport default MDXContent",
+      "position": {
+        "start": {
+          "line": 195,
+          "column": 1,
+          "offset": 3698
+        },
+        "end": {
+          "line": 210,
+          "column": 4,
+          "offset": 4089
+        }
+      }
     }
   ],
   "position": {
@@ -2562,9 +2610,9 @@
       "offset": 0
     },
     "end": {
-      "line": 195,
+      "line": 211,
       "column": 1,
-      "offset": 3698
+      "offset": 4090
     }
   }
 }

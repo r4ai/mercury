@@ -192,3 +192,19 @@ import { Button } from "@r4ai/mercury-ui";
 
 # 処理の流れ / mdast → JSX
 
+```jsx
+const MDXContent = ({ components }) => {
+  return (
+    <components.Presentation slidesLength={2}>
+      <components.Slide index={0}>
+        <components.h1>Slide 1</components.h1>
+      </components.Slide>
+      <components.Slide index={1}>
+        <components.h1>Slide 2</components.h1>
+      </components.Slide>
+    </components.Presentation>
+  );
+};
+
+export default MDXContent
+```
