@@ -138,7 +138,7 @@ import { Button } from "@r4ai/mercury-ui";
   <div className="py-32">
     <div className="flex flex-col items-center gap-2 justify-center">
       <span>⇒</span>
-      <span>構造化された\
+      <span className="text-sm">構造化された\
             mdast へ変換</span>
     </div>
   </div>
@@ -190,21 +190,193 @@ import { Button } from "@r4ai/mercury-ui";
 
 --- */}
 
-# 処理の流れ / mdast → JSX
+# 処理の流れ / mdast → hast → JSX
 
-```jsx
-const MDXContent = ({ components }) => {
-  return (
-    <components.Presentation slidesLength={2}>
-      <components.Slide index={0}>
-        <components.h1>Slide 1</components.h1>
-      </components.Slide>
-      <components.Slide index={1}>
-        <components.h1>Slide 2</components.h1>
-      </components.Slide>
-    </components.Presentation>
-  );
-};
+1. 先程の構造化された mdast を、hast に変換する
 
-export default MDXContent
+   （構造自体はさほど変わらないので、省略する）
+
+2. hast を、右のような JSX に変換する
+
+   （実際はもっと複雑なものだが、簡略化したものを示している）
+
+3. JSX を React を使って表示すれば、スライドが表示される
+
+<div className="absolute right-8 top-24">
+  ```jsx
+  const MDXContent = ({ components }) => {
+    return (
+      <components.Presentation slidesLength={2}>
+        <components.Slide index={0}>
+          <components.h1>Slide 1</components.h1>
+        </components.Slide>
+        <components.Slide index={1}>
+          <components.h1>Slide 2</components.h1>
+        </components.Slide>
+      </components.Presentation>
+    );
+  };
+
+  export default MDXContent
+  ```
+</div>
+
+---
+
+# 処理の流れ / mdast → hast → JSX
+
+- 描画に使用する component は、\
+  すべて引数である `components` から渡される
+- 実際にどんな component を使用するかは、\
+  この変換の責務ではない
+
+<br />
+
+つまり...
+
+- 通常のアプリ開発のように component を作り渡せば、\
+  スライドを表示するアプリとして機能する
+
+  👉️ Web の知識だけで開発できる
+
+- 生成される JSX は、UI ライブラリに依存しない
+
+  👉️ React 以外にも容易に対応できる
+
+<div className="absolute right-8 top-24">
+  ```jsx
+  import { components } from "@r4ai/mercury-ui";
+
+  const MDXContent = ({ components } = { components }) => {
+    return (
+      <components.Presentation slidesLength={2}>
+        <components.Slide index={0}>
+          <components.h1>Slide 1</components.h1>
+        </components.Slide>
+        <components.Slide index={1}>
+          <components.h1>Slide 2</components.h1>
+        </components.Slide>
+      </components.Presentation>
+    );
+  };
+
+  export default MDXContent
+  ```
+</div>
+
+---
+
+# 処理の流れ / JSX → HTML, CSS, JavaScript
+
+- 変換された JSX をインポートする
+
+  - MDX から JSX までの変換は、インポート時に自動的に行われる
+
+    （Viteのプラグインとして実装されている）
+
+- 読み込んだ JSX を、ReactDOM.createRoot で画面上に表示する
+
+- Vite でビルドすることで、HTML, CSS, JavaScript が生成される
+
+  - 成果物をデプロイすれば、ウェブアプリとして公開できる
+
+    ブラウザ上で、PDFとして保存することも可能
+
+```tsx
+import Presentation  from "./presentation.mdx";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <Presentation />
+  </React.StrictMode>,
+)
 ```
+
+---
+
+# 機能の紹介 / 数式とソースコードの表示
+
+<div className="flex flex-row gap-8">
+  <div>
+    ````mdx
+    ソースコード：
+
+    ```js
+    const hello = () => {
+      console.log("Hello, World!");
+    }
+    ```
+    ````
+  </div>
+  <div className="py-16">
+    <div className="flex flex-col items-center gap-2 justify-center">
+      <span>⇒</span>
+    </div>
+  </div>
+  <div>
+    ソースコード：
+
+    ```js
+    const hello = () => {
+      console.log("Hello, World!");
+    }
+    ```
+  </div>
+</div>
+
+<div className="flex flex-row gap-8">
+  <div>
+    ````mdx
+    数式：
+
+    $$
+    \forall \epsilon > 0,
+    \exists \delta > 0,
+    \forall x, |x - a| < \delta \Rightarrow
+    |f(x) - f(a)| < \epsilon
+    $$
+    ````
+  </div>
+  <div className="py-16">
+    <div className="flex flex-col items-center gap-2 justify-center">
+      <span>⇒</span>
+    </div>
+  </div>
+  <div>
+    数式：
+
+    $$
+    \forall \epsilon > 0,
+    \exists \delta > 0,
+    \forall x, |x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon
+    $$
+  </div>
+</div>
+
+---
+
+# 既存のツールとの比較
+
+{/* TODO: table のデザインを追加する */}
+
+| 特徴         | Mercury                               | Slidev   |
+| ------------ | ------------------------------------- | -------- |
+| 言語         | MDX                                   | Markdown |
+| UIライブラリ | React (今後 SolidJS などにも対応予定) | Vue      |
+| スタイル     | TailwindCSS                           | UnoCSS   |
+| ビルドツール | Vite                                  | Vite     |
+
+---
+
+# まとめ
+
+- MDX ファイルからスライドを作成するソフトウェアを開発した
+
+  - MDX → JSX への変換処理
+  - スライドを表示するウェブアプリ（SPA）の自動生成
+
+- GitHub: https://github.com/r4ai/mercury
+
+---
+
+質問対応
