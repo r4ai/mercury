@@ -2289,11 +2289,11 @@
                 {
                   "type": "mdxJsxFlowElement",
                   "name": "span",
-                  "attributes": [],
-                  "children": [
+                  "attributes": [
                     {
-                      "type": "text",
-                      "value": "構造化された",
+                      "type": "mdxJsxAttribute",
+                      "name": "className",
+                      "value": "text-sm",
                       "position": {
                         "start": {
                           "line": 141,
@@ -2302,8 +2302,26 @@
                         },
                         "end": {
                           "line": 141,
-                          "column": 19,
-                          "offset": 2560
+                          "column": 32,
+                          "offset": 2573
+                        }
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "構造化された",
+                      "position": {
+                        "start": {
+                          "line": 141,
+                          "column": 33,
+                          "offset": 2574
+                        },
+                        "end": {
+                          "line": 141,
+                          "column": 39,
+                          "offset": 2580
                         }
                       }
                     },
@@ -2312,13 +2330,13 @@
                       "position": {
                         "start": {
                           "line": 141,
-                          "column": 19,
-                          "offset": 2560
+                          "column": 39,
+                          "offset": 2580
                         },
                         "end": {
                           "line": 142,
                           "column": 1,
-                          "offset": 2562
+                          "offset": 2582
                         }
                       }
                     },
@@ -2329,12 +2347,12 @@
                         "start": {
                           "line": 142,
                           "column": 13,
-                          "offset": 2574
+                          "offset": 2594
                         },
                         "end": {
                           "line": 142,
                           "column": 22,
-                          "offset": 2583
+                          "offset": 2603
                         }
                       }
                     }
@@ -2348,7 +2366,7 @@
                     "end": {
                       "line": 142,
                       "column": 29,
-                      "offset": 2590
+                      "offset": 2610
                     }
                   },
                   "data": {
@@ -2365,7 +2383,7 @@
                 "end": {
                   "line": 143,
                   "column": 11,
-                  "offset": 2601
+                  "offset": 2621
                 }
               },
               "data": {
@@ -2382,7 +2400,7 @@
             "end": {
               "line": 144,
               "column": 9,
-              "offset": 2610
+              "offset": 2630
             }
           },
           "data": {
@@ -2403,12 +2421,12 @@
                 "start": {
                   "line": 146,
                   "column": 5,
-                  "offset": 2623
+                  "offset": 2643
                 },
                 "end": {
                   "line": 169,
                   "column": 8,
-                  "offset": 3259
+                  "offset": 3279
                 }
               }
             }
@@ -2417,12 +2435,12 @@
             "start": {
               "line": 145,
               "column": 3,
-              "offset": 2613
+              "offset": 2633
             },
             "end": {
               "line": 170,
               "column": 9,
-              "offset": 3268
+              "offset": 3288
             }
           },
           "data": {
@@ -2439,7 +2457,7 @@
         "end": {
           "line": 171,
           "column": 7,
-          "offset": 3275
+          "offset": 3295
         }
       },
       "data": {
@@ -2452,12 +2470,12 @@
         "start": {
           "line": 173,
           "column": 1,
-          "offset": 3277
+          "offset": 3297
         },
         "end": {
           "line": 173,
           "column": 4,
-          "offset": 3280
+          "offset": 3300
         }
       }
     },
@@ -2468,55 +2486,55 @@
         "start": {
           "line": 175,
           "column": 1,
-          "offset": 3282
+          "offset": 3302
         },
         "end": {
           "line": 191,
           "column": 8,
-          "offset": 3673
+          "offset": 3693
         }
       },
       "data": {
         "estree": {
           "type": "Program",
-          "start": 3283,
-          "end": 3672,
+          "start": 3303,
+          "end": 3692,
           "body": [],
           "sourceType": "module",
           "comments": [
             {
               "type": "Block",
               "value": " # コラム: CommonMark について\n\n- MDX は CommonMark をベースにしている\n\nhttps://spec.commonmark.org/0.31.2/\n\n- CommonMark では、Markdown の要素は次の2つに分類できる：\n\n- **Container blocks**: 他の要素を含むことができる要素\n- **Leaf blocks**: 他の要素を含まない要素\n\n- したがって、mdast 上でネストした構造を表現するためには、Container blocks を使う必要がある\n\n- Container blocks としては block quote と list item がある。\\\n本ツールでは、block containerを使うことで、プレゼンテーションのネスト構造を表現している\n\n--- ",
-              "start": 3283,
-              "end": 3672,
+              "start": 3303,
+              "end": 3692,
               "loc": {
                 "start": {
                   "line": 175,
                   "column": 1,
-                  "offset": 3283
+                  "offset": 3303
                 },
                 "end": {
                   "line": 191,
                   "column": 6,
-                  "offset": 3672
+                  "offset": 3692
                 }
               },
-              "range": [3283, 3672]
+              "range": [3303, 3692]
             }
           ],
           "loc": {
             "start": {
               "line": 175,
               "column": 1,
-              "offset": 3283
+              "offset": 3303
             },
             "end": {
               "line": 191,
               "column": 6,
-              "offset": 3672
+              "offset": 3692
             }
           },
-          "range": [3283, 3672]
+          "range": [3303, 3692]
         }
       }
     },
@@ -2526,17 +2544,17 @@
       "children": [
         {
           "type": "text",
-          "value": "処理の流れ / mdast → JSX",
+          "value": "処理の流れ / mdast → hast → JSX",
           "position": {
             "start": {
               "line": 193,
               "column": 3,
-              "offset": 3677
+              "offset": 3697
             },
             "end": {
               "line": 193,
-              "column": 22,
-              "offset": 3696
+              "column": 29,
+              "offset": 3723
             }
           }
         }
@@ -2545,30 +2563,3062 @@
         "start": {
           "line": 193,
           "column": 1,
-          "offset": 3675
+          "offset": 3695
         },
         "end": {
           "line": 193,
-          "column": 22,
-          "offset": 3696
+          "column": 29,
+          "offset": 3723
+        }
+      }
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "start": 1,
+      "spread": true,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": true,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "先程の構造化された mdast を、hast に変換する",
+                  "position": {
+                    "start": {
+                      "line": 195,
+                      "column": 4,
+                      "offset": 3728
+                    },
+                    "end": {
+                      "line": 195,
+                      "column": 32,
+                      "offset": 3756
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 195,
+                  "column": 4,
+                  "offset": 3728
+                },
+                "end": {
+                  "line": 195,
+                  "column": 32,
+                  "offset": 3756
+                }
+              }
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "（構造自体はさほど変わらないので、省略する）",
+                  "position": {
+                    "start": {
+                      "line": 197,
+                      "column": 4,
+                      "offset": 3761
+                    },
+                    "end": {
+                      "line": 197,
+                      "column": 26,
+                      "offset": 3783
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 197,
+                  "column": 4,
+                  "offset": 3761
+                },
+                "end": {
+                  "line": 197,
+                  "column": 26,
+                  "offset": 3783
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 195,
+              "column": 1,
+              "offset": 3725
+            },
+            "end": {
+              "line": 197,
+              "column": 26,
+              "offset": 3783
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": true,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "hast を、右のような JSX に変換する",
+                  "position": {
+                    "start": {
+                      "line": 199,
+                      "column": 4,
+                      "offset": 3788
+                    },
+                    "end": {
+                      "line": 199,
+                      "column": 26,
+                      "offset": 3810
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 199,
+                  "column": 4,
+                  "offset": 3788
+                },
+                "end": {
+                  "line": 199,
+                  "column": 26,
+                  "offset": 3810
+                }
+              }
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "（実際はもっと複雑なものだが、簡略化したものを示している）",
+                  "position": {
+                    "start": {
+                      "line": 201,
+                      "column": 4,
+                      "offset": 3815
+                    },
+                    "end": {
+                      "line": 201,
+                      "column": 33,
+                      "offset": 3844
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 201,
+                  "column": 4,
+                  "offset": 3815
+                },
+                "end": {
+                  "line": 201,
+                  "column": 33,
+                  "offset": 3844
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 199,
+              "column": 1,
+              "offset": 3785
+            },
+            "end": {
+              "line": 201,
+              "column": 33,
+              "offset": 3844
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "JSX を React を使って表示すれば、スライドが表示される",
+                  "position": {
+                    "start": {
+                      "line": 203,
+                      "column": 4,
+                      "offset": 3849
+                    },
+                    "end": {
+                      "line": 203,
+                      "column": 36,
+                      "offset": 3881
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 203,
+                  "column": 4,
+                  "offset": 3849
+                },
+                "end": {
+                  "line": 203,
+                  "column": 36,
+                  "offset": 3881
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 203,
+              "column": 1,
+              "offset": 3846
+            },
+            "end": {
+              "line": 203,
+              "column": 36,
+              "offset": 3881
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 195,
+          "column": 1,
+          "offset": 3725
+        },
+        "end": {
+          "line": 203,
+          "column": 36,
+          "offset": 3881
+        }
+      }
+    },
+    {
+      "type": "mdxJsxFlowElement",
+      "name": "div",
+      "attributes": [
+        {
+          "type": "mdxJsxAttribute",
+          "name": "className",
+          "value": "absolute right-8 top-24",
+          "position": {
+            "start": {
+              "line": 205,
+              "column": 6,
+              "offset": 3888
+            },
+            "end": {
+              "line": 205,
+              "column": 41,
+              "offset": 3923
+            }
+          }
+        }
+      ],
+      "children": [
+        {
+          "type": "code",
+          "lang": "jsx",
+          "meta": null,
+          "value": "const MDXContent = ({ components }) => {\n  return (\n    <components.Presentation slidesLength={2}>\n      <components.Slide index={0}>\n        <components.h1>Slide 1</components.h1>\n      </components.Slide>\n      <components.Slide index={1}>\n        <components.h1>Slide 2</components.h1>\n      </components.Slide>\n    </components.Presentation>\n  );\n};\n\nexport default MDXContent",
+          "position": {
+            "start": {
+              "line": 206,
+              "column": 3,
+              "offset": 3927
+            },
+            "end": {
+              "line": 221,
+              "column": 6,
+              "offset": 4346
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 205,
+          "column": 1,
+          "offset": 3883
+        },
+        "end": {
+          "line": 222,
+          "column": 7,
+          "offset": 4353
+        }
+      },
+      "data": {
+        "_mdxExplicitJsx": true
+      }
+    },
+    {
+      "type": "thematicBreak",
+      "position": {
+        "start": {
+          "line": 224,
+          "column": 1,
+          "offset": 4355
+        },
+        "end": {
+          "line": 224,
+          "column": 4,
+          "offset": 4358
+        }
+      }
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "処理の流れ / mdast → hast → JSX",
+          "position": {
+            "start": {
+              "line": 226,
+              "column": 3,
+              "offset": 4362
+            },
+            "end": {
+              "line": 226,
+              "column": 29,
+              "offset": 4388
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 226,
+          "column": 1,
+          "offset": 4360
+        },
+        "end": {
+          "line": 226,
+          "column": 29,
+          "offset": 4388
+        }
+      }
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "start": null,
+      "spread": false,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "描画に使用する component は、",
+                  "position": {
+                    "start": {
+                      "line": 228,
+                      "column": 3,
+                      "offset": 4392
+                    },
+                    "end": {
+                      "line": 228,
+                      "column": 23,
+                      "offset": 4412
+                    }
+                  }
+                },
+                {
+                  "type": "break",
+                  "position": {
+                    "start": {
+                      "line": 228,
+                      "column": 23,
+                      "offset": 4412
+                    },
+                    "end": {
+                      "line": 229,
+                      "column": 1,
+                      "offset": 4414
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "すべて引数である ",
+                  "position": {
+                    "start": {
+                      "line": 229,
+                      "column": 3,
+                      "offset": 4416
+                    },
+                    "end": {
+                      "line": 229,
+                      "column": 12,
+                      "offset": 4425
+                    }
+                  }
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "components",
+                  "position": {
+                    "start": {
+                      "line": 229,
+                      "column": 12,
+                      "offset": 4425
+                    },
+                    "end": {
+                      "line": 229,
+                      "column": 24,
+                      "offset": 4437
+                    }
+                  },
+                  "data": {
+                    "hName": "inline-code"
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": " から渡される",
+                  "position": {
+                    "start": {
+                      "line": 229,
+                      "column": 24,
+                      "offset": 4437
+                    },
+                    "end": {
+                      "line": 229,
+                      "column": 31,
+                      "offset": 4444
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 228,
+                  "column": 3,
+                  "offset": 4392
+                },
+                "end": {
+                  "line": 229,
+                  "column": 31,
+                  "offset": 4444
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 228,
+              "column": 1,
+              "offset": 4390
+            },
+            "end": {
+              "line": 229,
+              "column": 31,
+              "offset": 4444
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "実際にどんな component を使用するかは、",
+                  "position": {
+                    "start": {
+                      "line": 230,
+                      "column": 3,
+                      "offset": 4447
+                    },
+                    "end": {
+                      "line": 230,
+                      "column": 28,
+                      "offset": 4472
+                    }
+                  }
+                },
+                {
+                  "type": "break",
+                  "position": {
+                    "start": {
+                      "line": 230,
+                      "column": 28,
+                      "offset": 4472
+                    },
+                    "end": {
+                      "line": 231,
+                      "column": 1,
+                      "offset": 4474
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "この変換の責務ではない",
+                  "position": {
+                    "start": {
+                      "line": 231,
+                      "column": 3,
+                      "offset": 4476
+                    },
+                    "end": {
+                      "line": 231,
+                      "column": 14,
+                      "offset": 4487
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 230,
+                  "column": 3,
+                  "offset": 4447
+                },
+                "end": {
+                  "line": 231,
+                  "column": 14,
+                  "offset": 4487
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 230,
+              "column": 1,
+              "offset": 4445
+            },
+            "end": {
+              "line": 231,
+              "column": 14,
+              "offset": 4487
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 228,
+          "column": 1,
+          "offset": 4390
+        },
+        "end": {
+          "line": 231,
+          "column": 14,
+          "offset": 4487
+        }
+      }
+    },
+    {
+      "type": "mdxJsxFlowElement",
+      "name": "br",
+      "attributes": [],
+      "children": [],
+      "position": {
+        "start": {
+          "line": 233,
+          "column": 1,
+          "offset": 4489
+        },
+        "end": {
+          "line": 233,
+          "column": 7,
+          "offset": 4495
+        }
+      },
+      "data": {
+        "_mdxExplicitJsx": true
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "つまり...",
+          "position": {
+            "start": {
+              "line": 235,
+              "column": 1,
+              "offset": 4497
+            },
+            "end": {
+              "line": 235,
+              "column": 7,
+              "offset": 4503
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 235,
+          "column": 1,
+          "offset": 4497
+        },
+        "end": {
+          "line": 235,
+          "column": 7,
+          "offset": 4503
+        }
+      }
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "start": null,
+      "spread": true,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": true,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "通常のアプリ開発のように component を作り渡せば、",
+                  "position": {
+                    "start": {
+                      "line": 237,
+                      "column": 3,
+                      "offset": 4507
+                    },
+                    "end": {
+                      "line": 237,
+                      "column": 33,
+                      "offset": 4537
+                    }
+                  }
+                },
+                {
+                  "type": "break",
+                  "position": {
+                    "start": {
+                      "line": 237,
+                      "column": 33,
+                      "offset": 4537
+                    },
+                    "end": {
+                      "line": 238,
+                      "column": 1,
+                      "offset": 4539
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "スライドを表示するアプリとして機能する",
+                  "position": {
+                    "start": {
+                      "line": 238,
+                      "column": 3,
+                      "offset": 4541
+                    },
+                    "end": {
+                      "line": 238,
+                      "column": 22,
+                      "offset": 4560
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 237,
+                  "column": 3,
+                  "offset": 4507
+                },
+                "end": {
+                  "line": 238,
+                  "column": 22,
+                  "offset": 4560
+                }
+              }
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "👉️ Web の知識だけで開発できる",
+                  "position": {
+                    "start": {
+                      "line": 240,
+                      "column": 3,
+                      "offset": 4564
+                    },
+                    "end": {
+                      "line": 240,
+                      "column": 22,
+                      "offset": 4583
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 240,
+                  "column": 3,
+                  "offset": 4564
+                },
+                "end": {
+                  "line": 240,
+                  "column": 22,
+                  "offset": 4583
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 237,
+              "column": 1,
+              "offset": 4505
+            },
+            "end": {
+              "line": 240,
+              "column": 22,
+              "offset": 4583
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": true,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "生成される JSX は、UI ライブラリに依存しない",
+                  "position": {
+                    "start": {
+                      "line": 242,
+                      "column": 3,
+                      "offset": 4587
+                    },
+                    "end": {
+                      "line": 242,
+                      "column": 29,
+                      "offset": 4613
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 242,
+                  "column": 3,
+                  "offset": 4587
+                },
+                "end": {
+                  "line": 242,
+                  "column": 29,
+                  "offset": 4613
+                }
+              }
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "👉️ React 以外にも容易に対応できる",
+                  "position": {
+                    "start": {
+                      "line": 244,
+                      "column": 3,
+                      "offset": 4617
+                    },
+                    "end": {
+                      "line": 244,
+                      "column": 25,
+                      "offset": 4639
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 244,
+                  "column": 3,
+                  "offset": 4617
+                },
+                "end": {
+                  "line": 244,
+                  "column": 25,
+                  "offset": 4639
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 242,
+              "column": 1,
+              "offset": 4585
+            },
+            "end": {
+              "line": 244,
+              "column": 25,
+              "offset": 4639
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 237,
+          "column": 1,
+          "offset": 4505
+        },
+        "end": {
+          "line": 244,
+          "column": 25,
+          "offset": 4639
+        }
+      }
+    },
+    {
+      "type": "mdxJsxFlowElement",
+      "name": "div",
+      "attributes": [
+        {
+          "type": "mdxJsxAttribute",
+          "name": "className",
+          "value": "absolute right-8 top-24",
+          "position": {
+            "start": {
+              "line": 246,
+              "column": 6,
+              "offset": 4646
+            },
+            "end": {
+              "line": 246,
+              "column": 41,
+              "offset": 4681
+            }
+          }
+        }
+      ],
+      "children": [
+        {
+          "type": "code",
+          "lang": "jsx",
+          "meta": null,
+          "value": "import { components } from \"@r4ai/mercury-ui\";\n\nconst MDXContent = ({ components } = { components }) => {\n  return (\n    <components.Presentation slidesLength={2}>\n      <components.Slide index={0}>\n        <components.h1>Slide 1</components.h1>\n      </components.Slide>\n      <components.Slide index={1}>\n        <components.h1>Slide 2</components.h1>\n      </components.Slide>\n    </components.Presentation>\n  );\n};\n\nexport default MDXContent",
+          "position": {
+            "start": {
+              "line": 247,
+              "column": 3,
+              "offset": 4685
+            },
+            "end": {
+              "line": 264,
+              "column": 6,
+              "offset": 5171
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 246,
+          "column": 1,
+          "offset": 4641
+        },
+        "end": {
+          "line": 265,
+          "column": 7,
+          "offset": 5178
+        }
+      },
+      "data": {
+        "_mdxExplicitJsx": true
+      }
+    },
+    {
+      "type": "thematicBreak",
+      "position": {
+        "start": {
+          "line": 267,
+          "column": 1,
+          "offset": 5180
+        },
+        "end": {
+          "line": 267,
+          "column": 4,
+          "offset": 5183
+        }
+      }
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "処理の流れ / JSX → HTML, CSS, JavaScript",
+          "position": {
+            "start": {
+              "line": 269,
+              "column": 3,
+              "offset": 5187
+            },
+            "end": {
+              "line": 269,
+              "column": 38,
+              "offset": 5222
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 269,
+          "column": 1,
+          "offset": 5185
+        },
+        "end": {
+          "line": 269,
+          "column": 38,
+          "offset": 5222
+        }
+      }
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "start": null,
+      "spread": true,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": true,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "変換された JSX をインポートする",
+                  "position": {
+                    "start": {
+                      "line": 271,
+                      "column": 3,
+                      "offset": 5226
+                    },
+                    "end": {
+                      "line": 271,
+                      "column": 21,
+                      "offset": 5244
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 271,
+                  "column": 3,
+                  "offset": 5226
+                },
+                "end": {
+                  "line": 271,
+                  "column": 21,
+                  "offset": 5244
+                }
+              }
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "start": null,
+              "spread": false,
+              "children": [
+                {
+                  "type": "listItem",
+                  "spread": true,
+                  "checked": null,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "MDX から JSX までの変換は、インポート時に自動的に行われる",
+                          "position": {
+                            "start": {
+                              "line": 273,
+                              "column": 5,
+                              "offset": 5250
+                            },
+                            "end": {
+                              "line": 273,
+                              "column": 38,
+                              "offset": 5283
+                            }
+                          }
+                        }
+                      ],
+                      "position": {
+                        "start": {
+                          "line": 273,
+                          "column": 5,
+                          "offset": 5250
+                        },
+                        "end": {
+                          "line": 273,
+                          "column": 38,
+                          "offset": 5283
+                        }
+                      }
+                    },
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "（Viteのプラグインとして実装されている）",
+                          "position": {
+                            "start": {
+                              "line": 275,
+                              "column": 5,
+                              "offset": 5289
+                            },
+                            "end": {
+                              "line": 275,
+                              "column": 27,
+                              "offset": 5311
+                            }
+                          }
+                        }
+                      ],
+                      "position": {
+                        "start": {
+                          "line": 275,
+                          "column": 5,
+                          "offset": 5289
+                        },
+                        "end": {
+                          "line": 275,
+                          "column": 27,
+                          "offset": 5311
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 273,
+                      "column": 3,
+                      "offset": 5248
+                    },
+                    "end": {
+                      "line": 275,
+                      "column": 27,
+                      "offset": 5311
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 273,
+                  "column": 3,
+                  "offset": 5248
+                },
+                "end": {
+                  "line": 275,
+                  "column": 27,
+                  "offset": 5311
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 271,
+              "column": 1,
+              "offset": 5224
+            },
+            "end": {
+              "line": 275,
+              "column": 27,
+              "offset": 5311
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "読み込んだ JSX を、ReactDOM.createRoot で画面上に表示する",
+                  "position": {
+                    "start": {
+                      "line": 277,
+                      "column": 3,
+                      "offset": 5315
+                    },
+                    "end": {
+                      "line": 277,
+                      "column": 44,
+                      "offset": 5356
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 277,
+                  "column": 3,
+                  "offset": 5315
+                },
+                "end": {
+                  "line": 277,
+                  "column": 44,
+                  "offset": 5356
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 277,
+              "column": 1,
+              "offset": 5313
+            },
+            "end": {
+              "line": 277,
+              "column": 44,
+              "offset": 5356
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": true,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Vite でビルドすることで、HTML, CSS, JavaScript が生成される",
+                  "position": {
+                    "start": {
+                      "line": 279,
+                      "column": 3,
+                      "offset": 5360
+                    },
+                    "end": {
+                      "line": 279,
+                      "column": 46,
+                      "offset": 5403
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 279,
+                  "column": 3,
+                  "offset": 5360
+                },
+                "end": {
+                  "line": 279,
+                  "column": 46,
+                  "offset": 5403
+                }
+              }
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "start": null,
+              "spread": false,
+              "children": [
+                {
+                  "type": "listItem",
+                  "spread": true,
+                  "checked": null,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "成果物をデプロイすれば、ウェブアプリとして公開できる",
+                          "position": {
+                            "start": {
+                              "line": 281,
+                              "column": 5,
+                              "offset": 5409
+                            },
+                            "end": {
+                              "line": 281,
+                              "column": 31,
+                              "offset": 5435
+                            }
+                          }
+                        }
+                      ],
+                      "position": {
+                        "start": {
+                          "line": 281,
+                          "column": 5,
+                          "offset": 5409
+                        },
+                        "end": {
+                          "line": 281,
+                          "column": 31,
+                          "offset": 5435
+                        }
+                      }
+                    },
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "ブラウザ上で、PDFとして保存することも可能",
+                          "position": {
+                            "start": {
+                              "line": 283,
+                              "column": 5,
+                              "offset": 5441
+                            },
+                            "end": {
+                              "line": 283,
+                              "column": 27,
+                              "offset": 5463
+                            }
+                          }
+                        }
+                      ],
+                      "position": {
+                        "start": {
+                          "line": 283,
+                          "column": 5,
+                          "offset": 5441
+                        },
+                        "end": {
+                          "line": 283,
+                          "column": 27,
+                          "offset": 5463
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 281,
+                      "column": 3,
+                      "offset": 5407
+                    },
+                    "end": {
+                      "line": 283,
+                      "column": 27,
+                      "offset": 5463
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 281,
+                  "column": 3,
+                  "offset": 5407
+                },
+                "end": {
+                  "line": 283,
+                  "column": 27,
+                  "offset": 5463
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 279,
+              "column": 1,
+              "offset": 5358
+            },
+            "end": {
+              "line": 283,
+              "column": 27,
+              "offset": 5463
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 271,
+          "column": 1,
+          "offset": 5224
+        },
+        "end": {
+          "line": 283,
+          "column": 27,
+          "offset": 5463
         }
       }
     },
     {
       "type": "code",
-      "lang": "jsx",
+      "lang": "tsx",
       "meta": null,
-      "value": "const MDXContent = ({ components }) => {\n  return (\n    <components.Presentation slidesLength={2}>\n      <components.Slide index={0}>\n        <components.h1>Slide 1</components.h1>\n      </components.Slide>\n      <components.Slide index={1}>\n        <components.h1>Slide 2</components.h1>\n      </components.Slide>\n    </components.Presentation>\n  );\n};\n\nexport default MDXContent",
+      "value": "import Presentation  from \"./presentation.mdx\";\n\nReactDOM.createRoot(document.getElementById(\"root\")!).render(\n  <React.StrictMode>\n    <Presentation />\n  </React.StrictMode>,\n)",
       "position": {
         "start": {
-          "line": 195,
+          "line": 285,
           "column": 1,
-          "offset": 3698
+          "offset": 5465
         },
         "end": {
-          "line": 210,
+          "line": 293,
           "column": 4,
-          "offset": 4089
+          "offset": 5653
+        }
+      }
+    },
+    {
+      "type": "thematicBreak",
+      "position": {
+        "start": {
+          "line": 295,
+          "column": 1,
+          "offset": 5655
+        },
+        "end": {
+          "line": 295,
+          "column": 4,
+          "offset": 5658
+        }
+      }
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "機能の紹介 / 数式とソースコードの表示",
+          "position": {
+            "start": {
+              "line": 297,
+              "column": 3,
+              "offset": 5662
+            },
+            "end": {
+              "line": 297,
+              "column": 23,
+              "offset": 5682
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 297,
+          "column": 1,
+          "offset": 5660
+        },
+        "end": {
+          "line": 297,
+          "column": 23,
+          "offset": 5682
+        }
+      }
+    },
+    {
+      "type": "mdxJsxFlowElement",
+      "name": "div",
+      "attributes": [
+        {
+          "type": "mdxJsxAttribute",
+          "name": "className",
+          "value": "flex flex-row gap-8",
+          "position": {
+            "start": {
+              "line": 299,
+              "column": 6,
+              "offset": 5689
+            },
+            "end": {
+              "line": 299,
+              "column": 37,
+              "offset": 5720
+            }
+          }
+        }
+      ],
+      "children": [
+        {
+          "type": "mdxJsxFlowElement",
+          "name": "div",
+          "attributes": [],
+          "children": [
+            {
+              "type": "code",
+              "lang": "mdx",
+              "meta": null,
+              "value": "ソースコード：\n\n```js\nconst hello = () => {\n  console.log(\"Hello, World!\");\n}\n```",
+              "position": {
+                "start": {
+                  "line": 301,
+                  "column": 5,
+                  "offset": 5734
+                },
+                "end": {
+                  "line": 309,
+                  "column": 9,
+                  "offset": 5849
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 300,
+              "column": 3,
+              "offset": 5724
+            },
+            "end": {
+              "line": 310,
+              "column": 9,
+              "offset": 5858
+            }
+          },
+          "data": {
+            "_mdxExplicitJsx": true
+          }
+        },
+        {
+          "type": "mdxJsxFlowElement",
+          "name": "div",
+          "attributes": [
+            {
+              "type": "mdxJsxAttribute",
+              "name": "className",
+              "value": "py-16",
+              "position": {
+                "start": {
+                  "line": 311,
+                  "column": 8,
+                  "offset": 5866
+                },
+                "end": {
+                  "line": 311,
+                  "column": 25,
+                  "offset": 5883
+                }
+              }
+            }
+          ],
+          "children": [
+            {
+              "type": "mdxJsxFlowElement",
+              "name": "div",
+              "attributes": [
+                {
+                  "type": "mdxJsxAttribute",
+                  "name": "className",
+                  "value": "flex flex-col items-center gap-2 justify-center",
+                  "position": {
+                    "start": {
+                      "line": 312,
+                      "column": 10,
+                      "offset": 5894
+                    },
+                    "end": {
+                      "line": 312,
+                      "column": 69,
+                      "offset": 5953
+                    }
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "type": "mdxJsxFlowElement",
+                  "name": "span",
+                  "attributes": [],
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "⇒",
+                      "position": {
+                        "start": {
+                          "line": 313,
+                          "column": 13,
+                          "offset": 5967
+                        },
+                        "end": {
+                          "line": 313,
+                          "column": 14,
+                          "offset": 5968
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 313,
+                      "column": 7,
+                      "offset": 5961
+                    },
+                    "end": {
+                      "line": 313,
+                      "column": 21,
+                      "offset": 5975
+                    }
+                  },
+                  "data": {
+                    "_mdxExplicitJsx": true
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 312,
+                  "column": 5,
+                  "offset": 5889
+                },
+                "end": {
+                  "line": 314,
+                  "column": 11,
+                  "offset": 5986
+                }
+              },
+              "data": {
+                "_mdxExplicitJsx": true
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 311,
+              "column": 3,
+              "offset": 5861
+            },
+            "end": {
+              "line": 315,
+              "column": 9,
+              "offset": 5995
+            }
+          },
+          "data": {
+            "_mdxExplicitJsx": true
+          }
+        },
+        {
+          "type": "mdxJsxFlowElement",
+          "name": "div",
+          "attributes": [],
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "ソースコード：",
+                  "position": {
+                    "start": {
+                      "line": 317,
+                      "column": 5,
+                      "offset": 6008
+                    },
+                    "end": {
+                      "line": 317,
+                      "column": 12,
+                      "offset": 6015
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 317,
+                  "column": 5,
+                  "offset": 6008
+                },
+                "end": {
+                  "line": 317,
+                  "column": 12,
+                  "offset": 6015
+                }
+              }
+            },
+            {
+              "type": "code",
+              "lang": "js",
+              "meta": null,
+              "value": "const hello = () => {\n  console.log(\"Hello, World!\");\n}",
+              "position": {
+                "start": {
+                  "line": 319,
+                  "column": 5,
+                  "offset": 6021
+                },
+                "end": {
+                  "line": 323,
+                  "column": 8,
+                  "offset": 6102
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 316,
+              "column": 3,
+              "offset": 5998
+            },
+            "end": {
+              "line": 324,
+              "column": 9,
+              "offset": 6111
+            }
+          },
+          "data": {
+            "_mdxExplicitJsx": true
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 299,
+          "column": 1,
+          "offset": 5684
+        },
+        "end": {
+          "line": 325,
+          "column": 7,
+          "offset": 6118
+        }
+      },
+      "data": {
+        "_mdxExplicitJsx": true
+      }
+    },
+    {
+      "type": "mdxJsxFlowElement",
+      "name": "div",
+      "attributes": [
+        {
+          "type": "mdxJsxAttribute",
+          "name": "className",
+          "value": "flex flex-row gap-8",
+          "position": {
+            "start": {
+              "line": 327,
+              "column": 6,
+              "offset": 6125
+            },
+            "end": {
+              "line": 327,
+              "column": 37,
+              "offset": 6156
+            }
+          }
+        }
+      ],
+      "children": [
+        {
+          "type": "mdxJsxFlowElement",
+          "name": "div",
+          "attributes": [],
+          "children": [
+            {
+              "type": "code",
+              "lang": "mdx",
+              "meta": null,
+              "value": "数式：\n\n$$\n\\forall \\epsilon > 0,\n\\exists \\delta > 0,\n\\forall x, |x - a| < \\delta \\Rightarrow\n|f(x) - f(a)| < \\epsilon\n$$",
+              "position": {
+                "start": {
+                  "line": 329,
+                  "column": 5,
+                  "offset": 6170
+                },
+                "end": {
+                  "line": 338,
+                  "column": 9,
+                  "offset": 6332
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 328,
+              "column": 3,
+              "offset": 6160
+            },
+            "end": {
+              "line": 339,
+              "column": 9,
+              "offset": 6341
+            }
+          },
+          "data": {
+            "_mdxExplicitJsx": true
+          }
+        },
+        {
+          "type": "mdxJsxFlowElement",
+          "name": "div",
+          "attributes": [
+            {
+              "type": "mdxJsxAttribute",
+              "name": "className",
+              "value": "py-16",
+              "position": {
+                "start": {
+                  "line": 340,
+                  "column": 8,
+                  "offset": 6349
+                },
+                "end": {
+                  "line": 340,
+                  "column": 25,
+                  "offset": 6366
+                }
+              }
+            }
+          ],
+          "children": [
+            {
+              "type": "mdxJsxFlowElement",
+              "name": "div",
+              "attributes": [
+                {
+                  "type": "mdxJsxAttribute",
+                  "name": "className",
+                  "value": "flex flex-col items-center gap-2 justify-center",
+                  "position": {
+                    "start": {
+                      "line": 341,
+                      "column": 10,
+                      "offset": 6377
+                    },
+                    "end": {
+                      "line": 341,
+                      "column": 69,
+                      "offset": 6436
+                    }
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "type": "mdxJsxFlowElement",
+                  "name": "span",
+                  "attributes": [],
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "⇒",
+                      "position": {
+                        "start": {
+                          "line": 342,
+                          "column": 13,
+                          "offset": 6450
+                        },
+                        "end": {
+                          "line": 342,
+                          "column": 14,
+                          "offset": 6451
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 342,
+                      "column": 7,
+                      "offset": 6444
+                    },
+                    "end": {
+                      "line": 342,
+                      "column": 21,
+                      "offset": 6458
+                    }
+                  },
+                  "data": {
+                    "_mdxExplicitJsx": true
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 341,
+                  "column": 5,
+                  "offset": 6372
+                },
+                "end": {
+                  "line": 343,
+                  "column": 11,
+                  "offset": 6469
+                }
+              },
+              "data": {
+                "_mdxExplicitJsx": true
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 340,
+              "column": 3,
+              "offset": 6344
+            },
+            "end": {
+              "line": 344,
+              "column": 9,
+              "offset": 6478
+            }
+          },
+          "data": {
+            "_mdxExplicitJsx": true
+          }
+        },
+        {
+          "type": "mdxJsxFlowElement",
+          "name": "div",
+          "attributes": [],
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "数式：",
+                  "position": {
+                    "start": {
+                      "line": 346,
+                      "column": 5,
+                      "offset": 6491
+                    },
+                    "end": {
+                      "line": 346,
+                      "column": 8,
+                      "offset": 6494
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 346,
+                  "column": 5,
+                  "offset": 6491
+                },
+                "end": {
+                  "line": 346,
+                  "column": 8,
+                  "offset": 6494
+                }
+              }
+            },
+            {
+              "type": "math",
+              "meta": null,
+              "value": "\\forall \\epsilon > 0,\n\\exists \\delta > 0,\n\\forall x, |x - a| < \\delta \\Rightarrow |f(x) - f(a)| < \\epsilon",
+              "data": {
+                "hName": "pre",
+                "hChildren": [
+                  {
+                    "type": "element",
+                    "tagName": "code",
+                    "properties": {
+                      "className": ["language-math", "math-display"]
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "\\forall \\epsilon > 0,\n\\exists \\delta > 0,\n\\forall x, |x - a| < \\delta \\Rightarrow |f(x) - f(a)| < \\epsilon"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "position": {
+                "start": {
+                  "line": 348,
+                  "column": 5,
+                  "offset": 6500
+                },
+                "end": {
+                  "line": 352,
+                  "column": 7,
+                  "offset": 6628
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 345,
+              "column": 3,
+              "offset": 6481
+            },
+            "end": {
+              "line": 353,
+              "column": 9,
+              "offset": 6637
+            }
+          },
+          "data": {
+            "_mdxExplicitJsx": true
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 327,
+          "column": 1,
+          "offset": 6120
+        },
+        "end": {
+          "line": 354,
+          "column": 7,
+          "offset": 6644
+        }
+      },
+      "data": {
+        "_mdxExplicitJsx": true
+      }
+    },
+    {
+      "type": "thematicBreak",
+      "position": {
+        "start": {
+          "line": 356,
+          "column": 1,
+          "offset": 6646
+        },
+        "end": {
+          "line": 356,
+          "column": 4,
+          "offset": 6649
+        }
+      }
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "既存のツールとの比較",
+          "position": {
+            "start": {
+              "line": 358,
+              "column": 3,
+              "offset": 6653
+            },
+            "end": {
+              "line": 358,
+              "column": 13,
+              "offset": 6663
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 358,
+          "column": 1,
+          "offset": 6651
+        },
+        "end": {
+          "line": 358,
+          "column": 13,
+          "offset": 6663
+        }
+      }
+    },
+    {
+      "type": "mdxFlowExpression",
+      "value": "/* TODO: table のデザインを追加する */",
+      "position": {
+        "start": {
+          "line": 360,
+          "column": 1,
+          "offset": 6665
+        },
+        "end": {
+          "line": 360,
+          "column": 31,
+          "offset": 6695
+        }
+      },
+      "data": {
+        "estree": {
+          "type": "Program",
+          "start": 6666,
+          "end": 6694,
+          "body": [],
+          "sourceType": "module",
+          "comments": [
+            {
+              "type": "Block",
+              "value": " TODO: table のデザインを追加する ",
+              "start": 6666,
+              "end": 6694,
+              "loc": {
+                "start": {
+                  "line": 360,
+                  "column": 1,
+                  "offset": 6666
+                },
+                "end": {
+                  "line": 360,
+                  "column": 29,
+                  "offset": 6694
+                }
+              },
+              "range": [6666, 6694]
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 360,
+              "column": 1,
+              "offset": 6666
+            },
+            "end": {
+              "line": 360,
+              "column": 29,
+              "offset": 6694
+            }
+          },
+          "range": [6666, 6694]
+        }
+      }
+    },
+    {
+      "type": "table",
+      "align": [null, null, null],
+      "children": [
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "特徴",
+                  "position": {
+                    "start": {
+                      "line": 362,
+                      "column": 3,
+                      "offset": 6699
+                    },
+                    "end": {
+                      "line": 362,
+                      "column": 5,
+                      "offset": 6701
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 362,
+                  "column": 1,
+                  "offset": 6697
+                },
+                "end": {
+                  "line": 362,
+                  "column": 14,
+                  "offset": 6710
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Mercury",
+                  "position": {
+                    "start": {
+                      "line": 362,
+                      "column": 16,
+                      "offset": 6712
+                    },
+                    "end": {
+                      "line": 362,
+                      "column": 23,
+                      "offset": 6719
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 362,
+                  "column": 14,
+                  "offset": 6710
+                },
+                "end": {
+                  "line": 362,
+                  "column": 54,
+                  "offset": 6750
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Slidev",
+                  "position": {
+                    "start": {
+                      "line": 362,
+                      "column": 56,
+                      "offset": 6752
+                    },
+                    "end": {
+                      "line": 362,
+                      "column": 62,
+                      "offset": 6758
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 362,
+                  "column": 54,
+                  "offset": 6750
+                },
+                "end": {
+                  "line": 362,
+                  "column": 66,
+                  "offset": 6762
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 362,
+              "column": 1,
+              "offset": 6697
+            },
+            "end": {
+              "line": 362,
+              "column": 66,
+              "offset": 6762
+            }
+          }
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "言語",
+                  "position": {
+                    "start": {
+                      "line": 364,
+                      "column": 3,
+                      "offset": 6833
+                    },
+                    "end": {
+                      "line": 364,
+                      "column": 5,
+                      "offset": 6835
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 364,
+                  "column": 1,
+                  "offset": 6831
+                },
+                "end": {
+                  "line": 364,
+                  "column": 14,
+                  "offset": 6844
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "MDX",
+                  "position": {
+                    "start": {
+                      "line": 364,
+                      "column": 16,
+                      "offset": 6846
+                    },
+                    "end": {
+                      "line": 364,
+                      "column": 19,
+                      "offset": 6849
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 364,
+                  "column": 14,
+                  "offset": 6844
+                },
+                "end": {
+                  "line": 364,
+                  "column": 54,
+                  "offset": 6884
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Markdown",
+                  "position": {
+                    "start": {
+                      "line": 364,
+                      "column": 56,
+                      "offset": 6886
+                    },
+                    "end": {
+                      "line": 364,
+                      "column": 64,
+                      "offset": 6894
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 364,
+                  "column": 54,
+                  "offset": 6884
+                },
+                "end": {
+                  "line": 364,
+                  "column": 66,
+                  "offset": 6896
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 364,
+              "column": 1,
+              "offset": 6831
+            },
+            "end": {
+              "line": 364,
+              "column": 66,
+              "offset": 6896
+            }
+          }
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "UIライブラリ",
+                  "position": {
+                    "start": {
+                      "line": 365,
+                      "column": 3,
+                      "offset": 6899
+                    },
+                    "end": {
+                      "line": 365,
+                      "column": 10,
+                      "offset": 6906
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 365,
+                  "column": 1,
+                  "offset": 6897
+                },
+                "end": {
+                  "line": 365,
+                  "column": 11,
+                  "offset": 6907
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "React (今後 SolidJS などにも対応予定)",
+                  "position": {
+                    "start": {
+                      "line": 365,
+                      "column": 13,
+                      "offset": 6909
+                    },
+                    "end": {
+                      "line": 365,
+                      "column": 40,
+                      "offset": 6936
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 365,
+                  "column": 11,
+                  "offset": 6907
+                },
+                "end": {
+                  "line": 365,
+                  "column": 41,
+                  "offset": 6937
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Vue",
+                  "position": {
+                    "start": {
+                      "line": 365,
+                      "column": 43,
+                      "offset": 6939
+                    },
+                    "end": {
+                      "line": 365,
+                      "column": 46,
+                      "offset": 6942
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 365,
+                  "column": 41,
+                  "offset": 6937
+                },
+                "end": {
+                  "line": 365,
+                  "column": 53,
+                  "offset": 6949
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 365,
+              "column": 1,
+              "offset": 6897
+            },
+            "end": {
+              "line": 365,
+              "column": 53,
+              "offset": 6949
+            }
+          }
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "スタイル",
+                  "position": {
+                    "start": {
+                      "line": 366,
+                      "column": 3,
+                      "offset": 6952
+                    },
+                    "end": {
+                      "line": 366,
+                      "column": 7,
+                      "offset": 6956
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 366,
+                  "column": 1,
+                  "offset": 6950
+                },
+                "end": {
+                  "line": 366,
+                  "column": 12,
+                  "offset": 6961
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "TailwindCSS",
+                  "position": {
+                    "start": {
+                      "line": 366,
+                      "column": 14,
+                      "offset": 6963
+                    },
+                    "end": {
+                      "line": 366,
+                      "column": 25,
+                      "offset": 6974
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 366,
+                  "column": 12,
+                  "offset": 6961
+                },
+                "end": {
+                  "line": 366,
+                  "column": 52,
+                  "offset": 7001
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "UnoCSS",
+                  "position": {
+                    "start": {
+                      "line": 366,
+                      "column": 54,
+                      "offset": 7003
+                    },
+                    "end": {
+                      "line": 366,
+                      "column": 60,
+                      "offset": 7009
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 366,
+                  "column": 52,
+                  "offset": 7001
+                },
+                "end": {
+                  "line": 366,
+                  "column": 64,
+                  "offset": 7013
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 366,
+              "column": 1,
+              "offset": 6950
+            },
+            "end": {
+              "line": 366,
+              "column": 64,
+              "offset": 7013
+            }
+          }
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "ビルドツール",
+                  "position": {
+                    "start": {
+                      "line": 367,
+                      "column": 3,
+                      "offset": 7016
+                    },
+                    "end": {
+                      "line": 367,
+                      "column": 9,
+                      "offset": 7022
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 367,
+                  "column": 1,
+                  "offset": 7014
+                },
+                "end": {
+                  "line": 367,
+                  "column": 10,
+                  "offset": 7023
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Vite",
+                  "position": {
+                    "start": {
+                      "line": 367,
+                      "column": 12,
+                      "offset": 7025
+                    },
+                    "end": {
+                      "line": 367,
+                      "column": 16,
+                      "offset": 7029
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 367,
+                  "column": 10,
+                  "offset": 7023
+                },
+                "end": {
+                  "line": 367,
+                  "column": 50,
+                  "offset": 7063
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Vite",
+                  "position": {
+                    "start": {
+                      "line": 367,
+                      "column": 52,
+                      "offset": 7065
+                    },
+                    "end": {
+                      "line": 367,
+                      "column": 56,
+                      "offset": 7069
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 367,
+                  "column": 50,
+                  "offset": 7063
+                },
+                "end": {
+                  "line": 367,
+                  "column": 62,
+                  "offset": 7075
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 367,
+              "column": 1,
+              "offset": 7014
+            },
+            "end": {
+              "line": 367,
+              "column": 62,
+              "offset": 7075
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 362,
+          "column": 1,
+          "offset": 6697
+        },
+        "end": {
+          "line": 367,
+          "column": 62,
+          "offset": 7075
+        }
+      }
+    },
+    {
+      "type": "thematicBreak",
+      "position": {
+        "start": {
+          "line": 369,
+          "column": 1,
+          "offset": 7077
+        },
+        "end": {
+          "line": 369,
+          "column": 4,
+          "offset": 7080
+        }
+      }
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "まとめ",
+          "position": {
+            "start": {
+              "line": 371,
+              "column": 3,
+              "offset": 7084
+            },
+            "end": {
+              "line": 371,
+              "column": 6,
+              "offset": 7087
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 371,
+          "column": 1,
+          "offset": 7082
+        },
+        "end": {
+          "line": 371,
+          "column": 6,
+          "offset": 7087
+        }
+      }
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "start": null,
+      "spread": true,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": true,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "MDX ファイルからスライドを作成するソフトウェアを開発した",
+                  "position": {
+                    "start": {
+                      "line": 373,
+                      "column": 3,
+                      "offset": 7091
+                    },
+                    "end": {
+                      "line": 373,
+                      "column": 33,
+                      "offset": 7121
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 373,
+                  "column": 3,
+                  "offset": 7091
+                },
+                "end": {
+                  "line": 373,
+                  "column": 33,
+                  "offset": 7121
+                }
+              }
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "start": null,
+              "spread": false,
+              "children": [
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "checked": null,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "MDX → JSX への変換処理",
+                          "position": {
+                            "start": {
+                              "line": 375,
+                              "column": 5,
+                              "offset": 7127
+                            },
+                            "end": {
+                              "line": 375,
+                              "column": 21,
+                              "offset": 7143
+                            }
+                          }
+                        }
+                      ],
+                      "position": {
+                        "start": {
+                          "line": 375,
+                          "column": 5,
+                          "offset": 7127
+                        },
+                        "end": {
+                          "line": 375,
+                          "column": 21,
+                          "offset": 7143
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 375,
+                      "column": 3,
+                      "offset": 7125
+                    },
+                    "end": {
+                      "line": 375,
+                      "column": 21,
+                      "offset": 7143
+                    }
+                  }
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "checked": null,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "スライドを表示するウェブアプリ（SPA）の自動生成",
+                          "position": {
+                            "start": {
+                              "line": 376,
+                              "column": 5,
+                              "offset": 7148
+                            },
+                            "end": {
+                              "line": 376,
+                              "column": 30,
+                              "offset": 7173
+                            }
+                          }
+                        }
+                      ],
+                      "position": {
+                        "start": {
+                          "line": 376,
+                          "column": 5,
+                          "offset": 7148
+                        },
+                        "end": {
+                          "line": 376,
+                          "column": 30,
+                          "offset": 7173
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 376,
+                      "column": 3,
+                      "offset": 7146
+                    },
+                    "end": {
+                      "line": 376,
+                      "column": 30,
+                      "offset": 7173
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 375,
+                  "column": 3,
+                  "offset": 7125
+                },
+                "end": {
+                  "line": 376,
+                  "column": 30,
+                  "offset": 7173
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 373,
+              "column": 1,
+              "offset": 7089
+            },
+            "end": {
+              "line": 376,
+              "column": 30,
+              "offset": 7173
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "GitHub: ",
+                  "position": {
+                    "start": {
+                      "line": 378,
+                      "column": 3,
+                      "offset": 7177
+                    },
+                    "end": {
+                      "line": 378,
+                      "column": 11,
+                      "offset": 7185
+                    }
+                  }
+                },
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "https://github.com/r4ai/mercury",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "https://github.com/r4ai/mercury",
+                      "position": {
+                        "start": {
+                          "line": 378,
+                          "column": 11,
+                          "offset": 7185
+                        },
+                        "end": {
+                          "line": 378,
+                          "column": 42,
+                          "offset": 7216
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 378,
+                      "column": 11,
+                      "offset": 7185
+                    },
+                    "end": {
+                      "line": 378,
+                      "column": 42,
+                      "offset": 7216
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 378,
+                  "column": 3,
+                  "offset": 7177
+                },
+                "end": {
+                  "line": 378,
+                  "column": 42,
+                  "offset": 7216
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 378,
+              "column": 1,
+              "offset": 7175
+            },
+            "end": {
+              "line": 378,
+              "column": 42,
+              "offset": 7216
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 373,
+          "column": 1,
+          "offset": 7089
+        },
+        "end": {
+          "line": 378,
+          "column": 42,
+          "offset": 7216
+        }
+      }
+    },
+    {
+      "type": "thematicBreak",
+      "position": {
+        "start": {
+          "line": 380,
+          "column": 1,
+          "offset": 7218
+        },
+        "end": {
+          "line": 380,
+          "column": 4,
+          "offset": 7221
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "質問対応",
+          "position": {
+            "start": {
+              "line": 382,
+              "column": 1,
+              "offset": 7223
+            },
+            "end": {
+              "line": 382,
+              "column": 5,
+              "offset": 7227
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 382,
+          "column": 1,
+          "offset": 7223
+        },
+        "end": {
+          "line": 382,
+          "column": 5,
+          "offset": 7227
         }
       }
     }
@@ -2580,9 +5630,9 @@
       "offset": 0
     },
     "end": {
-      "line": 211,
+      "line": 383,
       "column": 1,
-      "offset": 4090
+      "offset": 7228
     }
   }
 }

@@ -37,6 +37,8 @@
   "packageManager": "bun@1.1.32",
   "trustedDependencies": [
     "@biomejs/biome",
-    "@tailwindcss/oxide"
+    "@tailwindcss/oxide",
+    "esbuild",
+    "lefthook"
   ]
 }
