@@ -80,7 +80,7 @@ import demoSlide from "./assets/demo-slide.png"
 
 - **hast**: HTML の抽象構文木（AST）
 
-- **React**: UI コンポーネントを作成するための JavaScript ライブラリ
+- **React**: JavaScript の UI ライブラリ。コンポーネントから UI を構築する
 
 - **Vite**: フロントエンド開発のためのビルドツール
 
@@ -434,7 +434,7 @@ import { Callout } from "./components/callout"
 
   - 数式やコードブロックなどをきれいに表示可能
 
-  - React component を使って、細かい調整も可能
+  - React Component を使って、細かい調整も可能
 
 ---
 
@@ -449,6 +449,12 @@ import { Callout } from "./components/callout"
 
   - スライドの切り替えアニメーション
   - レイアウトの拡充（2カラムレイアウト、中央揃えレイアウトなど）
+
+- CLI ツールの開発
+
+  - 現状だと、Vite の設定ファイルなど多数のボイラープレートが必要
+  - CLI ツールを提供することで、これらボイラープレートを暗黙的に扱い、
+    より簡単にスライドを作成できるようにする
 
 {/* - 発表者モードの実装
 

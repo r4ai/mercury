@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./shiki.css";
 @source "presentation.mdx";
 @source "../../../packages/mercury-ui";
 @plugin "tailwindcss-animate";
@@ -156,5 +157,3 @@
     @apply h-full;
   }
 }
-
-@import "./shiki.css";
