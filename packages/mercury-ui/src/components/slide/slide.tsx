@@ -30,7 +30,7 @@ export const Slide: FC<SlideProps> = ({ index, route = true, children }) => {
         id={id}
         data-slide
         className={cn(
-          "my-auto aspect-[16/9] w-[960px] space-y-4 border p-8",
+          "relative my-auto aspect-[16/9] w-[960px] space-y-4 border p-8",
           route &&
             "-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 scale-[var(--slide-scale)]",
           "print:top-0 print:left-0 print:h-[14.29cm] print:w-[25.4cm] print:translate-x-0 print:translate-y-0 print:scale-100",

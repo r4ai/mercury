@@ -1,9 +1,12 @@
-import { Button } from "@r4ai/mercury-ui";
+import { CenterLayout } from "./components/center-layout"
+import { LeftToRight, Left, Right, Center } from "./components/left-to-right"
+import { Title } from "./components/title"
+import demoSlide from "./assets/demo-slide.png"
 
-<div className="flex flex-col h-full justify-center max-w-3xl mx-auto">
-  <h1 className="text-2xl font-semibold">スライド作成ツールの開発</h1>
-  <p className="mt-4">HOGE HOGE</p>
-</div>
+<Title
+  title="スライド作成ツールの開発"
+  author="HOGE HOGE"
+/>
 
 ---
 
@@ -22,6 +25,38 @@ import { Button } from "@r4ai/mercury-ui";
   - React コンポーネントを使えるようにする
 
 ⇒ **MDX (Markdown + JSX) からスライドを表示するウェブアプリを自動生成するツールを開発**
+
+---
+
+# 完成品
+
+<LeftToRight>
+  <Left>
+    ````mdx title=presentation.mdx
+    # slide 1
+
+    - 吾輩は猫である
+    - $e^{i\pi} + 1 = 0$
+
+    ```js
+    // print "Hello, world!"
+    console.log("Hello, world!");
+    ```
+
+    $\epsilon - \delta$ definition of limit:
+
+    $
+    \forall \epsilon > 0, \exists \delta > 0
+    \text{ s.t. } |x - a| < \delta
+    \Rightarrow
+    |f(x) - f(a)| < \epsilon
+    $
+    ````
+  </Left>
+  <Right>
+    <img className="border w-[520px]" src={demoSlide} />
+  </Right>
+</LeftToRight>
 
 ---
 
@@ -67,8 +102,8 @@ import { Button } from "@r4ai/mercury-ui";
 
 # 処理の流れ / MDX → mdast
 
-<div className="flex flex-row gap-8">
-  <div>
+<LeftToRight>
+  <Left>
     ```mdx title="presentation.mdx"
     # スライド 1
 
@@ -76,14 +111,14 @@ import { Button } from "@r4ai/mercury-ui";
 
     # スライド 2
     ```
-  </div>
-  <div className="py-32">
+  </Left>
+  <Center>
     <div className="flex flex-col items-center gap-2 justify-center">
       <span>⇒</span>
       <span>mdast へ変換</span>
     </div>
-  </div>
-  <div>
+  </Center>
+  <Right>
     ```json
     {
       "type": "root",
@@ -106,15 +141,15 @@ import { Button } from "@r4ai/mercury-ui";
       ]
     }
     ```
-  </div>
-</div>
+  </Right>
+</LeftToRight>
 
 ---
 
 # 処理の流れ / mdast → mdast
 
-<div className="flex flex-row gap-8">
-  <div>
+<LeftToRight>
+  <Left>
     ```json
     {
       "type": "root",
@@ -134,15 +169,15 @@ import { Button } from "@r4ai/mercury-ui";
       ]
     }
     ```
-  </div>
-  <div className="py-32">
+  </Left>
+  <Center>
     <div className="flex flex-col items-center gap-2 justify-center">
       <span>⇒</span>
       <span className="text-sm">構造化された\
             mdast へ変換</span>
     </div>
-  </div>
-  <div>
+  </Center>
+  <Right>
     ```json
     {
       "type": "root",
@@ -167,8 +202,8 @@ import { Button } from "@r4ai/mercury-ui";
             }
             // ... slide 2 ...
     ```
-  </div>
-</div>
+  </Right>
+</LeftToRight>
 
 ---
 
@@ -204,7 +239,9 @@ import { Button } from "@r4ai/mercury-ui";
 
 <div className="absolute right-8 top-24">
   ```jsx
-  const MDXContent = ({ components }) => {
+  import { components } from "@r4ai/mercury-ui";
+
+  const MDXContent = ({ components } = { components }) => {
     return (
       <components.Presentation slidesLength={2}>
         <components.Slide index={0}>
@@ -225,21 +262,21 @@ import { Button } from "@r4ai/mercury-ui";
 
 # 処理の流れ / mdast → hast → JSX
 
-- 描画に使用する component は、\
-  すべて引数である `components` から渡される
-- 実際にどんな component を使用するかは、\
-  この変換の責務ではない
+- 描画に使用する Component は、\
+  すべて引数である `components` から渡される。
+
+- Component の実装は別途行う。
 
 <br />
 
 つまり...
 
-- 通常のアプリ開発のように component を作り渡せば、\
-  スライドを表示するアプリとして機能する
+- 通常のアプリ開発のように Component を作り渡せば、\
+  スライドを表示するアプリとして機能する。
 
   👉️ Web の知識だけで開発できる
 
-- 生成される JSX は、UI ライブラリに依存しない
+- 生成される JSX は、UI ライブラリに依存しない。
 
   👉️ React 以外にも容易に対応できる
 
@@ -296,75 +333,93 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 # 機能の紹介 / 数式とソースコードの表示
 
-<div className="flex flex-row gap-8">
-  <div>
-    ````mdx
-    ソースコード：
+<div className="grid place-content-center place-items-center gap-4 grid-cols-[1fr,max-content,1fr]">
+  <LeftToRight className="h-fit grid-cols-subgrid col-span-3">
+    <Left className="w-full *:w-full">
+      ````mdx
+      ソースコード：
 
-    ```js
-    const hello = () => {
-      console.log("Hello, World!");
-    }
-    ```
-    ````
-  </div>
-  <div className="py-16">
-    <div className="flex flex-col items-center gap-2 justify-center">
-      <span>⇒</span>
-    </div>
-  </div>
-  <div>
-    ソースコード：
+      ```js
+      const hello = () => {
+        console.log("Hello, World!");
+      }
+      ```
+      ````
+    </Left>
+    <Right className="w-full">
+      ソースコード：
 
-    ```js
-    const hello = () => {
-      console.log("Hello, World!");
-    }
-    ```
-  </div>
-</div>
+      ```js
+      const hello = () => {
+        console.log("Hello, World!");
+      }
+      ```
+    </Right>
+  </LeftToRight>
+  <LeftToRight className="h-fit grid-cols-subgrid col-span-3">
+    <Left className="w-full *:w-full">
+      ````mdx
+      数式：
 
-<div className="flex flex-row gap-8">
-  <div>
-    ````mdx
-    数式：
+      $$
+      \forall \epsilon > 0,
+      \exists \delta > 0,
+      \forall x, |x - a| < \delta \Rightarrow
+      |f(x) - f(a)| < \epsilon
+      $$
+      ````
+    </Left>
+    <Right className="w-full">
+      数式：
 
-    $$
-    \forall \epsilon > 0,
-    \exists \delta > 0,
-    \forall x, |x - a| < \delta \Rightarrow
-    |f(x) - f(a)| < \epsilon
-    $$
-    ````
-  </div>
-  <div className="py-16">
-    <div className="flex flex-col items-center gap-2 justify-center">
-      <span>⇒</span>
-    </div>
-  </div>
-  <div>
-    数式：
-
-    $$
-    \forall \epsilon > 0,
-    \exists \delta > 0,
-    \forall x, |x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon
-    $$
-  </div>
+      $$
+      \forall \epsilon > 0,
+      \exists \delta > 0,
+      \forall x, |x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon
+      $$
+    </Right>
+  </LeftToRight>
 </div>
 
 ---
 
-# 既存のツールとの比較
+# 機能の紹介 / React Component の利用
 
-{/* TODO: table のデザインを追加する */}
+import { Callout } from "./components/callout"
 
-| 特徴         | Mercury                               | Slidev   |
-| ------------ | ------------------------------------- | -------- |
-| 言語         | MDX                                   | Markdown |
-| UIライブラリ | React (今後 SolidJS などにも対応予定) | Vue      |
-| スタイル     | TailwindCSS                           | UnoCSS   |
-| ビルドツール | Vite                                  | Vite     |
+<LeftToRight>
+  <Left>
+    ```tsx title="components/callout.tsx"
+    export const Callout = ({ title, children }) => (
+      <div className="p-3 border rounded-lg">
+        <div className="font-bold">{title}</div>
+        <div className="text-sm *:leading-relaxed mt-2">
+          {children}
+        </div>
+      </div>
+    )
+    ```
+
+    <div className="h-1" />
+
+    ```mdx title="presentation.mdx"
+    import { Callout } from "./components/callout"
+
+    <Callout title="Note">
+      このコンポーネントは、
+      スライドの中でよく使う要素をまとめたものです。\
+      例えば、注意書きや補足説明などに利用できます。
+    </Callout>
+    ```
+  </Left>
+  <Right>
+    <Callout title="Note">
+      このコンポーネントは、
+      スライドの中でよく使う要素をまとめたものです。\
+      例えば、注意書きや補足説明などに利用できます。
+    </Callout>
+  </Right>
+</LeftToRight>
 
 ---
 
@@ -375,8 +430,43 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   - MDX → JSX への変換処理
   - スライドを表示するウェブアプリ（SPA）の自動生成
 
-- GitHub: https://github.com/r4ai/mercury
+- Web の知識だけで、スライドを作成することに成功した
+
+  - 数式やコードブロックなどをきれいに表示可能
+
+  - React component を使って、細かい調整も可能
 
 ---
 
-質問対応
+# 今後の展望
+
+- React以外のUIライブラリへの対応
+
+  - SolidJS など...
+  - MDXから生成されたJSXに渡す components を実装するだけで対応可能
+
+- デフォルトで提供するコンポーネントの充実
+
+  - スライドの切り替えアニメーション
+  - レイアウトの拡充（2カラムレイアウト、中央揃えレイアウトなど）
+
+{/* - 発表者モードの実装
+
+  - 発表者用の画面を表示し、スライドの切り替えやメモの表示、経過時間の表示などを行う
+  - 画面共有用の画面と、発表者用の画面を分け、それらを互いに同期させる */}
+
+---
+
+# リンク
+
+- GitHub: https://github.com/r4ai/mercury
+
+- 本スライドのソースコード:
+
+  https://github.com/r4ai/mercury/blob/dev/examples/program/src/presentation.mdx?plain=1
+
+---
+
+<CenterLayout>
+  <h1 className="text-2xl">ご清聴ありがとうございました</h1>
+</CenterLayout>
