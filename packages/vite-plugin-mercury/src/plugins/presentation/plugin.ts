@@ -1,19 +1,22 @@
+import * as fs from "node:fs"
 import dedent from "dedent"
 import type { TransformOptions } from "esbuild"
 import {
+  createFilter,
   type Plugin,
   type ResolvedConfig,
-  createFilter,
   transformWithEsbuild,
 } from "vite"
 
 export type MercuryPresentationOptions = {
+  debug?: boolean
   include?: string[]
   exclude?: string[]
   esbuildTransformOptions?: TransformOptions
 }
 
 export const mercuryPresentationDefaultOptions = {
+  debug: false,
   include: ["**/*.mdx"],
   exclude: [],
   esbuildTransformOptions: {
@@ -28,22 +31,26 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
   const filter = createFilter(options.include, options.exclude)
 
   // @ts-ignore
-  let config: ResolvedConfig
+  let _config: ResolvedConfig
   // @ts-ignore
-  let isDev: boolean
+  let _isDev: boolean
 
   return {
     name: "mercury-presentation",
     config(_, { command }) {
-      isDev = command === "serve"
+      _isDev = command === "serve"
     },
     configResolved(resolvedConfig) {
-      config = resolvedConfig
+      _config = resolvedConfig
     },
     async transform(code, id) {
       if (!filter(id)) return
 
       let source = code
+
+      if (options.debug) {
+        fs.writeFileSync("jsx_start.jsx", source, "utf-8")
+      }
 
       // don't default export
       source = source.replace(/^export default /m, "")
@@ -57,6 +64,10 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
           return <Presentation Content={MDXContent} slidesLength={MERCURY_SLIDES_LENGTH} components={components} />;
         }
       `
+
+      if (options.debug) {
+        fs.writeFileSync("jsx_end.jsx", source, "utf-8")
+      }
 
       const js = await transformWithEsbuild(source, id, {
         sourcefile: id,

@@ -1,0 +1,480 @@
+import { CenterLayout } from "./components/center-layout"
+import { LeftToRight, Left, Right, Center } from "./components/left-to-right"
+import { Title } from "./components/title"
+import demoSlide from "./assets/demo-slide.png"
+
+<Title
+  title="スライド作成ツールの開発"
+  author="HOGE HOGE"
+/>
+
+---
+
+# 背景
+
+- **Markdown でスライドを作成したい**
+
+  - 数式やコードブロックを簡単に表示したい
+  - Git 管理したい
+  - LLM を活用したい
+
+- **Web の知識でスライドを作成したい**
+
+  - 基本は Markdown で書く
+  - 細かい調整は、HTML と CSS で行う
+  - React コンポーネントを使えるようにする
+
+⇒ **MDX (Markdown + JSX) からスライドを表示するウェブアプリを自動生成するツールを開発**
+
+---
+
+# 完成品
+
+<LeftToRight>
+  <Left>
+    ````mdx title=presentation.mdx
+    # slide 1
+
+    - 吾輩は猫である
+    - $e^{i\pi} + 1 = 0$
+
+    ```js
+    // print "Hello, world!"
+    console.log("Hello, world!");
+    ```
+
+    $\epsilon - \delta$ definition of limit:
+
+    $
+    \forall \epsilon > 0, \exists \delta > 0
+    \text{ s.t. } |x - a| < \delta
+    \Rightarrow
+    |f(x) - f(a)| < \epsilon
+    $
+    ````
+  </Left>
+  <Right>
+    <img className="border w-[520px]" src={demoSlide} />
+  </Right>
+</LeftToRight>
+
+---
+
+# キーワード
+
+- **JSX (JavaScript XML)**: JS の拡張構文で、JS の中に HTML のような構文を埋め込むことができる
+
+  ```jsx
+  const element = <div className="text-red-500">Hello, World!</div>;
+  ```
+
+- **MDX (Markdown + JSX)**: Markdown の中に JSX を埋め込むことができる
+
+  ```mdx
+  # Hello, World!
+
+  <div className="text-red-500">Hello, World!</div>
+  ```
+
+- **mdast**: Markdown の抽象構文木（AST）
+
+- **hast**: HTML の抽象構文木（AST）
+
+- **React**: JavaScript の UI ライブラリ。コンポーネントから UI を構築する
+
+- **Vite**: フロントエンド開発のためのビルドツール
+
+---
+
+# アーキテクチャ
+
+- MDX ファイルを入力として、スライドを表示するウェブアプリを自動生成する
+
+{/* - 厳密にいうと...
+
+  - MDX ファイルからいくつかの中間表現を経由しながら、React Component を生成する
+  - この React Component は、単体でスライドを表示する機能を持つ
+  - 生成した React Component を Vite でビルドすることで、ウェブアプリが完成する */}
+
+<img className="mx-auto w-fit mt-12" src="/arch.drawio.svg" />
+
+---
+
+# 処理の流れ / MDX → mdast
+
+<LeftToRight>
+  <Left>
+    ```mdx title="presentation.mdx"
+    # スライド 1
+
+    ---
+
+    # スライド 2
+    ```
+  </Left>
+  <Center>
+    <div className="flex flex-col items-center gap-2 justify-center">
+      <span>⇒</span>
+      <span>mdast へ変換</span>
+    </div>
+  </Center>
+  <Right>
+    ```jsonc
+    {
+      "type": "root",
+      "children": [
+        {
+          "type": "element",
+          "tagName": "h1",
+          "children": [{ "type": "text", "value": "Slide 1" }]
+        },
+        {
+          "type": "element",
+          "tagName": "hr",
+          "children": []
+        },
+        {
+          "type": "element",
+          "tagName": "h1",
+          "children": [{ "type": "text", "value": "Slide 2" }]
+        }
+      ]
+    }
+    ```
+  </Right>
+</LeftToRight>
+
+---
+
+# 処理の流れ / mdast → mdast
+
+<LeftToRight>
+  <Left>
+    ```jsonc
+    {
+      "type": "root",
+      "children": [
+        {
+          "tagName": "h1",
+          // ... 省略 ...
+        },
+        {
+          "tagName": "hr",
+          // ... 省略 ...
+        },
+        {
+          "tagName": "h1",
+          // ... 省略 ...
+        }
+      ]
+    }
+    ```
+  </Left>
+  <Center>
+    <div className="flex flex-col items-center gap-2 justify-center">
+      <span>⇒</span>
+      <span className="text-sm">構造化された\
+            mdast へ変換</span>
+    </div>
+  </Center>
+  <Right>
+    ```jsonc
+    {
+      "type": "root",
+      "children": [
+        {
+          "type": "blockquote",
+          "data": {
+            "hName": "Presentation",
+            "hProperties": { "slidesLength": 2 }
+          },
+          "children": [
+            {
+              "type": "blockquote",
+              "data": { "hName": "Slide", "hProperties": { "index": 0 } },
+              "children": [
+                {
+                  "type": "heading",
+                  "depth": 1,
+                  "children": [{ "type": "text", "value": "Slide 1" }]
+                }
+              ]
+            }
+            // ... slide 2 ...
+    ```
+  </Right>
+</LeftToRight>
+
+---
+
+{/* # コラム: CommonMark について
+
+- MDX は CommonMark をベースにしている
+
+  https://spec.commonmark.org/0.31.2/
+
+- CommonMark では、Markdown の要素は次の2つに分類できる：
+
+  - **Container blocks**: 他の要素を含むことができる要素
+  - **Leaf blocks**: 他の要素を含まない要素
+
+- したがって、mdast 上でネストした構造を表現するためには、Container blocks を使う必要がある
+
+- Container blocks としては block quote と list item がある。\
+  本ツールでは、block containerを使うことで、プレゼンテーションのネスト構造を表現している
+
+--- */}
+
+# 処理の流れ / mdast → hast → JSX
+
+1. 先程の構造化された mdast を、hast に変換する
+
+   （構造自体はさほど変わらないので、省略する）
+
+2. hast を、右のような JSX に変換する
+
+   （実際はもっと複雑なものだが、\
+   　簡略化したものを示している）
+
+3. JSX を React を使って表示すれば、\
+   スライドが表示される
+
+<div className="absolute right-8 top-24">
+  ```jsx
+  import { components } from "@r4ai/mercury-ui";
+
+  const MDXContent = ({ components } = { components }) => {
+    return (
+      <components.Presentation slidesLength={2}>
+        <components.Slide index={0}>
+          <components.h1>Slide 1</components.h1>
+        </components.Slide>
+        <components.Slide index={1}>
+          <components.h1>Slide 2</components.h1>
+        </components.Slide>
+      </components.Presentation>
+    );
+  };
+
+  export default MDXContent
+  ```
+</div>
+
+---
+
+# 処理の流れ / mdast → hast → JSX
+
+- 描画に使用する Component は、\
+  すべて引数である `components` から渡される。
+
+- Component の実装は別途行う。
+
+<br />
+
+つまり...
+
+- 通常のアプリ開発のように Component を作り渡せば、\
+  スライドを表示するアプリとして機能する。
+
+  👉️ Web の知識だけで開発できる
+
+- 生成される JSX は、UI ライブラリに依存しない。
+
+  👉️ React 以外にも容易に対応できる
+
+<div className="absolute right-8 top-24">
+  ```jsx
+  import { components } from "@r4ai/mercury-ui";
+
+  const MDXContent = ({ components } = { components }) => {
+    return (
+      <components.Presentation slidesLength={2}>
+        <components.Slide index={0}>
+          <components.h1>Slide 1</components.h1>
+        </components.Slide>
+        <components.Slide index={1}>
+          <components.h1>Slide 2</components.h1>
+        </components.Slide>
+      </components.Presentation>
+    );
+  };
+
+  export default MDXContent
+  ```
+</div>
+
+---
+
+# 処理の流れ / JSX → HTML, CSS, JavaScript
+
+- 変換された JSX をインポートする
+
+  - MDX から JSX までの変換は、インポート時に自動的に行われる
+
+    （Viteのプラグインとして実装されている）
+
+- 読み込んだ JSX を、ReactDOM.createRoot で画面上に表示する
+
+- Vite でビルドすることで、HTML, CSS, JavaScript が生成される
+
+  - 成果物をデプロイすれば、ウェブアプリとして公開できる
+
+    ブラウザ上で、PDFとして保存することも可能
+
+```tsx
+import Presentation  from "./presentation.mdx";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <Presentation />
+  </React.StrictMode>,
+)
+```
+
+---
+
+# 機能の紹介 / 数式とソースコードの表示
+
+<div className="grid place-content-center place-items-center gap-4 grid-cols-[1fr,max-content,1fr]">
+  <LeftToRight className="h-fit grid-cols-subgrid col-span-3">
+    <Left className="w-full *:w-full">
+      ````mdx
+      ソースコード：
+
+      ```js
+      const hello = () => {
+        console.log("Hello, World!");
+      }
+      ```
+      ````
+    </Left>
+    <Right className="w-full">
+      ソースコード：
+
+      ```js
+      const hello = () => {
+        console.log("Hello, World!");
+      }
+      ```
+    </Right>
+  </LeftToRight>
+  <LeftToRight className="h-fit grid-cols-subgrid col-span-3">
+    <Left className="w-full *:w-full">
+      ````mdx
+      数式：
+
+      $$
+      \forall \epsilon > 0,
+      \exists \delta > 0,
+      \forall x, |x - a| < \delta \Rightarrow
+      |f(x) - f(a)| < \epsilon
+      $$
+      ````
+    </Left>
+    <Right className="w-full">
+      数式：
+
+      $$
+      \forall \epsilon > 0,
+      \exists \delta > 0,
+      \forall x, |x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon
+      $$
+    </Right>
+  </LeftToRight>
+</div>
+
+---
+
+# 機能の紹介 / React Component の利用
+
+import { Callout } from "./components/callout"
+
+<LeftToRight>
+  <Left>
+    ```tsx title="components/callout.tsx"
+    export const Callout = ({ title, children }) => (
+      <div className="p-3 border rounded-lg">
+        <div className="font-bold">{title}</div>
+        <div className="text-sm *:leading-relaxed mt-2">
+          {children}
+        </div>
+      </div>
+    )
+    ```
+
+    <div className="h-1" />
+
+    ```mdx title="presentation.mdx"
+    import { Callout } from "./components/callout"
+
+    <Callout title="Note">
+      このコンポーネントは、\
+      スライドの中でよく使う要素をまとめたものです。\
+      例えば、注意書きや補足説明などに利用できます。
+    </Callout>
+    ```
+  </Left>
+  <Right>
+    <Callout title="Note">
+      このコンポーネントは、\
+      スライドの中でよく使う要素をまとめたものです。\
+      例えば、注意書きや補足説明などに利用できます。
+    </Callout>
+  </Right>
+</LeftToRight>
+
+---
+
+# まとめ
+
+- MDX ファイルからスライドを作成するソフトウェアを開発した
+
+  - MDX → JSX への変換処理
+  - スライドを表示するウェブアプリ（SPA）の自動生成
+
+- Web の知識だけで、スライドを作成することに成功した
+
+  - 数式やコードブロックなどをきれいに表示可能
+
+  - React Component を使って、細かい調整も可能
+
+---
+
+# 今後の展望
+
+- React以外のUIライブラリへの対応
+
+  - SolidJS など...
+  - MDXから生成されたJSXに渡す components を実装するだけで対応可能
+
+- デフォルトで提供するコンポーネントの充実
+
+  - スライドの切り替えアニメーション
+  - レイアウトの拡充（2カラムレイアウト、中央揃えレイアウトなど）
+
+- CLI ツールの開発
+
+  - 現状だと、Vite の設定ファイルなど多数のボイラープレートが必要
+  - CLI ツールを提供することで、これらボイラープレートを暗黙的に扱い、
+    より簡単にスライドを作成できるようにする
+
+{/* - 発表者モードの実装
+
+  - 発表者用の画面を表示し、スライドの切り替えやメモの表示、経過時間の表示などを行う
+  - 画面共有用の画面と、発表者用の画面を分け、それらを互いに同期させる */}
+
+---
+
+# リンク
+
+- GitHub: https://github.com/r4ai/mercury
+
+- 本スライドのソースコード:
+
+  https://github.com/r4ai/mercury/blob/dev/examples/program/src/presentation.mdx?plain=1
+
+---
+
+<CenterLayout>
+  <h1 className="text-2xl">ご清聴ありがとうございました</h1>
+</CenterLayout>

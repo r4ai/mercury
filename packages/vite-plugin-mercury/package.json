@@ -4,7 +4,11 @@
   "description": "",
   "private": "false",
   "type": "module",
-  "keywords": ["presentation", "slide", "vite"],
+  "keywords": [
+    "presentation",
+    "slide",
+    "vite"
+  ],
   "author": "r4ai",
   "license": "MIT",
   "repository": {
@@ -45,28 +49,28 @@
     "prepublishOnly": "bun run build"
   },
   "peerDependencies": {
-    "vite": "5.4.10",
+    "vite": "7.0.3",
     "@r4ai/mercury-ui": "workspace:*"
   },
   "dependencies": {
     "@mdx-js/rollup": "^3.1.0",
     "@r4ai/remark-mercury": "workspace:*",
+    "@shikijs/transformers": "^3.7.0",
     "defu": "^6.1.4",
     "parse-numeric-range": "^1.3.0",
     "rehype-katex": "^7.0.1",
-    "remark-gfm": "^4.0.0",
+    "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@shikijs/rehype": "1.17.7",
+    "@shikijs/rehype": "3.7.0",
     "@tsconfig/node16": "16.1.4",
     "dedent": "1.6.0",
-    "esbuild": "0.23.1",
+    "esbuild": "0.25.6",
     "rimraf": "6.0.1",
     "typescript": "5.8.3",
     "unified": "11.0.5",
-    "vitest": "2.1.9"
+    "vitest": "3.2.4"
   },
   "packageManager": "bun@1.1.32"
 }

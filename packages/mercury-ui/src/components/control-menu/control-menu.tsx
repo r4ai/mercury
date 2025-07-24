@@ -1,4 +1,5 @@
 import type { FC } from "react"
+import { useHotkeys } from "react-hotkeys-hook"
 import { cn } from "../../libs/utils"
 import { ColorSchemeButton } from "./color-scheme-button"
 import { Counter } from "./counter"
@@ -18,7 +19,12 @@ export const ControlMenu: FC<ControlMenuProps> = ({
   className,
   slidesLength,
 }) => {
-  const { index } = useSlides({ length: slidesLength })
+  const { index, next, prev } = useSlides({ length: slidesLength })
+
+  useHotkeys("space", () => next(), { preventDefault: true })
+  useHotkeys("shift+space", () => prev(), { preventDefault: true })
+  useHotkeys("right", () => next(), { preventDefault: true })
+  useHotkeys("left", () => prev(), { preventDefault: true })
 
   return (
     <div

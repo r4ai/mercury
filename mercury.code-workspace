@@ -23,6 +23,14 @@
     {
       "name": "examples/react-without-cli",
       "path": "examples/react-without-cli"
+    },
+    {
+      "name": "examples/program",
+      "path": "examples/program"
+    },
+    {
+      "name": "examples/debug",
+      "path": "examples/debug"
     }
   ],
   "settings": {

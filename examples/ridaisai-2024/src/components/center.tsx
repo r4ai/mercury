@@ -1,9 +1,9 @@
-import type { FC } from "react"
+import type { FC } from "react";
 
 export type CenterProps = {
-  title: string
-  description?: string
-}
+  title: string;
+  description?: string;
+};
 
 export const Center: FC<CenterProps> = ({ title, description }) => {
   return (
@@ -13,5 +13,5 @@ export const Center: FC<CenterProps> = ({ title, description }) => {
         {description && <p className="text-muted-foreground">{description}</p>}
       </div>
     </div>
-  )
-}
+  );
+};

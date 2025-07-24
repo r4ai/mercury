@@ -6,6 +6,7 @@ export const useSlides = ({ length }: { length: number }) => {
   const [location, navigate] = useLocation()
 
   const [isFull, setFull] = useState<boolean | undefined>(undefined)
+  // biome-ignore lint/correctness/useExhaustiveDependencies: ok
   useEffect(() => {
     setFull(isFullscreen())
     document.addEventListener("fullscreenchange", () => setFull(isFullscreen()))
