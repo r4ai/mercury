@@ -11,33 +11,7 @@
         "turbo": "2.5.4",
       },
     },
-    "examples/lt": {
-      "name": "lt",
-      "version": "0.0.0",
-      "dependencies": {
-        "katex": "^0.16.11",
-        "next-themes": "^0.3.0",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "wouter": "^3.3.5",
-      },
-      "devDependencies": {
-        "@biomejs/biome": "^1.9.4",
-        "@r4ai/mercury-ui": "workspace:*",
-        "@r4ai/remark-mercury": "workspace:*",
-        "@r4ai/vite-plugin-mercury": "workspace:*",
-        "@types/react": "^18.3.12",
-        "@types/react-dom": "^18.3.1",
-        "@vitejs/plugin-react": "^4.3.3",
-        "autoprefixer": "^10.4.20",
-        "postcss": "^8.4.47",
-        "tailwindcss": "^3.4.14",
-        "tailwindcss-animate": "^1.0.7",
-        "typescript": "^5.6.3",
-        "vite": "^5.4.10",
-      },
-    },
-    "examples/minimum": {
+    "examples/debug": {
       "name": "minimum",
       "version": "0.0.0",
       "dependencies": {
@@ -62,6 +36,32 @@
         "tailwindcss-animate": "^1.0.7",
         "typescript": "^5.8.3",
         "vite": "^7.0.3",
+      },
+    },
+    "examples/lt": {
+      "name": "lt",
+      "version": "0.0.0",
+      "dependencies": {
+        "katex": "^0.16.11",
+        "next-themes": "^0.3.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "wouter": "^3.3.5",
+      },
+      "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
+        "@r4ai/mercury-ui": "workspace:*",
+        "@r4ai/remark-mercury": "workspace:*",
+        "@r4ai/vite-plugin-mercury": "workspace:*",
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "@vitejs/plugin-react": "^4.3.3",
+        "autoprefixer": "^10.4.20",
+        "postcss": "^8.4.47",
+        "tailwindcss": "^3.4.14",
+        "tailwindcss-animate": "^1.0.7",
+        "typescript": "^5.6.3",
+        "vite": "^5.4.10",
       },
     },
     "examples/program": {
@@ -1459,7 +1459,7 @@
 
     "minimist": ["minimist@1.2.8", "", {}, "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="],
 
-    "minimum": ["minimum@workspace:examples/minimum"],
+    "minimum": ["minimum@workspace:examples/debug"],
 
     "minipass": ["minipass@7.1.2", "", {}, "sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw=="],
 

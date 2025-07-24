@@ -39,6 +39,13 @@
     }
   ],
   "files": {
-    "includes": ["**", "!**/node_modules", "!**/dist"]
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/dist",
+      "!hast_*.json",
+      "!jsx_*.jsx",
+      "!mdast_*.json"
+    ]
   }
 }
