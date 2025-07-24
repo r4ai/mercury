@@ -27,6 +27,10 @@
     {
       "name": "examples/program",
       "path": "examples/program"
+    },
+    {
+      "name": "examples/debug",
+      "path": "examples/debug"
     }
   ],
   "settings": {
