@@ -23,7 +23,7 @@ jobs:
         with:
           ref: ${{ steps.comment-branch.outputs.head_ref }}
       - name: Setup tools
-        uses: jdx/mise-action@5bb8f8c1911837cf42064e6490e7634fc842ee7e # v2
+        uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2
       - name: Install dependencies
         run: bun install
       - name: Commit and push changes
