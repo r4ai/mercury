@@ -173,7 +173,7 @@
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
         "@chromatic-com/storybook": "2.0.2",
-        "@iconify-json/lucide": "1.2.58",
+        "@iconify-json/lucide": "1.2.61",
         "@storybook/addon-essentials": "8.6.14",
         "@storybook/addon-interactions": "8.6.14",
         "@storybook/addon-links": "8.6.14",
@@ -443,7 +443,7 @@
 
     "@floating-ui/utils": ["@floating-ui/utils@0.2.10", "", {}, "sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ=="],
 
-    "@iconify-json/lucide": ["@iconify-json/lucide@1.2.58", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-4ONe3ONaauEaf7wEQIvlWz2xHaMXUXuQeJVRBMu4PmsBrMEfdnc2vRZRyAudmcQo8yWmEsLu6WM7/5qWUdDJHQ=="],
+    "@iconify-json/lucide": ["@iconify-json/lucide@1.2.61", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-0sLmi3vyEsJ6XL/uhl0a+uphdYIW1viYkUmiuT4SK3e2R3o3GIWY9k8N+SZL++GVBbMKy9oatx8KrzyoPZ6WqQ=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 
