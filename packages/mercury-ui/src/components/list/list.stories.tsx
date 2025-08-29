@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
-import { List, ListItem, OrderedList } from "./list"
+import { List, ListItem, OrderedList, type OrderedListProps } from "./list"
 
 const meta = {
   title: "UI/List",
@@ -27,11 +27,14 @@ export const Unordered: Story = {
 }
 
 export const Ordered: Story = {
-  render: () => (
-    <OrderedList>
-      <ListItem>First item</ListItem>
-      <ListItem>Second item</ListItem>
-      <ListItem>Third item</ListItem>
-    </OrderedList>
-  ),
+  args: {
+    children: (
+      <>
+        <ListItem>First item</ListItem>
+        <ListItem>Second item</ListItem>
+        <ListItem>Third item</ListItem>
+      </>
+    ),
+  },
+  render: (args: OrderedListProps) => <OrderedList {...args} />,
 }
