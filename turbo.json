@@ -23,6 +23,9 @@
     },
     "check:write": {
       "cache": false
+    },
+    "typecheck": {
+      "cache": false
     }
   }
 }

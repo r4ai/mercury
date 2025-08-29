@@ -34,6 +34,7 @@
   "scripts": {
     "check": "biome check .",
     "check:write": "biome check --write .",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
     "dev": "vite build --watch",
     "build": "vite build",
     "storybook": "storybook dev -p 6006 --no-open",
