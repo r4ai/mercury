@@ -1,9 +1,9 @@
 import { withThemeByDataAttribute } from "@storybook/addon-themes"
-import type { Preview } from "@storybook/react"
+import type { Preview } from "@storybook/react-vite"
 
 import "../src/index.css"
 import "./preview.css"
-import { themes } from "@storybook/theming"
+import { themes } from "storybook/theming"
 
 const preview: Preview = {
   parameters: {

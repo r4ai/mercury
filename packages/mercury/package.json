@@ -44,8 +44,6 @@
     "test:ci": "vitest run",
     "prepublishOnly": "bun run build"
   },
-  "peerDependencies": {},
-  "dependencies": {},
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@tsconfig/node16": "16.1.4",
