@@ -1,35 +1,40 @@
-name: Publish package to npm
+name: Release
 
 on:
   push:
-    tags:
-      - v*
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  publish:
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      - name: Checkout Repo
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
 
-      - name: Setup bun
-        uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2
+      - name: Setup Node.js and Bun
+        uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2
 
-      - name: Setup .npmrc file to publish to npm
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
-        with:
-          node-version: 20.x
-          registry-url: https://registry.npmjs.org
+      - name: Creating .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: bun install --frozen-lockfile
 
-      - name: Build package
-        run: bun run build
-
-      - name: Test package
-        run: bun test
-
-      - name: npm publish
-        run: npm publish --access public
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          publish: bun run release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
