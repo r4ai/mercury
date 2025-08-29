@@ -1,0 +1,24 @@
+name: Setup
+description: Setup the development environment
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+
+    # See: https://turborepo.com/docs/guides/ci-vendors/github-actions#remote-caching-with-github-actionscache
+    - name: Cache turbo build setup
+      uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
+      with:
+        path: .turbo
+        key: ${{ runner.os }}-turbo-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-turbo-
+
+    - name: Setup Node.js and Bun
+      uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2
+
+    - name: Install dependencies
+      shell: bash
+      run: bun install --frozen-lockfile
