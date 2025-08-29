@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Router } from "wouter"
 
 import { ControlMenu } from "./control-menu"
 
@@ -16,6 +17,13 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    slidesLength: 0,
+    slidesLength: 5,
   },
+  decorators: [
+    (Story) => (
+      <Router hook={() => ["/0", () => {}]}>
+        <Story />
+      </Router>
+    ),
+  ],
 }
