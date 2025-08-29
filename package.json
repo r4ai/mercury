@@ -19,6 +19,7 @@
   "scripts": {
     "check": "biome check .",
     "check:write": "biome check --write .",
+    "typecheck": "turbo typecheck",
     "build": "turbo build",
     "test": "turbo test",
     "test:ci": "turbo test:ci",
