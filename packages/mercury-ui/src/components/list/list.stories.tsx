@@ -27,8 +27,8 @@ export const Unordered: Story = {
 }
 
 export const Ordered: Story = {
-  render: (args) => (
-    <OrderedList {...args}>
+  render: () => (
+    <OrderedList>
       <ListItem>First item</ListItem>
       <ListItem>Second item</ListItem>
       <ListItem>Third item</ListItem>
