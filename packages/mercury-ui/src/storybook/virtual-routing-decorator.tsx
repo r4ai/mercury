@@ -21,7 +21,6 @@ export const withVirtualRouting = (
       ...context.parameters?.virtualRouting,
     }
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [currentPath, setCurrentPath] = useState(initialPath)
 
     const virtualLocationHook = (): [string, (path: string) => void] => [
