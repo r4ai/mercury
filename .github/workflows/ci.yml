@@ -27,8 +27,6 @@ jobs:
         uses: ./.github/actions/setup
       - name: Build
         run: bun run build
-      - name: Type check
-        run: bun run typecheck
 
   test:
     runs-on: ubuntu-22.04
@@ -40,3 +38,14 @@ jobs:
         uses: ./.github/actions/setup
       - name: Test
         run: bun run test:ci
+
+  typecheck:
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      - name: Setup
+        uses: ./.github/actions/setup
+      - name: Type check
+        run: bun run typecheck
