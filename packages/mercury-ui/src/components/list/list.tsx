@@ -28,9 +28,9 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
 )
 ListItem.displayName = "ListItem"
 
-export type OrderedListPRops = ComponentPropsWithoutRef<"ol">
+export type OrderedListProps = ComponentPropsWithoutRef<"ol">
 
-export const OrderedList = forwardRef<HTMLOListElement, OrderedListPRops>(
+export const OrderedList = forwardRef<HTMLOListElement, OrderedListProps>(
   ({ className, ...props }, ref) => {
     return (
       <ol

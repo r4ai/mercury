@@ -4,5 +4,5 @@ export {
   type ListItemProps,
   type ListProps,
   OrderedList,
-  type OrderedListPRops,
+  type OrderedListProps,
 } from "./list"
