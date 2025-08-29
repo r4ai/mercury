@@ -27,6 +27,8 @@ jobs:
         uses: ./.github/actions/setup
       - name: Build
         run: bun run build
+      - name: Type check
+        run: bun run typecheck
 
   test:
     runs-on: ubuntu-22.04
