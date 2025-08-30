@@ -1,5 +1,5 @@
 import type { Decorator } from "@storybook/react-vite"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { Router } from "wouter"
 
 export type VirtualRoutingOptions = {
@@ -23,15 +23,18 @@ export const withVirtualRouting = (
 
     const [currentPath, setCurrentPath] = useState(initialPath)
 
-    const virtualLocationHook = (): [string, (path: string) => void] => [
-      basePath + currentPath,
-      (newPath: string) => {
-        const pathWithoutBase = newPath.startsWith(basePath)
-          ? newPath.slice(basePath.length)
-          : newPath
-        setCurrentPath(pathWithoutBase)
-      },
-    ]
+    const virtualLocationHook = useCallback(
+      (): [string, (path: string) => void] => [
+        basePath + currentPath,
+        (newPath: string) => {
+          const pathWithoutBase = newPath.startsWith(basePath)
+            ? newPath.slice(basePath.length)
+            : newPath
+          setCurrentPath(pathWithoutBase)
+        },
+      ],
+      [basePath, currentPath],
+    )
 
     return (
       <Router hook={virtualLocationHook}>
