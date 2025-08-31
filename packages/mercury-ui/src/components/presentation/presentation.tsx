@@ -29,14 +29,19 @@ export const Presentation: FC<PresentationProps> = ({
           <Route path="/all">
             <Content
               components={{
-                ...defaultComponents,
+                ...(defaultComponents as unknown as MDXComponents),
                 Slide: (props) => <Slide {...props} route={false} />,
                 Presentation: AllSlidesPresentation,
                 ...components,
               }}
             />
           </Route>
-          <Content components={{ ...defaultComponents, ...components }} />
+          <Content
+            components={{
+              ...(defaultComponents as unknown as MDXComponents),
+              ...components,
+            }}
+          />
         </Switch>
         <ControlMenu
           data-control-menu
