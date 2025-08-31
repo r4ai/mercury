@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Debug files from MDX processing
+*.json
+*.jsx
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

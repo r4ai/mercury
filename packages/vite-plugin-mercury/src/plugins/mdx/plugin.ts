@@ -9,6 +9,7 @@ import {
   transformerNotationHighlight,
   transformerNotationWordHighlight,
 } from "@shikijs/transformers"
+import { transformerTwoslash } from "@shikijs/twoslash"
 import { defu } from "defu"
 import rehypeKatex, { type Options as rehypeKatexOptions } from "rehype-katex"
 import remarkGfm, { type Options as RemarkGfmOptions } from "remark-gfm"
@@ -65,6 +66,9 @@ export const mercuryMdxDefaultOptions = {
       transformerMetaDiff(),
       transformerLineNumbers(),
       transformerTitle(),
+      transformerTwoslash({
+        explicitTrigger: true,
+      }),
     ],
   },
 } as const satisfies MercuryMdxOptions

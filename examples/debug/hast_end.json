@@ -5,7 +5,7 @@
       "type": "element",
       "tagName": "Presentation",
       "properties": {
-        "slidesLength": 2
+        "slidesLength": 3
       },
       "children": [
         {
@@ -61,6 +61,188 @@
             {
               "type": "text",
               "value": "\n"
+            },
+            {
+              "type": "element",
+              "tagName": "p",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Here's a basic code example:",
+                  "position": {
+                    "start": {
+                      "line": 3,
+                      "column": 1,
+                      "offset": 11
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 29,
+                      "offset": 39
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 3,
+                  "column": 1,
+                  "offset": 11
+                },
+                "end": {
+                  "line": 3,
+                  "column": 29,
+                  "offset": 39
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "root",
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "pre",
+                  "properties": {
+                    "class": "shiki shiki-themes one-light material-theme-darker",
+                    "style": "background-color:#FAFAFA;--shiki-dark-bg:#212121;color:#383A42;--shiki-dark:#EEFFFF",
+                    "tabindex": "0"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "code",
+                      "properties": {},
+                      "children": [
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "console"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "."
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#4078F2;--shiki-dark:#82AAFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "log"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "("
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "\""
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#C3E88D"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Hello, world!"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "\""
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ")"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "data": {
+                        "_shiki_notation": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "\n"
             }
           ]
         },
@@ -86,33 +268,2656 @@
               "children": [
                 {
                   "type": "text",
-                  "value": "Slide 2",
+                  "value": "Slide 2 - TypeScript with Twoslash",
                   "position": {
                     "start": {
-                      "line": 5,
+                      "line": 11,
                       "column": 3,
-                      "offset": 18
+                      "offset": 88
                     },
                     "end": {
-                      "line": 5,
-                      "column": 10,
-                      "offset": 25
+                      "line": 11,
+                      "column": 37,
+                      "offset": 122
                     }
                   }
                 }
               ],
               "position": {
                 "start": {
-                  "line": 5,
+                  "line": 11,
                   "column": 1,
-                  "offset": 16
+                  "offset": 86
                 },
                 "end": {
-                  "line": 5,
-                  "column": 10,
-                  "offset": 25
+                  "line": 11,
+                  "column": 37,
+                  "offset": 122
                 }
               }
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "element",
+              "tagName": "p",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "TypeScript with type information:",
+                  "position": {
+                    "start": {
+                      "line": 13,
+                      "column": 1,
+                      "offset": 124
+                    },
+                    "end": {
+                      "line": 13,
+                      "column": 34,
+                      "offset": 157
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 13,
+                  "column": 1,
+                  "offset": 124
+                },
+                "end": {
+                  "line": 13,
+                  "column": 34,
+                  "offset": 157
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "root",
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "pre",
+                  "properties": {
+                    "class": [
+                      "shiki",
+                      "shiki-themes",
+                      "one-light",
+                      "material-theme-darker",
+                      "twoslash",
+                      "lsp"
+                    ],
+                    "style": "background-color:#FAFAFA;--shiki-dark-bg:#212121;color:#383A42;--shiki-dark:#EEFFFF",
+                    "tabindex": "0"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "code",
+                      "properties": {},
+                      "children": [
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "interface"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#C18401;--shiki-dark:#FFCB6B"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#C18401;--shiki-dark:#FFCB6B"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "User"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " {"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#F07178"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "  "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#F07178"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "name",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "User"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "."
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#E45649;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "name"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ": string"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "name"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ":"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#FFCB6B"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " string"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#F07178"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "  "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#F07178"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "age",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "User"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "."
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#E45649;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "age"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ": number"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "age"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ":"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#FFCB6B"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " number"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "}"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "const"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#986801;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#986801;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "user",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "const"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#986801;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " user"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ":"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#C18401;--shiki-dark:#FFCB6B"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " User"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "user"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ":"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#C18401;--shiki-dark:#FFCB6B"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#C18401;--shiki-dark:#FFCB6B"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "User"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " ="
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " {"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#E45649;--shiki-dark:#F07178"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "  "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#E45649;--shiki-dark:#F07178"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "name",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "User"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "."
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#E45649;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "name"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ": string"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "name"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ":"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " \""
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#C3E88D"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Alice"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "\""
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ","
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#E45649;--shiki-dark:#F07178"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "  "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#E45649;--shiki-dark:#F07178"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "age",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "User"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "."
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#E45649;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "age"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ": number"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "age"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ":"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#986801;--shiki-dark:#F78C6C"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " 30"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "}"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#545454;--shiki-dark-font-style:italic"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "// Hover over 'user' to see type information"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "user",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "const"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#986801;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " user"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ":"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#C18401;--shiki-dark:#FFCB6B"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " User"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "user"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "."
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#E45649;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "name",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover twoslash-query-presisted"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "div",
+                                          "properties": {
+                                            "class": "twoslash-popup-arrow"
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "User"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "."
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#E45649;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "name"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ": string"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "name"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": []
+                        }
+                      ],
+                      "data": {
+                        "_shiki_notation": [
+                          {
+                            "info": [
+                              "//",
+                              " Hover over 'user' to see type information",
+                              null
+                            ],
+                            "line": {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "class": "line"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "style": "color:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#545454;--shiki-dark-font-style:italic"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "// Hover over 'user' to see type information"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "token": {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#545454;--shiki-dark-font-style:italic"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "// Hover over 'user' to see type information"
+                                }
+                              ]
+                            },
+                            "isLineCommentOnly": true,
+                            "isJsxStyle": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "\n"
+        },
+        {
+          "type": "element",
+          "tagName": "Slide",
+          "properties": {
+            "index": 2
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "element",
+              "tagName": "h1",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Slide 3 - More Twoslash Examples",
+                  "position": {
+                    "start": {
+                      "line": 33,
+                      "column": 3,
+                      "offset": 349
+                    },
+                    "end": {
+                      "line": 33,
+                      "column": 35,
+                      "offset": 381
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 33,
+                  "column": 1,
+                  "offset": 347
+                },
+                "end": {
+                  "line": 33,
+                  "column": 35,
+                  "offset": 381
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "element",
+              "tagName": "p",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Error highlighting:",
+                  "position": {
+                    "start": {
+                      "line": 35,
+                      "column": 1,
+                      "offset": 383
+                    },
+                    "end": {
+                      "line": 35,
+                      "column": 20,
+                      "offset": 402
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 35,
+                  "column": 1,
+                  "offset": 383
+                },
+                "end": {
+                  "line": 35,
+                  "column": 20,
+                  "offset": 402
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "root",
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "pre",
+                  "properties": {
+                    "class": [
+                      "shiki",
+                      "shiki-themes",
+                      "one-light",
+                      "material-theme-darker",
+                      "twoslash",
+                      "lsp"
+                    ],
+                    "style": "background-color:#FAFAFA;--shiki-dark-bg:#212121;color:#383A42;--shiki-dark:#EEFFFF",
+                    "tabindex": "0"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "code",
+                      "properties": {},
+                      "children": [
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "let"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "class": "twoslash-error"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "message"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ":"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#FFCB6B"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " string"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " ="
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#986801;--shiki-dark:#F78C6C"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " 42"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "div",
+                          "properties": {
+                            "class": "twoslash-meta-line twoslash-error-line"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Type 'number' is not assignable to type 'string'."
+                            }
+                          ]
+                        }
+                      ],
+                      "data": {
+                        "_shiki_notation": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "element",
+              "tagName": "p",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Type queries:",
+                  "position": {
+                    "start": {
+                      "line": 42,
+                      "column": 1,
+                      "offset": 466
+                    },
+                    "end": {
+                      "line": 42,
+                      "column": 14,
+                      "offset": 479
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 42,
+                  "column": 1,
+                  "offset": 466
+                },
+                "end": {
+                  "line": 42,
+                  "column": 14,
+                  "offset": 479
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "root",
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "pre",
+                  "properties": {
+                    "class": [
+                      "shiki",
+                      "shiki-themes",
+                      "one-light",
+                      "material-theme-darker",
+                      "twoslash",
+                      "lsp"
+                    ],
+                    "style": "background-color:#FAFAFA;--shiki-dark-bg:#212121;color:#383A42;--shiki-dark:#EEFFFF",
+                    "tabindex": "0"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "code",
+                      "properties": {},
+                      "children": [
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "function"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#4078F2;--shiki-dark:#82AAFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#4078F2;--shiki-dark:#82AAFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "greet",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "function"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#4078F2;--shiki-dark:#82AAFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " greet"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "("
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#EEFFFF;--shiki-dark-font-style:italic"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "name"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ":"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#FFCB6B"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " string"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ")"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ":"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#FFCB6B"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " string"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "greet"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "("
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#EEFFFF;--shiki-dark-font-style:italic"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "name",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#FFCB6B"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "name"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ":"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " string"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "name"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ":"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#FFCB6B"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " string"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ")"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " {"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#A626A4;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "  return"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " `"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#C3E88D"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Hello, "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#CA1243;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "${"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "name",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#FFCB6B"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "name"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ":"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " string"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "name"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#CA1243;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "}"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#C3E88D"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "!"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "`"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "}"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "const"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#986801;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#986801;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "result",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover twoslash-query-presisted"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "div",
+                                          "properties": {
+                                            "class": "twoslash-popup-arrow"
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "const"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#986801;--shiki-dark:#EEFFFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " result"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ":"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#FFCB6B"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " string"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "result"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " ="
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#4078F2;--shiki-dark:#82AAFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": " "
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#4078F2;--shiki-dark:#82AAFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "value": "greet",
+                                  "tagName": "span",
+                                  "properties": {
+                                    "class": "twoslash-hover"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tagName": "span",
+                                      "properties": {
+                                        "class": "twoslash-popup-container"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tagName": "code",
+                                          "properties": {
+                                            "class": "twoslash-popup-code"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#A626A4;--shiki-dark:#C792EA"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "function"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#4078F2;--shiki-dark:#82AAFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " greet"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "("
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#EEFFFF;--shiki-dark-font-style:italic"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": "name"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ":"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#FFCB6B"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " string"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#383A42;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ")"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#89DDFF"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": ":"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tagName": "span",
+                                              "properties": {
+                                                "style": "color:#0184BC;--shiki-dark:#FFCB6B"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "value": " string"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "greet"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "("
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "\""
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#C3E88D"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "TypeScript"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#50A14F;--shiki-dark:#89DDFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "\""
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tagName": "span",
+                              "properties": {
+                                "style": "color:#383A42;--shiki-dark:#EEFFFF"
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": ")"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n"
+                        },
+                        {
+                          "type": "element",
+                          "tagName": "span",
+                          "properties": {
+                            "class": "line"
+                          },
+                          "children": []
+                        }
+                      ],
+                      "data": {
+                        "_shiki_notation": []
+                      }
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "text",
@@ -132,7 +2937,7 @@
     },
     {
       "type": "mdxjsEsm",
-      "value": "export const MERCURY_SLIDES_LENGTH = 2;",
+      "value": "export const MERCURY_SLIDES_LENGTH = 3;",
       "data": {
         "estree": {
           "type": "Program",
@@ -150,8 +2955,8 @@
                     },
                     "init": {
                       "type": "Literal",
-                      "value": 2,
-                      "raw": "2"
+                      "value": 3,
+                      "raw": "3"
                     }
                   }
                 ],
@@ -175,9 +2980,9 @@
       "offset": 0
     },
     "end": {
-      "line": 6,
+      "line": 52,
       "column": 1,
-      "offset": 26
+      "offset": 605
     }
   }
 }

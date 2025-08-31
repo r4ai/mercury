@@ -1,5 +1,51 @@
 # Slide 1
 
+Here's a basic code example:
+
+```js
+console.log("Hello, world!")
+```
+
 ---
 
-# Slide 2
+# Slide 2 - TypeScript with Twoslash
+
+TypeScript with type information:
+
+```ts twoslash
+interface User {
+  name: string
+  age: number
+}
+
+const user: User = {
+  name: "Alice",
+  age: 30
+}
+
+// Hover over 'user' to see type information
+user.name
+//   ^?
+```
+
+---
+
+# Slide 3 - More Twoslash Examples
+
+Error highlighting:
+
+```ts twoslash
+// @errors: 2322
+let message: string = 42
+```
+
+Type queries:
+
+```ts twoslash
+function greet(name: string) {
+  return `Hello, ${name}!`
+}
+
+const result = greet("TypeScript")
+//    ^?
+```
