@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-
+import { toJsxRuntime } from "hast-util-to-jsx-runtime"
+import { Fragment, jsx, jsxs } from "react/jsx-runtime"
+import { type BundledLanguage, codeToHast } from "shiki/bundle/web"
 import { CodeBlock } from "./code-block"
 
 const meta = {
@@ -11,10 +13,6 @@ const meta = {
   },
 } satisfies Meta<typeof CodeBlock>
 export default meta
-
-import { toJsxRuntime } from "hast-util-to-jsx-runtime"
-import { Fragment, jsx, jsxs } from "react/jsx-runtime"
-import { type BundledLanguage, codeToHast } from "shiki/bundle/web"
 
 const highlight = async (code: string, lang: BundledLanguage) => {
   const out = await codeToHast(code, {
