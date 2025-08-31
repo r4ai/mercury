@@ -9,6 +9,7 @@ import { List, ListItem, OrderedList } from "./list"
 import { Paragraph } from "./paragraph"
 import { Slide } from "./slide"
 
+// todo: Provide proper types for components instead of MDXComponents
 export const components: MDXComponents = {
   h1: Heading1,
   h2: Heading2,

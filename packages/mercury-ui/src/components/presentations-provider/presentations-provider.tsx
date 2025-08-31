@@ -1,6 +1,6 @@
-import { ThemeProvider } from "next-themes"
 import type { FC, ReactNode } from "react"
 import { Router, type RouterProps } from "wouter"
+import { ThemeProvider } from "../theme-provider"
 
 type WithoutChildren<T> = Omit<T, "children">
 
@@ -31,9 +31,7 @@ export const PresentationsProvider: FC<PresentationsProviderProps> = ({
 }) => {
   return (
     <Router {...router}>
-      <ThemeProvider attribute="data-color-scheme" {...theme}>
-        {children}
-      </ThemeProvider>
+      <ThemeProvider {...theme}>{children}</ThemeProvider>
     </Router>
   )
 }
