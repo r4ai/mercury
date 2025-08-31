@@ -37,6 +37,19 @@ export const WithoutTitle: Story = {
   },
 }
 
+export const WithCustomClass: Story = {
+  args: {
+    title: "custom-margin.ts",
+    lang: "ts",
+    containerClassName:
+      "border border-blue-400 shadow-lg shadow-blue-200 dark:shadow-blue-900",
+    children: await highlight(
+      "const hello = 'hello'\nconsole.log(hello)",
+      "typescript",
+    ),
+  },
+}
+
 export const LongContent: Story = {
   args: {
     title: "long-lines.js",

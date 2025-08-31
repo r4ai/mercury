@@ -12,12 +12,18 @@ import { cn } from "../../libs/utils"
 export type CodeBlockProps = ComponentPropsWithoutRef<"pre"> & {
   title?: string
   lang: string
+  containerClassName?: string
 }
 
 export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
-  ({ title, lang, className, ...props }, ref) => {
+  ({ title, lang, containerClassName, className, ...props }, ref) => {
     return (
-      <div className="my-2 flex max-h-full min-h-0 w-fit flex-col overflow-hidden rounded-xl border bg-muted dark:bg-zinc-900/75">
+      <div
+        className={cn(
+          "my-2 flex max-h-full min-h-0 w-fit flex-col overflow-hidden rounded-xl border bg-muted dark:bg-zinc-900/75",
+          containerClassName,
+        )}
+      >
         {title && <CodeBlockTitle lang={lang}>{title}</CodeBlockTitle>}
         <pre
           className={cn(
