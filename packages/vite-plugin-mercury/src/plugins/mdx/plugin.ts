@@ -16,6 +16,7 @@ import remarkMath, { type Options as RemarkMathOptions } from "remark-math"
 import type { Plugin } from "vite"
 import {
   transformerLineNumbers,
+  transformerMetaClass,
   transformerMetaDiff,
   transformerTitle,
 } from "./rehype-transformers/index.js"
@@ -60,6 +61,7 @@ export const mercuryMdxDefaultOptions = {
       transformerNotationDiff(),
       transformerNotationHighlight(),
       transformerNotationWordHighlight(),
+      transformerMetaClass(),
       transformerMetaDiff(),
       transformerLineNumbers(),
       transformerTitle(),
