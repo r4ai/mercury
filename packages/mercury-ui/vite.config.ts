@@ -29,6 +29,7 @@ export default defineConfig({
       entry: "src/index.ts",
       name: "mercury-ui",
       formats: ["es", "umd"],
+      cssFileName: "style",
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
