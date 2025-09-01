@@ -58,6 +58,7 @@
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "4.1.1",
     "@iconify-json/lucide": "1.2.66",
+    "@storybook/addon-docs": "9.1.3",
     "@storybook/addon-links": "9.1.3",
     "@storybook/addon-onboarding": "9.1.3",
     "@storybook/addon-themes": "9.1.3",
@@ -72,8 +73,7 @@
     "tailwindcss": "3.4.17",
     "typescript": "5.9.2",
     "unplugin-icons": "22.2.0",
-    "vite": "5.4.19",
-    "vite-plugin-dts": "4.5.4",
-    "@storybook/addon-docs": "9.1.3"
+    "vite": "7.1.3",
+    "vite-plugin-dts": "4.5.4"
   }
 }
