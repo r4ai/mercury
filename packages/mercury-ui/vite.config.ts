@@ -1,9 +1,18 @@
+/// <reference types="vitest/config" />
+
+import path from "node:path"
+import { fileURLToPath } from "node:url"
+import { storybookTest } from "@storybook/addon-vitest/vitest-plugin"
 import react from "@vitejs/plugin-react"
-import tailwindcss from "tailwindcss"
 import icons from "unplugin-icons/vite"
 import { defineConfig } from "vite"
 import dts from "vite-plugin-dts"
 import { dependencies, peerDependencies } from "./package.json"
+
+const dirname =
+  typeof __dirname !== "undefined"
+    ? __dirname
+    : path.dirname(fileURLToPath(import.meta.url))
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,6 +34,7 @@ export default defineConfig({
   ],
   build: {
     outDir: "dist",
+    cssMinify: false,
     lib: {
       entry: "src/index.ts",
       name: "mercury-ui",
@@ -57,8 +67,35 @@ export default defineConfig({
     emptyOutDir: true,
   },
   css: {
-    postcss: {
-      plugins: [tailwindcss],
-    },
+    devSourcemap: true,
+  },
+  test: {
+    projects: [
+      // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
+      {
+        extends: true,
+        plugins: [
+          // The plugin will run tests for the stories defined in your Storybook config
+          // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+          storybookTest({
+            configDir: path.join(dirname, ".storybook"),
+          }),
+        ],
+        test: {
+          name: "storybook",
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: "playwright",
+            instances: [
+              {
+                browser: "chromium",
+              },
+            ],
+          },
+          setupFiles: [".storybook/vitest.setup.ts"],
+        },
+      },
+    ],
   },
 })
