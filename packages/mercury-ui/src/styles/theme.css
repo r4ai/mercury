@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 @custom-variant dark (&:where([data-color-scheme="dark"] *));
 
 :root {
