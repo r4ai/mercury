@@ -1,4 +1,4 @@
-import { dirname, join } from "node:path"
+import { dirname, join, resolve } from "node:path"
 import type { StorybookConfig } from "@storybook/react-vite"
 
 /**
@@ -18,12 +18,14 @@ const config: StorybookConfig = {
     getAbsolutePath("@chromatic-com/storybook"),
     getAbsolutePath("@storybook/addon-themes"),
     getAbsolutePath("@storybook/addon-docs"),
+    getAbsolutePath("@storybook/addon-a11y"),
+    getAbsolutePath("@storybook/addon-vitest"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {
       builder: {
-        viteConfigPath: "./vite.config.ts",
+        viteConfigPath: resolve(__dirname, "vite.config.ts"),
       },
     },
   },
