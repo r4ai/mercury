@@ -1,5 +1,3 @@
-import "./shiki.css"
-
 import {
   type ComponentPropsWithoutRef,
   type FC,
