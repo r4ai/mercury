@@ -69,6 +69,8 @@ function NavigationMenuTrigger({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>) {
   return (
     <NavigationMenuPrimitive.Trigger
+      // useId hook used in radix-ui/button seems to return different values on the server and client
+      suppressHydrationWarning
       data-slot="navigation-menu-trigger"
       className={cn(navigationMenuTriggerStyle(), "group", className)}
       {...props}
