@@ -1,4 +1,5 @@
 export {
+  createMdxPlugins,
   type MercuryMdxOptions,
   mdx,
   mercuryMdxDefaultOptions,
