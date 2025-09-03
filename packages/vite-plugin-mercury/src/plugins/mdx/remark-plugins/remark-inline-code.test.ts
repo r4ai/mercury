@@ -1,33 +1,7 @@
-import rehypeStringify from "rehype-stringify"
-import remarkMdx from "remark-mdx"
-import remarkParse from "remark-parse"
-import remarkRehype from "remark-rehype"
-import { type PluggableList, unified } from "unified"
 import { describe, expect, it } from "vitest"
+import { createDOMFromHTML, renderHtml } from "../../../test-utils.js"
 import { createMdxPlugins, mercuryMdxDefaultOptions } from "../plugin.js"
 import { remarkInlineCode } from "./remark-inline-code.js"
-
-const renderHtml = async (
-  input: string,
-  remarkPlugins: PluggableList,
-  rehypePlugins: PluggableList,
-) => {
-  const processor = unified()
-    .use(remarkParse)
-    .use(remarkMdx)
-    .use(remarkPlugins)
-    .use(remarkRehype)
-    .use(rehypePlugins)
-    .use(rehypeStringify)
-  const file = await processor.process(input)
-  return String(file)
-}
-
-const createDOMFromHTML = (html: string) => {
-  const container = document.createElement("div")
-  container.innerHTML = html
-  return container
-}
 
 describe("remark-inline-code", () => {
   it("transforms inline code to <inline-code> when used alone", async () => {

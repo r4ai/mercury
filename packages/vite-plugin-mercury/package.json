@@ -29,6 +29,7 @@
     "src",
     "dist",
     "!**/*.test.ts",
+    "!**/test-utils.ts",
     "!**/*.tsbuildinfo",
     "README.md",
     "LICENSE"
