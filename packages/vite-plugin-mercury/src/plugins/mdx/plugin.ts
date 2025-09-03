@@ -69,69 +69,67 @@ export const mercuryMdxDefaultOptions = {
   },
 } as const satisfies MercuryMdxOptions
 
-export const mdx = (
-  _options?: RollupMdxOptions & MercuryMdxOptions,
-): Plugin => {
+type CreatedMdxPlugins = {
+  remarkPlugins: NonNullable<RollupMdxOptions["remarkPlugins"]>
+  rehypePlugins: NonNullable<RollupMdxOptions["rehypePlugins"]>
+}
+
+export const createMdxPlugins = <T extends MercuryMdxOptions>(
+  _options?: T,
+): CreatedMdxPlugins => {
   const options = defu(_options, mercuryMdxDefaultOptions)
 
   const remarkPlugins: RollupMdxOptions["remarkPlugins"] = []
   if (options.debug) {
-    remarkPlugins.push(() => {
-      return (tree) => {
-        fs.writeFileSync("mdast_start.json", JSON.stringify(tree, null, 2))
-        return tree
-      }
+    remarkPlugins.push(() => (tree) => {
+      fs.writeFileSync("mdast_start.json", JSON.stringify(tree, null, 2))
+      return tree
     })
   }
   remarkPlugins.push([remarkInlineCode])
-  if (options.remarkMercury) {
+  if (options.remarkMercury)
     remarkPlugins.push([remarkMercury, options.remarkMercury])
-  }
-  if (options.remarkGfm) {
-    remarkPlugins.push([remarkGfm, options.remarkGfm])
-  }
-  if (options.remarkMath) {
-    remarkPlugins.push([remarkMath, options.remarkMath])
-  }
+  if (options.remarkGfm) remarkPlugins.push([remarkGfm, options.remarkGfm])
+  if (options.remarkMath) remarkPlugins.push([remarkMath, options.remarkMath])
   if (options.debug) {
-    remarkPlugins.push(() => {
-      return (tree) => {
-        fs.writeFileSync("mdast_end.json", JSON.stringify(tree, null, 2))
-        return tree
-      }
+    remarkPlugins.push(() => (tree) => {
+      fs.writeFileSync("mdast_end.json", JSON.stringify(tree, null, 2))
+      return tree
     })
   }
 
   const rehypePlugins: RollupMdxOptions["rehypePlugins"] = []
   if (options.debug) {
-    rehypePlugins.push(() => {
-      return (tree) => {
-        fs.writeFileSync("hast_start.json", JSON.stringify(tree, null, 2))
-        return tree
-      }
+    rehypePlugins.push(() => (tree) => {
+      fs.writeFileSync("hast_start.json", JSON.stringify(tree, null, 2))
+      return tree
     })
   }
-  if (options.rehypeKatex) {
+  if (options.rehypeKatex)
     rehypePlugins.push([rehypeKatex, options.rehypeKatex])
-  }
-  if (options.rehypeShiki) {
+  if (options.rehypeShiki)
     rehypePlugins.push([rehypeShiki, options.rehypeShiki])
-  }
   if (options.debug) {
-    rehypePlugins.push(() => {
-      return (tree) => {
-        fs.writeFileSync("hast_end.json", JSON.stringify(tree, null, 2))
-        return tree
-      }
+    rehypePlugins.push(() => (tree) => {
+      fs.writeFileSync("hast_end.json", JSON.stringify(tree, null, 2))
+      return tree
     })
   }
 
+  return { remarkPlugins, rehypePlugins }
+}
+
+export const mdx = (
+  _options?: RollupMdxOptions & MercuryMdxOptions,
+): Plugin => {
+  const baseOptions = defu(_options, mercuryMdxDefaultOptions)
+  const { remarkPlugins, rehypePlugins } = createMdxPlugins(baseOptions)
   return {
     enforce: "pre",
     ...rollupMdx({
-      ...options,
-      remarkPlugins: [...remarkPlugins, ...(options.remarkPlugins ?? [])],
-      rehypePlugins: [...rehypePlugins, ...(options.rehypePlugins ?? [])],
+      ...baseOptions,
+      remarkPlugins: [...remarkPlugins, ...(baseOptions.remarkPlugins ?? [])],
+      rehypePlugins: [...rehypePlugins, ...(baseOptions.rehypePlugins ?? [])],
     }),
   }
 }
