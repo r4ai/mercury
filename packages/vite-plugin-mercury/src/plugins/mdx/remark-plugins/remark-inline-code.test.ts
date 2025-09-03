@@ -23,12 +23,24 @@ const renderHtml = async (
   return String(file)
 }
 
+const createDOMFromHTML = (html: string) => {
+  const container = document.createElement("div")
+  container.innerHTML = html
+  return container
+}
+
 describe("remark-inline-code", () => {
   it("transforms inline code to <inline-code> when used alone", async () => {
     const mdx = "Hello `world`!"
     const html = await renderHtml(mdx, [[remarkInlineCode]], [])
-    expect(html).toContain("<inline-code>world</inline-code>")
-    expect(html).not.toContain("<code>")
+    const container = createDOMFromHTML(html)
+
+    const inlineCodeElement = container.querySelector("inline-code")
+    expect(inlineCodeElement).toBeTruthy()
+    expect(inlineCodeElement?.textContent).toBe("world")
+
+    const codeElement = container.querySelector("code")
+    expect(codeElement).toBeFalsy()
   })
 
   it("works with default mercury MDX plugins", async () => {
@@ -37,6 +49,10 @@ describe("remark-inline-code", () => {
       mercuryMdxDefaultOptions,
     )
     const html = await renderHtml(input, remarkPlugins, rehypePlugins)
-    expect(html).toContain("<inline-code>world</inline-code>")
+    const container = createDOMFromHTML(html)
+
+    const inlineCodeElement = container.querySelector("inline-code")
+    expect(inlineCodeElement).toBeTruthy()
+    expect(inlineCodeElement?.textContent).toBe("world")
   })
 })
