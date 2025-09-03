@@ -15,7 +15,7 @@ export const highlight = async (code: string, lang: BundledLanguage) => {
     Fragment,
     jsx,
     jsxs,
-  }) as JSX.Element
+  })
 }
 
 export const createMDXContent = <TComponents extends Components = Components>(

@@ -1,5 +1,5 @@
 import icon from "@/assets/icon.png"
-import { Editor, PlaygroundProvider, Preview } from "@/components/playground"
+import { PlaygroundProvider } from "@/components/playground"
 
 const HeroSection = () => (
   <section className="flex flex-row items-center justify-between">
@@ -25,10 +25,11 @@ const PlaygroundSection = () => (
       real-time.
     </p>
     <PlaygroundProvider>
-      <div className="grid grid-cols-2 gap-8">
-        <Editor height="500px" className="flex-1" />
-        <Preview className="flex-1" />
-      </div>
+      <iframe
+        height="500px"
+        title="playground section"
+        src="/internal/playground-section"
+      />
     </PlaygroundProvider>
   </section>
 )

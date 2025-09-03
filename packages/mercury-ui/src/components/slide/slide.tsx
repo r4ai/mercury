@@ -1,4 +1,4 @@
-import { type FC, type ReactNode, useEffect, useId } from "react"
+import { type FC, type ReactNode, useEffect, useRef } from "react"
 import { useLocation, Route as WouterRoute } from "wouter"
 import { cn } from "../../libs/utils"
 
@@ -9,25 +9,41 @@ export type SlideProps = {
 }
 
 export const Slide: FC<SlideProps> = ({ index, route = true, children }) => {
-  const id = useId()
+  const ref = useRef<HTMLDivElement>(null)
   const [location] = useLocation()
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: when scale changes, we need to update the transform
   useEffect(() => {
-    const el = document.getElementById(id)
-    if (!el) return
+    const root =
+      document.querySelector<HTMLElement>("[data-presentation-root]") ?? window
 
-    resize(el)
+    const onResize = () => {
+      if (!ref.current) return
+      resize(ref.current, root)
+    }
 
-    window.addEventListener("resize", () => {
-      resize(el)
-    })
-  }, [id, location])
+    onResize()
+
+    const observer = new ResizeObserver(onResize)
+    if (root instanceof HTMLElement) {
+      observer.observe(root)
+    } else {
+      root.addEventListener("resize", onResize)
+    }
+
+    return () => {
+      if (root instanceof HTMLElement) {
+        observer.disconnect()
+      } else {
+        root.removeEventListener("resize", onResize)
+      }
+    }
+  }, [location])
 
   return (
     <Route route={route} path={`/${index}`}>
       <div
-        id={id}
+        ref={ref}
         data-slide
         className={cn(
           "relative my-auto flex aspect-[16/9] h-[540px] max-h-[540px] w-[960px] max-w-[960px] flex-col space-y-4 overflow-hidden border p-8",
@@ -51,11 +67,13 @@ type RouteProps = {
 const Route: FC<RouteProps> = ({ route, path, children }) =>
   route ? <WouterRoute path={path}>{children}</WouterRoute> : children
 
-const resize = (el: HTMLElement) => {
+const resize = (el: HTMLElement, root: HTMLElement | typeof window) => {
   const elWidth = el?.offsetWidth
   const elHeight = el?.offsetHeight
-  const viewportWidth = window.innerWidth
-  const viewportHeight = window.innerHeight
+  const viewportWidth =
+    root instanceof HTMLElement ? root.offsetWidth : root.innerWidth
+  const viewportHeight =
+    root instanceof HTMLElement ? root.offsetHeight : root.innerHeight
 
   const widthScale = viewportWidth / elWidth
   const heightScale = viewportHeight / elHeight

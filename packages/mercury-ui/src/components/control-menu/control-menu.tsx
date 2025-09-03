@@ -12,11 +12,15 @@ import { VerticalDivider } from "./vertical-divider"
 
 export type ControlMenuProps = {
   className?: string
+  showPrintButton?: boolean
+  showFullscreenButton?: boolean
   slidesLength: number
 }
 
 export const ControlMenu: FC<ControlMenuProps> = ({
   className,
+  showPrintButton = true,
+  showFullscreenButton = true,
   slidesLength,
 }) => {
   const { index, next, prev } = useSlides({ length: slidesLength })
@@ -40,8 +44,8 @@ export const ControlMenu: FC<ControlMenuProps> = ({
       <Counter slidesLength={slidesLength} />
       <VerticalDivider />
       <ColorSchemeButton />
-      <PrintButton />
-      <FullscreenButton slidesLength={slidesLength} />
+      {showPrintButton && <PrintButton />}
+      {showFullscreenButton && <FullscreenButton slidesLength={slidesLength} />}
     </div>
   )
 }

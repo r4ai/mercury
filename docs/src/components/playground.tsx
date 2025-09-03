@@ -1,24 +1,28 @@
 "use client"
 
-import { evaluateSync } from "@mdx-js/mdx"
+import { evaluate } from "@mdx-js/mdx"
 import * as provider from "@mdx-js/react"
-import { MDXProvider, useMDXComponents } from "@mdx-js/react"
+import { MDXProvider } from "@mdx-js/react"
 import MonacoEditor from "@monaco-editor/react"
-import { Presentation } from "@r4ai/mercury-ui"
-import {} from "@r4ai/vite-plugin-mercury"
-import type { MDXComponents } from "mdx/types"
+import { components, Presentation } from "@r4ai/mercury-ui"
+import style from "@r4ai/mercury-ui/style.css?raw"
+import { createMdxPlugins } from "@r4ai/vite-plugin-mercury/plugins/mdx/unified"
+import type { MDXComponents, MDXModule } from "mdx/types"
 import { useTheme } from "next-themes"
 import {
   type ComponentProps,
   createContext,
   type ReactNode,
   use,
+  useCallback,
   useDeferredValue,
+  useEffect,
   useMemo,
   useState,
 } from "react"
 import * as jsx from "react/jsx-runtime"
 import type { PluggableList } from "unified"
+import { Router } from "wouter"
 import { useHasMounted } from "@/hooks/use-has-mounted"
 import { Skeleton } from "./ui/skeleton"
 
@@ -40,12 +44,59 @@ const usePlayground = () => {
 }
 
 export const PlaygroundProvider = ({ children }: { children: ReactNode }) => {
-  const [code, setCode] = useState("")
+  const [code, setCode] = useState(`# Welcome to Mercury Playground!
+
+Try editing this MDX content and see the presentation update in real-time.
+
+Math:
+
+$$
+\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}
+$$
+
+Code Block:
+
+\`\`\`javascript
+const greeting = "Hello, Mercury!"
+console.log(greeting)
+\`\`\`
+
+---
+
+# What is Mercury?
+
+Mercury is a tool for creating **beautiful presentations** from MDX files.
+
+- 🎨 **Write in familiar MDX = Markdown + JSX**
+
+- 🚀 **Powered by Vite**
+
+  - Since Mercury is a Vite plugin, you can leverage the existing powerful Vite ecosystem.
+
+- 🧩 **Extensible with custom components and plugins**
+
+  - Mercury works by converting MDX to JSX and rendering it with React.
+
+    This means you can freely customize the design and functionality by replacing the components used in JSX with your own (custom components).
+
+  - Furthermore, by writing remark plugins, you can add your own custom syntax to MDX.
+
+  - Currently, only React is supported, but we are considering adding support for SolidJS and Svelte in the future.
+
+---
+
+# Thank you!
+
+Happy presenting! 🎉`)
 
   return (
-    <PlaygroundContext.Provider value={{ code, setCode }}>
-      {children}
-    </PlaygroundContext.Provider>
+    <>
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" />
+      <style type="text/tailwindcss">{style}</style>
+      <PlaygroundContext.Provider value={{ code, setCode }}>
+        {children}
+      </PlaygroundContext.Provider>
+    </>
   )
 }
 
@@ -88,48 +139,74 @@ export const Preview = ({ ...props }: ComponentProps<"div">) => {
   )
 }
 
-const EMPTY_REMARK_PLUGINS: PluggableList = []
-const EMPTY_REHYPE_PLUGINS: PluggableList = []
+const { remarkPlugins, rehypePlugins } = createMdxPlugins()
 
 const RuntimeMDX = ({
   mdx,
-  components = {},
-  remarkPlugins = EMPTY_REMARK_PLUGINS,
-  rehypePlugins = EMPTY_REHYPE_PLUGINS,
 }: {
   mdx: string
-  components?: MDXComponents | ((c: MDXComponents) => MDXComponents)
   remarkPlugins?: PluggableList
   rehypePlugins?: PluggableList
   loadingFallback?: React.ReactNode
 }) => {
-  const allComponents = useMDXComponents(components)
+  const [mod, setMod] = useState<MDXModule | null>(null)
 
-  const mod = useMemo(() => {
+  const evaluating = useMemo(() => {
     console.log("Evaluating MDX...:", {
       mdx,
       remarkPlugins,
       rehypePlugins,
     })
-    const mod = evaluateSync(mdx, {
+    const mod = evaluate(mdx, {
       ...jsx,
       ...provider,
       remarkPlugins,
       rehypePlugins,
     })
-    console.log(mod)
     console.log("MDX evaluated successfully")
     return mod
-  }, [mdx, remarkPlugins, rehypePlugins])
+  }, [mdx])
+  useEffect(() => {
+    const evaluate = async () => {
+      const result = await evaluating
+      console.log(result)
+      setMod(result)
+    }
+    evaluate()
+  }, [evaluating])
+
+  const basePath = ""
+  const [currentPath, setCurrentPath] = useState("/")
+
+  const virtualLocationHook = useCallback(
+    (): [string, (path: string) => void] => [
+      basePath + currentPath,
+      (newPath: string) => {
+        const pathWithoutBase = newPath.startsWith(basePath)
+          ? newPath.slice(basePath.length)
+          : newPath
+        setCurrentPath(pathWithoutBase)
+      },
+    ],
+    [currentPath],
+  )
 
   // MDX コンポーネントは `components` prop を受けます
   return (
-    <MDXProvider components={allComponents}>
-      <Presentation
-        Content={mod.default}
-        slidesLength={mod.MERCURY_SLIDES_LENGTH as number}
-        components={allComponents}
-      />
-    </MDXProvider>
+    <Router hook={virtualLocationHook}>
+      <MDXProvider>
+        {mod && (
+          <div className="size-full relative" data-presentation-root>
+            <Presentation
+              Content={mod.default}
+              slidesLength={mod.MERCURY_SLIDES_LENGTH as number}
+              showPrintButton={false}
+              showFullscreenButton={false}
+              components={components as MDXComponents}
+            />
+          </div>
+        )}
+      </MDXProvider>
+    </Router>
   )
 }

@@ -5,7 +5,7 @@ import { ThemeProvider } from "./theme-provider"
 
 export const Providers = ({ children }: { children: ReactNode }) => (
   <ThemeProvider
-    attribute="class"
+    attribute="data-color-scheme"
     defaultTheme="system"
     enableSystem
     disableTransitionOnChange
