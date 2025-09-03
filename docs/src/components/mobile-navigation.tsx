@@ -41,12 +41,12 @@ export const MobileNavigation = () => {
               </DrawerHeader>
 
               <div className="flex flex-col h-full">
-                <nav className="flex-1 p-4 space-y-4">
+                <nav className="flex-1 p-4 space-y-6">
                   <div>
                     <DrawerClose asChild>
                       <Link
                         to={links.home.link}
-                        className="block py-2 text-lg font-medium"
+                        className="block py-3 text-lg font-medium hover:text-primary transition-colors"
                       >
                         Home
                       </Link>
@@ -54,15 +54,20 @@ export const MobileNavigation = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-medium text-sm text-muted-foreground mb-2">
+                    <h3 className="font-bold text-xs uppercase tracking-wider text-muted-foreground mb-3 px-2">
                       DOCS
                     </h3>
                     <div className="space-y-1">
                       {links.docs.map((link) => (
                         <DrawerClose key={link.link} asChild>
-                          <Link to={link.link} className="block py-2 pl-4">
-                            <div className="font-medium">{link.title}</div>
-                            <p className="text-sm text-muted-foreground">
+                          <Link
+                            to={link.link}
+                            className="block py-3 pl-4 pr-2 rounded-md hover:bg-muted/50 transition-colors"
+                          >
+                            <div className="font-medium text-base mb-1">
+                              {link.title}
+                            </div>
+                            <p className="text-sm text-muted-foreground leading-snug">
                               {link.description}
                             </p>
                           </Link>
@@ -72,15 +77,20 @@ export const MobileNavigation = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-medium text-sm text-muted-foreground mb-2">
+                    <h3 className="font-bold text-xs uppercase tracking-wider text-muted-foreground mb-3 px-2">
                       PACKAGES
                     </h3>
                     <div className="space-y-1">
                       {links.packages.map((link) => (
                         <DrawerClose key={link.link} asChild>
-                          <Link to={link.link} className="block py-2 pl-4">
-                            <div className="font-medium">{link.title}</div>
-                            <p className="text-sm text-muted-foreground">
+                          <Link
+                            to={link.link}
+                            className="block py-3 pl-4 pr-2 rounded-md hover:bg-muted/50 transition-colors"
+                          >
+                            <div className="font-medium text-base mb-1">
+                              {link.title}
+                            </div>
+                            <p className="text-sm text-muted-foreground leading-snug">
                               {link.description}
                             </p>
                           </Link>
