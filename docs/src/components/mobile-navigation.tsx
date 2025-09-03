@@ -40,66 +40,68 @@ export const MobileNavigation = () => {
                 </DrawerClose>
               </DrawerHeader>
 
-              <nav className="flex-1 p-4 space-y-4">
-                <div>
-                  <DrawerClose asChild>
-                    <Link
-                      to={links.home.link}
-                      className="block py-2 text-lg font-medium"
-                    >
-                      Home
-                    </Link>
-                  </DrawerClose>
-                </div>
-
-                <div>
-                  <h3 className="font-medium text-sm text-muted-foreground mb-2">
-                    DOCS
-                  </h3>
-                  <div className="space-y-1">
-                    {links.docs.map((link) => (
-                      <DrawerClose key={link.link} asChild>
-                        <Link to={link.link} className="block py-2 pl-4">
-                          <div className="font-medium">{link.title}</div>
-                          <p className="text-sm text-muted-foreground">
-                            {link.description}
-                          </p>
-                        </Link>
-                      </DrawerClose>
-                    ))}
+              <div className="flex flex-col h-full">
+                <nav className="flex-1 p-4 space-y-4">
+                  <div>
+                    <DrawerClose asChild>
+                      <Link
+                        to={links.home.link}
+                        className="block py-2 text-lg font-medium"
+                      >
+                        Home
+                      </Link>
+                    </DrawerClose>
                   </div>
-                </div>
 
-                <div>
-                  <h3 className="font-medium text-sm text-muted-foreground mb-2">
-                    PACKAGES
-                  </h3>
-                  <div className="space-y-1">
-                    {links.packages.map((link) => (
-                      <DrawerClose key={link.link} asChild>
-                        <Link to={link.link} className="block py-2 pl-4">
-                          <div className="font-medium">{link.title}</div>
-                          <p className="text-sm text-muted-foreground">
-                            {link.description}
-                          </p>
-                        </Link>
-                      </DrawerClose>
-                    ))}
+                  <div>
+                    <h3 className="font-medium text-sm text-muted-foreground mb-2">
+                      DOCS
+                    </h3>
+                    <div className="space-y-1">
+                      {links.docs.map((link) => (
+                        <DrawerClose key={link.link} asChild>
+                          <Link to={link.link} className="block py-2 pl-4">
+                            <div className="font-medium">{link.title}</div>
+                            <p className="text-sm text-muted-foreground">
+                              {link.description}
+                            </p>
+                          </Link>
+                        </DrawerClose>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                <div className="border-t pt-4 mt-4">
+                  <div>
+                    <h3 className="font-medium text-sm text-muted-foreground mb-2">
+                      PACKAGES
+                    </h3>
+                    <div className="space-y-1">
+                      {links.packages.map((link) => (
+                        <DrawerClose key={link.link} asChild>
+                          <Link to={link.link} className="block py-2 pl-4">
+                            <div className="font-medium">{link.title}</div>
+                            <p className="text-sm text-muted-foreground">
+                              {link.description}
+                            </p>
+                          </Link>
+                        </DrawerClose>
+                      ))}
+                    </div>
+                  </div>
+                </nav>
+
+                <div className="p-4 border-t">
                   <DrawerClose asChild>
                     <a
                       href="https://github.com/r4ai/mercury"
-                      className="flex items-center gap-2 py-2 text-lg font-medium"
+                      className="flex items-center justify-end gap-2 py-2 text-lg font-medium"
                     >
                       <GithubIcon className="h-5 w-5" />
                       GitHub
                     </a>
                   </DrawerClose>
                 </div>
-              </nav>
+              </div>
             </DrawerContent>
           </Drawer>
         </div>
