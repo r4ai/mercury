@@ -21,9 +21,9 @@ import {
   useState,
 } from "react"
 import * as jsx from "react/jsx-runtime"
-import type { PluggableList } from "unified"
 import { Router } from "wouter"
 import { useHasMounted } from "@/hooks/use-has-mounted"
+import { cn } from "@/lib/utils"
 import { Skeleton } from "./ui/skeleton"
 
 type PlaygroundContextType = {
@@ -107,7 +107,9 @@ export const Editor = ({ className, height, ...props }: MonacoEditorProps) => {
   const { code, setCode } = usePlayground()
   const { resolvedTheme } = useTheme()
 
-  if (!hasMounted) return <Skeleton style={{ height }} className={className} />
+  const Loading = () => <Skeleton style={{ height }} className={className} />
+
+  if (!hasMounted) return <Loading />
 
   return (
     <MonacoEditor
@@ -118,23 +120,30 @@ export const Editor = ({ className, height, ...props }: MonacoEditorProps) => {
       options={{
         minimap: { enabled: false },
       }}
+      loading={<Loading />}
       height={height ?? ""}
-      className={className ?? ""}
+      className={cn("border", className)}
       {...props}
     />
   )
 }
 
-export const Preview = ({ ...props }: ComponentProps<"div">) => {
+export const Preview = ({
+  height,
+  className,
+  ...props
+}: ComponentProps<"div"> & { height: string }) => {
   const hasMounted = useHasMounted()
   const { code } = usePlayground()
   const deferredCode = useDeferredValue(code)
 
-  if (!hasMounted) return null
+  const Loading = () => <Skeleton style={{ height }} className={className} />
+
+  if (!hasMounted) return <Loading />
 
   return (
     <div {...props}>
-      <RuntimeMDX mdx={deferredCode} />
+      <RuntimeMDX mdx={deferredCode} loadingFallback={<Loading />} />
     </div>
   )
 }
@@ -143,11 +152,10 @@ const { remarkPlugins, rehypePlugins } = createMdxPlugins()
 
 const RuntimeMDX = ({
   mdx,
+  loadingFallback,
 }: {
   mdx: string
-  remarkPlugins?: PluggableList
-  rehypePlugins?: PluggableList
-  loadingFallback?: React.ReactNode
+  loadingFallback?: ReactNode
 }) => {
   const [mod, setMod] = useState<MDXModule | null>(null)
 
@@ -188,7 +196,7 @@ const RuntimeMDX = ({
   return (
     <Router hook={virtualLocationHook}>
       <MDXProvider>
-        {mod && (
+        {mod ? (
           <div className="size-full relative" data-presentation-root>
             <Presentation
               Content={mod.default}
@@ -198,6 +206,8 @@ const RuntimeMDX = ({
               components={components as MDXComponents}
             />
           </div>
+        ) : (
+          loadingFallback
         )}
       </MDXProvider>
     </Router>
