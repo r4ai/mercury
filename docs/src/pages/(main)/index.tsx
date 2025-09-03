@@ -32,7 +32,7 @@ const PlaygroundSection = () => (
     </p>
     <PlaygroundProvider>
       <iframe
-        className="w-full h-[400px] sm:h-[500px]"
+        className="w-full h-[1000px] sm:h-[500px]"
         title="playground section"
         src="/internal/playground-section"
       />
