@@ -19,7 +19,10 @@ export const MobileNavigation = () => {
     <>
       {/* Mobile Header */}
       <header className="sm:hidden flex items-center justify-between p-4 sticky top-0 z-40 bg-background border-b">
-        <Link to={links.home.link} className="font-bold text-lg">
+        <Link
+          to={links.home.link}
+          className="font-bold text-lg font-geist ml-2"
+        >
           Mercury
         </Link>
         <div className="flex items-center gap-2">
