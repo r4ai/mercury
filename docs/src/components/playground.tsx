@@ -152,24 +152,17 @@ const RuntimeMDX = ({
   const [mod, setMod] = useState<MDXModule | null>(null)
 
   const evaluating = useMemo(() => {
-    console.log("Evaluating MDX...:", {
-      mdx,
-      remarkPlugins,
-      rehypePlugins,
-    })
     const mod = evaluate(mdx, {
       ...jsx,
       ...provider,
       remarkPlugins,
       rehypePlugins,
     })
-    console.log("MDX evaluated successfully")
     return mod
   }, [mdx])
   useEffect(() => {
     const evaluate = async () => {
       const result = await evaluating
-      console.log(result)
       setMod(result)
     }
     evaluate()
