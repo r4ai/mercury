@@ -1,4 +1,8 @@
-const DocsPage = () => <div>Docs</div>
+const DocsPage = () => (
+  <div className="text-center h-full grid place-items-center">
+    Work in Progress...
+  </div>
+)
 
 export default DocsPage
 
