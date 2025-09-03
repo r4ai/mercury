@@ -1,6 +1,2 @@
-export {
-  createMdxPlugins,
-  type MercuryMdxOptions,
-  mdx,
-  mercuryMdxDefaultOptions,
-} from "./plugin.js"
+export { mdx } from "./plugin.js"
+export { type MercuryMdxOptions, mercuryMdxDefaultOptions } from "./unified.js"

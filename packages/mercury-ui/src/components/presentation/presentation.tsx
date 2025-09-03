@@ -9,6 +9,8 @@ import { AllSlidesPresentation } from "./all-slides-presentation"
 export type PresentationProps = {
   base?: string
   slidesLength: number
+  showPrintButton?: boolean
+  showFullscreenButton?: boolean
   components?: MDXComponents | undefined
   Content: MDXContent
 }
@@ -16,6 +18,8 @@ export type PresentationProps = {
 export const Presentation: FC<PresentationProps> = ({
   base = "/",
   slidesLength,
+  showPrintButton = true,
+  showFullscreenButton = true,
   components,
   Content,
 }) => {
@@ -47,6 +51,8 @@ export const Presentation: FC<PresentationProps> = ({
           data-control-menu
           className="absolute bottom-2 left-4"
           slidesLength={slidesLength}
+          showPrintButton={showPrintButton}
+          showFullscreenButton={showFullscreenButton}
         />
       </div>
     </Route>

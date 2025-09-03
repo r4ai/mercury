@@ -30,7 +30,6 @@ export default ({ components }: MDXContentProps) => {
       // @ts-expect-error
       Content={MDXContent}
       slidesLength={2}
-      // @ts-expect-error
       components={components}
     />
   );

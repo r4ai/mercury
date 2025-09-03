@@ -14,7 +14,8 @@
   "type": "module",
   "workspaces": [
     "packages/*",
-    "examples/*"
+    "examples/*",
+    "docs"
   ],
   "scripts": {
     "check": "biome check .",
@@ -38,6 +39,7 @@
   "packageManager": "bun@1.1.32",
   "trustedDependencies": [
     "@biomejs/biome",
+    "@swc/core",
     "@tailwindcss/oxide",
     "esbuild",
     "lefthook"

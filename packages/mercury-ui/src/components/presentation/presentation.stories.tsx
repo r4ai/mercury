@@ -1,18 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import type { MDXContent } from "mdx/types"
-import type { FC, ReactNode } from "react"
 import { withPresentations } from "../../storybook/presentations-decorator"
-import type { Slide } from "../slide"
+import type { Components } from "../components"
 import { Presentation } from "./presentation"
 
-type SlideType = typeof Slide
-type PresentationWrapperType = FC<{ children?: ReactNode }>
-
 // Mock MDX content for story demonstration
-const MockContent: MDXContent = ({ components }) => {
-  const Slide = components?.Slide as SlideType
-  const PresentationWrapper =
-    components?.Presentation as PresentationWrapperType
+const MockContent: MDXContent = ({ components: _components }) => {
+  const components = _components as Components
+  const Slide = components?.Slide
+  const PresentationWrapper = components?.Presentation
   const H1 = components?.h1 ?? "h1"
   const P = components?.p ?? "p"
 

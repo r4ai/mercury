@@ -32,6 +32,7 @@ The scope must be the name of the npm package affected:
 - `mercury-ui`
 - `remark-mercury`
 - `vite-plugin-mercury`
+- `docs`
 
 ## Examples
 
