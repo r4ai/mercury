@@ -1,27 +1,27 @@
 // deno-fmt-ignore-file
 // biome-ignore format: generated types do not need formatting
 // prettier-ignore
-import type { GetConfigResponse, PathsForPages } from 'waku/router';
+import type { PathsForPages, GetConfigResponse } from 'waku/router';
 
 // prettier-ignore
-import type { getConfig as File_Root_getConfig } from "./pages/_root"
+import type { getConfig as File_MainIndex_getConfig } from './pages/(main)/index';
 // prettier-ignore
-import type { getConfig as File_About_getConfig } from "./pages/about"
+import type { getConfig as File_Root_getConfig } from './pages/_root';
 // prettier-ignore
-import type { getConfig as File_Index_getConfig } from "./pages/index"
+import type { getConfig as File_DocsIndex_getConfig } from './pages/docs/index';
 
 // prettier-ignore
 type Page =
-  | ({ path: "/_root" } & GetConfigResponse<typeof File_Root_getConfig>)
-  | ({ path: "/about" } & GetConfigResponse<typeof File_About_getConfig>)
-  | ({ path: "/" } & GetConfigResponse<typeof File_Index_getConfig>)
+| ({ path: '/' } & GetConfigResponse<typeof File_MainIndex_getConfig>)
+| ({ path: '/_root' } & GetConfigResponse<typeof File_Root_getConfig>)
+| ({ path: '/docs' } & GetConfigResponse<typeof File_DocsIndex_getConfig>);
 
 // prettier-ignore
-declare module "waku/router" {
+declare module 'waku/router' {
   interface RouteConfig {
-    paths: PathsForPages<Page>
+    paths: PathsForPages<Page>;
   }
   interface CreatePagesConfig {
-    pages: Page
+    pages: Page;
   }
 }

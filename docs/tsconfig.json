@@ -13,6 +13,7 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "jsx": "react-jsx",
+    "types": ["vite/client", "unplugin-fonts/client"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

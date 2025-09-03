@@ -9,6 +9,11 @@
     "start": "waku start"
   },
   "dependencies": {
+    "@mdx-js/react": "^3.1.1",
+    "@monaco-editor/react": "^4.7.0",
+    "@r4ai/mercury-ui": "workspace:*",
+    "@r4ai/vite-plugin-mercury": "workspace:*",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.12",
     "class-variance-authority": "^0.7.1",

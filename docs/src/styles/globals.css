@@ -1,7 +1,16 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Oswald:wght@200..700&display=swap");
+
+/* Tailwind CSS */
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-oswald: "Oswald", sans-serif;
+  --font-geist: "Geist", sans-serif;
+}
 
 :root {
   --background: oklch(1 0 0);
@@ -119,5 +128,10 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  html,
+  body,
+  #root {
+    @apply h-full;
   }
 }

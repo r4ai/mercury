@@ -3,7 +3,9 @@ import type { ReactNode } from "react"
 const Root = ({ children }: { children: ReactNode }) => (
   <html lang="en" suppressHydrationWarning>
     <head />
-    <body>{children}</body>
+    <body>
+      <div id="root">{children}</div>
+    </body>
   </html>
 )
 
