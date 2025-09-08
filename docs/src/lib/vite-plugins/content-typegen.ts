@@ -43,7 +43,8 @@ const toSlugSegments = (file: string, base: string): string[] => {
   const rel = path.relative(base, file)
   const parts = rel.split(path.sep)
   if (parts.length === 0) return []
-  const last = parts[parts.length - 1]!
+  const last = parts[parts.length - 1]
+  if (last == null) return [] // type guard
   if (last.toLowerCase() === "index.mdx") {
     // drop trailing index.mdx
     return parts.slice(0, -1)
