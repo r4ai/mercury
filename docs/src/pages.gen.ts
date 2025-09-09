@@ -8,9 +8,7 @@ import type { getConfig as File_MainIndex_getConfig } from './pages/(main)/index
 // prettier-ignore
 import type { getConfig as File_Root_getConfig } from './pages/_root';
 // prettier-ignore
-import type { getConfig as File_DocsSlug_getConfig } from './pages/docs/[...slug]';
-// prettier-ignore
-import type { getConfig as File_DocsIndex_getConfig } from './pages/docs/index';
+import type { getConfig as File_DocsSlugs_getConfig } from './pages/docs/[...slugs]';
 // prettier-ignore
 import type { getConfig as File_InternalPlaygroundSection_getConfig } from './pages/internal/playground-section';
 
@@ -18,8 +16,7 @@ import type { getConfig as File_InternalPlaygroundSection_getConfig } from './pa
 type Page =
 | ({ path: '/' } & GetConfigResponse<typeof File_MainIndex_getConfig>)
 | ({ path: '/_root' } & GetConfigResponse<typeof File_Root_getConfig>)
-| ({ path: '/docs/[...slug]' } & GetConfigResponse<typeof File_DocsSlug_getConfig>)
-| ({ path: '/docs' } & GetConfigResponse<typeof File_DocsIndex_getConfig>)
+| ({ path: '/docs/[...slugs]' } & GetConfigResponse<typeof File_DocsSlugs_getConfig>)
 | ({ path: '/internal/playground-section' } & GetConfigResponse<typeof File_InternalPlaygroundSection_getConfig>);
 
 // prettier-ignore

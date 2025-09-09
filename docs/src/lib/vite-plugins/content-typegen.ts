@@ -7,6 +7,8 @@ type GenerateOptions = {
   rootDir: string
 }
 
+type Entry = { segments: string[]; id: string; importPath: string }
+
 const CONTENT_RELATIVE_DIR = "src/content"
 const CONTENT_DOCS_SUBDIR = "docs"
 const OUTPUT_FILE = path.join(CONTENT_RELATIVE_DIR, "content.gen.ts")
@@ -53,6 +55,22 @@ const toSlugSegments = (file: string, base: string): string[] => {
   return [...parts.slice(0, -1), withoutExt]
 }
 
+const buildStaticPaths = (entries: Entry[]) => {
+  const files = entries.map((e) => e.segments)
+
+  const dirsSet = new Set<string>()
+  for (const file of files) {
+    if (file.length < 2) continue
+    for (let i = 1; i < file.length; i++) {
+      const dir = file.slice(0, i)
+      dirsSet.add(JSON.stringify(dir))
+    }
+  }
+  const dirs = [[], ...dirsSet.values().map((dir): string[] => JSON.parse(dir))]
+
+  return [...dirs, ...files]
+}
+
 const generateContent = async ({
   rootDir,
 }: GenerateOptions): Promise<string> => {
@@ -60,21 +78,20 @@ const generateContent = async ({
   const docsDir = path.join(contentDir, CONTENT_DOCS_SUBDIR)
   const files = await readAllMdxFiles(docsDir)
 
-  type Entry = { segs: string[]; id: string; importPath: string }
   const entries: Entry[] = files
     .map((abs) => {
-      const segs = toSlugSegments(abs, docsDir)
-      if (segs.length === 0) return null
-      const id = segs.join("/")
+      const segments = toSlugSegments(abs, docsDir)
+      if (segments.length === 0) return null
+      const id = segments.join("/")
       const relFromContent = path.relative(contentDir, abs)
       const posixRel = relFromContent.split(path.sep).join("/")
       const importPath = `./${posixRel}`
-      return { segs, id, importPath }
+      return { segments, id, importPath }
     })
     .filter((e): e is Entry => !!e)
     .sort((a, b) => a.id.localeCompare(b.id))
 
-  const staticPaths = entries.map((e) => e.segs)
+  const staticPaths = buildStaticPaths(entries)
 
   const banner = [
     "// deno-fmt-ignore-file",
@@ -90,7 +107,7 @@ const generateContent = async ({
     .join("\n")
 
   const code = `${banner}
-export const staticPaths = ${JSON.stringify(staticPaths)} as const
+export const staticPaths = ${JSON.stringify(staticPaths, null, 2)} as const
 
 export type StaticPath = (typeof staticPaths)[number]
 
@@ -99,7 +116,7 @@ export const getContent = (slugs: StaticPath) => {
   switch (id) {
 ${switchCases}
     default:
-      throw new Error(\`Unknown content id: \${id}\`)
+      return undefined
   }
 }
 `

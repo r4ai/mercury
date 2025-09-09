@@ -1,6 +1,6 @@
 "use client"
 
-import { Minus, Plus, Search } from "lucide-react"
+import { ChevronRight, Search } from "lucide-react"
 import type * as React from "react"
 import type { ComponentProps } from "react"
 import { Link, useRouter } from "waku"
@@ -25,62 +25,21 @@ import {
   SidebarMenuSubItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { nav } from "@/content/nav"
 
 type LinkProps = ComponentProps<typeof Link>
 
-type NavGroup = {
+export type NavGroup = {
   title: string
   items?: NavItem[]
 }
 
-type NavItem = {
+export type NavItem = {
   title: string
   url: LinkProps["to"]
 }
 
-const data = {
-  nav: [
-    {
-      title: "Getting Started",
-      items: [
-        {
-          title: "Installation",
-          url: "/docs/getting-started/installation",
-        },
-        {
-          title: "Syntax Guide",
-          url: "/docs/getting-started/syntax-guide",
-        },
-      ],
-    },
-    {
-      title: "Features",
-      items: [
-        {
-          title: "Code Block",
-          url: "/docs/features/code-block",
-        },
-        {
-          title: "Mathematics",
-          url: "/docs/features/mathematics",
-        },
-      ],
-    },
-    {
-      title: "Customization",
-      items: [
-        {
-          title: "Custom Components",
-          url: "/docs/customization/custom-components",
-        },
-        {
-          title: "Extending Syntax",
-          url: "/docs/customization/extending-syntax",
-        },
-      ],
-    },
-  ],
-} as const satisfies { nav: NavGroup[] }
+const data = { nav }
 
 export const DocsSidebar = ({
   ...props
@@ -120,18 +79,17 @@ export const DocsSidebar = ({
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu>
-            {data.nav.map((item, index) => (
+            {data.nav.map((item) => (
               <Collapsible
                 key={item.title}
-                defaultOpen={index === 1}
+                defaultOpen={item.items?.some(({ url }) => url === path)}
                 className="group/collapsible"
               >
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton>
                       {item.title}{" "}
-                      <Plus className="ml-auto group-data-[state=open]/collapsible:hidden" />
-                      <Minus className="ml-auto group-data-[state=closed]/collapsible:hidden" />
+                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   {item.items?.length ? (

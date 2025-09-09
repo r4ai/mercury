@@ -1,7 +1,57 @@
 // deno-fmt-ignore-file
 // biome-ignore format: generated types do not need formatting
 // prettier-ignore
-export const staticPaths = [["customization","custom-components"],["customization","extending-syntax"],["features","code-block"],["features","mathematics"],["getting-started","installation"],["getting-started","syntax-guide"]] as const
+export const staticPaths = [
+  [],
+  [
+    "customization"
+  ],
+  [
+    "features"
+  ],
+  [
+    "getting-started"
+  ],
+  [
+    "packages"
+  ],
+  [
+    "customization",
+    "custom-components"
+  ],
+  [
+    "customization",
+    "extending-syntax"
+  ],
+  [
+    "features",
+    "code-block"
+  ],
+  [
+    "features",
+    "mathematics"
+  ],
+  [
+    "getting-started",
+    "installation"
+  ],
+  [
+    "getting-started",
+    "syntax-guide"
+  ],
+  [
+    "packages",
+    "mercury-ui"
+  ],
+  [
+    "packages",
+    "remark-mercury"
+  ],
+  [
+    "packages",
+    "vite-plugin-mercury"
+  ]
+] as const
 
 export type StaticPath = (typeof staticPaths)[number]
 
@@ -20,7 +70,13 @@ export const getContent = (slugs: StaticPath) => {
       return import("./docs/getting-started/installation/index.mdx");
     case "getting-started/syntax-guide":
       return import("./docs/getting-started/syntax-guide/index.mdx");
+    case "packages/mercury-ui":
+      return import("./docs/packages/mercury-ui/index.mdx");
+    case "packages/remark-mercury":
+      return import("./docs/packages/remark-mercury/index.mdx");
+    case "packages/vite-plugin-mercury":
+      return import("./docs/packages/vite-plugin-mercury/index.mdx");
     default:
-      throw new Error(`Unknown content id: ${id}`)
+      return undefined
   }
 }
