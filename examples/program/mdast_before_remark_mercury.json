@@ -3,7 +3,7 @@
   "children": [
     {
       "type": "mdxjsEsm",
-      "value": "import { Button } from \"@r4ai/mercury-ui\";",
+      "value": "import { Button } from \"@mercurymd/react\";",
       "position": {
         "start": {
           "line": 1,
@@ -124,8 +124,8 @@
                     "offset": 41
                   }
                 },
-                "value": "@r4ai/mercury-ui",
-                "raw": "\"@r4ai/mercury-ui\"",
+                "value": "@mercurymd/react",
+                "raw": "\"@mercurymd/react\"",
                 "range": [23, 41]
               },
               "range": [0, 42]
@@ -3444,7 +3444,7 @@
           "type": "code",
           "lang": "jsx",
           "meta": null,
-          "value": "import { components } from \"@r4ai/mercury-ui\";\n\nconst MDXContent = ({ components } = { components }) => {\n  return (\n    <components.Presentation slidesLength={2}>\n      <components.Slide index={0}>\n        <components.h1>Slide 1</components.h1>\n      </components.Slide>\n      <components.Slide index={1}>\n        <components.h1>Slide 2</components.h1>\n      </components.Slide>\n    </components.Presentation>\n  );\n};\n\nexport default MDXContent",
+          "value": "import { components } from \"@mercurymd/react\";\n\nconst MDXContent = ({ components } = { components }) => {\n  return (\n    <components.Presentation slidesLength={2}>\n      <components.Slide index={0}>\n        <components.h1>Slide 1</components.h1>\n      </components.Slide>\n      <components.Slide index={1}>\n        <components.h1>Slide 2</components.h1>\n      </components.Slide>\n    </components.Presentation>\n  );\n};\n\nexport default MDXContent",
           "position": {
             "start": {
               "line": 247,

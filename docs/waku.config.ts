@@ -1,6 +1,6 @@
 import path from "node:path"
 import mdx from "@mdx-js/rollup"
-import { createMdxPlugins } from "@r4ai/vite-plugin-mercury/plugins/mdx/unified"
+import { createMdxPlugins } from "@mercurymd/vite-plugin/plugins/mdx/unified"
 import tailwindcss from "@tailwindcss/vite"
 import { remarkMdxToc } from "remark-mdx-toc"
 import type { Pluggable } from "unified"

@@ -44,15 +44,15 @@ export const nav = [
     title: "Packages",
     items: [
       {
-        title: "@r4ai/vite-plugin-mercury",
+        title: "@mercurymd/vite-plugin",
         url: "/docs/packages/vite-plugin-mercury",
       },
       {
-        title: "@r4ai/mercury-ui",
+        title: "@mercurymd/react",
         url: "/docs/packages/mercury-ui",
       },
       {
-        title: "@r4ai/remark-mercury",
+        title: "@mercurymd/remark",
         url: "/docs/packages/remark-mercury",
       },
     ],

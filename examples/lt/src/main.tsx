@@ -1,4 +1,4 @@
-import { PresentationsProvider } from "@r4ai/mercury-ui";
+import { PresentationsProvider } from "@mercurymd/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Presentation from "./Presentation.mdx";

@@ -22,7 +22,7 @@ const MDXContent = ({ components }: MDXContentProps) => {
   );
 };
 
-import { Presentation } from "@r4ai/mercury-ui";
+import { Presentation } from "@mercurymd/react";
 
 export default ({ components }: MDXContentProps) => {
   return (

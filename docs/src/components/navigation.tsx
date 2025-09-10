@@ -48,17 +48,17 @@ export const links = {
   ],
   packages: [
     {
-      title: "@r4ai/mercury-ui",
+      title: "@mercurymd/react",
       description: "React components used to build presentation.",
       link: "/docs/packages/mercury-ui",
     },
     {
-      title: "@r4ai/remark-mercury",
+      title: "@mercurymd/remark",
       description: "Remark plugin for Mercury.",
       link: "/docs/packages/remark-mercury",
     },
     {
-      title: "@r4ai/vite-plugin-mercury",
+      title: "@mercurymd/vite-plugin",
       description: "Vite plugin for Mercury.",
       link: "/docs/packages/vite-plugin-mercury",
     },

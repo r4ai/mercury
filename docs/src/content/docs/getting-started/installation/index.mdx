@@ -11,13 +11,13 @@ bun create vite@latest my-presentation -- --template react
 ### 2. Install dependencies
 
 ```shell
-bun add -D -E @tailwindcss/vite @r4ai/vite-plugin-mercury @r4ai/mercury-ui
+bun add -D -E @tailwindcss/vite @mercurymd/vite-plugin @mercurymd/react
 ```
 
 ### 3. Configure Vite
 
 ```ts title="vite.config.ts"
-import mercury from "@r4ai/vite-plugin-mercury";
+import mercury from "@mercurymd/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
@@ -38,7 +38,7 @@ export default defineConfig({
 
    ```css title="src/global.css"
    @import "tailwindcss";
-   @import "@r4ai/mercury-ui/style.css";
+   @import "@mercurymd/react/style.css";
    ```
 
 ### 5. Create your presentation
@@ -78,7 +78,7 @@ export default defineConfig({
 
    ```tsx title="src/main.tsx"
    import "./global.css";
-   import { PresentationsProvider } from "@r4ai/mercury-ui";
+   import { PresentationsProvider } from "@mercurymd/react";
    import React from "react";
    import ReactDOM from "react-dom/client";
    import Presentation from "./presentation.mdx";

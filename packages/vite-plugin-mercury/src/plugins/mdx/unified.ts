@@ -1,7 +1,7 @@
 import type * as fs from "node:fs"
 import type { Options as RollupMdxOptions } from "@mdx-js/rollup"
-import type { RemarkMercuryOptions } from "@r4ai/remark-mercury"
-import remarkMercury from "@r4ai/remark-mercury"
+import type { RemarkMercuryOptions } from "@mercurymd/remark"
+import remarkMercury from "@mercurymd/remark"
 import type { RehypeShikiOptions } from "@shikijs/rehype"
 import rehypeShiki from "@shikijs/rehype"
 import {
