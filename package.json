@@ -26,6 +26,7 @@
     "test:ci": "turbo test:ci",
     "changeset": "changeset",
     "release": "bun run build && bun run test:ci && bun run changeset publish",
+    "version": "bun run changeset version && bun install",
     "prepare": "lefthook install",
     "prepublishOnly": "bun run build"
   },
