@@ -38,6 +38,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
+          # See: https://github.com/oven-sh/bun/issues/16074
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: bun run release
           version: bun run version

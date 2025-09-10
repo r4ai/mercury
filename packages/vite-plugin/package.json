@@ -55,8 +55,7 @@
   },
   "peerDependencies": {
     "vite": "7.1.5",
-    "@mdx-js/rollup": "^3.1.0",
-    "@mercurymd/react": "workspace:*"
+    "@mdx-js/rollup": "^3.1.0"
   },
   "dependencies": {
     "@mercurymd/remark": "workspace:*",
