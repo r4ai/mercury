@@ -49,8 +49,6 @@ function Button({
 
   return (
     <Comp
-      // useId hook used in radix-ui/button seems to return different values on the server and client
-      suppressHydrationWarning
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
