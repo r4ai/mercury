@@ -1,0 +1,102 @@
+import { Button } from "@mercurymd/react"
+
+# Presentation
+
+Hoge
+
+- abc
+- fuga
+
+1. `bar`
+2. $a=1$
+
+---
+
+# Code
+
+fuga `hoge`
+
+```ts
+const hello = () => {
+  console.log("Hello, world!");
+}
+```
+
+```python title="hello.py" showLineNumbers
+def hello:
+    print("Hello, world!")
+```
+
+---
+
+# Code with class
+
+```python class="m-4 border-blue-400 shadow-lg shadow-blue-200 dark:shadow-blue-900" title="hello.py"
+def hello:
+    print("Hello, world!")
+```
+
+---
+
+# MDX (React, TailwindCSS)
+
+<div class="space-y-8">
+  <div class="flex flex-row items-center gap-1">
+    <span class="text-red-600 underline">You</span>
+    <span class="text-green-500 italic hover:bg-red-400 font-serif">can</span>
+    <div class="bg-gradient-to-r from-cyan-600 to-blue-500 p-1 rounded-sm text-white animate-bounce">style</div>
+    <span class="border p-1 rounded-full hover:bg-muted font-mono">with</span>
+    <span class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md p-1 animate-pulse">TailwindCSS</span>
+  </div>
+
+  <div class="flex flex-row gap-4 items-center">
+    <div>
+      You can use React components:
+    </div>
+    <Button>Click me</Button>
+    <Button variant="secondary">Click me</Button>
+    <Button variant="outline">Click me</Button>
+    <Button variant="ghost">Click me</Button>
+    <Button variant="link">Click me</Button>
+  </div>
+
+  ```mdx
+  import { Button } from "@mercurymd/react"
+
+  <div class="flex flex-row gap-4 items-center">
+    <div>
+      You can use React components:
+    </div>
+    <Button>Click me</Button>
+    <Button variant="secondary">Click me</Button>
+    <Button variant="outline">Click me</Button>
+    <Button variant="ghost">Click me</Button>
+    <Button variant="link">Click me</Button>
+  </div>
+  ```
+</div>
+
+---
+
+# Piyo
+
+piyo
+
+---
+
+# Foo
+
+foo
+
+- hoge
+- fuga
+
+---
+
+# Math
+
+Inline math: $e^{i\pi} + 1 = 0$
+
+$$
+\forall \epsilon > 0, \exists \delta > 0 \text{ s.t. } |x - x_0| < \delta \Rightarrow |f(x) - f(x_0)| < \epsilon
+$$

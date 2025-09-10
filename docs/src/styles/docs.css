@@ -1,0 +1,3 @@
+@reference "tailwindcss";
+@import "@mercurymd/react/src/styles/shiki.css";
+@import "katex/dist/katex.min.css";

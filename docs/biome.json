@@ -3,6 +3,9 @@
   "root": false,
   "extends": "//",
   "files": {
-    "includes": ["**", "!src/pages.gen.ts"]
+    "includes": ["**", "!src/pages.gen.ts", "!src/content/content.gen.ts"]
+  },
+  "css": {
+    "linter": { "enabled": false }
   }
 }

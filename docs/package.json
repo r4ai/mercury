@@ -1,22 +1,31 @@
 {
-  "name": "@r4ai/mercury-docs",
+  "name": "@mercurymd/docs",
   "version": "0.0.0",
   "type": "module",
   "private": true,
   "scripts": {
     "dev": "waku dev",
     "build": "waku build",
-    "start": "waku start"
+    "start": "waku start",
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "typecheck": "tsc --noEmit --project tsconfig.json"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "@monaco-editor/react": "^4.7.0",
-    "@r4ai/mercury-ui": "workspace:*",
-    "@r4ai/vite-plugin-mercury": "workspace:*",
+    "@mercurymd/react": "workspace:*",
+    "@mercurymd/vite-plugin": "workspace:*",
+    "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-navigation-menu": "^1.2.14",
+    "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "@tailwindcss/vite": "^4.1.12",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -31,13 +40,23 @@
     "wouter": "3.7.1"
   },
   "devDependencies": {
+    "@mdx-js/rollup": "3.1.1",
+    "@mercurymd/react": "workspace:*",
+    "@mercurymd/vite-plugin": "workspace:*",
     "@tailwindcss/postcss": "4.1.13",
+    "@types/mdx": "2.0.13",
     "@types/node": "24.3.1",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
+    "dedent": "1.7.0",
+    "happy-dom": "^18.0.1",
+    "katex": "0.16.22",
     "postcss": "8.5.6",
+    "remark-mdx-toc": "0.3.1",
     "tailwindcss": "4.1.13",
     "tw-animate-css": "1.3.8",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "vite-plugin-inspect": "11.3.3",
+    "vitest": "3.2.4"
   }
 }

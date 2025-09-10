@@ -1,0 +1,56 @@
+{
+  "name": "@mercurymd/create-mercury",
+  "version": "0.0.0",
+  "description": "",
+  "private": "false",
+  "keywords": [],
+  "author": "r4ai",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r4ai/mercury.git"
+  },
+  "bugs": {
+    "url": "https://github.com/r4ai/mercury/issues"
+  },
+  "homepage": "https://github.com/r4ai/mercury",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "src",
+    "dist",
+    "!**/*.test.ts",
+    "!**/*.tsbuildinfo",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "typecheck": "tsc --noEmit --project tsconfig.build.json",
+    "build": "rimraf dist && tsc --project tsconfig.build.json",
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "prepublishOnly": "bun run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@tsconfig/node16": "16.1.4",
+    "rimraf": "6.0.1",
+    "typescript": "5.9.2",
+    "vitest": "3.2.4"
+  },
+  "packageManager": "bun@1.1.32"
+}

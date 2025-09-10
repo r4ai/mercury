@@ -1,5 +1,5 @@
 {
-  "name": "ridaisai-2024",
+  "name": "example-ridaisai-2024",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,9 +20,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@r4ai/mercury-ui": "workspace:*",
-    "@r4ai/remark-mercury": "workspace:*",
-    "@r4ai/vite-plugin-mercury": "workspace:*",
+    "@mercurymd/react": "workspace:*",
+    "@mercurymd/remark": "workspace:*",
+    "@mercurymd/vite-plugin": "workspace:*",
     "@tailwindcss/vite": "^4.1.12",
     "@types/canvas-confetti": "^1.6.4",
     "@types/react": "^19.1.12",

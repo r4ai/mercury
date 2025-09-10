@@ -41,26 +41,26 @@ export const links = {
   },
   docs: [
     {
-      title: "Documentation",
-      description: "Learn how to use Mercury.",
-      link: "/docs",
+      title: "Installation",
+      description: "Getting started with Mercury.",
+      link: "/docs/getting-started/installation",
     },
   ],
   packages: [
     {
-      title: "@r4ai/mercury-ui",
+      title: "@mercurymd/react",
       description: "React components used to build presentation.",
-      link: "/packages/mercury-ui",
+      link: "/docs/packages/react",
     },
     {
-      title: "@r4ai/remark-mercury",
+      title: "@mercurymd/remark",
       description: "Remark plugin for Mercury.",
-      link: "/packages/remark-mercury",
+      link: "/docs/packages/remark",
     },
     {
-      title: "@r4ai/vite-plugin-mercury",
+      title: "@mercurymd/vite-plugin",
       description: "Vite plugin for Mercury.",
-      link: "/packages/vite-plugin-mercury",
+      link: "/docs/packages/vite-plugin",
     },
   ],
 } as const satisfies Links

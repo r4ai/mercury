@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from "@r4ai/mercury-ui";
+import { Button, type ButtonProps } from "@mercurymd/react";
 import confetti from "canvas-confetti";
 import type { FC } from "react";
 

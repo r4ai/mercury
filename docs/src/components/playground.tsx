@@ -3,10 +3,10 @@
 import { evaluate } from "@mdx-js/mdx"
 import * as provider from "@mdx-js/react"
 import { MDXProvider } from "@mdx-js/react"
+import { components, Presentation } from "@mercurymd/react"
+import style from "@mercurymd/react/style.css?raw"
+import { createMdxPlugins } from "@mercurymd/vite-plugin/plugins/mdx/unified"
 import MonacoEditor from "@monaco-editor/react"
-import { components, Presentation } from "@r4ai/mercury-ui"
-import style from "@r4ai/mercury-ui/style.css?raw"
-import { createMdxPlugins } from "@r4ai/vite-plugin-mercury/plugins/mdx/unified"
 import type { MDXComponents, MDXModule } from "mdx/types"
 import { useTheme } from "next-themes"
 import {

@@ -1,0 +1,93 @@
+# Installation
+
+## Manual Installation
+
+### 1. Create a Vite Project
+
+```shell
+bun create vite@latest my-presentation -- --template react
+```
+
+### 2. Install dependencies
+
+```shell
+bun add -D -E @tailwindcss/vite @mercurymd/vite-plugin @mercurymd/react
+```
+
+### 3. Configure Vite
+
+```ts title="vite.config.ts"
+import mercury from "@mercurymd/vite-plugin";
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    mercury(),
+    tailwindcss(),
+    react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
+  ],
+});
+```
+
+### 4. Configure Styles
+
+1. Import Talwind CSS and Mercury UI style in your global CSS file:
+
+   ```css title="src/global.css"
+   @import "tailwindcss";
+   @import "@mercurymd/react/style.css";
+   ```
+
+### 5. Create your presentation
+
+1. Create a MDX file:
+
+   ````mdx title="src/presentation.mdx"
+   # Presentation
+
+   Hoge
+
+   - abc
+   - fuga
+
+   1. `bar`
+   2. $a=1$
+
+   ---
+
+   # Code
+
+   fuga `hoge`
+
+   ```ts
+   const hello = () => {
+     console.log("Hello, world!");
+   }
+   ```
+
+   ```python title="hello.py" showLineNumbers
+   def hello:
+       print("Hello, world!")
+   ```
+   ````
+
+2. Import and use it in your main entry file:
+
+   ```tsx title="src/main.tsx"
+   import "./global.css";
+   import { PresentationsProvider } from "@mercurymd/react";
+   import React from "react";
+   import ReactDOM from "react-dom/client";
+   import Presentation from "./presentation.mdx";
+
+   ReactDOM.createRoot(document.getElementById("root")!).render(
+     <React.StrictMode>
+       <PresentationsProvider>
+         <Presentation />
+       </PresentationsProvider>
+     </React.StrictMode>,
+   );
+   ```

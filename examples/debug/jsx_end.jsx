@@ -35,7 +35,7 @@ function _missingMdxReference(id, component) {
   throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
 }
 
-import { Presentation } from "@r4ai/mercury-ui";
+import { Presentation } from "@mercurymd/react";
 
 export default ({ components }) => {
   return <Presentation Content={MDXContent} slidesLength={MERCURY_SLIDES_LENGTH} components={components} />;

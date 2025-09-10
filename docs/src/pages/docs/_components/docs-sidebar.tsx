@@ -1,0 +1,120 @@
+"use client"
+
+import { ChevronRight, Search } from "lucide-react"
+import type * as React from "react"
+import type { ComponentProps } from "react"
+import { Link, useRouter } from "waku"
+import icon from "@/assets/icon.png"
+import { Button } from "@/components/ui/button"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarRail,
+} from "@/components/ui/sidebar"
+import { nav } from "@/content/nav"
+
+type LinkProps = ComponentProps<typeof Link>
+
+export type NavGroup = {
+  title: string
+  items?: NavItem[]
+}
+
+export type NavItem = {
+  title: string
+  url: LinkProps["to"]
+}
+
+const data = { nav }
+
+export const DocsSidebar = ({
+  ...props
+}: React.ComponentProps<typeof Sidebar>) => {
+  const { path } = useRouter()
+
+  return (
+    <Sidebar {...props}>
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton size="lg" asChild>
+              <Link to="/">
+                <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+                  <img src={icon} alt="Mercury" className="size-6" />
+                </div>
+                <div className="flex flex-col gap-0.5 leading-none">
+                  <span className="text-base font-medium">Mercury</span>
+                </div>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+        <SidebarGroup className="py-0">
+          <SidebarGroupContent className="relative">
+            <Button
+              variant="outline"
+              className="w-full justify-start text-muted-foreground hover:text-muted-foreground"
+              onClick={() => alert("Search is not implemented yet.")} // TODO: Implement search
+            >
+              <Search className="mr-2" />
+              <span>Search...</span>
+            </Button>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarMenu>
+            {data.nav.map((item) => (
+              <Collapsible
+                key={item.title}
+                defaultOpen={item.items?.some(({ url }) => url === path)}
+                className="group/collapsible"
+              >
+                <SidebarMenuItem>
+                  <CollapsibleTrigger asChild>
+                    <SidebarMenuButton>
+                      {item.title}{" "}
+                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+                  {item.items?.length ? (
+                    <CollapsibleContent>
+                      <SidebarMenuSub>
+                        {item.items.map((item) => (
+                          <SidebarMenuSubItem key={item.title}>
+                            <SidebarMenuSubButton
+                              asChild
+                              isActive={path === item.url}
+                            >
+                              <a href={item.url}>{item.title}</a>
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        ))}
+                      </SidebarMenuSub>
+                    </CollapsibleContent>
+                  ) : null}
+                </SidebarMenuItem>
+              </Collapsible>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarRail />
+    </Sidebar>
+  )
+}
