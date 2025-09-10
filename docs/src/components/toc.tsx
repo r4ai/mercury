@@ -61,7 +61,7 @@ export const Toc = ({
         className={cn(
           "font-medium",
           mobile
-            ? "text-lg text-foreground font-bold"
+            ? "font-bold text-foreground text-lg"
             : "text-[0.9rem] text-foreground/90",
         )}
       >
@@ -95,7 +95,7 @@ const TocList = ({
         {item.children.length ? (
           <div
             className={cn(
-              "ml-2 pl-3 border-l border-border/60",
+              "ml-2 border-border/60 border-l pl-3",
               mobile ? "mt-2" : "mt-1",
             )}
           >
@@ -125,7 +125,7 @@ const TocLink = ({
     <a
       href={`#${id}`}
       className={cn(
-        "block truncate transition-colors text-sm",
+        "block truncate text-sm transition-colors",
         active
           ? "text-foreground"
           : "text-muted-foreground hover:text-foreground",

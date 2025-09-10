@@ -14,6 +14,15 @@
       "recommended": true,
       "suspicious": {
         "noUnknownAtRules": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "error",
+          "options": {
+            "functions": ["cn", "clsx", "tw", "twMerge", "tv"]
+          }
+        }
       }
     }
   },

@@ -12,7 +12,7 @@ const Header = () => (
 const MainLayout = ({ children }: { children: ReactNode }) => (
   <div className="flex min-h-full flex-col">
     <Header />
-    <main className="flex-1 flex flex-col">{children}</main>
+    <main className="flex flex-1 flex-col">{children}</main>
     <Footer />
   </div>
 )

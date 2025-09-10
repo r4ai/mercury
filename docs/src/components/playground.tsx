@@ -107,9 +107,9 @@ export const Editor = ({ className, height, ...props }: MonacoEditorProps) => {
   const { code, setCode } = usePlayground()
   const { resolvedTheme } = useTheme()
 
-  const Loading = () => <Skeleton style={{ height }} className={className} />
+  const loading = <Skeleton style={{ height }} className={className} />
 
-  if (!hasMounted) return <Loading />
+  if (!hasMounted) return loading
 
   return (
     <MonacoEditor
@@ -120,7 +120,7 @@ export const Editor = ({ className, height, ...props }: MonacoEditorProps) => {
       options={{
         minimap: { enabled: false },
       }}
-      loading={<Loading />}
+      loading={loading}
       height={height ?? ""}
       className={cn("border", className)}
       {...props}
@@ -137,13 +137,13 @@ export const Preview = ({
   const { code } = usePlayground()
   const deferredCode = useDeferredValue(code)
 
-  const Loading = () => <Skeleton style={{ height }} className={className} />
+  const loading = <Skeleton style={{ height }} className={className} />
 
-  if (!hasMounted) return <Loading />
+  if (!hasMounted) return loading
 
   return (
     <div {...props}>
-      <RuntimeMDX mdx={deferredCode} loadingFallback={<Loading />} />
+      <RuntimeMDX mdx={deferredCode} loadingFallback={loading} />
     </div>
   )
 }
@@ -197,7 +197,7 @@ const RuntimeMDX = ({
     <Router hook={virtualLocationHook}>
       <MDXProvider>
         {mod ? (
-          <div className="size-full relative" data-presentation-root>
+          <div className="relative size-full" data-presentation-root>
             <Presentation
               Content={mod.default}
               slidesLength={mod.MERCURY_SLIDES_LENGTH as number}

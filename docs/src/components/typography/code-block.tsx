@@ -25,7 +25,7 @@ export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
         {title && <CodeBlockTitle lang={lang}>{title}</CodeBlockTitle>}
         <pre
           className={cn(
-            "min-h-0 flex-1 overflow-auto text-sm py-3.5",
+            "min-h-0 flex-1 overflow-auto py-3.5 text-sm",
             title && "pt-3",
             className,
           )}
@@ -49,7 +49,7 @@ const CodeBlockTitle: FC<CodeBlockTitleProps> = (props) => {
 
 const CodeBlockFileTitle: FC<CodeBlockTitleProps> = ({ children }) => {
   return (
-    <div className="flex flex-row items-center gap-2 border-b px-4 font-mono text-muted-foreground py-3">
+    <div className="flex flex-row items-center gap-2 border-b px-4 py-3 font-mono text-muted-foreground">
       <FileIcon className="size-4 brightness-90 contrast-75 filter" />
       <span className="text-sm">{children}</span>
     </div>

@@ -2,13 +2,13 @@ import type { ComponentProps } from "react"
 import { tv, type VariantProps } from "tailwind-variants"
 
 export const heading = tv({
-  base: "scroll-m-20 tracking-tight w-full",
+  base: "w-full scroll-m-20 tracking-tight",
   variants: {
     level: {
-      h1: "border-b pb-2 text-3xl font-extrabold",
-      h2: "text-2xl font-semibold group-data-[heading-level]:mt-10",
-      h3: "text-xl font-semibold group-data-[heading-level]:mt-8",
-      h4: "text-xl font-semibold group-data-[heading-level]:mt-8",
+      h1: "border-b pb-2 font-extrabold text-3xl",
+      h2: "font-semibold text-2xl group-data-[heading-level]:mt-10",
+      h3: "font-semibold text-xl group-data-[heading-level]:mt-8",
+      h4: "font-semibold text-xl group-data-[heading-level]:mt-8",
     },
   },
 })

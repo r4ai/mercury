@@ -58,7 +58,7 @@ export const DocsHeader = ({
   }, [redirected, slugs, router])
 
   return (
-    <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 sticky top-0 z-40 bg-background/65 backdrop-blur-lg">
+    <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-2 border-b bg-background/65 px-4 backdrop-blur-lg">
       <SidebarTrigger className="-ml-1" />
       {showBreadcrumb && (
         <>
@@ -94,7 +94,7 @@ export const DocsHeader = ({
             <DrawerTrigger className="@4xl:hidden" asChild>
               <Button variant="ghost">On this page</Button>
             </DrawerTrigger>
-            <DrawerContent className="bg-sidebar border-sidebar-border">
+            <DrawerContent className="border-sidebar-border bg-sidebar">
               <div className="mx-5 my-8">
                 <Toc toc={toc} mobile />
               </div>

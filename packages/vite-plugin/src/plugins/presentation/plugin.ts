@@ -30,9 +30,9 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
   const options = { ...mercuryPresentationDefaultOptions, ..._options }
   const filter = createFilter(options.include, options.exclude)
 
-  // @ts-ignore
+  // @ts-expect-error
   let _config: ResolvedConfig
-  // @ts-ignore
+  // @ts-expect-error
   let _isDev: boolean
 
   return {
