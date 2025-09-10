@@ -1,5 +1,11 @@
 # @mercurymd/remark
 
+## 0.1.2
+
+### Patch Changes
+
+- [`5c4e4f5`](https://github.com/r4ai/mercury/commit/5c4e4f595fb8ebae5792185722550957673fa205) Thanks [@r4ai](https://github.com/r4ai)! - Moved dependencies that were mistakenly in devDependencies to dependencies.
+
 ## 0.1.1
 
 ### Patch Changes
