@@ -259,7 +259,7 @@
     },
     "packages/remark": {
       "name": "@mercurymd/remark",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "dependencies": {
         "defu": "^6.1.4",
         "unified": "11.0.5",
@@ -282,7 +282,7 @@
     },
     "packages/vite-plugin": {
       "name": "@mercurymd/vite-plugin",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "dependencies": {
         "@mercurymd/remark": "workspace:*",
         "@shikijs/rehype": "3.12.2",
