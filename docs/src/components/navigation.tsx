@@ -50,17 +50,17 @@ export const links = {
     {
       title: "@mercurymd/react",
       description: "React components used to build presentation.",
-      link: "/docs/packages/mercury-ui",
+      link: "/docs/packages/react",
     },
     {
       title: "@mercurymd/remark",
       description: "Remark plugin for Mercury.",
-      link: "/docs/packages/remark-mercury",
+      link: "/docs/packages/remark",
     },
     {
       title: "@mercurymd/vite-plugin",
       description: "Vite plugin for Mercury.",
-      link: "/docs/packages/vite-plugin-mercury",
+      link: "/docs/packages/vite-plugin",
     },
   ],
 } as const satisfies Links

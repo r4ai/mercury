@@ -41,15 +41,15 @@ export const staticPaths = [
   ],
   [
     "packages",
-    "mercury-ui"
+    "react"
   ],
   [
     "packages",
-    "remark-mercury"
+    "remark"
   ],
   [
     "packages",
-    "vite-plugin-mercury"
+    "vite-plugin"
   ]
 ] as const
 
@@ -70,12 +70,12 @@ export const getContent = (slugs: StaticPath) => {
       return import("./docs/getting-started/installation/index.mdx");
     case "getting-started/syntax-guide":
       return import("./docs/getting-started/syntax-guide/index.mdx");
-    case "packages/mercury-ui":
-      return import("./docs/packages/mercury-ui/index.mdx");
-    case "packages/remark-mercury":
-      return import("./docs/packages/remark-mercury/index.mdx");
-    case "packages/vite-plugin-mercury":
-      return import("./docs/packages/vite-plugin-mercury/index.mdx");
+    case "packages/react":
+      return import("./docs/packages/react/index.mdx");
+    case "packages/remark":
+      return import("./docs/packages/remark/index.mdx");
+    case "packages/vite-plugin":
+      return import("./docs/packages/vite-plugin/index.mdx");
     default:
       return undefined
   }

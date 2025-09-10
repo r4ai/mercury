@@ -45,15 +45,15 @@ export const nav = [
     items: [
       {
         title: "@mercurymd/vite-plugin",
-        url: "/docs/packages/vite-plugin-mercury",
+        url: "/docs/packages/vite-plugin",
       },
       {
         title: "@mercurymd/react",
-        url: "/docs/packages/mercury-ui",
+        url: "/docs/packages/react",
       },
       {
         title: "@mercurymd/remark",
-        url: "/docs/packages/remark-mercury",
+        url: "/docs/packages/remark",
       },
     ],
   },
