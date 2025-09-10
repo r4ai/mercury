@@ -4,9 +4,18 @@
 
 ### 1. Create a Vite Project
 
-```shell
-bun create vite@latest my-presentation -- --template react
-```
+1. Create a new Vite project with React:
+
+   ```shell
+   bun create vite@latest my-presentation --template react-swc-ts
+   ```
+
+2. Remove unnecessary files:
+
+   ```shell
+   cd my-presentation
+   rm -r src/assets/ src/App.css src/App.tsx src/index.css
+   ```
 
 ### 2. Install dependencies
 
