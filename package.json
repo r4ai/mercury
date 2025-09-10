@@ -25,7 +25,7 @@
     "test": "turbo test",
     "test:ci": "turbo test:ci",
     "changeset": "changeset",
-    "release": "bun run build && bun run changeset publish",
+    "release": "bun run build && bun run publish",
     "publish": "for dir in packages/*; do (cd \"$dir\" && bun publish || true); done && changeset tag",
     "version": "changeset version && bun update",
     "prepare": "lefthook install",
