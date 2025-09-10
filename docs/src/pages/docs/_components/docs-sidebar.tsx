@@ -101,7 +101,7 @@ export const DocsSidebar = ({
                               asChild
                               isActive={path === item.url}
                             >
-                              <a href={item.url}>{item.title}</a>
+                              <Link to={item.url}>{item.title}</Link>
                             </SidebarMenuSubButton>
                           </SidebarMenuSubItem>
                         ))}
