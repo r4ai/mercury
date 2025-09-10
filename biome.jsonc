@@ -23,6 +23,13 @@
             "functions": ["cn", "clsx", "tw", "twMerge", "tv"]
           }
         }
+      },
+      "complexity": {
+        "noImportantStyles": {
+          "level": "warn",
+          "fix": "none",
+          "options": {}
+        }
       }
     }
   },
