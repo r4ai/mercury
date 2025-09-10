@@ -30,13 +30,11 @@ const PlaygroundSection = () => (
       Try writing some MDX code in the editor and see the preview update in
       real-time.
     </p>
-    <PlaygroundProvider>
-      <iframe
-        className="w-full h-[1000px] sm:h-[500px]"
-        title="playground section"
-        src="/internal/playground-section"
-      />
-    </PlaygroundProvider>
+    <iframe
+      className="w-full h-[1000px] sm:h-[500px]"
+      title="playground section"
+      src="/internal/playground-section"
+    />
   </section>
 )
 
