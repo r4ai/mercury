@@ -53,11 +53,11 @@ export const DocsSidebar = ({
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link to="/">
-                <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground">
                   <img src={icon} alt="Mercury" className="size-6" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="text-base font-medium">Mercury</span>
+                  <span className="font-medium text-base">Mercury</span>
                 </div>
               </Link>
             </SidebarMenuButton>

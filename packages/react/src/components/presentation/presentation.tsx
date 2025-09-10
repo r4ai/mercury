@@ -3,7 +3,7 @@ import type { FC } from "react"
 import { Redirect, Route, Switch } from "wouter"
 import { components as defaultComponents } from "../components"
 import { ControlMenu } from "../control-menu"
-import { Slide } from "../slide"
+import { Slide, type SlideProps } from "../slide"
 import { AllSlidesPresentation } from "./all-slides-presentation"
 
 export type PresentationProps = {
@@ -34,7 +34,7 @@ export const Presentation: FC<PresentationProps> = ({
             <Content
               components={{
                 ...(defaultComponents as unknown as MDXComponents),
-                Slide: (props) => <Slide {...props} route={false} />,
+                Slide: SlideWithoutRoute,
                 Presentation: AllSlidesPresentation,
                 ...components,
               }}
@@ -58,3 +58,7 @@ export const Presentation: FC<PresentationProps> = ({
     </Route>
   )
 }
+
+const SlideWithoutRoute = (props: SlideProps) => (
+  <Slide {...props} route={false} />
+)

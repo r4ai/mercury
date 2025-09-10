@@ -30,17 +30,17 @@ const DocsPage = async ({
         redirected={redirected !== slugs}
       />
       {content ? (
-        <div className="flex flex-row @4xl:gap-12 @5xl:gap-16 mx-auto justify-center relative px-5 @3xl:px-8">
+        <div className="relative mx-auto flex flex-row justify-center @4xl:gap-12 @5xl:gap-16 @3xl:px-8 px-5">
           <Article className="min-w-0">
             <content.default components={components} />
           </Article>
           <Toc
             toc={content.toc}
-            className="hidden @4xl:block sticky top-24 overflow-auto shrink-0 w-3xs max-h-[calc(100vh-6rem)] self-start"
+            className="sticky top-24 @4xl:block hidden max-h-[calc(100vh-6rem)] w-3xs shrink-0 self-start overflow-auto"
           />
         </div>
       ) : (
-        <div className="grid place-items-center h-full">
+        <div className="grid h-full place-items-center">
           <div className="space-y-6 text-center">
             <h1 className="font-black text-4xl">WIP</h1>
             <p className="text-muted-foreground">

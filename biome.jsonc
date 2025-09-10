@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
   "root": true,
   "assist": {
     "actions": {
@@ -12,17 +12,24 @@
     "enabled": true,
     "rules": {
       "recommended": true,
-      "style": {
-        "noParameterAssign": "error",
-        "useAsConstAssertion": "error",
-        "useDefaultParameterLast": "error",
-        "useEnumInitializers": "error",
-        "useSelfClosingElements": "error",
-        "useSingleVarDeclarator": "error",
-        "noUnusedTemplateLiteral": "error",
-        "useNumberNamespace": "error",
-        "noInferrableTypes": "error",
-        "noUselessElse": "error"
+      "suspicious": {
+        "noUnknownAtRules": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "error",
+          "options": {
+            "functions": ["cn", "clsx", "tw", "twMerge", "tv"]
+          }
+        }
+      },
+      "complexity": {
+        "noImportantStyles": {
+          "level": "warn",
+          "fix": "none",
+          "options": {}
+        }
       }
     }
   },

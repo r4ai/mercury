@@ -45,7 +45,7 @@
     "prepublishOnly": "bun run build"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.2.4",
     "@tsconfig/node16": "16.1.4",
     "rimraf": "6.0.1",
     "typescript": "5.9.2",

@@ -9,7 +9,7 @@ export const Heading1 = ({
 }: ComponentPropsWithoutRef<"h1">) => (
   <h1
     className={cn(
-      "scroll-m-20 mt-12 text-4xl font-extrabold tracking-tight text-balance",
+      "mt-12 scroll-m-20 text-balance font-extrabold text-4xl tracking-tight",
       className,
     )}
     {...props}
@@ -27,7 +27,7 @@ export const Heading2 = ({
     <Separator className="my-8" />
     <h2
       className={cn(
-        "scroll-m-20 mt-8 text-2xl font-semibold tracking-tight first:mt-0",
+        "mt-8 scroll-m-20 font-semibold text-2xl tracking-tight first:mt-0",
         className,
       )}
       {...props}
@@ -44,7 +44,7 @@ export const Heading3 = ({
 }: ComponentPropsWithoutRef<"h3">) => (
   <h3
     className={cn(
-      "scroll-m-20 mt-12 text-xl font-semibold tracking-tight",
+      "mt-12 scroll-m-20 font-semibold text-xl tracking-tight",
       className,
     )}
     {...props}
@@ -60,7 +60,7 @@ export const Heading4 = ({
 }: ComponentPropsWithoutRef<"h4">) => (
   <h4
     className={cn(
-      "scroll-m-20 text-lg font-semibold tracking-tight",
+      "scroll-m-20 font-semibold text-lg tracking-tight",
       className,
     )}
     {...props}

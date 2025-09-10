@@ -7,7 +7,7 @@ export const Article = ({
   ...props
 }: ComponentPropsWithoutRef<"article">) => (
   <article
-    className={cn("space-y-6 w-full max-w-3xl mb-16 scroll-smooth", className)}
+    className={cn("mb-16 w-full max-w-3xl space-y-6 scroll-smooth", className)}
     {...props}
   >
     {children}

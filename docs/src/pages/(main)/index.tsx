@@ -3,16 +3,16 @@ import { PlaygroundProvider } from "@/components/playground"
 
 const HeroSection = () => (
   <section className="flex flex-row items-center justify-between px-4">
-    <div className="flex flex-col items-center mx-auto gap-6 sm:gap-8">
+    <div className="mx-auto flex flex-col items-center gap-6 sm:gap-8">
       <img
         src={icon}
         alt="Mercury Icon"
         className="size-32 sm:size-44 md:size-52"
       />
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-balance text-center">
+      <h1 className="text-balance text-center font-bold text-4xl sm:text-5xl md:text-6xl">
         Mercury
       </h1>
-      <p className="text-lg sm:text-xl text-balance max-w-2xl mx-auto text-center px-2">
+      <p className="mx-auto max-w-2xl text-balance px-2 text-center text-lg sm:text-xl">
         Write MDX, render it as a presentation.
         <br />
         If you can write MDX and JSX, you can use Mercury.
@@ -22,16 +22,16 @@ const HeroSection = () => (
 )
 
 const PlaygroundSection = () => (
-  <section className="container flex flex-col gap-6 sm:gap-8 px-4">
-    <h2 className="text-3xl sm:text-4xl text-balance text-center font-bold">
+  <section className="container flex flex-col gap-6 px-4 sm:gap-8">
+    <h2 className="text-balance text-center font-bold text-3xl sm:text-4xl">
       Playground
     </h2>
-    <p className="text-center text-base sm:text-lg text-muted-foreground px-2">
+    <p className="px-2 text-center text-base text-muted-foreground sm:text-lg">
       Try writing some MDX code in the editor and see the preview update in
       real-time.
     </p>
     <iframe
-      className="w-full h-[1000px] sm:h-[500px]"
+      className="h-[1000px] w-full sm:h-[500px]"
       title="playground section"
       src="/internal/playground-section"
     />
@@ -39,9 +39,9 @@ const PlaygroundSection = () => (
 )
 
 const LandingPage = () => (
-  <div className="flex flex-col flex-1 items-center gap-8 sm:gap-12 my-8 sm:my-12 font-geist">
+  <div className="my-8 flex flex-1 flex-col items-center gap-8 font-geist sm:my-12 sm:gap-12">
     <HeroSection />
-    <div className="h-[1px] bg-border w-full" />
+    <div className="h-[1px] w-full bg-border" />
     <PlaygroundSection />
   </div>
 )

@@ -4,6 +4,7 @@ const Root = ({ children }: { children: ReactNode }) => (
   <html lang="en" suppressHydrationWarning>
     <head />
     <body>
+      {/* biome-ignore lint/correctness/useUniqueElementIds: this component is unique */}
       <div id="root">{children}</div>
     </body>
   </html>

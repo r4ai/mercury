@@ -71,8 +71,8 @@ export const Links = ({ links }: { links: ListNode[] }) => (
       <li key={link.link}>
         <NavigationMenuLink asChild>
           <Link to={link.link}>
-            <div className="text-sm leading-none font-medium">{link.title}</div>
-            <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+            <div className="font-medium text-sm leading-none">{link.title}</div>
+            <p className="line-clamp-2 text-muted-foreground text-sm leading-snug">
               {link.description}
             </p>
           </Link>
@@ -83,7 +83,7 @@ export const Links = ({ links }: { links: ListNode[] }) => (
 )
 
 export const DesktopNavigation = () => (
-  <header className="hidden sm:block mx-auto top-4 sticky z-40 border rounded-full bg-background p-1">
+  <header className="sticky top-4 z-40 mx-auto hidden rounded-full border bg-background p-1 sm:block">
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem className="ml-1">
@@ -125,8 +125,8 @@ export const DesktopNavigation = () => (
 )
 
 export const MobileNavigation = () => (
-  <header className="sm:hidden flex items-center justify-between p-4 sticky top-0 z-40 bg-background border-b">
-    <Link to={links.home.link} className="font-bold text-lg font-geist ml-2">
+  <header className="sticky top-0 z-40 flex items-center justify-between border-b bg-background p-4 sm:hidden">
+    <Link to={links.home.link} className="ml-2 font-bold font-geist text-lg">
       Mercury
     </Link>
     <div className="flex items-center gap-2">
@@ -137,7 +137,7 @@ export const MobileNavigation = () => (
             <MenuIcon className="h-5 w-5" />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="h-full w-80 fixed right-0 top-0">
+        <DrawerContent className="fixed top-0 right-0 h-full w-80">
           <DrawerHeader className="flex flex-row items-center justify-between">
             <DrawerTitle>Navigation</DrawerTitle>
             <DrawerClose asChild>
@@ -147,13 +147,13 @@ export const MobileNavigation = () => (
             </DrawerClose>
           </DrawerHeader>
 
-          <div className="flex flex-col h-full">
-            <nav className="flex-1 p-4 space-y-6">
+          <div className="flex h-full flex-col">
+            <nav className="flex-1 space-y-6 p-4">
               <div>
                 <DrawerClose asChild>
                   <Link
                     to={links.home.link}
-                    className="block py-3 text-lg font-medium hover:text-primary transition-colors"
+                    className="block py-3 font-medium text-lg transition-colors hover:text-primary"
                   >
                     Home
                   </Link>
@@ -161,7 +161,7 @@ export const MobileNavigation = () => (
               </div>
 
               <div>
-                <h3 className="font-bold text-xs uppercase tracking-wider text-muted-foreground mb-3 px-2">
+                <h3 className="mb-3 px-2 font-bold text-muted-foreground text-xs uppercase tracking-wider">
                   DOCS
                 </h3>
                 <div className="space-y-1">
@@ -169,12 +169,12 @@ export const MobileNavigation = () => (
                     <DrawerClose key={link.link} asChild>
                       <Link
                         to={link.link}
-                        className="block py-3 pl-4 pr-2 rounded-md hover:bg-muted/50 transition-colors"
+                        className="block rounded-md py-3 pr-2 pl-4 transition-colors hover:bg-muted/50"
                       >
-                        <div className="font-medium text-base mb-1">
+                        <div className="mb-1 font-medium text-base">
                           {link.title}
                         </div>
-                        <p className="text-sm text-muted-foreground leading-snug">
+                        <p className="text-muted-foreground text-sm leading-snug">
                           {link.description}
                         </p>
                       </Link>
@@ -184,7 +184,7 @@ export const MobileNavigation = () => (
               </div>
 
               <div>
-                <h3 className="font-bold text-xs uppercase tracking-wider text-muted-foreground mb-3 px-2">
+                <h3 className="mb-3 px-2 font-bold text-muted-foreground text-xs uppercase tracking-wider">
                   PACKAGES
                 </h3>
                 <div className="space-y-1">
@@ -192,12 +192,12 @@ export const MobileNavigation = () => (
                     <DrawerClose key={link.link} asChild>
                       <Link
                         to={link.link}
-                        className="block py-3 pl-4 pr-2 rounded-md hover:bg-muted/50 transition-colors"
+                        className="block rounded-md py-3 pr-2 pl-4 transition-colors hover:bg-muted/50"
                       >
-                        <div className="font-medium text-base mb-1">
+                        <div className="mb-1 font-medium text-base">
                           {link.title}
                         </div>
-                        <p className="text-sm text-muted-foreground leading-snug">
+                        <p className="text-muted-foreground text-sm leading-snug">
                           {link.description}
                         </p>
                       </Link>
@@ -207,11 +207,11 @@ export const MobileNavigation = () => (
               </div>
             </nav>
 
-            <div className="p-4 border-t">
+            <div className="border-t p-4">
               <DrawerClose asChild>
                 <a
                   href="https://github.com/r4ai/mercury"
-                  className="flex items-center justify-end gap-2 py-2 text-lg font-medium"
+                  className="flex items-center justify-end gap-2 py-2 font-medium text-lg"
                 >
                   <GithubIcon className="h-5 w-5" />
                   GitHub

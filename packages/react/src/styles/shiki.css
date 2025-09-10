@@ -1,8 +1,12 @@
 [data-color-scheme="dark"] .shiki,
 [data-color-scheme="dark"] .shiki span {
+  /* biome-ignore lint/complexity/noImportantStyles: this is needed to override the style */
   color: var(--shiki-dark) !important;
+  /* biome-ignore lint/complexity/noImportantStyles: this is needed to override the style */
   font-style: var(--shiki-dark-font-style) !important;
+  /* biome-ignore lint/complexity/noImportantStyles: this is needed to override the style */
   font-weight: var(--shiki-dark-font-weight) !important;
+  /* biome-ignore lint/complexity/noImportantStyles: this is needed to override the style */
   text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
