@@ -46,7 +46,7 @@
   "scripts": {
     "check": "biome check .",
     "check:write": "biome check --write .",
-    "typecheck": "tsc --noEmit --project tsconfig.build.json",
+    "typecheck": "tsc --noEmit --project tsconfig.build.json && tsc --noEmit --project tsconfig.json",
     "dev": "tsc --project tsconfig.build.json --watch",
     "build": "rimraf dist && tsc --project tsconfig.build.json",
     "test": "vitest",
@@ -58,12 +58,14 @@
     "vite": "7.1.5"
   },
   "dependencies": {
+    "@babel/parser": "^7.28.4",
     "@mercurymd/remark": "workspace:*",
     "@shikijs/rehype": "3.12.2",
     "@shikijs/transformers": "^3.7.0",
     "dedent": "1.7.0",
     "defu": "^6.1.4",
     "parse-numeric-range": "^1.3.0",
+    "recast": "^0.23.11",
     "rehype-katex": "^7.0.1",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",

@@ -1,5 +1,4 @@
 import * as fs from "node:fs"
-import dedent from "dedent"
 import type { TransformOptions } from "esbuild"
 import {
   createFilter,
@@ -7,6 +6,7 @@ import {
   type ResolvedConfig,
   transformWithEsbuild,
 } from "vite"
+import { transformPresentationCode } from "./transform.js"
 
 export type MercuryPresentationOptions = {
   debug?: boolean
@@ -46,33 +46,25 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
     async transform(code, id) {
       if (!filter(id)) return
 
-      let source = code
-
       if (options.debug) {
-        fs.writeFileSync("jsx_start.jsx", source, "utf-8")
+        fs.writeFileSync("jsx_start.jsx", code, "utf-8")
       }
 
-      // don't default export
-      source = source.replace(/^export default /m, "")
-
-      // export default Presentation
-      source += "\n"
-      source += dedent`
-        import { Presentation } from "@mercurymd/react";
-
-        export default ({ components }) => {
-          return <Presentation Content={MDXContent} slidesLength={MERCURY_SLIDES_LENGTH} components={components} />;
-        }
-      `
+      const transformed = transformPresentationCode(code)
 
       if (options.debug) {
-        fs.writeFileSync("jsx_end.jsx", source, "utf-8")
+        fs.writeFileSync("jsx_end.jsx", transformed.code, "utf-8")
       }
 
-      const js = await transformWithEsbuild(source, id, {
-        sourcefile: id,
-        ...options.esbuildTransformOptions,
-      })
+      const js = await transformWithEsbuild(
+        transformed.code,
+        id,
+        {
+          sourcefile: id,
+          ...options.esbuildTransformOptions,
+        },
+        transformed.map,
+      )
 
       return {
         code: js.code,
