@@ -1,12 +1,12 @@
 import * as fs from "node:fs"
 import type { TransformOptions } from "esbuild"
-import { generateCode, parseModule } from "magicast"
 import {
   createFilter,
   type Plugin,
   type ResolvedConfig,
   transformWithEsbuild,
 } from "vite"
+import { transformPresentationCode } from "./transform.js"
 
 export type MercuryPresentationOptions = {
   debug?: boolean
@@ -30,7 +30,9 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
   const options = { ...mercuryPresentationDefaultOptions, ..._options }
   const filter = createFilter(options.include, options.exclude)
 
+  // @ts-expect-error
   let _config: ResolvedConfig
+  // @ts-expect-error
   let _isDev: boolean
 
   return {
@@ -48,33 +50,21 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
         fs.writeFileSync("jsx_start.jsx", code, "utf-8")
       }
 
-      // Parse the module
-      const mod = parseModule(code)
-
-      // Remove default export
-      delete mod.exports.default
-
-      // Add import for Presentation
-      mod.imports.$prepend({
-        from: "@mercurymd/react",
-        imported: "Presentation",
-      })
-
-      // Add new default export function
-      mod.exports.default =
-        "({ components }) => <Presentation Content={MDXContent} slidesLength={MERCURY_SLIDES_LENGTH} components={components} />"
-
-      // Generate the transformed code
-      const { code: source } = generateCode(mod)
+      const transformed = transformPresentationCode(code)
 
       if (options.debug) {
-        fs.writeFileSync("jsx_end.jsx", source, "utf-8")
+        fs.writeFileSync("jsx_end.jsx", transformed.code, "utf-8")
       }
 
-      const js = await transformWithEsbuild(source, id, {
-        sourcefile: id,
-        ...options.esbuildTransformOptions,
-      })
+      const js = await transformWithEsbuild(
+        transformed.code,
+        id,
+        {
+          sourcefile: id,
+          ...options.esbuildTransformOptions,
+        },
+        transformed.map,
+      )
 
       return {
         code: js.code,
