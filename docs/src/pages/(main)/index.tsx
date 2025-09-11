@@ -1,5 +1,4 @@
 import icon from "@/assets/icon.png"
-import { PlaygroundProvider } from "@/components/playground"
 
 const HeroSection = () => (
   <section className="flex flex-row items-center justify-between px-4">

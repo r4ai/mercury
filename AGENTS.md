@@ -52,6 +52,10 @@ NOTES:
 - CHECK GIT LOG before any git commands. DO NOT TRUST YOUR MEMORY.
 - Use gh to interact with GitHub
 
+## GitHub
+
+To access GitHub features like PRs, issues, releases, use `gh` CLI.
+
 ## Security & Configuration Tips
 
 - Avoid breaking package `exports` fields; treat them as public API boundaries.

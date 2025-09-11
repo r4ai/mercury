@@ -1,7 +1,6 @@
 "use client"
 
-import { ChevronRight, Search } from "lucide-react"
-import type * as React from "react"
+import { ChevronRight, GithubIcon, Search } from "lucide-react"
 import type { ComponentProps } from "react"
 import { Link, useRouter } from "waku"
 import icon from "@/assets/icon.png"
@@ -14,6 +13,7 @@ import {
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
@@ -24,8 +24,10 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
+  SidebarSeparator,
 } from "@/components/ui/sidebar"
 import { nav } from "@/content/nav"
+import { ToggleColorSchemeButton } from "./toggle-color-scheme-button"
 
 type LinkProps = ComponentProps<typeof Link>
 
@@ -41,9 +43,7 @@ export type NavItem = {
 
 const data = { nav }
 
-export const DocsSidebar = ({
-  ...props
-}: React.ComponentProps<typeof Sidebar>) => {
+export const DocsSidebar = ({ ...props }: ComponentProps<typeof Sidebar>) => {
   const { path } = useRouter()
 
   return (
@@ -114,6 +114,28 @@ export const DocsSidebar = ({
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarSeparator />
+      <SidebarFooter className="my-2 flex flex-row justify-between">
+        <SidebarMenu className="w-fit">
+          <SidebarMenuItem>
+            <Button size="sm" variant="ghost" asChild>
+              <a
+                href="https://github.com/r4ai/mercury"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GithubIcon />
+                <span>GitHub</span>
+              </a>
+            </Button>
+          </SidebarMenuItem>
+        </SidebarMenu>
+        <SidebarMenu className="w-fit">
+          <SidebarMenuItem>
+            <ToggleColorSchemeButton />
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )
