@@ -358,12 +358,14 @@ function SidebarSeparator({
   ...props
 }: React.ComponentProps<typeof Separator>) {
   return (
-    <Separator
-      data-slot="sidebar-separator"
-      data-sidebar="separator"
-      className={cn("mx-2 w-auto bg-sidebar-border", className)}
-      {...props}
-    />
+    <div className="px-2">
+      <Separator
+        data-slot="sidebar-separator"
+        data-sidebar="separator"
+        className={cn("w-full bg-sidebar-border", className)}
+        {...props}
+      />
+    </div>
   )
 }
 
