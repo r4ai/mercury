@@ -1,6 +1,6 @@
 import * as fs from "node:fs"
-import dedent from "dedent"
 import type { TransformOptions } from "esbuild"
+import { generateCode, parseModule } from "magicast"
 import {
   createFilter,
   type Plugin,
@@ -30,9 +30,7 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
   const options = { ...mercuryPresentationDefaultOptions, ..._options }
   const filter = createFilter(options.include, options.exclude)
 
-  // @ts-expect-error
   let _config: ResolvedConfig
-  // @ts-expect-error
   let _isDev: boolean
 
   return {
@@ -46,24 +44,28 @@ export const presentation = (_options?: MercuryPresentationOptions): Plugin => {
     async transform(code, id) {
       if (!filter(id)) return
 
-      let source = code
-
       if (options.debug) {
-        fs.writeFileSync("jsx_start.jsx", source, "utf-8")
+        fs.writeFileSync("jsx_start.jsx", code, "utf-8")
       }
 
-      // don't default export
-      source = source.replace(/^export default /m, "")
+      // Parse the module
+      const mod = parseModule(code)
 
-      // export default Presentation
-      source += "\n"
-      source += dedent`
-        import { Presentation } from "@mercurymd/react";
+      // Remove default export
+      delete mod.exports.default
 
-        export default ({ components }) => {
-          return <Presentation Content={MDXContent} slidesLength={MERCURY_SLIDES_LENGTH} components={components} />;
-        }
-      `
+      // Add import for Presentation
+      mod.imports.$prepend({
+        from: "@mercurymd/react",
+        imported: "Presentation",
+      })
+
+      // Add new default export function
+      mod.exports.default =
+        "({ components }) => <Presentation Content={MDXContent} slidesLength={MERCURY_SLIDES_LENGTH} components={components} />"
+
+      // Generate the transformed code
+      const { code: source } = generateCode(mod)
 
       if (options.debug) {
         fs.writeFileSync("jsx_end.jsx", source, "utf-8")
