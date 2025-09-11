@@ -1,0 +1,230 @@
+# Syntax Guide
+
+Mercury では MDX を使用してスライドを記述します。
+
+> [!note] MDX とは
+> MDX (= Markdown + JSX) は Markdown の拡張で、Markdown 内に JSX を記述可能にした言語です。
+> 詳しくは https://mdxjs.com/docs/what-is-mdx/ を参照してください。
+
+また、Mercury は MDX の文法を一部拡張しており、簡単にスライドを作成できるようにしています。 \
+ここでは、主に Mercury の拡張部分について説明します。
+
+## スライドの区切り
+
+スライドの区切りは `---` で行います。
+
+```mdx
+# 1枚目のスライド
+
+ここは一枚目のスライドの中身です
+
+---
+
+# 2枚目のスライド
+
+ここは二枚目のスライドの中身です
+```
+
+## MDX 基本文法
+
+各スライド内では、基本的な MDX の文法が使用できます。
+
+```mdx
+# Ordered List
+
+1. First item
+2. Second item
+3. Third item
+
+---
+
+# Unordered List
+
+- First item
+- Second item
+- Third item
+
+---
+
+# Table
+
+| Framework  | Library |
+| ---------- | ------- |
+| Waku       | React   |
+| SolidStart | Solid   |
+| SvelteKit  | Svelte  |
+
+---
+
+# Inline Elements
+
+This is **bold** text and this is *italic* text.
+This is `inline code`.
+```
+
+## コードブロック
+
+コードブロックはバッククォート3つ (```) で囲むことで記述できます。
+
+````mdx
+```ts
+const greet = (name: string) => `Hello, ${name}!`;
+console.log(greet("World"));
+```
+
+```python
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
+
+print(greet("World"))
+```
+````
+
+Syntax Highlight には Shiki を使用しています。 \
+対応言語については https://shiki.style/languages を参照してください。
+
+行番号の表示やタイトルの表示機能などもあります：
+
+````mdx
+```rs title="main.rs" showLineNumbers
+fn main() {
+    println!("Hello, world!");
+}
+```
+````
+
+この他にも様々な機能があるので、詳しくは [/docs/features/code-block](/docs/features/code-block) を参照してください。
+
+## 数式
+
+数式は $\LaTeX$ 形式で記述できます。
+
+```mdx
+# インライン数式
+
+インライン数式の例: $E = mc^2$
+
+---
+
+# ブロック数式
+
+$$
+\int_a^b f(x) \,dx = F(b) - F(a)
+$$
+```
+
+レンダリングには $\KaTeX$ を使用しています。 \
+対応している $\LaTeX$ コマンドについては https://katex.org/docs/supported.html を参照してください。
+
+詳しくは [/docs/features/mathematics](/docs/features/mathematics) を参照してください。
+
+## 画像
+
+画像は通常の Markdown と同様に `![alt](path)` で挿入できます。
+
+```mdx
+![Example Image](/example.png)
+```
+
+パスはパブリックなURLである必要があります。画像は `/public` フォルダに配置し、パスは `/public` 以下からの相対パスで指定してください。
+
+なお、Vite の [URLインポート](https://vite.dev/guide/assets.html#importing-asset-as-url) を使用すれば、
+`/public` フォルダ以外の場所に画像を配置することも可能です：
+
+```mdx
+import exampleImage from "./assets/example.png"
+
+<img src={exampleImage} alt="Example Image" />
+```
+
+## スタイル
+
+Tailwind CSS を使用して、テキストや要素のスタイルを変更できます。
+
+```mdx
+# Custom Styles
+
+<div className="bg-blue-500 text-white p-4 rounded">
+  This is a custom **styled** `box`.
+
+  - You can use Tailwind CSS classes
+</div>
+```
+
+> [!tip] 要素内でも MDX の文法が使用可能
+> MDX では、要素内でも MDX の文法が使用できます。 \
+> これは Markdown にはない特徴の一つで、非常に強力です。
+
+## カスタムコンポーネント
+
+自身で定義した React コンポーネントを MDX 内で使用できます。
+
+```tsx title="src/components/Alert.tsx"
+export const Alert = ({ type, children }: { type: "info" | "warning" }) => {
+  return (
+    <div className={`border-l-4 p-4 ${type === "info" ? "border-blue-500 bg-blue-100" : "border-yellow-500 bg-yellow-100"}`}>
+      {children}
+    </div>
+  )
+}
+```
+
+```mdx title="src/presentation.mdx"
+import { Alert } from "./components/Alert"
+
+# Alert Example
+
+<Alert type="info">
+  This is an info alert.
+</Alert>
+```
+
+この機能を活用すれば、独自のレイアウトの作成なども可能です：
+
+```tsx title="src/components/TwoColsLayout.tsx"
+import type { ReactNode } from "react";
+
+export const TwoColsLayout = ({ children }: { children: ReactNode }) => (
+  <div className="grid grid-cols-2 gap-6">{children}</div>
+);
+
+export const Left = ({ children }: { children: ReactNode }) => (
+  <div className="space-y-6">{children}</div>
+);
+
+export const Right = ({ children }: { children: ReactNode }) => (
+  <div className="space-y-6">{children}</div>
+);
+```
+
+````mdx title="src/presentation.mdx"
+import { TwoColsLayout, Left, Right } from "./components/TwoColsLayout"
+
+# TwoColsLayout
+
+<TwoColsLayout>
+  <Left>
+    ### Left side
+
+    - You can put any content here
+    - Including lists, images, code blocks, etc.
+
+    ```python
+    def greet(name: str) -> str:
+        return f"Hello, {name}!"
+    ```
+  </Left>
+  <Right>
+    ### Right side
+
+    1. This is the right column
+    2. You can also use **MDX** here
+
+    $$
+    \int_a^b f(x) dx = F(b) - F(a)
+    $$
+  </Right>
+</TwoColsLayout>
+````
+
+詳しくは [/docs/customization/custom-components](/docs/customization/custom-components) を参照してください。
