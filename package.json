@@ -45,6 +45,7 @@
     "@swc/core",
     "@tailwindcss/oxide",
     "esbuild",
-    "lefthook"
+    "lefthook",
+    "msw"
   ]
 }
