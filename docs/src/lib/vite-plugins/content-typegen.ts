@@ -26,8 +26,7 @@ const readAllMdxFiles = async (dir: string): Promise<string[]> => {
           await walk(full)
         } else if (
           entry.isFile() &&
-          entry.name.toLowerCase().endsWith(".mdx") &&
-          !(import.meta.env.PROD && entry.name.startsWith("_")) // ignore files starting with _ in prod
+          entry.name.toLowerCase().endsWith(".mdx")
         ) {
           out.push(full)
         }

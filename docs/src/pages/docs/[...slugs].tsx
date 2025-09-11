@@ -64,6 +64,8 @@ export default DocsPage
 export const getConfig = async () => {
   return {
     render: "static",
-    staticPaths,
+    staticPaths: staticPaths.filter((path) =>
+      import.meta.env.DEV ? true : !path.some((part) => part.startsWith("_")),
+    ),
   } as const
 }
