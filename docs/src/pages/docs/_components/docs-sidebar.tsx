@@ -119,7 +119,11 @@ export const DocsSidebar = ({ ...props }: ComponentProps<typeof Sidebar>) => {
         <SidebarMenu className="w-fit">
           <SidebarMenuItem>
             <Button size="sm" variant="ghost" asChild>
-              <a href="https://github.com/r4ai/mercury" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/r4ai/mercury"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <GithubIcon />
                 <span>GitHub</span>
               </a>
