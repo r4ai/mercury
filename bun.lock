@@ -20,6 +20,7 @@
         "@mercurymd/react": "workspace:*",
         "@mercurymd/vite-plugin": "workspace:*",
         "@monaco-editor/react": "^4.7.0",
+        "@r4ai/remark-callout": "^0.6.2",
         "@radix-ui/react-collapsible": "^1.1.12",
         "@radix-ui/react-dialog": "^1.1.15",
         "@radix-ui/react-dropdown-menu": "^2.1.16",
@@ -37,6 +38,7 @@
         "react-dom": "19.1.1",
         "react-server-dom-webpack": "19.1.1",
         "tailwind-merge": "^3.3.1",
+        "tailwind-variants": "^3.1.1",
         "vaul": "^1.1.2",
         "waku": "0.26.1",
         "wouter": "3.7.1",
@@ -629,6 +631,8 @@
     "@pkgjs/parseargs": ["@pkgjs/parseargs@0.11.0", "", {}, "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="],
 
     "@polka/url": ["@polka/url@1.0.0-next.29", "", {}, "sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww=="],
+
+    "@r4ai/remark-callout": ["@r4ai/remark-callout@0.6.2", "", { "dependencies": { "defu": "^6.1.4", "unist-util-visit": "^5.0.0" } }, "sha512-yRj0dzEqdGYquJqTcr68CtAAh47AamWGMbZwiXBTeH6tf2MAh3Rc8C3xYhsRHKX91j9h5JZPTV2YLv+zL08AHQ=="],
 
     "@radix-ui/primitive": ["@radix-ui/primitive@1.1.3", "", {}, "sha512-JTF99U/6XIjCBo0wqkU5sK10glYe27MRRsfwoiq5zzOEZLHU3A3KCMa5X/azekYRCJ0HlwI0crAXS/5dEHTzDg=="],
 

@@ -4,5 +4,9 @@
   ],
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "tailwindCSS.experimental.classRegex": [
+    // https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional
+    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }

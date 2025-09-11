@@ -26,7 +26,8 @@ const readAllMdxFiles = async (dir: string): Promise<string[]> => {
           await walk(full)
         } else if (
           entry.isFile() &&
-          entry.name.toLowerCase().endsWith(".mdx")
+          entry.name.toLowerCase().endsWith(".mdx") &&
+          !(import.meta.env.PROD && entry.name.startsWith("_")) // ignore files starting with _ in prod
         ) {
           out.push(full)
         }
@@ -57,6 +58,7 @@ const toSlugSegments = (file: string, base: string): string[] => {
 
 const buildStaticPaths = (entries: Entry[]) => {
   const files = entries.map((e) => e.segments)
+  const filesSet = new Set<string>(files.map((file) => JSON.stringify(file)))
 
   const dirsSet = new Set<string>()
   for (const file of files) {
@@ -66,9 +68,13 @@ const buildStaticPaths = (entries: Entry[]) => {
       dirsSet.add(JSON.stringify(dir))
     }
   }
-  const dirs = [[], ...dirsSet.values().map((dir): string[] => JSON.parse(dir))]
 
-  return [...dirs, ...files]
+  const pathsSet = filesSet.union(dirsSet)
+  const paths = [[], ...[...pathsSet].map((p): string[] => JSON.parse(p))]
+
+  return paths.sort(
+    (a, b) => a.length - b.length || a.join("/").localeCompare(b.join("/")),
+  )
 }
 
 const generateContent = async ({
