@@ -1,5 +1,10 @@
 import type { MDXComponents } from "mdx/types"
 import { Blockquote } from "@/components/typography/blockquote"
+import {
+  CalloutBody,
+  CalloutRoot,
+  CalloutTitle,
+} from "@/components/typography/callout"
 import { CodeBlock } from "@/components/typography/code-block"
 import {
   Heading1,
@@ -8,6 +13,7 @@ import {
   Heading4,
 } from "@/components/typography/heading"
 import { InlineCode } from "@/components/typography/inline-code"
+import { Link } from "@/components/typography/link"
 import {
   ListItem,
   OrderedList,
@@ -29,4 +35,8 @@ export const components = {
   "inline-code": InlineCode,
   pre: CodeBlock,
   section: Section,
+  a: Link,
+  "callout-root": CalloutRoot,
+  "callout-title": CalloutTitle,
+  "callout-body": CalloutBody,
 } as const satisfies MDXComponents

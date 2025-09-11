@@ -50,6 +50,11 @@ export const staticPaths = [
   [
     "packages",
     "vite-plugin"
+  ],
+  [
+    "getting-started",
+    "syntax-guide",
+    "_ja"
   ]
 ] as const
 
@@ -70,6 +75,8 @@ export const getContent = (slugs: StaticPath) => {
       return import("./docs/getting-started/installation/index.mdx");
     case "getting-started/syntax-guide":
       return import("./docs/getting-started/syntax-guide/index.mdx");
+    case "getting-started/syntax-guide/_ja":
+      return import("./docs/getting-started/syntax-guide/_ja.mdx");
     case "packages/react":
       return import("./docs/packages/react/index.mdx");
     case "packages/remark":

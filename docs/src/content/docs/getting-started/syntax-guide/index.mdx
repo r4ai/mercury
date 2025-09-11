@@ -1,1 +1,227 @@
 # Syntax Guide
+
+In Mercury, you can write slides in MDX.
+
+> [!note] What is MDX?
+> MDX (= Markdown + JSX) is an extension of Markdown that allows you to write JSX within Markdown files.
+> For more details, see [https://mdxjs.com/docs/what-is-mdx/](https://mdxjs.com/docs/what-is-mdx/).
+
+Mercury also extends some of MDX's syntax to make slide creation easier.
+This guide will primarily focus on Mercury's extended features.
+
+## Slide Separators
+
+Slides are separated by `---`.
+
+```md
+# First Slide
+
+This is the content of the first slide.
+
+---
+
+# Second Slide
+
+This is the content of the second slide.
+```
+
+## Basic MDX Syntax
+
+Within each slide, you can use basic MDX syntax.
+
+```mdx
+# Ordered List
+
+1. First item
+2. Second item
+3. Third item
+
+---
+
+# Unordered List
+
+- First item
+- Second item
+- Third item
+
+---
+
+# Table
+
+| Framework  | Library |
+| ---------- | ------- |
+| Waku       | React   |
+| SolidStart | Solid   |
+| SvelteKit  | Svelte  |
+
+---
+
+# Inline Elements
+
+This is **bold** text and this is *italic* text.
+This is `inline code`.
+```
+
+## Code Blocks
+
+You can create code blocks by wrapping your code in triple backticks (` ``` `).
+
+````mdx
+```ts
+const greet = (name: string) => `Hello, ${name}!`;
+console.log(greet("World"));
+```
+
+```python
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
+
+print(greet("World"))
+```
+````
+
+Mercury uses Shiki for syntax highlighting.
+For a list of supported languages, please see https://shiki.style/languages.
+
+There are also features to display line numbers, titles and so on.
+
+````mdx
+```rs title="main.rs" showLineNumbers
+fn main() {
+    println!("Hello, world!");
+}
+```
+````
+
+For more features, please refer to [/docs/features/code-block](/docs/features/code-block).
+
+## Mathematical Formulas
+
+You can write mathematical formulas in $\LaTeX$ format.
+
+```mdx
+# Inline Formula
+
+Example of an inline formula: $E = mc^2$
+
+---
+
+# Block Formula
+
+$$\int_a^b f(x) \,dx = F(b) - F(a)$$
+```
+
+Mercury uses $\KaTeX$ for rendering.
+For a list of supported $\LaTeX$ commands, please see https://katex.org/docs/supported.html.
+
+See [/docs/features/mathematics](/docs/features/mathematics) for more details.
+
+## Images
+
+You can insert images just like in standard Markdown with `![alt](path)`.
+
+```mdx
+![Example Image](/example.png)
+```
+
+The path must be a public URL. Place your images in the `/public` folder and specify the path relative to `/public`.
+
+Alternatively, by using Vite's [URL Import](https://vite.dev/guide/assets.html#importing-asset-as-url), you can place images outside the `/public` folder:
+
+```mdx
+import exampleImage from "./assets/example.png"
+
+<img src={exampleImage} alt="Example Image" />
+```
+
+## Styling
+
+You can use Tailwind CSS to style text and elements.
+
+```mdx
+# Custom Styles
+
+<div className="bg-blue-500 text-white p-4 rounded">
+  This is a custom **styled** `box`.
+
+  - You can use Tailwind CSS classes
+</div>
+```
+
+> [!tip] MDX syntax works inside elements too
+> In MDX, you can use MDX syntax even within HTML/JSX elements.
+> This is a powerful feature not found in standard Markdown.
+
+## Custom Components
+
+You can use your own React components within MDX.
+
+```tsx title="src/components/Alert.tsx"
+export const Alert = ({ type, children }: { type: "info" | "warning" }) => {
+  return (
+    <div className={`border-l-4 p-4 ${type === "info" ? "border-blue-500 bg-blue-100" : "border-yellow-500 bg-yellow-100"}`}>
+      {children}
+    </div>
+  )
+}
+```
+
+```mdx title="src/presentation.mdx"
+import { Alert } from "./components/Alert"
+
+# Alert Example
+
+<Alert type="info">
+  This is an info alert.
+</Alert>
+```
+
+Leveraging this feature, you can create custom layouts:
+
+```tsx title="src/components/TwoColsLayout.tsx"
+import type { ReactNode } from "react";
+
+export const TwoColsLayout = ({ children }: { children: ReactNode }) => (
+  <div className="grid grid-cols-2 gap-6">{children}</div>
+);
+
+export const Left = ({ children }: { children: ReactNode }) => (
+  <div className="space-y-6">{children}</div>
+);
+
+export const Right = ({ children }: { children: ReactNode }) => (
+  <div className="space-y-6">{children}</div>
+);
+```
+
+````mdx title="src/presentation.mdx"
+import { TwoColsLayout, Left, Right } from "./components/TwoColsLayout"
+
+# TwoColsLayout
+
+<TwoColsLayout>
+  <Left>
+    ### Left side
+
+    - You can put any content here
+    - Including lists, images, code blocks, etc.
+
+    ```python
+    def greet(name: str) -> str:
+        return f"Hello, {name}!"
+    ```
+  </Left>
+  <Right>
+    ### Right side
+
+    1. This is the right column
+    2. You can also use **MDX** here
+
+    $$
+    \int_a^b f(x) dx = F(b) - F(a)
+    $$
+  </Right>
+</TwoColsLayout>
+````
+
+For more details, see [/docs/customization/custom-components](/docs/customization/custom-components).

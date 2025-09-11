@@ -1,6 +1,10 @@
 import path from "node:path"
 import mdx from "@mdx-js/rollup"
 import { createMdxPlugins } from "@mercurymd/vite-plugin/plugins/mdx/unified"
+import {
+  type Options as RemarkCalloutOptions,
+  remarkCallout,
+} from "@r4ai/remark-callout"
 import tailwindcss from "@tailwindcss/vite"
 import { remarkMdxToc } from "remark-mdx-toc"
 import type { Pluggable } from "unified"
@@ -22,6 +26,32 @@ export default defineConfig({
           ...mercury.remarkPlugins,
           remarkHeadingId,
           remarkMdxToc as Pluggable,
+          [
+            remarkCallout,
+            {
+              root: (callout) => ({
+                tagName: "callout-root",
+                properties: {
+                  type: callout.type,
+                  isFoldable: callout.isFoldable.toString(),
+                  defaultFolded: callout.defaultFolded?.toString(),
+                },
+              }),
+              title: (callout) => ({
+                tagName: "callout-title",
+                properties: {
+                  type: callout.type,
+                  isFoldable: callout.isFoldable.toString(),
+                },
+              }),
+              body: (callout) => ({
+                tagName: "callout-body",
+                properties: {
+                  type: callout.type,
+                },
+              }),
+            } satisfies RemarkCalloutOptions,
+          ],
         ],
         rehypePlugins: [...mercury.rehypePlugins, rehypeSection],
       }),

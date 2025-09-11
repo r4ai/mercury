@@ -57,6 +57,7 @@ const toSlugSegments = (file: string, base: string): string[] => {
 
 const buildStaticPaths = (entries: Entry[]) => {
   const files = entries.map((e) => e.segments)
+  const filesSet = new Set<string>(files.map((file) => JSON.stringify(file)))
 
   const dirsSet = new Set<string>()
   for (const file of files) {
@@ -66,9 +67,13 @@ const buildStaticPaths = (entries: Entry[]) => {
       dirsSet.add(JSON.stringify(dir))
     }
   }
-  const dirs = [[], ...dirsSet.values().map((dir): string[] => JSON.parse(dir))]
 
-  return [...dirs, ...files]
+  const pathsSet = filesSet.union(dirsSet)
+  const paths = [[], ...[...pathsSet].map((p): string[] => JSON.parse(p))]
+
+  return paths.sort(
+    (a, b) => a.length - b.length || a.join("/").localeCompare(b.join("/")),
+  )
 }
 
 const generateContent = async ({

@@ -1,4 +1,5 @@
 import { Button } from "@mercurymd/react"
+import { TwoColsLayout, Left, Right } from "./components/TwoColsLayout"
 
 # Presentation
 
@@ -100,3 +101,31 @@ Inline math: $e^{i\pi} + 1 = 0$
 $$
 \forall \epsilon > 0, \exists \delta > 0 \text{ s.t. } |x - x_0| < \delta \Rightarrow |f(x) - f(x_0)| < \epsilon
 $$
+
+---
+
+# TwoColsLayout
+
+<TwoColsLayout>
+  <Left>
+    ### Left side
+
+    - You can put any content here
+    - Including lists, images, code blocks, etc.
+
+    ```python
+    def greet(name: str) -> str:
+        return f"Hello, {name}!"
+    ```
+  </Left>
+  <Right>
+    ### Right side
+
+    1. This is the right column
+    2. You can also use **MDX** here
+
+    $$
+    \int_a^b f(x) dx = F(b) - F(a)
+    $$
+  </Right>
+</TwoColsLayout>
