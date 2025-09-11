@@ -46,7 +46,7 @@
   "scripts": {
     "check": "biome check .",
     "check:write": "biome check --write .",
-    "typecheck": "tsc --noEmit --project tsconfig.build.json",
+    "typecheck": "tsc --noEmit --project tsconfig.build.json && tsc --noEmit --project tsconfig.json",
     "dev": "tsc --project tsconfig.build.json --watch",
     "build": "rimraf dist && tsc --project tsconfig.build.json",
     "test": "vitest",
@@ -58,6 +58,7 @@
     "vite": "7.1.5"
   },
   "dependencies": {
+    "@babel/parser": "^7.28.4",
     "@mercurymd/remark": "workspace:*",
     "@shikijs/rehype": "3.12.2",
     "@shikijs/transformers": "^3.7.0",
