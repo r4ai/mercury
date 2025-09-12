@@ -129,3 +129,89 @@ $$
     $$
   </Right>
 </TwoColsLayout>
+
+---
+
+# Show Line Numbers
+
+```ts showLineNumbers
+const greet = (name: string): string => {
+  return `Hello, ${name}!`;
+};
+
+console.log(greet("World")); // Output: Hello, World!
+```
+
+---
+
+# Line Highlighting
+
+```ts {2,5-7}
+const greet = (name: string): string => {
+  return `Hello, ${name}!`;
+};
+
+for (const name of ["World", "Mercury", "MDX"]) {
+  console.log(greet(name)); // Output: Hello, <name>!
+}
+```
+
+```ts
+const greet = (name: string): string => {
+  return `Hello, ${name}!`; // [!code highlight]
+};
+```
+
+```ts
+// [!code highlight:3]
+const greet = (name: string): string => {
+  return `Hello, ${name}!`;
+};
+```
+
+---
+
+# Word Highlighting
+
+```ts /string/
+const greet = (name: string): string => {
+  return `Hello, ${name}!`;
+};
+```
+
+```ts
+// [!code word:string]
+const greet = (name: string): string => {
+  return `Hello, ${name}!`;
+};
+```
+
+---
+
+# Diff
+
+```ts diff
+  const greet = (name: string): string => {
+-   return `Hello, ${name}!`;
++   return `Hi, ${name}!`;
+  };
+```
+
+```ts
+const greet = (name: string): string => {
+  return `Hello, ${name}!`; // [!code --]
+  return `Hi, ${name}!`; // [!code ++]
+};
+```
+
+---
+
+# Combined
+
+```ts title="greet.ts" showLineNumbers
+const greet = (name: string): string => {
+  return `Hello, ${name}!`;  // [!code highlight]
+};
+
+console.log(greet("World")); // Output: Hello, World!
+```

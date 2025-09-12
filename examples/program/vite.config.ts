@@ -6,7 +6,17 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    mercury(),
+    mercury({
+      mdx: {
+        rehypeShiki: {
+          // write your options here...
+          themes: {
+            light: "github-light",
+            dark: "one-dark-pro",
+          },
+        },
+      },
+    }),
     react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
     tailwindcss(),
   ],
