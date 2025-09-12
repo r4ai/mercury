@@ -52,6 +52,16 @@ export const staticPaths = [
     "vite-plugin"
   ],
   [
+    "features",
+    "code-block",
+    "_ja"
+  ],
+  [
+    "features",
+    "mathematics",
+    "_ja"
+  ],
+  [
     "getting-started",
     "syntax-guide",
     "_ja"
@@ -69,8 +79,12 @@ export const getContent = (slugs: StaticPath) => {
       return import("./docs/customization/extending-syntax/index.mdx");
     case "features/code-block":
       return import("./docs/features/code-block/index.mdx");
+    case "features/code-block/_ja":
+      return import("./docs/features/code-block/_ja.mdx");
     case "features/mathematics":
       return import("./docs/features/mathematics/index.mdx");
+    case "features/mathematics/_ja":
+      return import("./docs/features/mathematics/_ja.mdx");
     case "getting-started/installation":
       return import("./docs/getting-started/installation/index.mdx");
     case "getting-started/syntax-guide":

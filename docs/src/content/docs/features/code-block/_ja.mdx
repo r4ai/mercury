@@ -1,8 +1,8 @@
-# Code Blocks
+# Code Block
 
-## Basic Usage
+## 基本
 
-You can create a code block by wrapping it with three backticks (```` ``` ````).
+コードブロックは、バッククォート3つ（```` ``` ````）で囲むことで作成できます。
 
 ````mdx
 ```ts
@@ -14,13 +14,13 @@ console.log(greet("World")); // Output: Hello, World!
 ```
 ````
 
-## Features
+## 拡張機能
 
-Here are the features available for code blocks in Mercury.
+以下に、Mercury のコードブロックで使用できる拡張機能を紹介します。
 
-Note that all of these can be used in combination.
+なお、これらは全て組み合わせて使用できます。
 
-For example, you can specify `title` and `showLineNumbers` at the same time:
+例えば、`title` と `showLineNumbers` を同時に指定することも可能です：
 
 ````mdx
 ```ts title="greet.ts" showLineNumbers
@@ -32,9 +32,9 @@ console.log(greet("World")); // Output: Hello, World!
 ```
 ````
 
-### Show Line Numbers
+### 行番号の表示
 
-You can display line numbers by adding the `showLineNumbers` metadata to the code block.
+コードブロックに `showLineNumbers` メタデータを追加することで、行番号を表示できます。
 
 ````mdx
 ```ts showLineNumbers
@@ -46,11 +46,11 @@ console.log(greet("World")); // Output: Hello, World!
 ```
 ````
 
-### Title
+### タイトル
 
-You can display a title by adding the `title="your title"` metadata to the code block.
+コードブロックに `title="your title"` メタデータを追加することで、タイトルを表示できます。
 
-This is useful for displaying filenames, for example.
+ファイル名を表示したい際などに便利です。
 
 ````mdx
 ```ts title="greet.ts"
@@ -62,11 +62,11 @@ console.log(greet("World")); // Output: Hello, World!
 ```
 ````
 
-### Line Highlighting
+### 行ハイライト
 
-You can highlight specific lines by adding metadata like `{1,4-7}` to the code block.
+コードブロックに `{1,4-7}` のようなメタデータを追加することで、指定した行をハイライトできます。
 
-In the following example, line 2 and lines 5 through 7 are highlighted.
+次の例では、2行目と5〜7行目がハイライトされます。
 
 ````mdx
 ```ts {2,5-7}
@@ -80,7 +80,7 @@ for (const name of ["World", "Mercury", "MDX"]) {
 ```
 ````
 
-Alternatively, you can highlight a line by writing `[!code highlight]` within a comment on that line.
+また、`[!code highlight]` をコメントアウト内に記述することでも、その行をハイライトできます。
 
 ````mdx
 ```ts
@@ -90,7 +90,7 @@ const greet = (name: string): string => {
 ```
 ````
 
-You can also highlight multiple lines by specifying a number, like `[!code highlight:3]`.
+`[!code highlight:3]` のように指定することで、複数行のハイライトも可能です。
 
 ````mdx
 ```ts
@@ -101,15 +101,15 @@ const greet = (name: string): string => {
 ```
 ````
 
-For more details, see the following:
+詳しくは以下を参照してください。
 
 https://shiki.style/packages/transformers#transformermetahighlight
 
 https://shiki.style/packages/transformers#transformernotationhighlight
 
-### Word Highlighting
+### 単語ハイライト
 
-You can highlight specific words by adding metadata like `/word/` to the code block.
+コードブロックに `/word/` のようにメタデータを追加することで、指定した単語をハイライトできます。
 
 ````mdx
 ```ts /string/
@@ -119,7 +119,7 @@ const greet = (name: string): string => {
 ```
 ````
 
-Alternatively, you can highlight a word by writing `[!code word:word]` within a comment.
+また、`[!code word:word]` をコメントアウト内に記述することでも、その単語をハイライトできます。
 
 ````mdx
 ```ts
@@ -130,17 +130,17 @@ const greet = (name: string): string => {
 ```
 ````
 
-For more details, see the following:
+詳しくは以下を参照してください。
 
 https://shiki.style/packages/transformers#transformermetawordhighlight
 
 https://shiki.style/packages/transformers#transformernotationwordhighlight
 
-### Diff Comparison
+### 差分比較
 
-You can display diffs by adding the `diff` metadata to the code block.
+コードブロックに `diff` メタデータを追加することで、差分の表示が可能です。
 
-Lines starting with `-` will be shown as deletions, and lines starting with `+` will be shown as additions.
+`-` で始まる行は削除、`+` で始まる行は追加として表示されます。
 
 ````mdx
 ```ts diff
@@ -151,7 +151,7 @@ Lines starting with `-` will be shown as deletions, and lines starting with `+` 
 ```
 ````
 
-Alternatively, you can create diffs by writing `[!code --]` and `[!code ++]` within comments.
+また、`[!code --]` と `[!code ++]` をコメントアウト内に記述することでも、差分の表示が可能です。
 
 ````mdx
 ```ts
@@ -162,21 +162,21 @@ const greet = (name: string): string => {
 ```
 ````
 
-For more details, see the following:
+詳しくは以下を参照してください。
 
 https://shiki.style/packages/transformers#transformernotationdiff
 
-## Supported Languages for Syntax Highlighting
+## Syntax Highlighting 対応言語
 
-Mercury uses [Shiki](https://shiki.style/) for syntax highlighting.
+Mercury では Syntax Highlighting に [Shiki](https://shiki.style/) を使用しています。
 
-For a list of supported languages, please refer to the following page:
+対応している言語の一覧については次のページを参照してください。
 
 https://shiki.style/languages
 
-## Options
+## オプション
 
-Shiki options can be specified in the `mdx.rehypeShiki` property.
+Shiki のオプションは `mdx.rehypeShiki` プロパティで指定できます。
 
 ```ts title="vite.config.ts" {11-17}
 import mercury from "@mercurymd/vite-plugin";
@@ -184,7 +184,7 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-// [https://vitejs.dev/config/](https://vitejs.dev/config/)
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     mercury({
@@ -204,6 +204,6 @@ export default defineConfig({
 });
 ```
 
-For more details, please refer to the following page:
+詳しくは次のページを参照してください。
 
 https://shiki.style/packages/rehype

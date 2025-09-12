@@ -1,18 +1,18 @@
 # Mathematics
 
-Mercury supports mathematical notation using $\LaTeX$.
+Mercury は $\LaTeX$ による数式記述をサポートしています。
 
-## Inline Math
+## インライン数式
 
-You can write inline math by wrapping it with `$...$`.
+インライン数式は `$...$` で囲むことで記述できます。
 
 ```mdx
-This is an example of an inline formula: $E=mc^2$.
+これはインライン数式の例です: $E=mc^2$。
 ```
 
-## Block Math
+## ブロック数式
 
-You can write block math by wrapping it with `$$...$$`.
+ブロック数式は `$$...$$` で囲むことで記述できます。
 
 ```mdx
 $$
@@ -20,22 +20,21 @@ $$
 $$
 ```
 
-## Supported $\LaTeX$ Commands
+## 対応している $\LaTeX$ コマンドについて
 
-Mercury uses $\KaTeX$ to render mathematical equations.
-For a list of supported $\LaTeX$ commands, please see the following page:
+Mercury では数式のレンダリングに $\KaTeX$ を使用しています。
+対応している $\LaTeX$ コマンドについては次ののページを参照してください。
 
 https://katex.org/docs/supported.html
 
-## Options
+## オプション
 
-Mercury uses `remark-math` and `rehype-katex` for math rendering.
-
-Here's how you can configure their options.
+数式のレンダリングには remark-math と rehype-katex を使用しています。
+それぞれのオプションの指定方法は以下の通りです。
 
 ### remark-math
 
-You can pass options to `remark-math` using the `mdx.remarbkMath` property.
+remark-math のオプションは `remarkMath` プロパティで指定します。
 
 ```ts title="vite.config.ts" {11-13}
 import mercury from "@mercurymd/vite-plugin";
@@ -59,13 +58,13 @@ export default defineConfig({
 });
 ```
 
-For available options, please refer to the following page:
+利用可能なオプションについては次のページを参照してください。
 
 https://github.com/remarkjs/remark-math
 
 ### rehype-katex
 
-You can pass options to `rehype-katex` using the `mdx.rehypeKatex` property.
+rehype-katex のオプションは `rehypeKatex` プロパティで指定します。
 
 ```ts title="vite.config.ts" {11-13}
 import mercury from "@mercurymd/vite-plugin";
@@ -89,7 +88,7 @@ export default defineConfig({
 });
 ```
 
-For available options, please refer to the following pages:
+利用可能なオプションについては次のページを参照してください。
 
 https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex
 

@@ -10,6 +10,7 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
   transformerNotationWordHighlight,
+  transformerRemoveNotationEscape,
 } from "@shikijs/transformers"
 import { defu } from "defu"
 import type { Options as rehypeKatexOptions } from "rehype-katex"
@@ -69,6 +70,7 @@ export const mercuryMdxDefaultOptions = {
       transformerMetaDiff(),
       transformerLineNumbers(),
       transformerTitle(),
+      transformerRemoveNotationEscape(),
     ],
   },
 } as const satisfies MercuryMdxOptions
