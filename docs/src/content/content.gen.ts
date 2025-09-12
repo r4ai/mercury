@@ -53,6 +53,11 @@ export const staticPaths = [
   ],
   [
     "features",
+    "code-block",
+    "_ja"
+  ],
+  [
+    "features",
     "mathematics",
     "_ja"
   ],
@@ -74,6 +79,8 @@ export const getContent = (slugs: StaticPath) => {
       return import("./docs/customization/extending-syntax/index.mdx");
     case "features/code-block":
       return import("./docs/features/code-block/index.mdx");
+    case "features/code-block/_ja":
+      return import("./docs/features/code-block/_ja.mdx");
     case "features/mathematics":
       return import("./docs/features/mathematics/index.mdx");
     case "features/mathematics/_ja":
