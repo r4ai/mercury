@@ -14,6 +14,7 @@ import {
 } from "@/components/typography/heading"
 import { InlineCode } from "@/components/typography/inline-code"
 import { Link } from "@/components/typography/link"
+import { LinkCard } from "@/components/typography/link-card"
 import {
   ListItem,
   OrderedList,
@@ -39,4 +40,5 @@ export const components = {
   "callout-root": CalloutRoot,
   "callout-title": CalloutTitle,
   "callout-body": CalloutBody,
+  "link-card": LinkCard,
 } as const satisfies MDXComponents

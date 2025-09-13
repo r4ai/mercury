@@ -5,6 +5,8 @@ import {
   type Options as RemarkCalloutOptions,
   remarkCallout,
 } from "@r4ai/remark-callout"
+import { type RemarkEmbedOptions, remarkEmbed } from "@r4ai/remark-embed"
+import { transformerLinkCard } from "@r4ai/remark-embed/transformers"
 import tailwindcss from "@tailwindcss/vite"
 import { remarkMdxToc } from "remark-mdx-toc"
 import type { Pluggable } from "unified"
@@ -51,6 +53,30 @@ export default defineConfig({
                 },
               }),
             } satisfies RemarkCalloutOptions,
+          ],
+          [
+            remarkEmbed,
+            {
+              transformers: [
+                transformerLinkCard({
+                  tagName: () => "link-card",
+                  properties: ({
+                    title,
+                    image,
+                    url,
+                    description,
+                    favicon,
+                  }) => ({
+                    title,
+                    imageSrc: image.src,
+                    imageAlt: image.alt,
+                    url,
+                    description,
+                    favicon,
+                  }),
+                }),
+              ],
+            } as const satisfies RemarkEmbedOptions,
           ],
         ],
         rehypePlugins: [...mercury.rehypePlugins, rehypeSection],
