@@ -11,12 +11,21 @@ const shouldInvertFavicon = (url: URL): boolean => {
   }
 }
 
+// Simple in-memory cache for favicon availability
+const faviconAvailabilityCache: Record<string, boolean> = {}
+
 const checkIsFaviconAvailable = async (favicon?: string) => {
   if (!favicon) return false
+  if (favicon in faviconAvailabilityCache) {
+    return faviconAvailabilityCache[favicon]
+  }
   try {
     const response = await fetch(favicon, { method: "HEAD" })
-    return response.ok
+    const isAvailable = response.ok
+    faviconAvailabilityCache[favicon] = isAvailable
+    return isAvailable
   } catch {
+    faviconAvailabilityCache[favicon] = false
     return false
   }
 }
