@@ -45,6 +45,7 @@
     "@mdx-js/rollup": "3.1.1",
     "@mercurymd/react": "workspace:*",
     "@mercurymd/vite-plugin": "workspace:*",
+    "@r4ai/remark-embed": "0.5.0",
     "@tailwindcss/postcss": "4.1.13",
     "@types/mdx": "2.0.13",
     "@types/node": "24.3.3",
