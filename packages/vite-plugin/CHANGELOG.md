@@ -1,5 +1,13 @@
 # @mercurymd/vite-plugin
 
+## 0.1.3
+
+### Patch Changes
+
+- [#190](https://github.com/r4ai/mercury/pull/190) [`efc65b1`](https://github.com/r4ai/mercury/commit/efc65b11cca1f325198fac8c528380e0928d9328) Thanks [@r4ai](https://github.com/r4ai)! - Add transformerRemoveNotationEscape to Shiki transformers
+
+- [#186](https://github.com/r4ai/mercury/pull/186) [`47a7e86`](https://github.com/r4ai/mercury/commit/47a7e863a086be3b47631dc8677c3d67b21ac180) Thanks [@r4ai](https://github.com/r4ai)! - Refactor to use recast to edit jsx code in transform hook
+
 ## 0.1.2
 
 ### Patch Changes
