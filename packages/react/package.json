@@ -59,7 +59,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
     "@chromatic-com/storybook": "4.1.1",
-    "@iconify-json/lucide": "1.2.67",
+    "@iconify-json/lucide": "1.2.68",
     "@storybook/addon-a11y": "9.1.5",
     "@storybook/addon-docs": "9.1.5",
     "@storybook/addon-links": "9.1.5",
