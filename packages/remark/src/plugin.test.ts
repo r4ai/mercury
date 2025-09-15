@@ -20,7 +20,7 @@ const process = async (md: string, options?: Options) => {
       .use(() => (tree: mdast.Root) => {
         mdast = tree
       })
-      .use(remarkRehype)
+      .use(remarkRehype, { allowDangerousHtml: true })
       .use(() => (tree: hast.Root) => {
         hast = tree
       })
@@ -126,6 +126,32 @@ describe(remarkMercury.name, () => {
     const slide5 = presentation?.querySelector("section.slide:nth-child(5)")
     expect(slide5).not.toBe(null)
     expect(slide5?.querySelector("h1")?.textContent).toBe("Slide 5")
+  })
+
+  test("non top-level splitter should be ignored", async () => {
+    const md = dedent`
+      # Slide 1
+
+      <div>
+        ---
+      </div>
+    `
+
+    const { html } = await process(md)
+    const doc = parser.parseFromString(html, "text/html")
+
+    console.log(html)
+
+    const presentation = doc.querySelector("section.presentation")
+    expect(presentation).not.toBe(null)
+
+    const slide1 = presentation?.querySelector("section.slide:nth-child(1)")
+    expect(slide1).not.toBe(null)
+    expect(slide1?.querySelector("h1")?.textContent).toBe("Slide 1")
+    expect(slide1?.textContent).toContain("---")
+
+    const slide2 = presentation?.querySelector("section.slide:nth-child(2)")
+    expect(slide2).toBe(null)
   })
 
   test("options.slideSplitter: thematicBreak", async () => {
