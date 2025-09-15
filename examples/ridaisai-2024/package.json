@@ -19,7 +19,7 @@
     "wouter": "^3.7.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.2.4",
     "@mercurymd/react": "workspace:*",
     "@mercurymd/remark": "workspace:*",
     "@mercurymd/vite-plugin": "workspace:*",
