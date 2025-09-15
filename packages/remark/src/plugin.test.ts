@@ -1,5 +1,7 @@
 import dedent from "dedent"
+import type * as hast from "hast"
 import { JSDOM } from "jsdom"
+import type * as mdast from "mdast"
 import rehypeStringify from "rehype-stringify"
 import remarkParse from "remark-parse"
 import remarkRehype from "remark-rehype"
