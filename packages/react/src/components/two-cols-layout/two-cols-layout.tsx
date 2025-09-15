@@ -21,7 +21,7 @@ const isIterable = <T,>(obj: unknown): obj is Iterable<T> =>
   Symbol.iterator in obj &&
   typeof obj[Symbol.iterator] === "function"
 
-const splitChildren = (children: ReactNode) => {
+const splitChildren = (children: ReactNode): [ReactNode, ReactNode] => {
   if (!isIterable<ReactNode>(children)) {
     return [children, null]
   }
