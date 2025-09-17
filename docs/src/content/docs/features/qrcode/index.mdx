@@ -1,0 +1,73 @@
+# QR Code
+
+Mercury bundles a `<QRCode>` component that lets you embed shareable links directly in your slides.
+The component is available automatically inside MDX documents rendered by Mercury, and you can
+also import it from `@mercurymd/react` when you need to use it manually.
+
+## Basic Usage
+
+Pass the value you want to encode through the `value` prop. By default the component renders a
+square SVG that scales with the surrounding layout.
+
+```mdx
+<QRCode value="https://mercury-md.dev" />
+```
+
+You can also render the component manually by importing it:
+
+```mdx
+import { QRCode } from "@mercurymd/react"
+
+<QRCode value="https://mercury-md.dev" />
+```
+
+## Customising the Appearance
+
+### Size
+
+Use the `size` prop to control the rendered width and height (in pixels). You can also set the
+`width` and `height` attributes directly when you need independent values.
+
+```mdx
+<QRCode value="https://mercury-md.dev" size={200} />
+```
+
+### Colours
+
+Set the `color` prop to adjust the foreground modules and `backgroundColor` to update the quiet
+zone. Both accept any valid CSS colour value.
+
+```mdx
+<QRCode
+  value="https://mercury-md.dev"
+  color="#2563eb"
+  backgroundColor="#eff6ff"
+/>
+```
+
+### Quiet Zone (Margin)
+
+The `margin` prop controls the amount of empty space (in modules) that surrounds the QR code. The
+default value is `4`, which matches the common quiet zone recommendation. Set it to `0` when you
+need the QR code to touch the container edges.
+
+```mdx
+<QRCode value="https://mercury-md.dev" margin={0} />
+```
+
+## Error Correction & Advanced Options
+
+The component exposes a few additional knobs for advanced scenarios:
+
+- `level` – sets the error correction level. Accepted values are `"L"`, `"M"`, `"Q"`, `"H"` as
+  well as their long-form names (`"low"`, `"medium"`, `"quartile"`, `"high"`).
+- `maskPattern` – forces a mask pattern from `0` to `7` when you need consistent visual output.
+- `version` – locks the QR code version (1–40) instead of letting it scale automatically.
+- `toSJISFunc` – provide this when you need Shift JIS support for kanji payloads.
+
+These props are optional; Mercury will pick sensible defaults when they are not supplied.
+
+## Accessibility
+
+`<QRCode>` is rendered as an SVG with `role="img"`. Supply the `aria-label` prop to describe the
+encoded content for assistive technologies when the default label does not fit your use case.
