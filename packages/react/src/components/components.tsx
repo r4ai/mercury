@@ -8,6 +8,7 @@ import { Link } from "./link"
 import { List, ListItem, OrderedList } from "./list"
 import { Paragraph } from "./paragraph"
 import { Slide } from "./slide"
+import { TwoColsLayout } from "./two-cols-layout"
 
 export type Components = {
   h1: typeof Heading1
@@ -25,6 +26,7 @@ export type Components = {
   kbd: typeof Keyboard
   Slide: typeof Slide
   Presentation: FC<{ children?: ReactNode }>
+  TwoColsLayout: typeof TwoColsLayout
 }
 
 export const components: Components = {
@@ -43,4 +45,5 @@ export const components: Components = {
   kbd: Keyboard,
   Slide,
   Presentation: ({ children }) => children,
+  TwoColsLayout,
 }

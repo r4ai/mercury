@@ -40,7 +40,7 @@
   "scripts": {
     "check": "biome check .",
     "check:write": "biome check --write .",
-    "typecheck": "tsc --noEmit --project tsconfig.build.json",
+    "typecheck": "tsc --noEmit --project tsconfig.build.json && tsc --noEmit --project tsconfig.json",
     "dev": "tsc --project tsconfig.build.json --watch",
     "build": "rimraf dist && tsc --project tsconfig.build.json",
     "test": "vitest",
