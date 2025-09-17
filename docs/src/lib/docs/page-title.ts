@@ -1,13 +1,21 @@
+import type { getContent } from "@/content"
+
 const DOCS_SITE_TITLE = "Mercury Docs"
-type DocsContentModule = {
-  metadata?: {
-    title?: string | null
-  }
+
+type DocsContentModule = NonNullable<Awaited<ReturnType<typeof getContent>>>
+
+type DocsMetadata = DocsContentModule extends { metadata: infer Metadata }
+  ? Metadata
+  : never
+
+type DocsMetadataSource = {
+  metadata?: DocsMetadata
 }
 
-export const getDocsPageTitle = (content: unknown): string | undefined => {
-  const metadataTitle = (content as DocsContentModule | undefined)?.metadata
-    ?.title
+export const getDocsPageTitle = (
+  content: DocsMetadataSource | undefined,
+): string | undefined => {
+  const metadataTitle = content?.metadata?.title
   if (typeof metadataTitle !== "string") {
     return undefined
   }

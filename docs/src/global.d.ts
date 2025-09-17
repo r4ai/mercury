@@ -3,4 +3,9 @@ declare module "*.mdx" {
 
   // remark-mdx-toc exports an array at runtime; allow both for safety
   export const toc: TocEntry[]
+  export const metadata:
+    | {
+        title?: string | null
+      }
+    | undefined
 }
