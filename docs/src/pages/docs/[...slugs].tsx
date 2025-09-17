@@ -22,7 +22,7 @@ const DocsPage = async ({
 }: PageProps<"/docs/[...slugs]"> & { slugs: StaticPath }) => {
   const redirected = redirect(slugs)
   const content = await getContent(redirected)
-  const pageTitle = getDocsPageTitle(redirected, content)
+  const pageTitle = getDocsPageTitle(content)
   const fullTitle = buildDocsDocumentTitle(pageTitle)
 
   return (
