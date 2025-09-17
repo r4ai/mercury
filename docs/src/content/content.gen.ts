@@ -32,6 +32,10 @@ export const staticPaths = [
     "mathematics"
   ],
   [
+    "features",
+    "qrcode"
+  ],
+  [
     "getting-started",
     "installation"
   ],
@@ -85,6 +89,8 @@ export const getContent = (slugs: StaticPath) => {
       return import("./docs/features/mathematics/index.mdx");
     case "features/mathematics/_ja":
       return import("./docs/features/mathematics/_ja.mdx");
+    case "features/qrcode":
+      return import("./docs/features/qrcode/index.mdx");
     case "getting-started/installation":
       return import("./docs/getting-started/installation/index.mdx");
     case "getting-started/syntax-guide":
