@@ -1,14 +1,21 @@
-import { isValidElement, type ReactNode } from "react"
+import {
+  type ComponentPropsWithoutRef,
+  isValidElement,
+  type ReactNode,
+} from "react"
+import { cn } from "../../libs/utils"
 
-export type TwoColsLayoutProps = {
-  children?: ReactNode
-}
+export type TwoColsLayoutProps = ComponentPropsWithoutRef<"div">
 
-export const TwoColsLayout = ({ children }: TwoColsLayoutProps) => {
+export const TwoColsLayout = ({
+  className,
+  children,
+  ...props
+}: TwoColsLayoutProps) => {
   const [left, right] = splitChildren(children)
 
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className={cn("grid grid-cols-2 gap-6", className)} {...props}>
       <div className="space-y-4">{left}</div>
       <div className="space-y-4">{right}</div>
     </div>
