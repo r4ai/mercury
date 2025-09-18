@@ -2,7 +2,6 @@ import fs from "node:fs/promises"
 import path from "node:path"
 import { pathToFileURL } from "node:url"
 import { evaluate } from "@mdx-js/mdx"
-import { transform } from "esbuild"
 import { Fragment, jsx, jsxs } from "react/jsx-runtime"
 import type { Plugin } from "vite"
 
@@ -24,6 +23,9 @@ const OUTPUT_FILE = path.join(CONTENT_RELATIVE_DIR, "content.gen.ts")
 const METADATA_IMPORT_PATTERN = /from\s+["']@\/lib\/docs\/content-module["']/g
 const METADATA_FALLBACK_CODE =
   "export const defineDocsMetadata = (metadata) => metadata;"
+const METADATA_FALLBACK_MODULE_URL = `data:text/javascript,${encodeURIComponent(
+  METADATA_FALLBACK_CODE,
+)}`
 
 const readAllMdxFiles = async (dir: string): Promise<string[]> => {
   const out: string[] = []
@@ -123,19 +125,14 @@ const createMetadataHelperModuleUrl = async (rootDir: string) => {
   )
 
   try {
-    const source = await fs.readFile(helperPath, "utf8")
-    const { code } = await transform(source, {
-      loader: "ts",
-      format: "esm",
-      target: "esnext",
-    })
-    return `data:text/javascript,${encodeURIComponent(code)}`
+    await fs.access(helperPath)
+    return pathToFileURL(helperPath).href
   } catch (error) {
     console.warn(
       `[content-typegen] Unable to load docs metadata helper from ${helperPath}:`,
       error,
     )
-    return `data:text/javascript,${encodeURIComponent(METADATA_FALLBACK_CODE)}`
+    return METADATA_FALLBACK_MODULE_URL
   }
 }
 
@@ -156,30 +153,45 @@ const loadContentMetadata = async (
 
   if (!source.includes("export const metadata")) return undefined
 
-  const patchedSource = source.replace(
-    METADATA_IMPORT_PATTERN,
-    `from "${helperModuleUrl}"`,
-  )
-
-  try {
-    const evaluated = await evaluate(
-      { value: patchedSource, path: absPath },
-      {
-        baseUrl: pathToFileURL(absPath),
-        Fragment,
-        jsx,
-        jsxs,
-      },
+  const evaluateWithHelper = async (moduleUrl: string, logError: boolean) => {
+    const patchedSource = source.replace(
+      METADATA_IMPORT_PATTERN,
+      `from "${moduleUrl}"`,
     )
 
-    return (evaluated as { metadata?: unknown }).metadata
-  } catch (error) {
-    console.warn(
-      `[content-typegen] Failed to evaluate metadata for ${absPath}:`,
-      error,
-    )
-    return undefined
+    try {
+      const evaluated = await evaluate(
+        { value: patchedSource, path: absPath },
+        {
+          baseUrl: pathToFileURL(absPath),
+          Fragment,
+          jsx,
+          jsxs,
+        },
+      )
+
+      return {
+        ok: true as const,
+        metadata: (evaluated as { metadata?: unknown }).metadata,
+      }
+    } catch (error) {
+      if (logError) {
+        console.warn(
+          `[content-typegen] Failed to evaluate metadata for ${absPath}:`,
+          error,
+        )
+      }
+      return { ok: false as const }
+    }
   }
+
+  const primary = await evaluateWithHelper(helperModuleUrl, true)
+  if (primary.ok) return primary.metadata
+
+  if (helperModuleUrl === METADATA_FALLBACK_MODULE_URL) return undefined
+
+  const fallback = await evaluateWithHelper(METADATA_FALLBACK_MODULE_URL, false)
+  return fallback.ok ? fallback.metadata : undefined
 }
 
 const generateContent = async ({
