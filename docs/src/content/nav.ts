@@ -1,3 +1,4 @@
+import { docsRoutes, getRouteTitle } from "@/lib/docs/routes"
 import type { NavGroup } from "@/pages/docs/_components/docs-sidebar"
 
 export const nav = [
@@ -5,12 +6,12 @@ export const nav = [
     title: "Getting Started",
     items: [
       {
-        title: "Installation",
-        url: "/docs/getting-started/installation",
+        title: getRouteTitle(docsRoutes.installation),
+        url: docsRoutes.installation.url,
       },
       {
-        title: "Syntax Guide",
-        url: "/docs/getting-started/syntax-guide",
+        title: getRouteTitle(docsRoutes.syntaxGuide),
+        url: docsRoutes.syntaxGuide.url,
       },
     ],
   },
@@ -18,12 +19,12 @@ export const nav = [
     title: "Features",
     items: [
       {
-        title: "Code Block",
-        url: "/docs/features/code-block",
+        title: getRouteTitle(docsRoutes.codeBlocks),
+        url: docsRoutes.codeBlocks.url,
       },
       {
-        title: "Mathematics",
-        url: "/docs/features/mathematics",
+        title: getRouteTitle(docsRoutes.mathematics),
+        url: docsRoutes.mathematics.url,
       },
     ],
   },
@@ -31,12 +32,12 @@ export const nav = [
     title: "Customization",
     items: [
       {
-        title: "Custom Components",
-        url: "/docs/customization/custom-components",
+        title: getRouteTitle(docsRoutes.customComponents),
+        url: docsRoutes.customComponents.url,
       },
       {
-        title: "Extending Syntax",
-        url: "/docs/customization/extending-syntax",
+        title: getRouteTitle(docsRoutes.extendingSyntax),
+        url: docsRoutes.extendingSyntax.url,
       },
     ],
   },
@@ -44,16 +45,16 @@ export const nav = [
     title: "Packages",
     items: [
       {
-        title: "@mercurymd/vite-plugin",
-        url: "/docs/packages/vite-plugin",
+        title: getRouteTitle(docsRoutes.vitePlugin),
+        url: docsRoutes.vitePlugin.url,
       },
       {
-        title: "@mercurymd/react",
-        url: "/docs/packages/react",
+        title: getRouteTitle(docsRoutes.reactPackage),
+        url: docsRoutes.reactPackage.url,
       },
       {
-        title: "@mercurymd/remark",
-        url: "/docs/packages/remark",
+        title: getRouteTitle(docsRoutes.remarkPackage),
+        url: docsRoutes.remarkPackage.url,
       },
     ],
   },

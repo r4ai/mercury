@@ -20,6 +20,11 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import {
+  docsRoutes,
+  getRouteDescription,
+  getRouteTitle,
+} from "@/lib/docs/routes"
 
 export type ListNode = {
   title: string
@@ -41,26 +46,26 @@ export const links = {
   },
   docs: [
     {
-      title: "Installation",
-      description: "Getting started with Mercury.",
-      link: "/docs/getting-started/installation",
+      title: getRouteTitle(docsRoutes.installation),
+      description: getRouteDescription(docsRoutes.installation),
+      link: docsRoutes.installation.url,
     },
   ],
   packages: [
     {
-      title: "@mercurymd/react",
-      description: "React components used to build presentation.",
-      link: "/docs/packages/react",
+      title: getRouteTitle(docsRoutes.reactPackage),
+      description: getRouteDescription(docsRoutes.reactPackage),
+      link: docsRoutes.reactPackage.url,
     },
     {
-      title: "@mercurymd/remark",
-      description: "Remark plugin for Mercury.",
-      link: "/docs/packages/remark",
+      title: getRouteTitle(docsRoutes.remarkPackage),
+      description: getRouteDescription(docsRoutes.remarkPackage),
+      link: docsRoutes.remarkPackage.url,
     },
     {
-      title: "@mercurymd/vite-plugin",
-      description: "Vite plugin for Mercury.",
-      link: "/docs/packages/vite-plugin",
+      title: getRouteTitle(docsRoutes.vitePlugin),
+      description: getRouteDescription(docsRoutes.vitePlugin),
+      link: docsRoutes.vitePlugin.url,
     },
   ],
 } as const satisfies Links
