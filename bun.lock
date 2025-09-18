@@ -205,7 +205,7 @@
       "version": "0.0.1",
       "devDependencies": {
         "@biomejs/biome": "2.2.4",
-        "@tsconfig/node16": "16.1.4",
+        "@tsconfig/node16": "16.1.5",
         "rimraf": "6.0.1",
         "typescript": "5.9.2",
         "vitest": "3.2.4",
@@ -268,7 +268,7 @@
         "unified": "11.0.5",
       },
       "devDependencies": {
-        "@tsconfig/node16": "16.1.4",
+        "@tsconfig/node16": "16.1.5",
         "@types/hast": "3.0.4",
         "@types/jsdom": "21.1.7",
         "@types/mdast": "4.0.4",
@@ -303,7 +303,7 @@
       },
       "devDependencies": {
         "@testing-library/dom": "10.4.1",
-        "@tsconfig/node16": "16.1.4",
+        "@tsconfig/node16": "16.1.5",
         "@types/mdast": "4.0.4",
         "esbuild": "0.25.9",
         "happy-dom": "18.0.1",
@@ -914,7 +914,7 @@
 
     "@ts-morph/common": ["@ts-morph/common@0.27.0", "", { "dependencies": { "fast-glob": "^3.3.3", "minimatch": "^10.0.1", "path-browserify": "^1.0.1" } }, "sha512-Wf29UqxWDpc+i61k3oIOzcUfQt79PIT9y/MWfAGlrkjg6lBC1hwDECLXPVJAhWjiGbfBCxZd65F/LIZF3+jeJQ=="],
 
-    "@tsconfig/node16": ["@tsconfig/node16@16.1.4", "", {}, "sha512-tkWPDtk18K2qJK/DhU010f03iDlw+C8qjXvhwZ4KKpJQC4QFOG3r8tIf2q6aWD0mz9N7RcZcaD9SPlrVLKiDoQ=="],
+    "@tsconfig/node16": ["@tsconfig/node16@16.1.5", "", {}, "sha512-P4GBZdpi6i5NGB12pwLH4oAIPrxl1ZvD8gxA4E7VdUUCik34J7FerrxzoDXtT4ugbrRjLbK5WuHPOUNZJOxuaQ=="],
 
     "@types/argparse": ["@types/argparse@1.0.38", "", {}, "sha512-ebDJ9b0e702Yr7pWgB0jzm+CX4Srzz8RcXtLJDJB+BSccqMa36uyH/zUsSYao5+BD1ytv3k3rPYCq4mAE1hsXA=="],
 
