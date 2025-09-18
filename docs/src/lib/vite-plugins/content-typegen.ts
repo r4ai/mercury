@@ -7,7 +7,12 @@ type GenerateOptions = {
   rootDir: string
 }
 
-type Entry = { segments: string[]; id: string; importPath: string }
+type Entry = {
+  segments: string[]
+  id: string
+  importPath: string
+  metadata: unknown
+}
 
 const CONTENT_RELATIVE_DIR = "src/content"
 const CONTENT_DOCS_SUBDIR = "docs"
@@ -76,6 +81,89 @@ const buildStaticPaths = (entries: Entry[]) => {
   )
 }
 
+const findMetadataObjectLiteral = (source: string): string | null => {
+  const exportIndex = source.indexOf("export const metadata")
+  if (exportIndex === -1) return null
+  const defineIndex = source.indexOf("defineDocsMetadata", exportIndex)
+  if (defineIndex === -1) return null
+  const braceStart = source.indexOf("{", defineIndex)
+  if (braceStart === -1) return null
+
+  let depth = 0
+  let inString: string | null = null
+  let escaped = false
+
+  for (let i = braceStart; i < source.length; i++) {
+    const char = source[i]
+    if (inString) {
+      if (escaped) {
+        escaped = false
+        continue
+      }
+      if (char === "\\") {
+        escaped = true
+        continue
+      }
+      if (char === inString) {
+        inString = null
+        continue
+      }
+      continue
+    }
+    if (char === '"' || char === "'" || char === "`") {
+      inString = char
+      continue
+    }
+    if (char === "{") {
+      depth += 1
+    } else if (char === "}") {
+      depth -= 1
+      if (depth === 0) {
+        return source.slice(braceStart, i + 1)
+      }
+    }
+  }
+
+  return null
+}
+
+const parseMetadataFromSource = (source: string): unknown => {
+  const literal = findMetadataObjectLiteral(source)
+  if (!literal) return undefined
+
+  try {
+    const value = Function(`return (${literal})`)()
+    return value && typeof value === "object" ? value : undefined
+  } catch {
+    return undefined
+  }
+}
+
+const renderMetadataProperty = (metadata: unknown): string => {
+  if (metadata == null) return "    metadata: undefined,"
+
+  const json = JSON.stringify(metadata, null, 2)
+  const lines = json.split("\n")
+  if (lines.length === 0) {
+    return "    metadata: undefined,"
+  }
+
+  if (lines.length === 1) {
+    return `    metadata: ${lines[0]},`
+  }
+
+  const first = lines[0]
+  const last = lines[lines.length - 1]
+  const middle = lines
+    .slice(1, -1)
+    .map((line) => `      ${line}`)
+    .join("\n")
+
+  return [`    metadata: ${first}`, middle, `    ${last},`]
+    .filter((part) => part.length > 0)
+    .join("\n")
+}
+
 const generateContent = async ({
   rootDir,
 }: GenerateOptions): Promise<string> => {
@@ -83,17 +171,22 @@ const generateContent = async ({
   const docsDir = path.join(contentDir, CONTENT_DOCS_SUBDIR)
   const files = await readAllMdxFiles(docsDir)
 
-  const entries: Entry[] = files
-    .map((abs) => {
-      const segments = toSlugSegments(abs, docsDir)
-      if (segments.length === 0) return null
-      const id = segments.join("/")
-      const relFromContent = path.relative(contentDir, abs)
-      const posixRel = relFromContent.split(path.sep).join("/")
-      const importPath = `./${posixRel}`
-      return { segments, id, importPath }
-    })
-    .filter((e): e is Entry => !!e)
+  const entries: Entry[] = (
+    await Promise.all(
+      files.map(async (abs) => {
+        const segments = toSlugSegments(abs, docsDir)
+        if (segments.length === 0) return null
+        const id = segments.join("/")
+        const relFromContent = path.relative(contentDir, abs)
+        const posixRel = relFromContent.split(path.sep).join("/")
+        const importPath = `./${posixRel}`
+        const source = await fs.readFile(abs, "utf8")
+        const metadata = parseMetadataFromSource(source)
+        return { segments, id, importPath, metadata }
+      }),
+    )
+  )
+    .filter((entry): entry is Entry => !!entry)
     .sort((a, b) => a.id.localeCompare(b.id))
 
   const staticPaths = buildStaticPaths(entries)
@@ -103,6 +196,18 @@ const generateContent = async ({
     "// biome-ignore format: generated types do not need formatting",
     "// prettier-ignore",
   ].join("\n")
+
+  const docsRoutes = entries
+    .map((entry) => {
+      const url = `/${CONTENT_DOCS_SUBDIR}/${entry.id}`
+      const metadataBlock = renderMetadataProperty(entry.metadata)
+      return `  ${JSON.stringify(entry.id)}: {\n    id: ${JSON.stringify(entry.id)},\n    slugs: ${JSON.stringify(entry.segments)} as const,\n    url: ${JSON.stringify(url)},\n${metadataBlock}\n  },`
+    })
+    .join("\n")
+
+  const docsRouteIds = entries
+    .map((entry) => `  ${JSON.stringify(entry.id)},`)
+    .join("\n")
 
   const switchCases = entries
     .map(
@@ -123,6 +228,22 @@ ${switchCases}
     default:
       return undefined
   }
+}
+
+export const docsRoutes = {
+${docsRoutes}
+} as const
+
+export type DocsRouteId = keyof typeof docsRoutes
+export type DocsRoute = (typeof docsRoutes)[DocsRouteId]
+
+export const docsRouteIds = [
+${docsRouteIds}
+] as const
+
+export const getDocsRoute = (slugs: StaticPath) => {
+  const id = slugs.join("/")
+  return id.length === 0 ? undefined : docsRoutes[id as DocsRouteId]
 }
 `
   return code

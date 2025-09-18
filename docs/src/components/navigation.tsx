@@ -26,6 +26,11 @@ import {
   getRouteTitle,
 } from "@/lib/docs/routes"
 
+const installationRoute = docsRoutes["getting-started/installation"]
+const reactPackageRoute = docsRoutes["packages/react"]
+const remarkPackageRoute = docsRoutes["packages/remark"]
+const vitePluginRoute = docsRoutes["packages/vite-plugin"]
+
 export type ListNode = {
   title: string
   description: string
@@ -46,26 +51,26 @@ export const links = {
   },
   docs: [
     {
-      title: getRouteTitle(docsRoutes.installation),
-      description: getRouteDescription(docsRoutes.installation),
-      link: docsRoutes.installation.url,
+      title: getRouteTitle(installationRoute),
+      description: getRouteDescription(installationRoute),
+      link: installationRoute.url,
     },
   ],
   packages: [
     {
-      title: getRouteTitle(docsRoutes.reactPackage),
-      description: getRouteDescription(docsRoutes.reactPackage),
-      link: docsRoutes.reactPackage.url,
+      title: getRouteTitle(reactPackageRoute),
+      description: getRouteDescription(reactPackageRoute),
+      link: reactPackageRoute.url,
     },
     {
-      title: getRouteTitle(docsRoutes.remarkPackage),
-      description: getRouteDescription(docsRoutes.remarkPackage),
-      link: docsRoutes.remarkPackage.url,
+      title: getRouteTitle(remarkPackageRoute),
+      description: getRouteDescription(remarkPackageRoute),
+      link: remarkPackageRoute.url,
     },
     {
-      title: getRouteTitle(docsRoutes.vitePlugin),
-      description: getRouteDescription(docsRoutes.vitePlugin),
-      link: docsRoutes.vitePlugin.url,
+      title: getRouteTitle(vitePluginRoute),
+      description: getRouteDescription(vitePluginRoute),
+      link: vitePluginRoute.url,
     },
   ],
 } as const satisfies Links
