@@ -20,6 +20,16 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import {
+  docsRoutes,
+  getRouteDescription,
+  getRouteTitle,
+} from "@/lib/docs/routes"
+
+const installationRoute = docsRoutes["getting-started/installation"]
+const reactPackageRoute = docsRoutes["packages/react"]
+const remarkPackageRoute = docsRoutes["packages/remark"]
+const vitePluginRoute = docsRoutes["packages/vite-plugin"]
 
 export type ListNode = {
   title: string
@@ -41,26 +51,26 @@ export const links = {
   },
   docs: [
     {
-      title: "Installation",
-      description: "Getting started with Mercury.",
-      link: "/docs/getting-started/installation",
+      title: getRouteTitle(installationRoute),
+      description: getRouteDescription(installationRoute),
+      link: installationRoute.url,
     },
   ],
   packages: [
     {
-      title: "@mercurymd/react",
-      description: "React components used to build presentation.",
-      link: "/docs/packages/react",
+      title: getRouteTitle(reactPackageRoute),
+      description: getRouteDescription(reactPackageRoute),
+      link: reactPackageRoute.url,
     },
     {
-      title: "@mercurymd/remark",
-      description: "Remark plugin for Mercury.",
-      link: "/docs/packages/remark",
+      title: getRouteTitle(remarkPackageRoute),
+      description: getRouteDescription(remarkPackageRoute),
+      link: remarkPackageRoute.url,
     },
     {
-      title: "@mercurymd/vite-plugin",
-      description: "Vite plugin for Mercury.",
-      link: "/docs/packages/vite-plugin",
+      title: getRouteTitle(vitePluginRoute),
+      description: getRouteDescription(vitePluginRoute),
+      link: vitePluginRoute.url,
     },
   ],
 } as const satisfies Links

@@ -1,16 +1,29 @@
+import { docsRoutes, getRouteTitle } from "@/lib/docs/routes"
 import type { NavGroup } from "@/pages/docs/_components/docs-sidebar"
+
+const docsNavRoutes = {
+  installation: docsRoutes["getting-started/installation"],
+  syntaxGuide: docsRoutes["getting-started/syntax-guide"],
+  codeBlocks: docsRoutes["features/code-block"],
+  mathematics: docsRoutes["features/mathematics"],
+  customComponents: docsRoutes["customization/custom-components"],
+  extendingSyntax: docsRoutes["customization/extending-syntax"],
+  vitePlugin: docsRoutes["packages/vite-plugin"],
+  reactPackage: docsRoutes["packages/react"],
+  remarkPackage: docsRoutes["packages/remark"],
+} as const
 
 export const nav = [
   {
     title: "Getting Started",
     items: [
       {
-        title: "Installation",
-        url: "/docs/getting-started/installation",
+        title: getRouteTitle(docsNavRoutes.installation),
+        url: docsNavRoutes.installation.url,
       },
       {
-        title: "Syntax Guide",
-        url: "/docs/getting-started/syntax-guide",
+        title: getRouteTitle(docsNavRoutes.syntaxGuide),
+        url: docsNavRoutes.syntaxGuide.url,
       },
     ],
   },
@@ -18,12 +31,12 @@ export const nav = [
     title: "Features",
     items: [
       {
-        title: "Code Block",
-        url: "/docs/features/code-block",
+        title: getRouteTitle(docsNavRoutes.codeBlocks),
+        url: docsNavRoutes.codeBlocks.url,
       },
       {
-        title: "Mathematics",
-        url: "/docs/features/mathematics",
+        title: getRouteTitle(docsNavRoutes.mathematics),
+        url: docsNavRoutes.mathematics.url,
       },
     ],
   },
@@ -31,12 +44,12 @@ export const nav = [
     title: "Customization",
     items: [
       {
-        title: "Custom Components",
-        url: "/docs/customization/custom-components",
+        title: getRouteTitle(docsNavRoutes.customComponents),
+        url: docsNavRoutes.customComponents.url,
       },
       {
-        title: "Extending Syntax",
-        url: "/docs/customization/extending-syntax",
+        title: getRouteTitle(docsNavRoutes.extendingSyntax),
+        url: docsNavRoutes.extendingSyntax.url,
       },
     ],
   },
@@ -44,16 +57,16 @@ export const nav = [
     title: "Packages",
     items: [
       {
-        title: "@mercurymd/vite-plugin",
-        url: "/docs/packages/vite-plugin",
+        title: getRouteTitle(docsNavRoutes.vitePlugin),
+        url: docsNavRoutes.vitePlugin.url,
       },
       {
-        title: "@mercurymd/react",
-        url: "/docs/packages/react",
+        title: getRouteTitle(docsNavRoutes.reactPackage),
+        url: docsNavRoutes.reactPackage.url,
       },
       {
-        title: "@mercurymd/remark",
-        url: "/docs/packages/remark",
+        title: getRouteTitle(docsNavRoutes.remarkPackage),
+        url: docsNavRoutes.remarkPackage.url,
       },
     ],
   },
