@@ -1,16 +1,6 @@
-import type { getContent } from "@/content"
+import type { DocsMetadataSource } from "./content-module"
 
 const DOCS_SITE_TITLE = "Mercury Docs"
-
-type DocsContentModule = NonNullable<Awaited<ReturnType<typeof getContent>>>
-
-type DocsMetadata = DocsContentModule extends { metadata: infer Metadata }
-  ? Metadata
-  : never
-
-type DocsMetadataSource = {
-  metadata?: DocsMetadata
-}
 
 export const getDocsPageTitle = (
   content: DocsMetadataSource | undefined,
