@@ -44,6 +44,7 @@
         "wouter": "3.7.1",
       },
       "devDependencies": {
+        "@mdx-js/mdx": "^3.1.1",
         "@mdx-js/rollup": "3.1.1",
         "@mercurymd/react": "workspace:*",
         "@mercurymd/vite-plugin": "workspace:*",
@@ -57,6 +58,7 @@
         "happy-dom": "18.0.1",
         "katex": "0.16.22",
         "postcss": "8.5.6",
+        "esbuild": "^0.25.9",
         "remark-mdx-toc": "0.3.1",
         "tailwindcss": "4.1.13",
         "tw-animate-css": "1.3.8",

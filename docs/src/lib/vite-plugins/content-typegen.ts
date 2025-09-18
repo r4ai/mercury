@@ -1,5 +1,9 @@
 import fs from "node:fs/promises"
 import path from "node:path"
+import { pathToFileURL } from "node:url"
+import { evaluate } from "@mdx-js/mdx"
+import { transform } from "esbuild"
+import { Fragment, jsx, jsxs } from "react/jsx-runtime"
 import type { Plugin } from "vite"
 
 type GenerateOptions = {
@@ -17,6 +21,9 @@ type Entry = {
 const CONTENT_RELATIVE_DIR = "src/content"
 const CONTENT_DOCS_SUBDIR = "docs"
 const OUTPUT_FILE = path.join(CONTENT_RELATIVE_DIR, "content.gen.ts")
+const METADATA_IMPORT_PATTERN = /from\s+["']@\/lib\/docs\/content-module["']/g
+const METADATA_FALLBACK_CODE =
+  "export const defineDocsMetadata = (metadata) => metadata;"
 
 const readAllMdxFiles = async (dir: string): Promise<string[]> => {
   const out: string[] = []
@@ -81,64 +88,6 @@ const buildStaticPaths = (entries: Entry[]) => {
   )
 }
 
-const findMetadataObjectLiteral = (source: string): string | null => {
-  const exportIndex = source.indexOf("export const metadata")
-  if (exportIndex === -1) return null
-  const defineIndex = source.indexOf("defineDocsMetadata", exportIndex)
-  if (defineIndex === -1) return null
-  const braceStart = source.indexOf("{", defineIndex)
-  if (braceStart === -1) return null
-
-  let depth = 0
-  let inString: string | null = null
-  let escaped = false
-
-  for (let i = braceStart; i < source.length; i++) {
-    const char = source[i]
-    if (inString) {
-      if (escaped) {
-        escaped = false
-        continue
-      }
-      if (char === "\\") {
-        escaped = true
-        continue
-      }
-      if (char === inString) {
-        inString = null
-        continue
-      }
-      continue
-    }
-    if (char === '"' || char === "'" || char === "`") {
-      inString = char
-      continue
-    }
-    if (char === "{") {
-      depth += 1
-    } else if (char === "}") {
-      depth -= 1
-      if (depth === 0) {
-        return source.slice(braceStart, i + 1)
-      }
-    }
-  }
-
-  return null
-}
-
-const parseMetadataFromSource = (source: string): unknown => {
-  const literal = findMetadataObjectLiteral(source)
-  if (!literal) return undefined
-
-  try {
-    const value = Function(`return (${literal})`)()
-    return value && typeof value === "object" ? value : undefined
-  } catch {
-    return undefined
-  }
-}
-
 const renderMetadataProperty = (metadata: unknown): string => {
   if (metadata == null) return "    metadata: undefined,"
 
@@ -164,12 +113,82 @@ const renderMetadataProperty = (metadata: unknown): string => {
     .join("\n")
 }
 
+const createMetadataHelperModuleUrl = async (rootDir: string) => {
+  const helperPath = path.join(
+    rootDir,
+    "src",
+    "lib",
+    "docs",
+    "content-module.ts",
+  )
+
+  try {
+    const source = await fs.readFile(helperPath, "utf8")
+    const { code } = await transform(source, {
+      loader: "ts",
+      format: "esm",
+      target: "esnext",
+    })
+    return `data:text/javascript,${encodeURIComponent(code)}`
+  } catch (error) {
+    console.warn(
+      `[content-typegen] Unable to load docs metadata helper from ${helperPath}:`,
+      error,
+    )
+    return `data:text/javascript,${encodeURIComponent(METADATA_FALLBACK_CODE)}`
+  }
+}
+
+const loadContentMetadata = async (
+  absPath: string,
+  helperModuleUrl: string,
+): Promise<unknown> => {
+  let source: string
+  try {
+    source = await fs.readFile(absPath, "utf8")
+  } catch (error) {
+    console.warn(
+      `[content-typegen] Failed to read docs content file ${absPath}:`,
+      error,
+    )
+    return undefined
+  }
+
+  if (!source.includes("export const metadata")) return undefined
+
+  const patchedSource = source.replace(
+    METADATA_IMPORT_PATTERN,
+    `from "${helperModuleUrl}"`,
+  )
+
+  try {
+    const evaluated = await evaluate(
+      { value: patchedSource, path: absPath },
+      {
+        baseUrl: pathToFileURL(absPath),
+        Fragment,
+        jsx,
+        jsxs,
+      },
+    )
+
+    return (evaluated as { metadata?: unknown }).metadata
+  } catch (error) {
+    console.warn(
+      `[content-typegen] Failed to evaluate metadata for ${absPath}:`,
+      error,
+    )
+    return undefined
+  }
+}
+
 const generateContent = async ({
   rootDir,
 }: GenerateOptions): Promise<string> => {
   const contentDir = path.join(rootDir, CONTENT_RELATIVE_DIR)
   const docsDir = path.join(contentDir, CONTENT_DOCS_SUBDIR)
   const files = await readAllMdxFiles(docsDir)
+  const metadataHelperModuleUrl = await createMetadataHelperModuleUrl(rootDir)
 
   const entries: Entry[] = (
     await Promise.all(
@@ -180,8 +199,7 @@ const generateContent = async ({
         const relFromContent = path.relative(contentDir, abs)
         const posixRel = relFromContent.split(path.sep).join("/")
         const importPath = `./${posixRel}`
-        const source = await fs.readFile(abs, "utf8")
-        const metadata = parseMetadataFromSource(source)
+        const metadata = await loadContentMetadata(abs, metadataHelperModuleUrl)
         return { segments, id, importPath, metadata }
       }),
     )
