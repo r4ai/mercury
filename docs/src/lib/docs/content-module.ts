@@ -16,6 +16,6 @@ export type DocsMetadataSource = {
   metadata?: DocsContentMetadataExport
 }
 
-export const defineDocsContentMetadata = <Metadata extends DocsContentMetadata>(
+export const defineDocsMetadata = <Metadata extends DocsContentMetadata>(
   metadata: Metadata,
 ): Metadata => metadata
