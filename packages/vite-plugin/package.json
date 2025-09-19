@@ -60,7 +60,7 @@
   "dependencies": {
     "@babel/parser": "^7.28.4",
     "@mercurymd/remark": "workspace:*",
-    "@shikijs/rehype": "3.12.2",
+    "@shikijs/rehype": "3.13.0",
     "@shikijs/transformers": "^3.7.0",
     "dedent": "1.7.0",
     "defu": "^6.1.4",
