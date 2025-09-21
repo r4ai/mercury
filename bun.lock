@@ -44,7 +44,7 @@
         "wouter": "3.7.1",
       },
       "devDependencies": {
-        "@mdx-js/mdx": "^3.1.1",
+        "@mdx-js/mdx": "3.1.1",
         "@mdx-js/rollup": "3.1.1",
         "@mercurymd/react": "workspace:*",
         "@mercurymd/vite-plugin": "workspace:*",
