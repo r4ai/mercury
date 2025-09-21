@@ -1,5 +1,11 @@
 # @mercurymd/react
 
+## 0.2.0
+
+### Minor Changes
+
+- [#203](https://github.com/r4ai/mercury/pull/203) [`c0777ac`](https://github.com/r4ai/mercury/commit/c0777acc393871671da850e65a53a1c354891f6e) Thanks [@r4ai](https://github.com/r4ai)! - Add TwoColsLayout component
+
 ## 0.1.1
 
 ### Patch Changes
