@@ -23,13 +23,13 @@ describe("getDocsPageTitle", () => {
 
 describe("buildDocsDocumentTitle", () => {
   it("returns the docs site title when a page title is not provided", () => {
-    expect(buildDocsDocumentTitle(undefined)).toBe("Mercury Docs")
-    expect(buildDocsDocumentTitle("")).toBe("Mercury Docs")
+    expect(buildDocsDocumentTitle(undefined)).toBe("Mercury")
+    expect(buildDocsDocumentTitle("")).toBe("Mercury")
   })
 
   it("appends the docs site title when a page title is provided", () => {
     expect(buildDocsDocumentTitle("Installation")).toBe(
-      "Installation | Mercury Docs",
+      "Installation | Mercury",
     )
   })
 })
