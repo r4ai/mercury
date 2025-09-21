@@ -29,6 +29,10 @@ export const staticPaths = [
   ],
   [
     "features",
+    "layout"
+  ],
+  [
+    "features",
     "mathematics"
   ],
   [
@@ -62,6 +66,11 @@ export const staticPaths = [
   ],
   [
     "features",
+    "layout",
+    "_ja"
+  ],
+  [
+    "features",
     "mathematics",
     "_ja"
   ],
@@ -90,6 +99,10 @@ export const getContent = (slugs: StaticPath) => {
       return import("./docs/features/code-block/index.mdx");
     case "features/code-block/_ja":
       return import("./docs/features/code-block/_ja.mdx");
+    case "features/layout":
+      return import("./docs/features/layout/index.mdx");
+    case "features/layout/_ja":
+      return import("./docs/features/layout/_ja.mdx");
     case "features/mathematics":
       return import("./docs/features/mathematics/index.mdx");
     case "features/mathematics/_ja":
@@ -150,6 +163,24 @@ export const docsRoutes = {
     metadata: {
       "title": "Code Blocks (JA)",
       "description": "Mercury のコードブロックのハイライトや注釈の使い方を紹介します。"
+    },
+  },
+  "features/layout": {
+    id: "features/layout",
+    slugs: ["features","layout"],
+    url: "/docs/features/layout",
+    metadata: {
+      "title": "Layout",
+      "description": "Explains the layout features provided by Mercury."
+    },
+  },
+  "features/layout/_ja": {
+    id: "features/layout/_ja",
+    slugs: ["features","layout","_ja"],
+    url: "/docs/features/layout/_ja",
+    metadata: {
+      "title": "Layout (JA)",
+      "description": "Mercury の提供するレイアウト機能について説明します。"
     },
   },
   "features/mathematics": {
@@ -252,6 +283,8 @@ export const docsRouteIds = [
   "customization/extending-syntax",
   "features/code-block",
   "features/code-block/_ja",
+  "features/layout",
+  "features/layout/_ja",
   "features/mathematics",
   "features/mathematics/_ja",
   "features/qrcode",

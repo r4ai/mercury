@@ -1,0 +1,74 @@
+import { defineDocsMetadata } from "@/lib/docs/content-module"
+
+export const metadata = defineDocsMetadata({
+  title: "Layout",
+  description: "Explains the layout features provided by Mercury.",
+})
+
+# Layout
+
+Mercury provides several layouts as React components.
+
+This guide explains how to use these layouts.
+
+## TwoColsLayout
+
+The `<TwoColsLayout>` component provides a two-column layout.
+
+Separate the left and right columns with `---`.
+Content before the `---` will be placed in the left column, and content after it will be in the right column.
+
+```mdx
+<TwoColsLayout>
+  ### Left Column
+
+  - You can place any content here.
+  - Separate the left and right columns with `---`.
+
+  ---
+
+  ### Right Column
+
+  - You can also place any content here.
+  - Any MDX syntax can be used.
+</TwoColsLayout>
+```
+
+You can also create a layout with a title, like this:
+
+```mdx
+# Title
+
+<TwoColsLayout>
+  ### Left Column
+
+  Foo Bar
+
+  ---
+
+  ### Right Column
+
+  Baz Qux
+</TwoColsLayout>
+```
+
+You can also specify detailed styles using Tailwind CSS.
+
+The following example increases the gap between columns and the vertical spacing within each column's content:
+
+```mdx
+{/* The default value is "gap-6 *:space-y-4" */}
+<TwoColsLayout className="gap-12 *:space-y-8">
+  ### Left Column
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  ---
+
+  ### Right Column
+
+  Ut enim ad minim veniam, quis nostrud exercitation
+  ullamco laboris nisi ut aliquip ex ea commodo consequat.
+</TwoColsLayout>
+```
