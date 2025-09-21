@@ -13,13 +13,13 @@ export const useSlides = ({ length }: { length: number }) => {
   }, [])
 
   const index = () =>
-    params?.index != null ? Number.parseInt(params.index) : 0
+    params?.index != null ? Number.parseInt(params.index, 10) : 0
   const next = () => {
     if (match && params?.index != null) {
       navigate(
         location.replace(
           /\/\d+$/,
-          `/${Math.min(Number.parseInt(params.index) + 1, Math.max(length - 1, 0))}`,
+          `/${Math.min(Number.parseInt(params.index, 10) + 1, Math.max(length - 1, 0))}`,
         ),
       )
     } else {
@@ -31,7 +31,7 @@ export const useSlides = ({ length }: { length: number }) => {
       navigate(
         location.replace(
           /\/\d+$/,
-          `/${Math.max(Number.parseInt(params.index) - 1, 0)}`,
+          `/${Math.max(Number.parseInt(params.index, 10) - 1, 0)}`,
         ),
       )
     } else {
