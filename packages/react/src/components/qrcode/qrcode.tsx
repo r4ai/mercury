@@ -26,8 +26,8 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
       value,
       size = 160,
       margin = 4,
-      color = "currentColor",
-      backgroundColor = "transparent",
+      color: colorProp,
+      backgroundColor: backgroundColorProp,
       errorCorrectionLevel = "M",
       maskPattern,
       version,
@@ -37,6 +37,7 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
       height,
       role,
       "aria-label": ariaLabel,
+      style,
       ...rest
     },
     ref,
@@ -64,6 +65,7 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
         // The qrcode.create API also exposes encoding `segments`, but the drawable matrix lives
         // on the BitMatrix returned through `modules`, so we iterate over it just like the
         // upstream SVG renderer does.
+        // https://github.com/soldair/node-qrcode/blob/v1.5.4/lib/renderer/svg-tag.js#L17-L56
         for (let row = 0; row < moduleCount; row += 1) {
           for (let col = 0; col < moduleCount; col += 1) {
             if (qr.modules.get(row, col)) {
@@ -100,6 +102,19 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
         ? `QR code for ${value}`
         : "QR code")
 
+    const mergedStyle =
+      colorProp || backgroundColorProp
+        ? {
+            ...style,
+            ...(colorProp ? { color: colorProp } : {}),
+            ...(backgroundColorProp
+              ? { backgroundColor: backgroundColorProp }
+              : {}),
+          }
+        : style
+
+    const fill = colorProp ?? "currentColor"
+
     return (
       <svg
         ref={ref}
@@ -109,16 +124,10 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
         height={height ?? size}
         viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         className={cn("block", className)}
+        style={mergedStyle}
         {...rest}
       >
-        <rect
-          x={0}
-          y={0}
-          width={viewBoxSize}
-          height={viewBoxSize}
-          fill={backgroundColor}
-        />
-        <path d={path} fill={color} shapeRendering="crispEdges" />
+        <path d={path} fill={fill} shapeRendering="crispEdges" />
       </svg>
     )
   },
