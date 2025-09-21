@@ -105,7 +105,7 @@ export const getContent = (slugs: StaticPath) => {
 export const docsRoutes = {
   "customization/custom-components": {
     id: "customization/custom-components",
-    slugs: ["customization","custom-components"] as const,
+    slugs: ["customization","custom-components"],
     url: "/docs/customization/custom-components",
     metadata: {
       "title": "Custom Components",
@@ -114,7 +114,7 @@ export const docsRoutes = {
   },
   "customization/extending-syntax": {
     id: "customization/extending-syntax",
-    slugs: ["customization","extending-syntax"] as const,
+    slugs: ["customization","extending-syntax"],
     url: "/docs/customization/extending-syntax",
     metadata: {
       "title": "Extending Syntax",
@@ -123,7 +123,7 @@ export const docsRoutes = {
   },
   "features/code-block": {
     id: "features/code-block",
-    slugs: ["features","code-block"] as const,
+    slugs: ["features","code-block"],
     url: "/docs/features/code-block",
     metadata: {
       "title": "Code Blocks",
@@ -132,7 +132,7 @@ export const docsRoutes = {
   },
   "features/code-block/_ja": {
     id: "features/code-block/_ja",
-    slugs: ["features","code-block","_ja"] as const,
+    slugs: ["features","code-block","_ja"],
     url: "/docs/features/code-block/_ja",
     metadata: {
       "title": "Code Blocks (JA)",
@@ -141,7 +141,7 @@ export const docsRoutes = {
   },
   "features/mathematics": {
     id: "features/mathematics",
-    slugs: ["features","mathematics"] as const,
+    slugs: ["features","mathematics"],
     url: "/docs/features/mathematics",
     metadata: {
       "title": "Mathematics",
@@ -150,7 +150,7 @@ export const docsRoutes = {
   },
   "features/mathematics/_ja": {
     id: "features/mathematics/_ja",
-    slugs: ["features","mathematics","_ja"] as const,
+    slugs: ["features","mathematics","_ja"],
     url: "/docs/features/mathematics/_ja",
     metadata: {
       "title": "Mathematics (JA)",
@@ -159,7 +159,7 @@ export const docsRoutes = {
   },
   "getting-started/installation": {
     id: "getting-started/installation",
-    slugs: ["getting-started","installation"] as const,
+    slugs: ["getting-started","installation"],
     url: "/docs/getting-started/installation",
     metadata: {
       "title": "Installation",
@@ -168,7 +168,7 @@ export const docsRoutes = {
   },
   "getting-started/syntax-guide": {
     id: "getting-started/syntax-guide",
-    slugs: ["getting-started","syntax-guide"] as const,
+    slugs: ["getting-started","syntax-guide"],
     url: "/docs/getting-started/syntax-guide",
     metadata: {
       "title": "Syntax Guide",
@@ -177,7 +177,7 @@ export const docsRoutes = {
   },
   "getting-started/syntax-guide/_ja": {
     id: "getting-started/syntax-guide/_ja",
-    slugs: ["getting-started","syntax-guide","_ja"] as const,
+    slugs: ["getting-started","syntax-guide","_ja"],
     url: "/docs/getting-started/syntax-guide/_ja",
     metadata: {
       "title": "Syntax Guide (JA)",
@@ -186,7 +186,7 @@ export const docsRoutes = {
   },
   "packages/react": {
     id: "packages/react",
-    slugs: ["packages","react"] as const,
+    slugs: ["packages","react"],
     url: "/docs/packages/react",
     metadata: {
       "title": "@mercurymd/react",
@@ -195,7 +195,7 @@ export const docsRoutes = {
   },
   "packages/remark": {
     id: "packages/remark",
-    slugs: ["packages","remark"] as const,
+    slugs: ["packages","remark"],
     url: "/docs/packages/remark",
     metadata: {
       "title": "@mercurymd/remark",
@@ -204,7 +204,7 @@ export const docsRoutes = {
   },
   "packages/vite-plugin": {
     id: "packages/vite-plugin",
-    slugs: ["packages","vite-plugin"] as const,
+    slugs: ["packages","vite-plugin"],
     url: "/docs/packages/vite-plugin",
     metadata: {
       "title": "@mercurymd/vite-plugin",

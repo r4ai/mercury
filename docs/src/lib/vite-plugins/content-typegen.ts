@@ -224,7 +224,7 @@ const generateContent = async ({
     .map((entry) => {
       const url = `/${CONTENT_DOCS_SUBDIR}/${entry.id}`
       const metadataBlock = renderMetadataProperty(url, entry.metadata)
-      return `  ${JSON.stringify(entry.id)}: {\n    id: ${JSON.stringify(entry.id)},\n    slugs: ${JSON.stringify(entry.segments)} as const,\n    url: ${JSON.stringify(url)},\n${metadataBlock}\n  },`
+      return `  ${JSON.stringify(entry.id)}: {\n    id: ${JSON.stringify(entry.id)},\n    slugs: ${JSON.stringify(entry.segments)},\n    url: ${JSON.stringify(url)},\n${metadataBlock}\n  },`
     })
     .join("\n")
 
