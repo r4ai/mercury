@@ -1,0 +1,82 @@
+import { defineDocsMetadata } from "@/lib/docs/content-module"
+
+export const metadata = defineDocsMetadata({
+  title: "QR Code",
+  description: "Mercury プレゼンテーション内で組み込みの QRCode コンポーネントを使用して QR コードを生成します。",
+})
+
+# QRCode
+
+Mercury は、QR コードを生成するための `<QRCode>` コンポーネントを提供しています。
+これを使用することで、スライド内に QR コードを簡単に埋め込むことができます。
+
+## 基本的な使い方
+
+`value` プロパティに埋め込みたい値を渡すことで、QR コードを生成できます。
+
+```mdx
+<QRCode value="https://mercury.r4ai.dev" />
+```
+
+このコンポーネントはデフォルトでimport済みなので、明示的にインポートする必要はありません。
+
+ただし、一応次のように手動でインポートして使用することもできます。
+
+```mdx
+import { QRCode } from "@mercurymd/react"
+
+<QRCode value="https://mercury.r4ai.dev" />
+```
+
+## 外観のカスタマイズ
+
+### サイズ
+
+`size` プロパティを使用して、描画される幅と高さ（ピクセル単位）を制御できます。
+
+```mdx
+<QRCode value="https://mercury.r4ai.dev" size={200} />
+```
+
+### Tailwind CSS によるスタイリング
+
+背景色や前景色は、Tailwind CSS のユーティリティクラスを使用して変更できます。
+
+```mdx
+<QRCode className="border text-blue-600 bg-blue-50" value="https://mercury.r4ai.dev" />
+```
+
+## 高度なオプション
+
+詳しくは以下のページを参照してください。
+
+https://github.com/soldair/node-qrcode/tree/v1.5.4?tab=readme-ov-file#options-9
+
+### version
+
+- Type: `Number`
+
+QR Code version. If not specified the more suitable value will be calculated.
+
+### errorCorrectionLevel
+
+- Type: `String`
+- Default: `M`
+
+Error correction level.
+Possible values are `low`, `medium`, `quartile`, `high` or `L`, `M`, `Q`, `H`.
+
+### maskPattern
+
+- Type: `Number`
+
+Mask pattern used to mask the symbol.
+Possible values are `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`.
+If not specified the more suitable value will be calculated.
+
+### toSJISFunc
+
+- Type: `Function`
+
+Helper function used internally to convert a kanji to its Shift JIS value.
+Provide this function if you need support for Kanji mode.

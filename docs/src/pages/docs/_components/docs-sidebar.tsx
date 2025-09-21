@@ -82,7 +82,9 @@ export const DocsSidebar = ({ ...props }: ComponentProps<typeof Sidebar>) => {
             {data.nav.map((item) => (
               <Collapsible
                 key={item.title}
-                defaultOpen={item.items?.some(({ url }) => url === path)}
+                defaultOpen={
+                  item.items?.some(({ url }) => url === path) ?? false
+                }
                 className="group/collapsible"
               >
                 <SidebarMenuItem>

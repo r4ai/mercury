@@ -42,13 +42,14 @@
     "wouter": "3.7.1"
   },
   "devDependencies": {
+    "@mdx-js/mdx": "^3.1.1",
     "@mdx-js/rollup": "3.1.1",
     "@mercurymd/react": "workspace:*",
     "@mercurymd/vite-plugin": "workspace:*",
     "@r4ai/remark-embed": "0.5.0",
     "@tailwindcss/postcss": "4.1.13",
     "@types/mdx": "2.0.13",
-    "@types/node": "24.4.0",
+    "@types/node": "24.5.2",
     "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
     "dedent": "1.7.0",

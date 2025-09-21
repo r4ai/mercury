@@ -7,6 +7,7 @@ import { Keyboard } from "./keyboard"
 import { Link } from "./link"
 import { List, ListItem, OrderedList } from "./list"
 import { Paragraph } from "./paragraph"
+import { QRCode } from "./qrcode"
 import { Slide } from "./slide"
 import { TwoColsLayout } from "./two-cols-layout"
 
@@ -24,6 +25,7 @@ export type Components = {
   "inline-code": typeof InlineCode
   pre: typeof CodeBlock
   kbd: typeof Keyboard
+  QRCode: typeof QRCode
   Slide: typeof Slide
   Presentation: FC<{ children?: ReactNode }>
   TwoColsLayout: typeof TwoColsLayout
@@ -43,6 +45,7 @@ export const components: Components = {
   "inline-code": InlineCode,
   pre: CodeBlock,
   kbd: Keyboard,
+  QRCode,
   Slide,
   Presentation: ({ children }) => children,
   TwoColsLayout,
