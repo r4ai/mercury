@@ -6,6 +6,7 @@ import {
   type QRCodeToSJISFunc,
 } from "qrcode"
 import { type ComponentPropsWithoutRef, forwardRef, useMemo } from "react"
+import { renderToSvg } from "../../libs/qrcode"
 import { cn } from "../../libs/utils"
 
 export type QRCodeProps = Omit<ComponentPropsWithoutRef<"svg">, "children"> & {
@@ -36,7 +37,7 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
     },
     ref,
   ) => {
-    const { path, viewBoxSize } = useMemo(() => {
+    const { path, viewBox } = useMemo(() => {
       try {
         const qr = create(value, {
           errorCorrectionLevel,
@@ -44,41 +45,16 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
           toSJISFunc,
           version,
         })
-
-        if (!qr.modules) {
-          return { path: "", viewBoxSize: 0 }
-        }
-
-        const moduleCount = qr.modules.size
-        const viewBoxSize = moduleCount
-        const segments: string[] = []
-
-        // The qrcode.create API also exposes encoding `segments`, but the drawable matrix lives
-        // on the BitMatrix returned through `modules`, so we iterate over it just like the
-        // upstream SVG renderer does.
-        // https://github.com/soldair/node-qrcode/blob/v1.5.4/lib/renderer/svg-tag.js#L17-L56
-        for (let row = 0; row < moduleCount; row += 1) {
-          for (let col = 0; col < moduleCount; col += 1) {
-            if (qr.modules.get(row, col)) {
-              segments.push(`M${col} ${row}h1v1h-1z`)
-            }
-          }
-        }
-
-        return { path: segments.join(""), viewBoxSize }
+        return renderToSvg(qr)
       } catch (error) {
         console.error(
           "[@mercurymd/react] Failed to generate QR code for value:",
           value,
           error,
         )
-        return { path: "", viewBoxSize: 0 }
+        return { path: "", viewBox: "0 0 0 0" }
       }
     }, [errorCorrectionLevel, maskPattern, toSJISFunc, value, version])
-
-    if (viewBoxSize === 0) {
-      return null
-    }
 
     const label =
       ariaLabel ??
@@ -86,19 +62,25 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
         ? `QR code for ${value}`
         : "QR code")
 
+    if (viewBox === "0 0 0 0") {
+      return null
+    }
+
     return (
       <svg
         ref={ref}
         aria-label={label}
         role={role ?? "img"}
+        className={cn("block bg-white text-black", className)}
+        style={style}
         width={width ?? size}
         height={height ?? size}
-        viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
-        className={cn("block", className)}
-        style={style}
+        viewBox={viewBox}
+        xmlns="http://www.w3.org/2000/svg"
+        shapeRendering="crispEdges"
         {...rest}
       >
-        <path d={path} fill="currentColor" shapeRendering="crispEdges" />
+        <path d={path} stroke="currentColor" />
       </svg>
     )
   },
