@@ -140,7 +140,6 @@ describe(remarkMercury.name, () => {
     const { html } = await process(md)
     const doc = parser.parseFromString(html, "text/html")
 
-    console.log(html)
 
     const presentation = doc.querySelector("section.presentation")
     expect(presentation).not.toBe(null)
