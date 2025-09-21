@@ -1,63 +1,75 @@
-# QR Code
+# QRCode
 
-Mercury bundles a `<QRCode>` component that lets you embed shareable links directly in your slides.
-The component is available automatically inside MDX documents rendered by Mercury, and you can
-also import it from `@mercurymd/react` when you need to use it manually.
+Mercury provides a `<QRCode>` component to generate QR codes.
+This allows you to easily embed QR codes within your slides.
 
 ## Basic Usage
 
-Pass the value you want to encode through the `value` prop. By default the component renders a
-square SVG that scales with the surrounding layout.
+You can generate a QR code by passing the desired value to the `value` property.
 
 ```mdx
-<QRCode value="https://mercury-md.dev" />
+<QRCode value="https://mercury.r4ai.dev" />
 ```
 
-You can also render the component manually by importing it:
+This component is imported by default, so you don't need to import it explicitly.
+
+However, you can also import it manually as follows:
 
 ```mdx
 import { QRCode } from "@mercurymd/react"
 
-<QRCode value="https://mercury-md.dev" />
+<QRCode value="https://mercury.r4ai.dev" />
 ```
 
-## Customising the Appearance
+## Customizing Appearance
 
 ### Size
 
-Use the `size` prop to control the rendered width and height (in pixels). You can also set the
-`width` and `height` attributes directly when you need independent values.
+You can control the rendered width and height in pixels using the `size` property.
 
 ```mdx
-<QRCode value="https://mercury-md.dev" size={200} />
+<QRCode value="https://mercury.r4ai.dev" size={200} />
 ```
 
-### Styling with Utility Classes
+### Styling with Tailwind CSS
 
-`<QRCode>` fills the generated modules with `currentColor`, so you can rely on Tailwind's text
-utilities (or your own CSS via the `className` prop) to change the foreground colour. Wrap the component when you need
-backgrounds, padding, or a custom quiet zone.
+The background and foreground colors can be changed using Tailwind CSS utility classes.
 
 ```mdx
-<div className="inline-flex rounded-lg bg-blue-50 p-4 text-blue-600">
-  <QRCode value="https://mercury-md.dev" />
-</div>
+<QRCode className="border text-blue-600 bg-blue-50" value="https://mercury.r4ai.dev" />
 ```
 
-## Error Correction & Advanced Options
+## Advanced Options
 
-The component exposes a few additional knobs for advanced scenarios:
+For more details, please refer to the following page:
 
-- `errorCorrectionLevel` – sets the error correction level. Accepted values are `"L"`, `"M"`,
-  `"Q"`, `"H"` as
-  well as their long-form names (`"low"`, `"medium"`, `"quartile"`, `"high"`).
-- `maskPattern` – forces a mask pattern from `0` to `7` when you need consistent visual output.
-- `version` – locks the QR code version (1–40) instead of letting it scale automatically.
-- `toSJISFunc` – provide this when you need Shift JIS support for kanji payloads.
+https://github.com/soldair/node-qrcode/tree/v1.5.4?tab=readme-ov-file#options-9
 
-These props are optional; Mercury will pick sensible defaults when they are not supplied.
+### version
 
-## Accessibility
+- Type: `Number`
 
-`<QRCode>` is rendered as an SVG with `role="img"`. Supply the `aria-label` prop to describe the
-encoded content for assistive technologies when the default label does not fit your use case.
+QR Code version. If not specified, the most suitable value will be calculated.
+
+### errorCorrectionLevel
+
+- Type: `String`
+- Default: `M`
+
+Error correction level.
+Possible values are `low`, `medium`, `quartile`, `high` or `L`, `M`, `Q`, `H`.
+
+### maskPattern
+
+- Type: `Number`
+
+Mask pattern used to mask the symbol.
+Possible values are `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`.
+If not specified, the most suitable value will be calculated.
+
+### toSJISFunc
+
+- Type: `Function`
+
+A helper function used internally to convert a kanji to its Shift JIS value.
+Provide this function if you need support for Kanji mode.

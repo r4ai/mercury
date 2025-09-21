@@ -66,6 +66,11 @@ export const staticPaths = [
     "_ja"
   ],
   [
+    "features",
+    "qrcode",
+    "_ja"
+  ],
+  [
     "getting-started",
     "syntax-guide",
     "_ja"
@@ -91,6 +96,8 @@ export const getContent = (slugs: StaticPath) => {
       return import("./docs/features/mathematics/_ja.mdx");
     case "features/qrcode":
       return import("./docs/features/qrcode/index.mdx");
+    case "features/qrcode/_ja":
+      return import("./docs/features/qrcode/_ja.mdx");
     case "getting-started/installation":
       return import("./docs/getting-started/installation/index.mdx");
     case "getting-started/syntax-guide":
