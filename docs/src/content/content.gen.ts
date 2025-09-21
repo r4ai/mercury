@@ -170,6 +170,24 @@ export const docsRoutes = {
       "description": "Mercury のプレゼンテーションで LaTeX 形式の数式を表示する方法を説明します。"
     },
   },
+  "features/qrcode": {
+    id: "features/qrcode",
+    slugs: ["features","qrcode"],
+    url: "/docs/features/qrcode",
+    metadata: {
+      "title": "QR Code",
+      "description": "Generate QR codes within your Mercury presentations using the built-in QRCode component."
+    },
+  },
+  "features/qrcode/_ja": {
+    id: "features/qrcode/_ja",
+    slugs: ["features","qrcode","_ja"],
+    url: "/docs/features/qrcode/_ja",
+    metadata: {
+      "title": "QR Code",
+      "description": "Mercury プレゼンテーション内で組み込みの QRCode コンポーネントを使用して QR コードを生成します。"
+    },
+  },
   "getting-started/installation": {
     id: "getting-started/installation",
     slugs: ["getting-started","installation"],
@@ -236,6 +254,8 @@ export const docsRouteIds = [
   "features/code-block/_ja",
   "features/mathematics",
   "features/mathematics/_ja",
+  "features/qrcode",
+  "features/qrcode/_ja",
   "getting-started/installation",
   "getting-started/syntax-guide",
   "getting-started/syntax-guide/_ja",
