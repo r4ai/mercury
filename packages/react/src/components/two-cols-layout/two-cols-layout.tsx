@@ -15,9 +15,12 @@ export const TwoColsLayout = ({
   const [left, right] = splitChildren(children)
 
   return (
-    <div className={cn("grid grid-cols-2 gap-6", className)} {...props}>
-      <div className="space-y-4">{left}</div>
-      <div className="space-y-4">{right}</div>
+    <div
+      className={cn("grid grid-cols-2 gap-6 *:space-y-4", className)}
+      {...props}
+    >
+      <div>{left}</div>
+      <div>{right}</div>
     </div>
   )
 }
