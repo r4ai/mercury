@@ -32,6 +32,7 @@ const DocsPage = async ({
         toc={content?.toc}
         slugs={redirected}
         redirected={redirected !== slugs}
+        title={pageTitle}
       />
       {content ? (
         <div className="relative mx-auto flex flex-row justify-center @4xl:gap-12 @5xl:gap-16 @3xl:px-8 px-5">

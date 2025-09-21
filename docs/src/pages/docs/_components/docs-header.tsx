@@ -35,11 +35,13 @@ export const DocsHeader = ({
   showBreadcrumb = true,
   slugs,
   redirected,
+  title: pageTitle,
 }: {
   toc?: TocEntry[] | undefined
   showBreadcrumb?: boolean
   slugs: StaticPath
   redirected: boolean
+  title: string | undefined
 }) => {
   const router = useRouter()
 
@@ -72,7 +74,7 @@ export const DocsHeader = ({
                 <Fragment key={link}>
                   <BreadcrumbItem>
                     {index === titles.length - 1 ? (
-                      <BreadcrumbPage>{title}</BreadcrumbPage>
+                      <BreadcrumbPage>{pageTitle ?? title}</BreadcrumbPage>
                     ) : (
                       <BreadcrumbLink className="hidden md:block" asChild>
                         <Link to={link}>{title}</Link>
