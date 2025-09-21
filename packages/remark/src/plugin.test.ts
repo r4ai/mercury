@@ -1,6 +1,8 @@
 import dedent from "dedent"
+// biome-ignore lint/correctness/noUnusedImports: this is a bug in biome: https://github.com/biomejs/biome/issues/7516
 import type * as hast from "hast"
 import { JSDOM } from "jsdom"
+// biome-ignore lint/correctness/noUnusedImports: this is a bug in biome: https://github.com/biomejs/biome/issues/7516
 import type * as mdast from "mdast"
 import rehypeStringify from "rehype-stringify"
 import remarkParse from "remark-parse"
@@ -139,7 +141,6 @@ describe(remarkMercury.name, () => {
 
     const { html } = await process(md)
     const doc = parser.parseFromString(html, "text/html")
-
 
     const presentation = doc.querySelector("section.presentation")
     expect(presentation).not.toBe(null)
