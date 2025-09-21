@@ -25,6 +25,10 @@ export const nav = [
         title: "Mathematics",
         url: "/docs/features/mathematics",
       },
+      {
+        title: "QR Code",
+        url: "/docs/features/qrcode",
+      },
     ],
   },
   {
