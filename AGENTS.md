@@ -3,10 +3,10 @@
 ## Project Structure & Module Organization
 
 - `packages/`: publishable workspaces
-  - `mercury`: core TypeScript library
-  - `remark-mercury`: Remark plugin for slide MD processing
-  - `vite-plugin-mercury`: Vite plugin + MDX pipeline
-  - `mercury-ui`: React UI components and styles
+  - `create-mercury`: (@mercurymd/create-mercury) Project creation tool
+  - `react`: (@mercurymd/react) React UI components and styles for presentations
+  - `remark`: (@mercurymd/remark) Remark plugin for slide MD processing
+  - `vite-plugin`: (@mercurymd/vite-plugin) Vite plugin + MDX pipeline
 - `examples/`: runnable demos (Vite apps). Try `examples/lt`, `examples/program`.
 - Tooling: Bun workspaces + Turbo, Biome, Changesets, Lefthook, Vitest, Storybook.
 
