@@ -1,8 +1,5 @@
 import { describe, expect, it } from "vitest"
-import {
-  buildDocsDocumentTitle,
-  getDocsPageTitle,
-} from "../src/lib/docs/page-title"
+import { buildDocsDocumentTitle, getDocsPageTitle } from "./page-title"
 
 describe("getDocsPageTitle", () => {
   it("returns the metadata title when present", () => {
