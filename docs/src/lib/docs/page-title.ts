@@ -1,6 +1,6 @@
 import type { DocsMetadataSource } from "./content-module"
 
-const DOCS_SITE_TITLE = "Mercury Docs"
+const DOCS_SITE_TITLE = "Mercury"
 
 export const getDocsPageTitle = (
   content: DocsMetadataSource | undefined,
