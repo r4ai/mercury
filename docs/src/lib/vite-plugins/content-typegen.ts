@@ -90,29 +90,22 @@ const buildStaticPaths = (entries: Entry[]) => {
   )
 }
 
-const renderMetadataProperty = (metadata: unknown): string => {
-  if (metadata == null) return "    metadata: undefined,"
-
-  const json = JSON.stringify(metadata, null, 2)
-  const lines = json.split("\n")
-  if (lines.length === 0) {
+const renderMetadataProperty = (url: string, metadata: unknown): string => {
+  if (metadata == null || typeof metadata !== "object") {
+    console.error(
+      `[content-typegen] [error] Invalid metadata for ${url}: expected object, got ${typeof metadata}`,
+    )
     return "    metadata: undefined,"
   }
 
-  if (lines.length === 1) {
-    return `    metadata: ${lines[0]},`
+  if (!("title" in metadata)) {
+    console.error(
+      `[content-typegen] [error] Invalid metadata for ${url}: missing "title" property`,
+    )
   }
 
-  const first = lines[0]
-  const last = lines[lines.length - 1]
-  const middle = lines
-    .slice(1, -1)
-    .map((line) => `      ${line}`)
-    .join("\n")
-
-  return [`    metadata: ${first}`, middle, `    ${last},`]
-    .filter((part) => part.length > 0)
-    .join("\n")
+  const json = JSON.stringify(metadata, null, 2)
+  return `    metadata: ${json.replace(/\n/g, "\n    ")},`
 }
 
 const createMetadataHelperModuleUrl = async (rootDir: string) => {
@@ -230,7 +223,7 @@ const generateContent = async ({
   const docsRoutes = entries
     .map((entry) => {
       const url = `/${CONTENT_DOCS_SUBDIR}/${entry.id}`
-      const metadataBlock = renderMetadataProperty(entry.metadata)
+      const metadataBlock = renderMetadataProperty(url, entry.metadata)
       return `  ${JSON.stringify(entry.id)}: {\n    id: ${JSON.stringify(entry.id)},\n    slugs: ${JSON.stringify(entry.segments)} as const,\n    url: ${JSON.stringify(url)},\n${metadataBlock}\n  },`
     })
     .join("\n")

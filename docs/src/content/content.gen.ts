@@ -108,8 +108,8 @@ export const docsRoutes = {
     slugs: ["customization","custom-components"] as const,
     url: "/docs/customization/custom-components",
     metadata: {
-        "title": "Custom Components",
-        "description": "Build custom React components that integrate with Mercury slides."
+      "title": "Custom Components",
+      "description": "Build custom React components that integrate with Mercury slides."
     },
   },
   "customization/extending-syntax": {
@@ -117,8 +117,8 @@ export const docsRoutes = {
     slugs: ["customization","extending-syntax"] as const,
     url: "/docs/customization/extending-syntax",
     metadata: {
-        "title": "Extending Syntax",
-        "description": "Extend Mercury's Markdown syntax with custom Remark plugins."
+      "title": "Extending Syntax",
+      "description": "Extend Mercury's Markdown syntax with custom Remark plugins."
     },
   },
   "features/code-block": {
@@ -126,8 +126,8 @@ export const docsRoutes = {
     slugs: ["features","code-block"] as const,
     url: "/docs/features/code-block",
     metadata: {
-        "title": "Code Blocks",
-        "description": "Showcase syntax highlighting and annotations for Mercury code blocks."
+      "title": "Code Blocks",
+      "description": "Showcase syntax highlighting and annotations for Mercury code blocks."
     },
   },
   "features/code-block/_ja": {
@@ -135,8 +135,8 @@ export const docsRoutes = {
     slugs: ["features","code-block","_ja"] as const,
     url: "/docs/features/code-block/_ja",
     metadata: {
-        "title": "Code Blocks (JA)",
-        "description": "Mercury のコードブロックのハイライトや注釈の使い方を紹介します。"
+      "title": "Code Blocks (JA)",
+      "description": "Mercury のコードブロックのハイライトや注釈の使い方を紹介します。"
     },
   },
   "features/mathematics": {
@@ -144,8 +144,8 @@ export const docsRoutes = {
     slugs: ["features","mathematics"] as const,
     url: "/docs/features/mathematics",
     metadata: {
-        "title": "Mathematics",
-        "description": "Render LaTeX-style mathematics inside Mercury presentations."
+      "title": "Mathematics",
+      "description": "Render LaTeX-style mathematics inside Mercury presentations."
     },
   },
   "features/mathematics/_ja": {
@@ -153,8 +153,8 @@ export const docsRoutes = {
     slugs: ["features","mathematics","_ja"] as const,
     url: "/docs/features/mathematics/_ja",
     metadata: {
-        "title": "Mathematics (JA)",
-        "description": "Mercury のプレゼンテーションで LaTeX 形式の数式を表示する方法を説明します。"
+      "title": "Mathematics (JA)",
+      "description": "Mercury のプレゼンテーションで LaTeX 形式の数式を表示する方法を説明します。"
     },
   },
   "getting-started/installation": {
@@ -162,8 +162,8 @@ export const docsRoutes = {
     slugs: ["getting-started","installation"] as const,
     url: "/docs/getting-started/installation",
     metadata: {
-        "title": "Installation",
-        "description": "Install Mercury and configure your project with the required tooling."
+      "title": "Installation",
+      "description": "Install Mercury and configure your project with the required tooling."
     },
   },
   "getting-started/syntax-guide": {
@@ -171,8 +171,8 @@ export const docsRoutes = {
     slugs: ["getting-started","syntax-guide"] as const,
     url: "/docs/getting-started/syntax-guide",
     metadata: {
-        "title": "Syntax Guide",
-        "description": "Learn the Markdown features and shortcodes available in Mercury."
+      "title": "Syntax Guide",
+      "description": "Learn the Markdown features and shortcodes available in Mercury."
     },
   },
   "getting-started/syntax-guide/_ja": {
@@ -180,8 +180,8 @@ export const docsRoutes = {
     slugs: ["getting-started","syntax-guide","_ja"] as const,
     url: "/docs/getting-started/syntax-guide/_ja",
     metadata: {
-        "title": "Syntax Guide (JA)",
-        "description": "Mercury で利用できる Markdown 機能とショートコードを解説します。"
+      "title": "Syntax Guide (JA)",
+      "description": "Mercury で利用できる Markdown 機能とショートコードを解説します。"
     },
   },
   "packages/react": {
@@ -189,8 +189,8 @@ export const docsRoutes = {
     slugs: ["packages","react"] as const,
     url: "/docs/packages/react",
     metadata: {
-        "title": "@mercurymd/react",
-        "description": "React components used to render interactive Mercury presentations."
+      "title": "@mercurymd/react",
+      "description": "React components used to render interactive Mercury presentations."
     },
   },
   "packages/remark": {
@@ -198,8 +198,8 @@ export const docsRoutes = {
     slugs: ["packages","remark"] as const,
     url: "/docs/packages/remark",
     metadata: {
-        "title": "@mercurymd/remark",
-        "description": "Remark plugin that parses Mercury-flavored Markdown."
+      "title": "@mercurymd/remark",
+      "description": "Remark plugin that parses Mercury-flavored Markdown."
     },
   },
   "packages/vite-plugin": {
@@ -207,8 +207,8 @@ export const docsRoutes = {
     slugs: ["packages","vite-plugin"] as const,
     url: "/docs/packages/vite-plugin",
     metadata: {
-        "title": "@mercurymd/vite-plugin",
-        "description": "Vite plugin that compiles Mercury presentations efficiently."
+      "title": "@mercurymd/vite-plugin",
+      "description": "Vite plugin that compiles Mercury presentations efficiently."
     },
   },
 } as const
