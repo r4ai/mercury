@@ -1,5 +1,8 @@
 import fs from "node:fs/promises"
 import path from "node:path"
+import { pathToFileURL } from "node:url"
+import { evaluate } from "@mdx-js/mdx"
+import { Fragment, jsx, jsxs } from "react/jsx-runtime"
 import type { Plugin } from "vite"
 
 type GenerateOptions = {
@@ -7,11 +10,22 @@ type GenerateOptions = {
   rootDir: string
 }
 
-type Entry = { segments: string[]; id: string; importPath: string }
+type Entry = {
+  segments: string[]
+  id: string
+  importPath: string
+  metadata: unknown
+}
 
 const CONTENT_RELATIVE_DIR = "src/content"
 const CONTENT_DOCS_SUBDIR = "docs"
 const OUTPUT_FILE = path.join(CONTENT_RELATIVE_DIR, "content.gen.ts")
+const METADATA_IMPORT_PATTERN = /from\s+["']@\/lib\/docs\/content-module["']/g
+const METADATA_FALLBACK_CODE =
+  "export const defineDocsMetadata = (metadata) => metadata;"
+const METADATA_FALLBACK_MODULE_URL = `data:text/javascript,${encodeURIComponent(
+  METADATA_FALLBACK_CODE,
+)}`
 
 const readAllMdxFiles = async (dir: string): Promise<string[]> => {
   const out: string[] = []
@@ -76,24 +90,126 @@ const buildStaticPaths = (entries: Entry[]) => {
   )
 }
 
+const renderMetadataProperty = (url: string, metadata: unknown): string => {
+  if (metadata == null || typeof metadata !== "object") {
+    console.error(
+      `[content-typegen] [error] Invalid metadata for ${url}: expected object, got ${typeof metadata}`,
+    )
+    return "    metadata: undefined,"
+  }
+
+  if (!("title" in metadata)) {
+    console.error(
+      `[content-typegen] [error] Invalid metadata for ${url}: missing "title" property`,
+    )
+  }
+
+  const json = JSON.stringify(metadata, null, 2)
+  return `    metadata: ${json.replace(/\n/g, "\n    ")},`
+}
+
+const createMetadataHelperModuleUrl = async (rootDir: string) => {
+  const helperPath = path.join(
+    rootDir,
+    "src",
+    "lib",
+    "docs",
+    "content-module.ts",
+  )
+
+  try {
+    await fs.access(helperPath)
+    return pathToFileURL(helperPath).href
+  } catch (error) {
+    console.warn(
+      `[content-typegen] Unable to load docs metadata helper from ${helperPath}:`,
+      error,
+    )
+    return METADATA_FALLBACK_MODULE_URL
+  }
+}
+
+const loadContentMetadata = async (
+  absPath: string,
+  helperModuleUrl: string,
+): Promise<unknown> => {
+  let source: string
+  try {
+    source = await fs.readFile(absPath, "utf8")
+  } catch (error) {
+    console.warn(
+      `[content-typegen] Failed to read docs content file ${absPath}:`,
+      error,
+    )
+    return undefined
+  }
+
+  if (!source.includes("export const metadata")) return undefined
+
+  const evaluateWithHelper = async (moduleUrl: string, logError: boolean) => {
+    const patchedSource = source.replace(
+      METADATA_IMPORT_PATTERN,
+      `from "${moduleUrl}"`,
+    )
+
+    try {
+      const evaluated = await evaluate(
+        { value: patchedSource, path: absPath },
+        {
+          baseUrl: pathToFileURL(absPath),
+          Fragment,
+          jsx,
+          jsxs,
+        },
+      )
+
+      return {
+        ok: true as const,
+        metadata: (evaluated as { metadata?: unknown }).metadata,
+      }
+    } catch (error) {
+      if (logError) {
+        console.warn(
+          `[content-typegen] Failed to evaluate metadata for ${absPath}:`,
+          error,
+        )
+      }
+      return { ok: false as const }
+    }
+  }
+
+  const primary = await evaluateWithHelper(helperModuleUrl, true)
+  if (primary.ok) return primary.metadata
+
+  if (helperModuleUrl === METADATA_FALLBACK_MODULE_URL) return undefined
+
+  const fallback = await evaluateWithHelper(METADATA_FALLBACK_MODULE_URL, false)
+  return fallback.ok ? fallback.metadata : undefined
+}
+
 const generateContent = async ({
   rootDir,
 }: GenerateOptions): Promise<string> => {
   const contentDir = path.join(rootDir, CONTENT_RELATIVE_DIR)
   const docsDir = path.join(contentDir, CONTENT_DOCS_SUBDIR)
   const files = await readAllMdxFiles(docsDir)
+  const metadataHelperModuleUrl = await createMetadataHelperModuleUrl(rootDir)
 
-  const entries: Entry[] = files
-    .map((abs) => {
-      const segments = toSlugSegments(abs, docsDir)
-      if (segments.length === 0) return null
-      const id = segments.join("/")
-      const relFromContent = path.relative(contentDir, abs)
-      const posixRel = relFromContent.split(path.sep).join("/")
-      const importPath = `./${posixRel}`
-      return { segments, id, importPath }
-    })
-    .filter((e): e is Entry => !!e)
+  const entries: Entry[] = (
+    await Promise.all(
+      files.map(async (abs) => {
+        const segments = toSlugSegments(abs, docsDir)
+        if (segments.length === 0) return null
+        const id = segments.join("/")
+        const relFromContent = path.relative(contentDir, abs)
+        const posixRel = relFromContent.split(path.sep).join("/")
+        const importPath = `./${posixRel}`
+        const metadata = await loadContentMetadata(abs, metadataHelperModuleUrl)
+        return { segments, id, importPath, metadata }
+      }),
+    )
+  )
+    .filter((entry): entry is Entry => !!entry)
     .sort((a, b) => a.id.localeCompare(b.id))
 
   const staticPaths = buildStaticPaths(entries)
@@ -103,6 +219,18 @@ const generateContent = async ({
     "// biome-ignore format: generated types do not need formatting",
     "// prettier-ignore",
   ].join("\n")
+
+  const docsRoutes = entries
+    .map((entry) => {
+      const url = `/${CONTENT_DOCS_SUBDIR}/${entry.id}`
+      const metadataBlock = renderMetadataProperty(url, entry.metadata)
+      return `  ${JSON.stringify(entry.id)}: {\n    id: ${JSON.stringify(entry.id)},\n    slugs: ${JSON.stringify(entry.segments)},\n    url: ${JSON.stringify(url)},\n${metadataBlock}\n  },`
+    })
+    .join("\n")
+
+  const docsRouteIds = entries
+    .map((entry) => `  ${JSON.stringify(entry.id)},`)
+    .join("\n")
 
   const switchCases = entries
     .map(
@@ -123,6 +251,22 @@ ${switchCases}
     default:
       return undefined
   }
+}
+
+export const docsRoutes = {
+${docsRoutes}
+} as const
+
+export type DocsRouteId = keyof typeof docsRoutes
+export type DocsRoute = (typeof docsRoutes)[DocsRouteId]
+
+export const docsRouteIds = [
+${docsRouteIds}
+] as const
+
+export const getDocsRoute = (slugs: StaticPath) => {
+  const id = slugs.join("/")
+  return id.length === 0 ? undefined : docsRoutes[id as DocsRouteId]
 }
 `
   return code

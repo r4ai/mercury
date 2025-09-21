@@ -1,64 +1,30 @@
+import type { DocsRoute } from "@/lib/docs/routes"
+import { docsRouteIds, docsRoutes, getRouteTitle } from "@/lib/docs/routes"
 import type { NavGroup } from "@/pages/docs/_components/docs-sidebar"
+import type { StaticPath } from "."
 
-export const nav = [
+type NavGroupSlug = StaticPath[0] & string
+
+const isDefaultLocaleRoute = (route: DocsRoute) =>
+  route.slugs.every((slug) => !slug.startsWith("_"))
+
+const toNavItems = (route: DocsRoute) => ({
+  title: getRouteTitle(route),
+  url: route.url,
+})
+
+const getRoutes = (group: NavGroupSlug) =>
+  docsRouteIds
+    .map((id) => docsRoutes[id])
+    .filter((route) => route.slugs[0] === group && isDefaultLocaleRoute(route))
+    .map(toNavItems)
+
+export const nav: readonly NavGroup[] = [
   {
     title: "Getting Started",
-    items: [
-      {
-        title: "Installation",
-        url: "/docs/getting-started/installation",
-      },
-      {
-        title: "Syntax Guide",
-        url: "/docs/getting-started/syntax-guide",
-      },
-    ],
+    items: getRoutes("getting-started"),
   },
-  {
-    title: "Features",
-    items: [
-      {
-        title: "Code Block",
-        url: "/docs/features/code-block",
-      },
-      {
-        title: "Mathematics",
-        url: "/docs/features/mathematics",
-      },
-      {
-        title: "QR Code",
-        url: "/docs/features/qrcode",
-      },
-    ],
-  },
-  {
-    title: "Customization",
-    items: [
-      {
-        title: "Custom Components",
-        url: "/docs/customization/custom-components",
-      },
-      {
-        title: "Extending Syntax",
-        url: "/docs/customization/extending-syntax",
-      },
-    ],
-  },
-  {
-    title: "Packages",
-    items: [
-      {
-        title: "@mercurymd/vite-plugin",
-        url: "/docs/packages/vite-plugin",
-      },
-      {
-        title: "@mercurymd/react",
-        url: "/docs/packages/react",
-      },
-      {
-        title: "@mercurymd/remark",
-        url: "/docs/packages/remark",
-      },
-    ],
-  },
-] as const satisfies NavGroup[]
+  { title: "Features", items: getRoutes("features") },
+  { title: "Customization", items: getRoutes("customization") },
+  { title: "Packages", items: getRoutes("packages") },
+]

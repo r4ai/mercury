@@ -3,6 +3,7 @@ import type { PageProps } from "waku/router"
 import { Toc } from "@/components/toc"
 import { Article } from "@/components/typography/article"
 import { getContent, type StaticPath, staticPaths } from "@/content"
+import { buildDocsDocumentTitle, getDocsPageTitle } from "@/lib/docs/page-title"
 import { components } from "@/lib/mdx"
 import { DocsHeader } from "./_components/docs-header"
 
@@ -21,13 +22,17 @@ const DocsPage = async ({
 }: PageProps<"/docs/[...slugs]"> & { slugs: StaticPath }) => {
   const redirected = redirect(slugs)
   const content = await getContent(redirected)
+  const pageTitle = getDocsPageTitle(content)
+  const fullTitle = buildDocsDocumentTitle(pageTitle)
 
   return (
     <div className="@container flex-1">
+      <title>{fullTitle}</title>
       <DocsHeader
         toc={content?.toc}
         slugs={redirected}
         redirected={redirected !== slugs}
+        title={pageTitle}
       />
       {content ? (
         <div className="relative mx-auto flex flex-row justify-center @4xl:gap-12 @5xl:gap-16 @3xl:px-8 px-5">
