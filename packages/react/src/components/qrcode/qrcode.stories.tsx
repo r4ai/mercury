@@ -20,17 +20,15 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const CustomColors: Story = {
+export const TailwindStyling: Story = {
   args: {
-    color: "#2563eb",
-    backgroundColor: "#eff6ff",
+    className: "text-blue-600",
   },
-}
-
-export const WithoutMargin: Story = {
-  args: {
-    margin: 0,
-  },
+  render: (args) => (
+    <div className="rounded-lg bg-blue-50 p-4">
+      <QRCode {...args} />
+    </div>
+  ),
 }
 
 export const Large: Story = {

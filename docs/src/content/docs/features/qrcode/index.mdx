@@ -32,27 +32,16 @@ Use the `size` prop to control the rendered width and height (in pixels). You ca
 <QRCode value="https://mercury-md.dev" size={200} />
 ```
 
-### Colours
+### Styling with Utility Classes
 
-Set the `color` prop to adjust the foreground modules and `backgroundColor` to update the quiet
-zone. Both accept any valid CSS colour value.
-
-```mdx
-<QRCode
-  value="https://mercury-md.dev"
-  color="#2563eb"
-  backgroundColor="#eff6ff"
-/>
-```
-
-### Quiet Zone (Margin)
-
-The `margin` prop controls the amount of empty space (in modules) that surrounds the QR code. The
-default value is `4`, which matches the common quiet zone recommendation. Set it to `0` when you
-need the QR code to touch the container edges.
+`<QRCode>` fills the generated modules with `currentColor`, so you can rely on Tailwind's text
+utilities (or your own CSS via the `className` prop) to change the foreground colour. Wrap the component when you need
+backgrounds, padding, or a custom quiet zone.
 
 ```mdx
-<QRCode value="https://mercury-md.dev" margin={0} />
+<div className="inline-flex rounded-lg bg-blue-50 p-4 text-blue-600">
+  <QRCode value="https://mercury-md.dev" />
+</div>
 ```
 
 ## Error Correction & Advanced Options

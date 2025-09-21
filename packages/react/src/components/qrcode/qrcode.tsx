@@ -11,9 +11,6 @@ import { cn } from "../../libs/utils"
 export type QRCodeProps = Omit<ComponentPropsWithoutRef<"svg">, "children"> & {
   value: string | QRCodeSegment[]
   size?: number
-  margin?: number
-  color?: string
-  backgroundColor?: string
   errorCorrectionLevel?: QRCodeErrorCorrectionLevel
   maskPattern?: QRCodeMaskPattern
   version?: number
@@ -25,9 +22,6 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
     {
       value,
       size = 160,
-      margin = 4,
-      color: colorProp,
-      backgroundColor: backgroundColorProp,
       errorCorrectionLevel = "M",
       maskPattern,
       version,
@@ -42,9 +36,6 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
     },
     ref,
   ) => {
-    const marginValue = Number.isFinite(margin) ? margin : 0
-    const quietZone = Math.max(0, Math.floor(marginValue))
-
     const { path, viewBoxSize } = useMemo(() => {
       try {
         const qr = create(value, {
@@ -59,7 +50,7 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
         }
 
         const moduleCount = qr.modules.size
-        const viewBoxSize = moduleCount + quietZone * 2
+        const viewBoxSize = moduleCount
         const segments: string[] = []
 
         // The qrcode.create API also exposes encoding `segments`, but the drawable matrix lives
@@ -69,7 +60,7 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
         for (let row = 0; row < moduleCount; row += 1) {
           for (let col = 0; col < moduleCount; col += 1) {
             if (qr.modules.get(row, col)) {
-              segments.push(`M${col + quietZone} ${row + quietZone}h1v1h-1z`)
+              segments.push(`M${col} ${row}h1v1h-1z`)
             }
           }
         }
@@ -83,14 +74,7 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
         )
         return { path: "", viewBoxSize: 0 }
       }
-    }, [
-      errorCorrectionLevel,
-      maskPattern,
-      quietZone,
-      toSJISFunc,
-      value,
-      version,
-    ])
+    }, [errorCorrectionLevel, maskPattern, toSJISFunc, value, version])
 
     if (viewBoxSize === 0) {
       return null
@@ -102,19 +86,6 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
         ? `QR code for ${value}`
         : "QR code")
 
-    const mergedStyle =
-      colorProp || backgroundColorProp
-        ? {
-            ...style,
-            ...(colorProp ? { color: colorProp } : {}),
-            ...(backgroundColorProp
-              ? { backgroundColor: backgroundColorProp }
-              : {}),
-          }
-        : style
-
-    const fill = colorProp ?? "currentColor"
-
     return (
       <svg
         ref={ref}
@@ -124,10 +95,10 @@ export const QRCode = forwardRef<SVGSVGElement, QRCodeProps>(
         height={height ?? size}
         viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         className={cn("block", className)}
-        style={mergedStyle}
+        style={style}
         {...rest}
       >
-        <path d={path} fill={fill} shapeRendering="crispEdges" />
+        <path d={path} fill="currentColor" shapeRendering="crispEdges" />
       </svg>
     )
   },
