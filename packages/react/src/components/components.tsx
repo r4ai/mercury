@@ -9,6 +9,7 @@ import { List, ListItem, OrderedList } from "./list"
 import { Paragraph } from "./paragraph"
 import { QRCode } from "./qrcode"
 import { Slide } from "./slide"
+import { TwoColsLayout } from "./two-cols-layout"
 
 export type Components = {
   h1: typeof Heading1
@@ -27,6 +28,7 @@ export type Components = {
   QRCode: typeof QRCode
   Slide: typeof Slide
   Presentation: FC<{ children?: ReactNode }>
+  TwoColsLayout: typeof TwoColsLayout
 }
 
 export const components: Components = {
@@ -46,4 +48,5 @@ export const components: Components = {
   QRCode,
   Slide,
   Presentation: ({ children }) => children,
+  TwoColsLayout,
 }

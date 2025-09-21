@@ -1,0 +1,73 @@
+import { defineDocsMetadata } from "@/lib/docs/content-module"
+
+export const metadata = defineDocsMetadata({
+  title: "Layout (JA)",
+  description: "Mercury の提供するレイアウト機能について説明します。",
+})
+
+# レイアウト
+
+Mercury では、React コンポーネントとしていくつかのレイアウトを提供しています。
+
+以下に提供するレイアウトの使用方法を説明します。
+
+## TwoColsLayout
+
+`<TwoColsLayout>` コンポーネントは、横に二分割されたレイアウトを提供します。
+
+左右は `---` で区切ります。`---` より前の部分を左側に、`---` より後ろの部分を右側に配置します。
+
+```mdx
+<TwoColsLayout>
+  ### 左側
+
+  - ここに任意のコンテンツを配置できます
+  - 左右は `---` で区切ります
+
+  ---
+
+  ### 右側
+
+  - こちらにも任意のコンテンツを配置できます
+  - 任意の MDX 記法を使用できます
+</TwoColsLayout>
+```
+
+以下のようにすれば、タイトル付きの二分割レイアウトのようなことも出来ます。
+
+```mdx
+# タイトル
+
+<TwoColsLayout>
+  ### 左側
+
+  Foo Bar
+
+  ---
+
+  ### 右側
+
+  Baz Qux
+</TwoColsLayout>
+```
+
+Tailwind CSS を利用して、詳細なスタイルを指定することも可能です。
+
+次の例では、左右のギャップを広げ、それぞれのコンテンツの縦の間隔を広げています：
+
+```mdx
+{/* デフォルト値は "gap-6 *:space-y-4" */}
+<TwoColsLayout className="gap-12 *:space-y-8">
+  ### 左側
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  ---
+
+  ### 右側
+
+  Ut enim ad minim veniam, quis nostrud exercitation
+  ullamco laboris nisi ut aliquip ex ea commodo consequat.
+</TwoColsLayout>
+```

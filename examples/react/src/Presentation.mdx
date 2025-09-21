@@ -1,5 +1,5 @@
-import { Button } from "@mercurymd/react"
-import { TwoColsLayout, Left, Right } from "./components/TwoColsLayout"
+import { Button, TwoColsLayout } from "@mercurymd/react"
+import { TwoColsLayout as OriginalTwoColsLayout, Left, Right } from "./components/TwoColsLayout"
 
 # Presentation
 
@@ -104,9 +104,9 @@ $$
 
 ---
 
-# TwoColsLayout
+# Original TwoColsLayout
 
-<TwoColsLayout>
+<OriginalTwoColsLayout>
   <Left>
     ### Left side
 
@@ -128,7 +128,7 @@ $$
     \int_a^b f(x) dx = F(b) - F(a)
     $$
   </Right>
-</TwoColsLayout>
+</OriginalTwoColsLayout>
 
 ---
 
@@ -215,3 +215,33 @@ const greet = (name: string): string => {
 
 console.log(greet("World")); // Output: Hello, World!
 ```
+
+---
+
+# Non top-level `---` should be preserved
+
+<div>
+  hoge
+
+  ---
+
+  fuga
+</div>
+
+---
+
+# TwoColsLayout
+
+<TwoColsLayout>
+  ### Left side
+
+  - You can put any content here
+  - Including lists, images, code blocks, etc.
+
+  ---
+
+  ### Right side
+
+  1. This is the right column
+  2. You can also use **MDX** here
+</TwoColsLayout>
