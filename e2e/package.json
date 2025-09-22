@@ -1,8 +1,12 @@
 {
   "name": "e2e",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "e2e": "playwright test"
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "e2e": "playwright test",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@playwright/test": "^1.55.0",
