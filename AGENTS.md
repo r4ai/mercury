@@ -52,6 +52,8 @@ NOTES:
 - CHECK GIT LOG before any git commands. DO NOT TRUST YOUR MEMORY.
 - Use gh to interact with GitHub
 
+See [copilot-commit-message-instructions.md](./.github/copilot-commit-message-instructions.md) for more details.
+
 ## GitHub
 
 To access GitHub features like PRs, issues, releases, use `gh` CLI.

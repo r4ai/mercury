@@ -18,6 +18,7 @@
       "dependsOn": ["build"],
       "cache": false
     },
+    "e2e": {},
     "check": {
       "cache": false
     },

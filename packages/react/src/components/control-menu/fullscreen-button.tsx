@@ -8,15 +8,27 @@ export type FullscreenButtonProps = ButtonProps & { slidesLength: number }
 
 export const FullscreenButton: FC<FullscreenButtonProps> = ({
   slidesLength,
+  "aria-label": ariaLabel,
+  title,
   ...props
 }) => {
   const { isFullscreen, toggleFullscreen } = useSlides({
     length: slidesLength,
   })
+  const fullscreenActive = isFullscreen()
+  const defaultLabel = fullscreenActive ? "Exit fullscreen" : "Enter fullscreen"
 
   return (
-    <Button variant="ghost" size="icon" onClick={toggleFullscreen} {...props}>
-      {isFullscreen() ? (
+    <Button
+      variant="ghost"
+      size="icon"
+      type="button"
+      onClick={toggleFullscreen}
+      aria-label={ariaLabel ?? defaultLabel}
+      title={title ?? defaultLabel}
+      {...props}
+    >
+      {fullscreenActive ? (
         <Minimize2Icon className="size-6" />
       ) : (
         <Maximize2Icon className="size-6" />
