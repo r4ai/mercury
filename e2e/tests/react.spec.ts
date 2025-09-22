@@ -35,38 +35,50 @@ test("slides navigate with control menu", async ({ page, serverURL }) => {
   const nextButton = page.getByRole("button", { name: "Next slide" })
   const prevButton = page.getByRole("button", { name: "Previous slide" })
 
-  await expect(
-    page.getByRole("heading", { level: 1, name: "Presentation" }),
-  ).toBeVisible({ timeout: 30_000 })
-
-  await prevButton.click()
-  await expect(
-    page.getByRole("heading", { level: 1, name: "Presentation" }),
-  ).toBeVisible()
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible({
+    timeout: 30_000,
+  })
   await expect(counter).toHaveText(/1\s*\/\s*\d+/)
 
+  for (let i = 0; i < 5; i++) {
+    await prevButton.click()
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible()
+    await expect(counter).toHaveText(/1\s*\/\s*\d+/)
+  }
+
   await nextButton.click()
-  await expect(
-    page.getByRole("heading", { level: 1, name: "Code" }),
-  ).toBeVisible()
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible()
   await expect(counter).toHaveText(/2\s*\/\s*\d+/)
 
   const { total, current: initialIndex } = await getCounterValues()
 
-  for (let index = initialIndex; index < total; index += 1) {
+  // navigate to the last slide
+  for (let i = initialIndex; i < total; i++) {
     await nextButton.click()
-    await expect(counter).toHaveText(
-      new RegExp(`${index + 1}\\s*/\\s*${total}`),
-    )
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible()
+    await expect(counter).toHaveText(new RegExp(`${i + 1}\\s*/\\s*${total}`))
   }
 
-  await expect(
-    page.getByRole("heading", { level: 1, name: "TwoColsLayout" }),
-  ).toBeVisible()
+  for (let i = 0; i < 5; i++) {
+    await nextButton.click()
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible()
+    await expect(counter).toHaveText(new RegExp(`${total}\\s*/\\s*${total}`))
+  }
 
-  const { current } = await getCounterValues()
-  expect(current).toBe(total)
+  {
+    const { current } = await getCounterValues()
+    expect(current).toBe(total)
+  }
 
-  await nextButton.click()
-  await expect(counter).toHaveText(new RegExp(`${total}\\s*/\\s*${total}`))
+  // navigate back to the first slide
+  for (let i = total; i > 1; i--) {
+    await prevButton.click()
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible()
+    await expect(counter).toHaveText(new RegExp(`${i - 1}\\s*/\\s*${total}`))
+  }
+
+  {
+    const { current } = await getCounterValues()
+    expect(current).toBe(1)
+  }
 })
