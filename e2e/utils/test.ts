@@ -1,5 +1,3 @@
-// e2e/fixtures/server.ts
-
 import path from "node:path"
 import { test as base } from "@playwright/test"
 import type { InlineConfig } from "vite"
