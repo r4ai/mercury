@@ -4,7 +4,6 @@ import { expect, test } from "../utils/test"
 const gotoPresentation = async (page: Page, serverURL: string) => {
   await page.goto(serverURL, {
     waitUntil: "domcontentloaded",
-    timeout: 45_000,
   })
 }
 
@@ -12,7 +11,7 @@ test("to be rendered", async ({ page, serverURL }) => {
   await gotoPresentation(page, serverURL)
   await expect(
     page.getByRole("heading", { level: 1, name: "Presentation" }),
-  ).toBeVisible({ timeout: 30_000 })
+  ).toBeVisible()
 })
 
 test("slides navigate with control menu", async ({ page, serverURL }) => {

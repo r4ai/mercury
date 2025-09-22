@@ -1,0 +1,13 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "e2e": {
+      "dependsOn": [
+        "@mercurymd/react#build",
+        "@mercurymd/remark#build",
+        "@mercurymd/vite-plugin#build"
+      ]
+    }
+  }
+}

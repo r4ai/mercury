@@ -21,26 +21,34 @@ test("to be rendered", async ({ page, serverURL }) => {
 
 ### How to Run Specific Tests
 
-- Run all tests:
+1. Build the projects:
 
-  ```shell
-  bun run --cwd=e2e e2e
-  ```
+   ```shell
+   bun run build
+   ```
 
-- Run only the tests for `examples/react`:
+2. Run tests:
 
-  ```shell
-  bun run --cwd=e2e e2e -- --project "react-*"
-  ```
+   - Run all tests:
 
-- Run only the tests for `examples/react` on Chromium:
+     ```shell
+     bun run --cwd=e2e e2e
+     ```
 
-  ```shell
-  bun run --cwd=e2e e2e -- --project "react-*-chrome"
-  ```
+   - Run only the tests for `examples/react`:
 
-- Run only the tests for `examples/react` in dev mode on Chromium:
+     ```shell
+     bun run --cwd=e2e e2e -- --project "react-*"
+     ```
 
-  ```
-  bun run --cwd=e2e e2e -- --project "react-dev-chromium"
-  ```
+   - Run only the tests for `examples/react` on Chromium:
+
+     ```shell
+     bun run --cwd=e2e e2e -- --project "react-*-chrome"
+     ```
+
+   - Run only the tests for `examples/react` in dev mode on Chromium:
+
+     ```
+     bun run --cwd=e2e e2e -- --project "react-dev-chromium"
+     ```
