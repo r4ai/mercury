@@ -11,10 +11,15 @@ export const Counter: FC<CounterProps> = ({ className, slidesLength }) => {
   const { index } = useSlides({ length: slidesLength })
 
   return (
-    <div className={cn("flex flex-row items-center gap-1", className)}>
+    <output
+      className={cn("flex flex-row items-center gap-1", className)}
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label="Slide navigation status"
+    >
       <span>{index() + 1}</span>
       <span className="text-muted-foreground text-sm">/</span>
       <span className="text-muted-foreground text-sm">{slidesLength}</span>
-    </div>
+    </output>
   )
 }

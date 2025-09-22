@@ -9,12 +9,21 @@ export const PrintButton: FC<PrintButtonProps> = ({
   variant = "ghost",
   size = "icon",
   asChild = true,
+  "aria-label": ariaLabel = "Open print view",
+  title = "Open print view",
   ...props
 }) => {
   const [location] = useLocation()
 
   return (
-    <Button variant={variant} size={size} asChild={asChild} {...props}>
+    <Button
+      variant={variant}
+      size={size}
+      asChild={asChild}
+      aria-label={ariaLabel}
+      title={title}
+      {...props}
+    >
       <Link
         href={`/all?${new URLSearchParams({
           print: "true",

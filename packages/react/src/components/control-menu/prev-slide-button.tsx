@@ -9,12 +9,22 @@ export type PrevSlideButtonProps = ButtonProps & {
 
 export const PrevSlideButton: FC<PrevSlideButtonProps> = ({
   slidesLength,
+  "aria-label": ariaLabel = "Previous slide",
+  title = "Previous slide",
   ...props
 }) => {
   const { prev } = useSlides({ length: slidesLength })
 
   return (
-    <Button variant="ghost" size="icon" onClick={prev} {...props}>
+    <Button
+      variant="ghost"
+      size="icon"
+      type="button"
+      onClick={prev}
+      aria-label={ariaLabel}
+      title={title}
+      {...props}
+    >
       <ChevronLeftIcon className="size-6" />
     </Button>
   )

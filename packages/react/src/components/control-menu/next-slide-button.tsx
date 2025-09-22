@@ -9,12 +9,22 @@ export type NextSlideButtonProps = ButtonProps & {
 
 export const NextSlideButton: FC<NextSlideButtonProps> = ({
   slidesLength,
+  "aria-label": ariaLabel = "Next slide",
+  title = "Next slide",
   ...props
 }) => {
   const { next } = useSlides({ length: slidesLength })
 
   return (
-    <Button variant="ghost" size="icon" onClick={next} {...props}>
+    <Button
+      variant="ghost"
+      size="icon"
+      type="button"
+      onClick={next}
+      aria-label={ariaLabel}
+      title={title}
+      {...props}
+    >
       <ChevronRightIcon className="size-6" />
     </Button>
   )
