@@ -1,10 +1,18 @@
 import { Link } from "waku"
 import type { PageProps } from "waku/router"
+import { PageMetadataTags } from "@/components/page-metadata"
 import { Toc } from "@/components/toc"
 import { Article } from "@/components/typography/article"
-import { getContent, type StaticPath, staticPaths } from "@/content"
+import {
+  getContent,
+  getDocsRoute,
+  type StaticPath,
+  staticPaths,
+} from "@/content"
 import { buildDocsDocumentTitle, getDocsPageTitle } from "@/lib/docs/page-title"
+import { getRouteDescription } from "@/lib/docs/routes"
 import { components } from "@/lib/mdx"
+import { buildPageMetadata } from "@/lib/seo/page-metadata"
 import { DocsHeader } from "./_components/docs-header"
 
 const redirect = (slugs: StaticPath): StaticPath => {
@@ -22,12 +30,21 @@ const DocsPage = async ({
 }: PageProps<"/docs/[...slugs]"> & { slugs: StaticPath }) => {
   const redirected = redirect(slugs)
   const content = await getContent(redirected)
-  const pageTitle = getDocsPageTitle(content)
+  const route = getDocsRoute(redirected)
+  const pageTitle = getDocsPageTitle(content ?? route)
   const fullTitle = buildDocsDocumentTitle(pageTitle)
+  const routeDescription = route ? getRouteDescription(route) : undefined
+  const metadataDescription = content?.metadata?.description ?? routeDescription
+  const metadata = buildPageMetadata({
+    title: fullTitle,
+    ...(metadataDescription ? { description: metadataDescription } : {}),
+    path: redirected.length > 0 ? `/docs/${redirected.join("/")}` : "/docs",
+    ogType: "article",
+  })
 
   return (
     <div className="@container flex-1">
-      <title>{fullTitle}</title>
+      <PageMetadataTags metadata={metadata} />
       <DocsHeader
         toc={content?.toc}
         slugs={redirected}

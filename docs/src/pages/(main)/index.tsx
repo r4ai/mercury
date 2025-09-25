@@ -1,4 +1,11 @@
 import icon from "@/assets/icon.png"
+import { PageMetadataTags } from "@/components/page-metadata"
+import { buildPageMetadata } from "@/lib/seo/page-metadata"
+
+const landingMetadata = buildPageMetadata({
+  title: "Mercury – Write MDX, render it as a presentation.",
+  path: "/",
+})
 
 const HeroSection = () => (
   <section className="flex flex-row items-center justify-between px-4">
@@ -39,6 +46,7 @@ const PlaygroundSection = () => (
 
 const LandingPage = () => (
   <div className="my-8 flex flex-1 flex-col items-center gap-8 font-geist sm:my-12 sm:gap-12">
+    <PageMetadataTags metadata={landingMetadata} />
     <HeroSection />
     <div className="h-[1px] w-full bg-border" />
     <PlaygroundSection />
