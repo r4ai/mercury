@@ -79,7 +79,7 @@
     "esbuild": "0.25.10",
     "happy-dom": "18.0.1",
     "rimraf": "6.0.1",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "vitest": "3.2.4"
   },
   "packageManager": "bun@1.1.32"
