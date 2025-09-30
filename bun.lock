@@ -52,7 +52,7 @@
         "@tailwindcss/postcss": "4.1.13",
         "@types/mdx": "2.0.13",
         "@types/node": "24.6.0",
-        "@types/react": "19.1.15",
+        "@types/react": "19.1.16",
         "@types/react-dom": "19.1.9",
         "dedent": "1.7.0",
         "happy-dom": "18.0.1",
@@ -250,7 +250,7 @@
         "@tailwindcss/vite": "4.1.13",
         "@types/mdx": "2.0.13",
         "@types/qrcode": "1.5.5",
-        "@types/react": "19.1.15",
+        "@types/react": "19.1.16",
         "@types/react-dom": "19.1.9",
         "@vitejs/plugin-react": "5.0.4",
         "@vitest/browser": "3.2.4",
@@ -983,7 +983,7 @@
 
     "@types/qrcode": ["@types/qrcode@1.5.5", "", { "dependencies": { "@types/node": "*" } }, "sha512-CdfBi/e3Qk+3Z/fXYShipBT13OJ2fDO2Q2w5CIP5anLTLIndQG9z6P1cnm+8zCWSpm5dnxMFd/uREtb0EXuQzg=="],
 
-    "@types/react": ["@types/react@19.1.15", "", { "dependencies": { "csstype": "^3.0.2" } }, "sha512-+kLxJpaJzXybyDyFXYADyP1cznTO8HSuBpenGlnKOAkH4hyNINiywvXS/tGJhsrGGP/gM185RA3xpjY0Yg4erA=="],
+    "@types/react": ["@types/react@19.1.16", "", { "dependencies": { "csstype": "^3.0.2" } }, "sha512-WBM/nDbEZmDUORKnh5i1bTnAz6vTohUf9b8esSMu+b24+srbaxa04UbJgWx78CVfNXA20sNu0odEIluZDFdCog=="],
 
     "@types/react-dom": ["@types/react-dom@19.1.9", "", { "peerDependencies": { "@types/react": "^19.0.0" } }, "sha512-qXRuZaOsAdXKFyOhRBg6Lqqc0yay13vN7KrIg4L7N4aaHN68ma9OK3NE1BoDFgFOTfM7zg+3/8+2n8rLUH3OKQ=="],
 
