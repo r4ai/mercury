@@ -237,7 +237,7 @@
       "devDependencies": {
         "@biomejs/biome": "2.2.6",
         "@chromatic-com/storybook": "4.1.1",
-        "@iconify-json/lucide": "1.2.69",
+        "@iconify-json/lucide": "1.2.70",
         "@storybook/addon-a11y": "9.1.13",
         "@storybook/addon-docs": "9.1.13",
         "@storybook/addon-links": "9.1.13",
@@ -559,7 +559,7 @@
 
     "@hono/node-server": ["@hono/node-server@1.19.1", "", { "peerDependencies": { "hono": "^4" } }, "sha512-h44e5s+ByUriaRIbeS/C74O8v90m0A95luyYQGMF7KEn96KkYMXO7bZAwombzTpjQTU4e0TkU8U1WBIXlwuwtA=="],
 
-    "@iconify-json/lucide": ["@iconify-json/lucide@1.2.69", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-xOhNf74m+C+nSCObfEqYi34dXk1GMfMUcOB+gfqKY/bn0RcsPLinGfgouOvrUFEreDEFbCti7sdheTf5HESLTA=="],
+    "@iconify-json/lucide": ["@iconify-json/lucide@1.2.70", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-56s9NdBKgshywVY1e4gOcxzAbU1J649e/jLHBJU1tyNqRs7mFLVEGwj2mmzHJ5YAZB5Tsngi4f/ocTBPlG06ZA=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 
