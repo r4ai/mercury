@@ -4,15 +4,6 @@ description: Setup the development environment
 runs:
   using: "composite"
   steps:
-    # See: https://turborepo.com/docs/guides/ci-vendors/github-actions#remote-caching-with-github-actionscache
-    - name: Cache turbo build setup
-      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
-      with:
-        path: .turbo
-        key: ${{ runner.os }}-turbo-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-turbo-
-
     - name: Setup Node.js and Bun
       uses: jdx/mise-action@e3d7b8d67a7958d1207f6ed871e83b1ea780e7b0 # v3
 
