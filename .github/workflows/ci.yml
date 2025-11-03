@@ -35,6 +35,8 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       - name: Setup
         uses: ./.github/actions/setup
+      - name: Build
+        run: bun run build
       - name: Test
         run: bun run test:ci
 
@@ -47,6 +49,8 @@ jobs:
         uses: ./.github/actions/setup
       - name: Install Playwright Browsers
         run: bunx playwright install --with-deps
+      - name: Build
+        run: bun run build
       - name: Run E2E tests
         run: bun run e2e
 
@@ -57,5 +61,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       - name: Setup
         uses: ./.github/actions/setup
+      - name: Build
+        run: bun run build
       - name: Type check
         run: bun run typecheck
