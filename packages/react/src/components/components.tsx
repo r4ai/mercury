@@ -9,6 +9,16 @@ import { List, ListItem, OrderedList } from "./list"
 import { Paragraph } from "./paragraph"
 import { QRCode } from "./qrcode"
 import { Slide } from "./slide"
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./table/table"
 import { TwoColsLayout } from "./two-cols-layout"
 
 export type Components = {
@@ -25,6 +35,14 @@ export type Components = {
   "inline-code": typeof InlineCode
   pre: typeof CodeBlock
   kbd: typeof Keyboard
+  table: typeof Table
+  thead: typeof TableHeader
+  tbody: typeof TableBody
+  tfoot: typeof TableFooter
+  tr: typeof TableRow
+  th: typeof TableHead
+  td: typeof TableCell
+  caption: typeof TableCaption
   QRCode: typeof QRCode
   Slide: typeof Slide
   Presentation: FC<{ children?: ReactNode }>
@@ -45,6 +63,14 @@ export const components: Components = {
   "inline-code": InlineCode,
   pre: CodeBlock,
   kbd: Keyboard,
+  table: Table,
+  thead: TableHeader,
+  tbody: TableBody,
+  tfoot: TableFooter,
+  tr: TableRow,
+  th: TableHead,
+  td: TableCell,
+  caption: TableCaption,
   QRCode,
   Slide,
   Presentation: ({ children }) => children,
