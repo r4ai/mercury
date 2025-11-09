@@ -29,5 +29,6 @@
       "dependsOn": ["build"],
       "cache": false
     }
-  }
+  },
+  "concurrency": "100%"
 }

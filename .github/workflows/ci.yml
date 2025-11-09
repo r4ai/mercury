@@ -26,7 +26,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Build
-        run: bun run build
+        run: bun run build --concurrency=1
 
   test:
     runs-on: ubuntu-24.04
@@ -35,8 +35,10 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       - name: Setup
         uses: ./.github/actions/setup
+      - name: Build
+        run: bun run build --concurrency=1
       - name: Test
-        run: bun run test:ci
+        run: bun run test:ci --concurrency=1
 
   e2e:
     runs-on: ubuntu-24.04
@@ -47,8 +49,10 @@ jobs:
         uses: ./.github/actions/setup
       - name: Install Playwright Browsers
         run: bunx playwright install --with-deps
+      - name: Build
+        run: bun run build --concurrency=1
       - name: Run E2E tests
-        run: bun run e2e
+        run: bun run e2e --concurrency=1
 
   typecheck:
     runs-on: ubuntu-24.04
@@ -57,5 +61,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       - name: Setup
         uses: ./.github/actions/setup
+      - name: Build
+        run: bun run build --concurrency=1
       - name: Type check
-        run: bun run typecheck
+        run: bun run typecheck --concurrency=1
