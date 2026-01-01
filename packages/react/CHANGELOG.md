@@ -1,5 +1,11 @@
 # @mercurymd/react
 
+## 0.3.0
+
+### Minor Changes
+
+- [#307](https://github.com/r4ai/mercury/pull/307) [`61e2a98`](https://github.com/r4ai/mercury/commit/61e2a98a3bc54a82935f102e41d266e314f76de5) Thanks [@r4ai](https://github.com/r4ai)! - Add table components
+
 ## 0.2.0
 
 ### Minor Changes
