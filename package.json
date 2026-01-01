@@ -22,7 +22,7 @@
     "check": "biome check .",
     "check:write": "biome check --write .",
     "typecheck": "turbo typecheck",
-    "build": "./build.sh",
+    "build": "turbo build",
     "test": "turbo test",
     "test:ci": "turbo test:ci",
     "e2e": "turbo e2e",
