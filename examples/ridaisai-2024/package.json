@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4",
+    "@iconify-json/lucide": "1.2.71",
     "@mercurymd/react": "workspace:*",
     "@mercurymd/remark": "workspace:*",
     "@mercurymd/vite-plugin": "workspace:*",

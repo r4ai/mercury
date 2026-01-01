@@ -8,23 +8,23 @@
   - `remark`: (@mercurymd/remark) Remark plugin for slide MD processing
   - `vite-plugin`: (@mercurymd/vite-plugin) Vite plugin + MDX pipeline
 - `examples/`: runnable demos (Vite apps). Try `examples/lt`, `examples/program`.
-- Tooling: Bun workspaces + Turbo, Biome, Changesets, Lefthook, Vitest, Storybook.
+- Tooling: pnpm workspaces + Turbo, Biome, Changesets, Lefthook, Vitest, Storybook.
 
 ## Build, Test, and Development Commands
 
-- Always use bun. never use npm, npx.
-  - npm -> bun
-  - npx -> bun x
+- Always use pnpm. never use npm.
+  - npm -> pnpm
+  - npx -> pnpx
 
 ## Code Quality
 
-- Always use Bun commands, never npm/npx (use `bun x` instead of `npx`)
+- Always use pnpm commands
 - Implement unit/integration tests for all features
 - **Verification**: Always run following commands in root dir:
-  - `bun run check:write`
-  - `bun run build`
-  - `bun run typecheck`
-  - `bun run test:ci`
+  - `pnpm run check:write`
+  - `pnpm run build`
+  - `pnpm run typecheck`
+  - `pnpm run test:ci`
 
 ## Code Style
 

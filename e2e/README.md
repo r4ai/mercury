@@ -24,7 +24,7 @@ test("to be rendered", async ({ page, serverURL }) => {
 1. Build the projects:
 
    ```shell
-   bun run build
+   pnpm run build
    ```
 
 2. Run tests:
@@ -32,23 +32,23 @@ test("to be rendered", async ({ page, serverURL }) => {
    - Run all tests:
 
      ```shell
-     bun run --cwd=e2e e2e
+     pnpm run --cwd=e2e e2e
      ```
 
    - Run only the tests for `examples/react`:
 
      ```shell
-     bun run --cwd=e2e e2e -- --project "react-*"
+     pnpm run --cwd=e2e e2e -- --project "react-*"
      ```
 
    - Run only the tests for `examples/react` on Chromium:
 
      ```shell
-     bun run --cwd=e2e e2e -- --project "react-*-chrome"
+     pnpm run --cwd=e2e e2e -- --project "react-*-chrome"
      ```
 
    - Run only the tests for `examples/react` in dev mode on Chromium:
 
      ```
-     bun run --cwd=e2e e2e -- --project "react-dev-chromium"
+     pnpm run --cwd=e2e e2e -- --project "react-dev-chromium"
      ```
