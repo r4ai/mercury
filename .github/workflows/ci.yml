@@ -16,7 +16,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Check with Biome
-        run: bun run check
+        run: pnpm run check
 
   build:
     runs-on: ubuntu-24.04
@@ -26,7 +26,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Build
-        run: bun run build
+        run: pnpm run build
 
   test:
     runs-on: ubuntu-24.04
@@ -36,7 +36,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Test
-        run: bun run test:ci
+        run: pnpm run test:ci
 
   e2e:
     runs-on: ubuntu-24.04
@@ -46,9 +46,9 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Install Playwright Browsers
-        run: bunx playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
       - name: Run E2E tests
-        run: bun run e2e
+        run: pnpm run e2e
 
   typecheck:
     runs-on: ubuntu-24.04
@@ -58,4 +58,4 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Type check
-        run: bun run typecheck
+        run: pnpm run typecheck

@@ -12,12 +12,6 @@
     "url": "https://github.com/r4ai/mercury/issues"
   },
   "type": "module",
-  "workspaces": [
-    "packages/*",
-    "examples/*",
-    "docs",
-    "e2e"
-  ],
   "scripts": {
     "check": "biome check .",
     "check:write": "biome check --write .",
@@ -27,11 +21,11 @@
     "test:ci": "turbo test:ci",
     "e2e": "turbo e2e",
     "changeset": "changeset",
-    "release": "bun run build && bun run publish",
-    "publish": "for dir in packages/*; do (cd \"$dir\" && bun publish || true); done && changeset tag",
-    "version": "changeset version && bun update",
+    "release": "pnpm run build && pnpm run publish",
+    "publish": "for dir in packages/*; do (cd \"$dir\" && pnpm publish || true); done && changeset tag",
+    "version": "changeset version && pnpm update",
     "prepare": "lefthook install",
-    "prepublishOnly": "bun run build"
+    "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.7",
@@ -41,13 +35,5 @@
     "shadcn": "3.5.0",
     "turbo": "2.5.8"
   },
-  "packageManager": "bun@1.1.32",
-  "trustedDependencies": [
-    "@biomejs/biome",
-    "@swc/core",
-    "@tailwindcss/oxide",
-    "esbuild",
-    "lefthook",
-    "msw"
-  ]
+  "packageManager": "pnpm@10.27.0"
 }
