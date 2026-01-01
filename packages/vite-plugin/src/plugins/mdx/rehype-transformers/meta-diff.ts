@@ -1,5 +1,5 @@
+import type { ShikiTransformer } from "@shikijs/types"
 import type { Element, ElementContent, Text } from "hast"
-import type { ShikiTransformer } from "shiki"
 
 import { parseMeta } from "./utils.js"
 

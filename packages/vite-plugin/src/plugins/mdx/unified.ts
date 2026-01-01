@@ -36,7 +36,7 @@ export type MercuryMdxOptions = {
   rehypeShiki?: RehypeShikiOptions | false
 }
 
-export const mercuryMdxDefaultOptions = {
+export const mercuryMdxDefaultOptions: MercuryMdxOptions = {
   debug: { enabled: false },
   remarkMercury: {
     slide: (index) => ({
@@ -73,7 +73,7 @@ export const mercuryMdxDefaultOptions = {
       transformerRemoveNotationEscape(),
     ],
   },
-} as const satisfies MercuryMdxOptions
+}
 
 type CreatedMdxPlugins = {
   remarkPlugins: NonNullable<RollupMdxOptions["remarkPlugins"]>
@@ -84,10 +84,11 @@ export const createMdxPlugins = <T extends MercuryMdxOptions>(
   _options?: T,
 ): CreatedMdxPlugins => {
   const options = defu(_options, mercuryMdxDefaultOptions)
+  const debug = options.debug
 
   const remarkPlugins: RollupMdxOptions["remarkPlugins"] = []
-  if (options.debug.enabled) {
-    const fs = options.debug.fs
+  if (debug?.enabled) {
+    const fs = debug.fs
     remarkPlugins.push(() => (tree) => {
       fs.writeFileSync("mdast_start.json", JSON.stringify(tree, null, 2))
       return tree
@@ -98,8 +99,8 @@ export const createMdxPlugins = <T extends MercuryMdxOptions>(
     remarkPlugins.push([remarkMercury, options.remarkMercury])
   if (options.remarkGfm) remarkPlugins.push([remarkGfm, options.remarkGfm])
   if (options.remarkMath) remarkPlugins.push([remarkMath, options.remarkMath])
-  if (options.debug.enabled) {
-    const fs = options.debug.fs
+  if (debug?.enabled) {
+    const fs = debug.fs
     remarkPlugins.push(() => (tree) => {
       fs.writeFileSync("mdast_end.json", JSON.stringify(tree, null, 2))
       return tree
@@ -107,8 +108,8 @@ export const createMdxPlugins = <T extends MercuryMdxOptions>(
   }
 
   const rehypePlugins: RollupMdxOptions["rehypePlugins"] = []
-  if (options.debug.enabled) {
-    const fs = options.debug.fs
+  if (debug?.enabled) {
+    const fs = debug.fs
     rehypePlugins.push(() => (tree) => {
       fs.writeFileSync("hast_start.json", JSON.stringify(tree, null, 2))
       return tree
@@ -118,8 +119,8 @@ export const createMdxPlugins = <T extends MercuryMdxOptions>(
     rehypePlugins.push([rehypeKatex, options.rehypeKatex])
   if (options.rehypeShiki)
     rehypePlugins.push([rehypeShiki, options.rehypeShiki])
-  if (options.debug.enabled) {
-    const fs = options.debug.fs
+  if (debug?.enabled) {
+    const fs = debug.fs
     rehypePlugins.push(() => (tree) => {
       fs.writeFileSync("hast_end.json", JSON.stringify(tree, null, 2))
       return tree

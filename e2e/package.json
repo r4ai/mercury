@@ -11,5 +11,9 @@
   "dependencies": {
     "@playwright/test": "^1.55.0",
     "@types/node": "^24.5.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "16.1.6",
+    "vite": "^7.1.5"
   }
 }
