@@ -26,7 +26,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Build
-        run: bun run build -vv
+        run: bun run build
 
   test:
     runs-on: ubuntu-24.04
@@ -36,9 +36,9 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Build
-        run: bun run build -vv
+        run: bun run build
       - name: Test
-        run: bun run test:ci -vv
+        run: bun run test:ci
 
   e2e:
     runs-on: ubuntu-24.04
@@ -50,9 +50,9 @@ jobs:
       - name: Install Playwright Browsers
         run: bunx playwright install --with-deps
       - name: Build
-        run: bun run build -vv
+        run: bun run build
       - name: Run E2E tests
-        run: bun run e2e -vv
+        run: bun run e2e
 
   typecheck:
     runs-on: ubuntu-24.04
@@ -62,6 +62,6 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Build
-        run: bun run build -vv
+        run: bun run build
       - name: Type check
-        run: bun run typecheck -vv
+        run: bun run typecheck
