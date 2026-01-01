@@ -46,7 +46,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
+        run: pnpx playwright install --with-deps
       - name: Run E2E tests
         run: pnpm run e2e
 
