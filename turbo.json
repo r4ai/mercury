@@ -6,19 +6,22 @@
       "dependsOn": ["^build"]
     },
     "dev": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build"],
       "persistent": true,
       "cache": false
     },
     "test": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build"],
       "cache": false
     },
     "test:ci": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build"],
       "cache": false
     },
-    "e2e": {},
+    "e2e": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
     "check": {
       "cache": false
     },
@@ -26,8 +29,7 @@
       "cache": false
     },
     "typecheck": {
-      "dependsOn": ["build"],
-      "cache": false
+      "dependsOn": ["^build"]
     }
   },
   "concurrency": "100%"
