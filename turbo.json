@@ -32,5 +32,5 @@
       "dependsOn": ["^build"]
     }
   },
-  "concurrency": "100%"
+  "concurrency": "50%"
 }
