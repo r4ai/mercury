@@ -35,7 +35,9 @@
         "useFilenamingConvention": {
           "level": "error",
           "options": {
-            "filenameCases": ["kebab-case"]
+            "filenameCases": ["kebab-case"],
+            "strictCase": true,
+            "requireAscii": true
           }
         }
       }
