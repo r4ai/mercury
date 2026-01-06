@@ -58,7 +58,7 @@
     "tailwind-variants": "^3.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.7",
+    "@biomejs/biome": "2.3.11",
     "@chromatic-com/storybook": "4.1.1",
     "@iconify-json/lucide": "1.2.71",
     "@storybook/addon-a11y": "9.1.15",
