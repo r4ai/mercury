@@ -14,6 +14,7 @@ export type ControlMenuProps = {
   className?: string
   showPrintButton?: boolean
   showFullscreenButton?: boolean
+  hiddenByDefault?: boolean
   slidesLength: number
 }
 
@@ -21,6 +22,7 @@ export const ControlMenu: FC<ControlMenuProps> = ({
   className,
   showPrintButton = true,
   showFullscreenButton = true,
+  hiddenByDefault = true,
   slidesLength,
 }) => {
   const { index, next, prev } = useSlides({ length: slidesLength })
@@ -33,19 +35,23 @@ export const ControlMenu: FC<ControlMenuProps> = ({
   return (
     <div
       className={cn(
-        Number.isNaN(index())
-          ? "hidden"
-          : "flex flex-row gap-2 rounded-xl border bg-background p-2 print:hidden",
+        "p-4 pb-2 pl-2 print:hidden",
+        hiddenByDefault && "opacity-0 transition-opacity hover:opacity-100",
+        Number.isNaN(index()) && "hidden",
         className,
       )}
     >
-      <PrevSlideButton slidesLength={slidesLength} />
-      <NextSlideButton slidesLength={slidesLength} />
-      <Counter slidesLength={slidesLength} />
-      <VerticalDivider />
-      <ColorSchemeButton />
-      {showPrintButton && <PrintButton />}
-      {showFullscreenButton && <FullscreenButton slidesLength={slidesLength} />}
+      <div className="flex flex-row gap-2 rounded-xl border bg-background p-2 shadow-lg">
+        <PrevSlideButton slidesLength={slidesLength} />
+        <NextSlideButton slidesLength={slidesLength} />
+        <Counter slidesLength={slidesLength} />
+        <VerticalDivider />
+        <ColorSchemeButton />
+        {showPrintButton && <PrintButton />}
+        {showFullscreenButton && (
+          <FullscreenButton slidesLength={slidesLength} />
+        )}
+      </div>
     </div>
   )
 }

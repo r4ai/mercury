@@ -49,7 +49,7 @@ export const Presentation: FC<PresentationProps> = ({
         </Switch>
         <ControlMenu
           data-control-menu
-          className="absolute bottom-2 left-4"
+          className="absolute bottom-0 left-0"
           slidesLength={slidesLength}
           showPrintButton={showPrintButton}
           showFullscreenButton={showFullscreenButton}

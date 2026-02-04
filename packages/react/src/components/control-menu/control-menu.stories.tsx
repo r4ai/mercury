@@ -17,6 +17,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     slidesLength: 5,
+    hiddenByDefault: false,
   },
   decorators: [withVirtualRouting({ initialPath: "/0" })],
 }
@@ -24,6 +25,7 @@ export const Default: Story = {
 export const WithDifferentStartIndex: Story = {
   args: {
     slidesLength: 10,
+    hiddenByDefault: false,
   },
   decorators: [withVirtualRouting({ initialPath: "/3" })],
 }
@@ -31,6 +33,7 @@ export const WithDifferentStartIndex: Story = {
 export const WithRouteParameters: Story = {
   args: {
     slidesLength: 7,
+    hiddenByDefault: false,
   },
   parameters: {
     virtualRouting: {
@@ -38,4 +41,12 @@ export const WithRouteParameters: Story = {
     },
   },
   decorators: [withVirtualRouting()],
+}
+
+export const HiddenByDefault: Story = {
+  args: {
+    slidesLength: 5,
+    hiddenByDefault: true,
+  },
+  decorators: [withVirtualRouting({ initialPath: "/0" })],
 }
