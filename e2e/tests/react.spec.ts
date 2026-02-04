@@ -83,7 +83,7 @@ test("slides navigate with control menu", async ({ page, serverURL }) => {
 })
 
 test("all slides are rendered for print", async ({ page, serverURL }) => {
-  await gotoPresentation(page, `${serverURL}/all?print=true`)
+  await gotoPresentation(page, `${serverURL}/all`)
 
   const slides = page.locator("[data-slide]")
   const count = await slides.count()
