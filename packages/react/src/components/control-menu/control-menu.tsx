@@ -1,5 +1,6 @@
 import type { FC } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
+import { useIsMobile } from "../../hooks/use-is-mobile"
 import { cn } from "../../libs/utils"
 import { ColorSchemeButton } from "./color-scheme-button"
 import { Counter } from "./counter"
@@ -26,6 +27,8 @@ export const ControlMenu: FC<ControlMenuProps> = ({
   slidesLength,
 }) => {
   const { index, next, prev } = useSlides({ length: slidesLength })
+  const isMobile = useIsMobile()
+  const shouldHideByDefault = hiddenByDefault && !isMobile
 
   useHotkeys("space", () => next(), { preventDefault: true })
   useHotkeys("shift+space", () => prev(), { preventDefault: true })
@@ -36,7 +39,8 @@ export const ControlMenu: FC<ControlMenuProps> = ({
     <div
       className={cn(
         "p-4 pb-2 pl-2 print:hidden",
-        hiddenByDefault && "opacity-0 transition-opacity hover:opacity-100",
+        shouldHideByDefault &&
+          "opacity-0 transition-opacity focus-within:opacity-100 hover:opacity-100",
         Number.isNaN(index()) && "hidden",
         className,
       )}
