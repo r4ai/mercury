@@ -23,6 +23,18 @@ export const Presentation: FC<PresentationProps> = ({
   components,
   Content,
 }) => {
+  // biome-ignore lint/correctness/noNestedComponentDefinitions: defining SlideWithoutRoute here to have access to components prop
+  const SlideWithoutRoute = (props: SlideProps) => {
+    const CustomSlide = components?.Slide as unknown as
+      | FC<SlideProps>
+      | undefined
+    CustomSlide ? (
+      <CustomSlide {...props} route={false} />
+    ) : (
+      <Slide {...props} route={false} />
+    )
+  }
+
   return (
     <Route path={base} nest>
       <div className="h-full">
@@ -34,9 +46,9 @@ export const Presentation: FC<PresentationProps> = ({
             <Content
               components={{
                 ...(defaultComponents as unknown as MDXComponents),
-                Slide: SlideWithoutRoute,
                 Presentation: AllSlidesPresentation,
                 ...components,
+                Slide: SlideWithoutRoute,
               }}
             />
           </Route>
@@ -58,7 +70,3 @@ export const Presentation: FC<PresentationProps> = ({
     </Route>
   )
 }
-
-const SlideWithoutRoute = (props: SlideProps) => (
-  <Slide {...props} route={false} />
-)

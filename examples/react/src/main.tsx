@@ -1,4 +1,8 @@
-import { PresentationsProvider } from "@mercurymd/react";
+import {
+  PresentationsProvider,
+  Slide,
+  type SlideProps,
+} from "@mercurymd/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Presentation from "./Presentation.mdx";
@@ -8,7 +12,9 @@ import "./main.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <PresentationsProvider>
-      <Presentation />
+      <Presentation
+        components={{ Slide: (props: SlideProps) => <Slide {...props} /> }}
+      />
     </PresentationsProvider>
   </React.StrictMode>,
 );

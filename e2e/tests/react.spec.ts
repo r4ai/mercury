@@ -81,3 +81,11 @@ test("slides navigate with control menu", async ({ page, serverURL }) => {
     expect(current).toBe(1)
   }
 })
+
+test("all slides are rendered for print", async ({ page, serverURL }) => {
+  await gotoPresentation(page, `${serverURL}/all`)
+
+  const slides = page.locator("[data-slide]")
+  const count = await slides.count()
+  expect(count).toBeGreaterThan(1)
+})
