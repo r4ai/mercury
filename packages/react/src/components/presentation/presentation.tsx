@@ -24,13 +24,16 @@ export const Presentation: FC<PresentationProps> = ({
   Content,
 }) => {
   // biome-ignore lint/correctness/noNestedComponentDefinitions: defining SlideWithoutRoute here to have access to components prop
-  const SlideWithoutRoute = (props: SlideProps) =>
-    components?.Slide ? (
-      // @ts-expect-error components.Slide must be a Slide component
-      <components.Slide {...props} route={false} />
+  const SlideWithoutRoute = (props: SlideProps) => {
+    const CustomSlide = components?.Slide as unknown as
+      | FC<SlideProps>
+      | undefined
+    CustomSlide ? (
+      <CustomSlide {...props} route={false} />
     ) : (
       <Slide {...props} route={false} />
     )
+  }
 
   return (
     <Route path={base} nest>
