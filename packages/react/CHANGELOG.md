@@ -1,5 +1,15 @@
 # @mercurymd/react
 
+## 0.4.0
+
+### Minor Changes
+
+- [#322](https://github.com/r4ai/mercury/pull/322) [`4fc0b49`](https://github.com/r4ai/mercury/commit/4fc0b493309e9eca9a63dbad90189827b35c0e2a) Thanks [@r4ai](https://github.com/r4ai)! - Hidden control-menu by default
+
+### Patch Changes
+
+- [#324](https://github.com/r4ai/mercury/pull/324) [`73d0835`](https://github.com/r4ai/mercury/commit/73d08350752482d49e19d9c6b3464a5bbd7d6337) Thanks [@r4ai](https://github.com/r4ai)! - Fix unexpected error when overriding Slide component
+
 ## 0.3.0
 
 ### Minor Changes

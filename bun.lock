@@ -224,7 +224,7 @@
     },
     "packages/react": {
       "name": "@mercurymd/react",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "dependencies": {
         "@radix-ui/react-slot": "^1.1.0",
         "@radix-ui/react-tooltip": "^1.1.3",
