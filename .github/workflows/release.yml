@@ -11,6 +11,7 @@ permissions:
   contents: write
   packages: write
   pull-requests: write
+  id-token: write
 
 jobs:
   release:
@@ -22,14 +23,6 @@ jobs:
 
       - name: Setup Node.js and Bun
         uses: jdx/mise-action@6d1e696aa24c1aa1bcc1adea0212707c71ab78a8 # v3
-
-      - name: Creating .npmrc
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install Dependencies
         run: bun install --frozen-lockfile
@@ -44,4 +37,3 @@ jobs:
           version: bun run version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
