@@ -80,7 +80,7 @@
     "happy-dom": "20.8.9",
     "rimraf": "6.0.1",
     "typescript": "5.9.3",
-    "vitest": "3.2.4"
+    "vitest": "4.1.4"
   },
   "packageManager": "bun@1.1.32"
 }
