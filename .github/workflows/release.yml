@@ -9,7 +9,6 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
   contents: write
-  packages: write
   pull-requests: write
 
 jobs:
@@ -19,27 +18,24 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js and Bun
         uses: jdx/mise-action@6d1e696aa24c1aa1bcc1adea0212707c71ab78a8 # v3
 
-      - name: Creating .npmrc
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Install Dependencies
         run: bun install --frozen-lockfile
 
+      - name: Build packages without publishing credentials
+        run: bun run build
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
         with:
           # See: https://github.com/oven-sh/bun/issues/16074
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          # Packages are built above without publishing credentials. This command publishes only those prebuilt outputs.
           publish: bun run release
           version: bun run version
         env:
