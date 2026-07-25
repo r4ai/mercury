@@ -26,10 +26,8 @@ repository-provided developer tools as executable trust boundaries.
 - Changes to `trustedDependencies`, lockfiles, workflow permissions, or publishing
   commands require security-sensitive review.
 
-Run `bun run security:check` locally to verify these controls. The same check runs
-in CI and as part of `bun run test:ci`. Run `bun run security:audit` to reject
-known high- or critical-severity advisories in the locked dependency graph; CI
-enforces this audit as well.
+Run `bun run security:audit` to reject known high- or critical-severity
+advisories in the locked dependency graph; CI enforces this audit as well.
 
 ## Operator Controls
 

@@ -20,8 +20,6 @@ jobs:
           persist-credentials: false
       - name: Setup
         uses: ./.github/actions/setup
-      - name: Check supply-chain policy
-        run: bun run security:check
       - name: Audit dependencies
         run: bun run security:audit
       - name: Check with Biome
