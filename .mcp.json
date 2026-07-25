@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "shadcn": {
-      "command": "bunx",
-      "args": ["shadcn@latest", "mcp"]
+      "command": "bun",
+      "args": ["run", "shadcn", "mcp"]
     }
   }
 }
