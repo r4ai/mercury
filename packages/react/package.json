@@ -68,7 +68,7 @@
     "@storybook/addon-links": "9.1.15",
     "@storybook/addon-onboarding": "9.1.15",
     "@storybook/addon-themes": "9.1.15",
-    "@storybook/addon-vitest": "9.1.15",
+    "@storybook/addon-vitest": "9.1.21",
     "@storybook/react-vite": "9.1.15",
     "@svgr/core": "8.1.0",
     "@svgr/plugin-jsx": "8.1.0",
