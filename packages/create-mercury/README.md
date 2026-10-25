@@ -1,34 +1,18 @@
-# mercury
+# @mercurymd/create-mercury
 
-A bun + typescript npm package template.
+Scaffolding tool for creating new [Mercury](https://github.com/r4ai/mercury) presentation projects.
 
-## Tech Stack
+## Usage
 
-- Runtime: Bun, Node.js
-- Language: TypeScript
-- Testing: Vitest
-- Formatting and Linting: Biome
-- Versioning: Changesets
-- Git Hooks: Lefthook
-- CI/CD: GitHub Actions
-- Dependency Updates: Renovate
+```sh
+bun create @mercurymd/mercury
+```
 
 ## Development
-
-### Commands
 
 | Command             | Description               |
 | ------------------- | ------------------------- |
 | `bun install`       | Install dependencies      |
 | `bun run build`     | Build the project         |
-| `bun run test`      | Run tests with watch mode |
+| `bun run test`      | Run tests                 |
 | `bun run check`     | Lint and format           |
-| `bun run changeset` | Create a new changeset    |
-
-### Changesets
-
-[Changesets](https://github.com/changesets/changesets) are used to version and publish your code. To create a new changeset, run the following command:
-
-```
-bun run changeset
-```
