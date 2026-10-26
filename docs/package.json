@@ -39,7 +39,7 @@
     "tailwind-variants": "^3.1.1",
     "vaul": "^1.1.2",
     "vite": "7.3.0",
-    "waku": "1.0.0-alpha.0",
+    "waku": "1.0.0-beta.1",
     "wouter": "3.7.1"
   },
   "devDependencies": {
